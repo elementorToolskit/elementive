@@ -11,6 +11,8 @@
 
 namespace Elementive\Widget;
 
+use Elementive\Widgets;
+
 /**
  * The public-facing functionality of the plugin.
  *
