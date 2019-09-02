@@ -57,6 +57,8 @@ class Elementive_Module_Starter {
 			ELEMENTIVE_MODULES_URL . 'starter/assets/js/elementive-starter' . $suffix . '.js',
 			[
 				'jquery',
+				'uikit',
+				'uikit-icons',
 			],
 			ELEMENTIVE_VERSION,
 			true
@@ -83,7 +85,7 @@ class Elementive_Module_Starter {
 	public function register_starter_widgets() {
 		// Register Widgets.
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Hello_World() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Inline_Editing() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Accordion() );
 	}
 
 	/**
@@ -118,7 +120,7 @@ class Elementive_Module_Starter {
 		// Register widgets category.
 		add_action( 'elementor/init', [ $this, 'register_starter_category' ] );
 		// Register widget scripts.
-		add_action( 'elementor/frontend/before_enqueue_scripts', [ $this, 'starter_widgets_scripts' ], 998 );
+		add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'starter_widgets_scripts' ], 998 );
 		// Register widget styles.
 		add_action( 'wp_enqueue_scripts', [ $this, 'starter_widgets_styles' ], 998 );
 		// Register widgets.

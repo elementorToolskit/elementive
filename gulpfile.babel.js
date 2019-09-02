@@ -192,6 +192,99 @@ gulp.task( 'stylesRTL', () => {
 });
 
 /**
+ * Task: `stylesStarter`.
+ *
+ * Compiles Sass, Autoprefixes it and Minifies CSS.
+ *
+ * This task does the following:
+ *    1. Gets the source scss file
+ *    2. Compiles Sass to CSS
+ *    3. Writes Sourcemaps for it
+ *    4. Autoprefixes it and generates style.css
+ *    5. Renames the CSS file with suffix .min.css
+ *    6. Minifies the CSS file and generates style.min.css
+ *    7. Injects CSS or reloads the browser via browserSync
+ */
+gulp.task( 'stylesStarter', () => {
+	return gulp
+		.src( config.styleStarterSRC, { allowEmpty: true })
+		.pipe( plumber( errorHandler ) )
+		.pipe( sourcemaps.init() )
+		.pipe(
+			sass({
+				errLogToConsole: config.errLogToConsole,
+				outputStyle: config.outputStyleStarter,
+				precision: config.precision
+			})
+		)
+		.on( 'error', sass.logError )
+		.pipe( sourcemaps.write({ includeContent: false }) )
+		.pipe( sourcemaps.init({ loadMaps: true }) )
+		.pipe( autoprefixer( config.BROWSERS_LIST ) )
+		.pipe( sourcemaps.write( './' ) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.styleStarterDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
+		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
+		.pipe( rename({ suffix: '.min' }) )
+		.pipe( minifycss({ maxLineLen: 10 }) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.styleStarterDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( browserSync.stream() ) // Reloads style.min.css if that is enqueued.
+		.pipe( notify({ message: '\n\n✅  ===> STYLES STARTER — completed!\n', onLast: true }) );
+});
+
+/**
+ * Task: `stylesStarterRTL`.
+ *
+ * Compiles Sass, Autoprefixes it, Generates RTL stylesheet, and Minifies CSS.
+ *
+ * This task does the following:
+ *    1. Gets the source scss file
+ *    2. Compiles Sass to CSS
+ *    4. Autoprefixes it and generates style.css
+ *    5. Renames the CSS file with suffix -rtl and generates style-rtl.css
+ *    6. Writes Sourcemaps for style-rtl.css
+ *    7. Renames the CSS files with suffix .min.css
+ *    8. Minifies the CSS file and generates style-rtl.min.css
+ *    9. Injects CSS or reloads the browser via browserSync
+ */
+gulp.task( 'stylesStartedRTL', () => {
+	return gulp
+		.src( config.styleStarterSRC, { allowEmpty: true })
+		.pipe( plumber( errorHandler ) )
+		.pipe( sourcemaps.init() )
+		.pipe(
+			sass({
+				errLogToConsole: config.errLogToConsole,
+				outputStyle: config.outputStyleStarter,
+				precision: config.precision
+			})
+		)
+		.on( 'error', sass.logError )
+		.pipe( sourcemaps.write({ includeContent: false }) )
+		.pipe( sourcemaps.init({ loadMaps: true }) )
+		.pipe( autoprefixer( config.BROWSERS_LIST ) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
+		.pipe( rtlcss() ) // Convert to RTL.
+		.pipe( sourcemaps.write( './' ) ) // Output sourcemap for style-rtl.css.
+		.pipe( gulp.dest( config.styleStarterDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
+		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
+		.pipe( rename({ suffix: '.min' }) )
+		.pipe( minifycss({ maxLineLen: 10 }) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.styleStarterDestination ) )
+		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
+		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
+		.pipe( notify({ message: '\n\n✅  ===> STYLES STARTER RTL — completed!\n', onLast: true }) );
+});
+
+/**
  * Task: `vendorsJS`.
  *
  * Concatenate and uglify vendor JS scripts.
@@ -275,6 +368,49 @@ gulp.task( 'customJS', () => {
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsCustomDestination ) )
 		.pipe( notify({ message: '\n\n✅  ===> CUSTOM JS — completed!\n', onLast: true }) );
+});
+
+/**
+ * Task: `starterJS`.
+ *
+ * Concatenate and uglify starter JS scripts.
+ *
+ * This task does the following:
+ *     1. Gets the source folder for JS custom files
+ *     2. Concatenates all the files and generates custom.js
+ *     3. Renames the JS file with suffix .min.js
+ *     4. Uglifes/Minifies the JS file and generates custom.min.js
+ */
+gulp.task( 'starterJS', () => {
+	return gulp
+		.src( config.jsStarterSRC, { since: gulp.lastRun( 'starterJS' ) }) // Only run on changed files.
+		.pipe( plumber( errorHandler ) )
+		.pipe(
+			babel({
+				presets: [
+					[
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						{
+							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
+						}
+					]
+				]
+			})
+		)
+		.pipe( remember( config.jsStarterSRC ) ) // Bring all files back to stream.
+		.pipe( concat( config.jsStarterFile + '.js' ) )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsStarterDestination ) )
+		.pipe(
+			rename({
+				basename: config.jsStarterFile,
+				suffix: '.min'
+			})
+		)
+		.pipe( uglify() )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsStarterDestination ) )
+		.pipe( notify({ message: '\n\n✅  ===> STARTER JS — completed!\n', onLast: true }) );
 });
 
 /**
@@ -362,4 +498,14 @@ gulp.task(
 		gulp.watch( config.watchJsCustom, gulp.series( 'customJS', reload ) ); // Reload on customJS file changes.
 		gulp.watch( config.imgSRC, gulp.series( 'images', reload ) ); // Reload on customJS file changes.
 	})
+);
+
+/**
+ * Watch Tasks.
+ *
+ * Watches for file changes and runs specific tasks.
+ */
+gulp.task(
+	'starter',
+	gulp.parallel( 'stylesStarter', 'starterJS')
 );

@@ -22,11 +22,6 @@ module.exports = {
 	errLogToConsole: true,
 	precision: 10,
 
-	// Style starter options.
-	styleStarterSRC: './modules/starter/assets/scss/elementive-starter.scss', // Path to main .scss file.
-	styleStarterDestination: './modules/starter/assets/css/', // Path to place the compiled CSS file. Default set to root folder.
-	outputStyleStarter: 'compact', // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
-
 	// JS Vendor options.
 	jsVendorSRC: './assets/js/vendor/*.js', // Path to JS vendor folder.
 	jsVendorDestination: './assets/js/', // Path to place the compiled JS vendors file.
@@ -37,19 +32,24 @@ module.exports = {
 	jsCustomDestination: './assets/js/', // Path to place the compiled JS custom scripts file.
 	jsCustomFile: 'custom', // Compiled JS custom file name. Default set to custom i.e. custom.js.
 
+	// Style starter options.
+	styleStarterSRC: './modules/starter/assets/scss/elementive-starter.scss', // Path to main .scss file.
+	styleStarterDestination: './modules/starter/assets/css/', // Path to place the compiled CSS file. Default set to root folder.
+	outputStyleStarter: 'compact', // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
+
 	// JS starter options.
-	jsStarterSRC: './modules/starter/assets/es/elementive-frontend.js', // Path to JS custom scripts folder.
+	jsStarterSRC: './modules/starter/assets/es/*.js', // Path to JS custom scripts folder.
 	jsStarterDestination: './modules/starter/assets/js/', // Path to place the compiled JS custom scripts file.
-	jsStarterFile: 'elementive-frontend', // Compiled JS custom file name. Default set to custom i.e. custom.js.
+	jsStarterFile: 'elementive-starter', // Compiled JS custom file name. Default set to custom i.e. custom.js.
 
 	// Images options.
 	imgSRC: './assets/img/raw/**/*', // Source folder of images which should be optimized and watched. You can also specify types e.g. raw/**.{png,jpg,gif} in the glob.
 	imgDST: './assets/img/', // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 	// Watch files paths.
-	watchStyles: './assets/css/**/*.scss', // Path to all *.scss files inside css folder and inside them.
+	watchStyles: './**/**/*.scss', // Path to all *.scss files inside css folder and inside them.
 	watchJsVendor: './assets/js/vendor/*.js', // Path to all vendor JS files.
-	watchJsCustom: './assets/js/custom/*.js', // Path to all custom JS files.
+	watchJsCustom: './**/*.js', // Path to all custom JS files.
 	watchPhp: './**/*.php', // Path to all PHP files.
 
 	// Translation options.

@@ -97,6 +97,9 @@ class Elementive_Public {
 		 * class.
 		 */
 
+		wp_register_script( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit.min.js', array( 'jquery' ), '3.1.8', true );
+		wp_register_script( 'uikit-icons', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit-icons.min.js', array( 'jquery' ), '3.1.8', true );
+
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementive-public.js', array( 'jquery' ), $this->version, false );
 
 	}

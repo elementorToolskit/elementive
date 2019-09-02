@@ -1,11 +1,11 @@
 {
-  "name": "elementive",
-  "description": "Custom Elementor widgets by Dimaitve.",
+  "name": "your-project",
+  "description": "A WPGulp based project.",
   "version": "1.0.0",
-  "author": "Dimative (https://dimative.com/)",
+  "author": "Author Name (https://twitter.com/MrAhmadAwais/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dimative"
+    "url": "https://github.com/ahmadawais/WPGulp"
   },
   "license": "MIT",
   "devDependencies": {
