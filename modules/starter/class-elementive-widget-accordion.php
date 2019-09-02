@@ -670,7 +670,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'label' => __( 'Accordion settings', 'elementive' ),
 			]
 		);
-		
+
 		$this->add_control(
 			'accordion_multiple',
 			[
