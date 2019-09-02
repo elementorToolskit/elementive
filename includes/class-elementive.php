@@ -16,9 +16,9 @@ namespace Elementive\Includes;
 
 use Elementive\Admin\Elementive_Admin;
 use Elementive\Includes\Elementive_Activator;
-use Elementive\Includes\Elementive_Elementor_Check;
+use Elementive\Includes\Elementive_Notices;
 use Elementive\Frontend\Elementive_Public;
-use Elementive\Widget\Elementive_Widgets;
+use Elementive\Modules\Elementive_Modules;
 
 /**
  * The core plugin class.
@@ -134,7 +134,7 @@ class Elementive {
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		new Elementive_Widgets();
+		new Elementive_Modules();
 
 		$this->loader = new Elementive_Loader();
 
@@ -168,7 +168,7 @@ class Elementive {
 	 */
 	private function admin_notice() {
 
-		$admin_notices = new Elementive_Elementor_Check();
+		$admin_notices = new Elementive_Notices();
 
 		$this->loader->add_action( 'plugins_loaded', $admin_notices, 'init' );
 
