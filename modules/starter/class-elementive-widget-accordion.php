@@ -38,6 +38,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Elementive_Widget_Accordion extends Widget_Base {
 
 	/**
+	 * Content template disable.
+	 *
+	 * @var boolean
+	 */
+	protected $_has_template_content = false;
+
+	/**
 	 * Retrieve the widget name.
 	 *
 	 * @since 1.1.0
@@ -663,20 +670,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'label' => __( 'Accordion settings', 'elementive' ),
 			]
 		);
-
-		$this->add_control(
-			'accordion_active',
-			[
-				'label'        => __( 'Active', 'elementive' ),
-				'description'  => __( 'Index of the element to open initially.', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'true',
-				'default'      => 'false',
-			]
-		);
-
+		
 		$this->add_control(
 			'accordion_multiple',
 			[
@@ -685,8 +679,8 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'true',
-				'default'      => 'false',
+				'return_value' => true,
+				'default'      => false,
 			]
 		);
 
@@ -698,8 +692,8 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'true',
-				'default'      => 'false',
+				'return_value' => true,
+				'default'      => false,
 				'separator'    => 'before',
 			]
 		);
@@ -814,13 +808,20 @@ class Elementive_Widget_Accordion extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		// Adding a new inline editing attributes.
-		$this->add_inline_editing_attributes( 'accordion_content', 'advanced' );
-
+		$collapsable        = 'false';
+		$multiple           = 'false';
 		$icon               = '';
 		$animation_duration = '';
 		$content_background = '';
 		$determine_class    = '';
+
+		if ( $settings['accordion_collapsible'] ) {
+			$collapsable = 'true';
+		}
+
+		if ( $settings['accordion_multiple'] ) {
+			$multiple = 'true';
+		}
 
 		if ( $settings['accordion_animation_duration'] ) {
 			$animation_duration = $settings['accordion_animation_duration'];
@@ -843,7 +844,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 		}
 
 		if ( $settings['elementive_accordion'] ) {
-			echo '<ul uk-accordion="collapsible: ' . esc_attr( $settings['accordion_collapsible'] ) . '; multiple: ' . esc_attr( $settings['accordion_multiple'] ) . '; duration: ' . esc_attr( $animation_duration['size'] ) . '; active: ' . esc_attr( $settings['accordion_active'] ) . '; transition: ' . esc_attr( $settings['accordion_animation_transition'] ) . '" class="uk-accordion">';
+			echo '<ul uk-accordion="collapsible: ' . esc_attr( $collapsable ) . '; multiple: ' . esc_attr( $multiple ) . '; duration: ' . esc_attr( $animation_duration['size'] ) . '; transition: ' . esc_attr( $settings['accordion_animation_transition'] ) . '" class="uk-accordion">';
 			foreach ( $settings['elementive_accordion'] as $item ) {
 				$icon = $item['accordion_icon'];
 				echo '<li id="accordion-' . esc_attr( $item['_id'] ) . '">';
@@ -871,39 +872,12 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				echo esc_html( $item['accordion_title'] );
 				echo '</' . esc_attr( $settings['accordion_title_tag'] ) . '>';
 				echo '</a>';
-				echo '<div ' . $this->get_render_attribute_string( 'text_attr' ) . ' class="uk-accordion-content ' . esc_attr( $determine_class ) . '">' . wp_kses_post( $item['accordion_content'] ) . '</div>';
+				echo '<div class="uk-accordion-content ' . esc_attr( $determine_class ) . '">' . wp_kses_post( $item['accordion_content'] ) . '</div>';
 				echo '</li>';
 			}
 			echo '</ul>';
 		}
-	}
-
-	/**
-	 * Render the widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access protected
-	 */
-	protected function _content_template() {
 		?>
-		<#
-		view.addInlineEditingAttributes( 'accordion_content', 'advanced' );
-		#>
-		<# if ( settings.elementive_accordion.length ) { #>
-			<ul  uk-accordion="collapsible: {{{settings.accordion_collapsible}}} '; multiple: {{{settings.accordion_multiple}}} '; duration: {{{settings.accordion_animation_duration}}}; active: {{{settings.accordion_active}}} '; transition: {{{settings.accordion_animation_transition}}} '" class="uk-accordion">
-			<# _.each( settings.elementive_accordion, function( item ) { #>
-				<li id="accordion-{{ item._id }}>">
-					<a class="uk-accordion-title" href="#">
-						{{{ item.list_title }}}
-					</a>
-					<div {{{ view.getRenderAttributeString( 'accordion_content' ) }}} class="uk-accordion-content ' . esc_attr( $determine_class ) . '">{{{ item.accordion_content }}}</div>
-				</li>
-			<# }); #>
-			</ul>
-		<# } #>
 		<?php
 	}
 }
