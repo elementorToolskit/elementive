@@ -108,4 +108,78 @@ class Elementive_Helpers {
 		return $value;
 	}
 
+	/**
+	 * Saved Template Selector.
+	 * Will use this functio for select2 control.
+	 *
+	 * @return array
+	 */
+	public static function elementive_elementor_templates() {
+		// WP_Query arguments.
+		$options = [];
+		$args    = [
+			'post_type'   => [ 'elementor_library' ],
+			'post_status' => [ 'publish' ],
+			'nopaging'    => true,
+			'order'       => 'ASC',
+			'orderby'     => 'menu_order',
+		];
+
+		// The Query.
+		$saved_templates = new \WP_Query( $args );
+
+		// The Loop.
+		if ( $saved_templates->have_posts() ) {
+			while ( $saved_templates->have_posts() ) {
+				$saved_templates->the_post();
+				$id             = get_the_ID();
+				$options[ $id ] = get_the_title();
+			}
+		} else {
+			$options = [];
+		}
+
+		// Restore original Post Data.
+		wp_reset_postdata();
+
+		return $options;
+	}
+
+	/**
+	 * Display selected post template.
+	 *
+	 * @param int $template_id Elementor template id.
+	 * @return array
+	 */
+	public static function elementive_display_elementor_template( $template_id ) {
+
+		if ( ! $template_id ) {
+			return;
+		}
+		// WP_Query arguments.
+		$args = [
+			'post_type'   => [ 'elementor_library' ],
+			'post_status' => [ 'publish' ],
+			'p'           => $template_id,
+			'nopaging'    => true,
+			'order'       => 'ASC',
+			'orderby'     => 'menu_order',
+		];
+
+		// The Query.
+		$saved_templates = new \WP_Query( $args );
+
+		// The Loop.
+		if ( $saved_templates->have_posts() ) {
+			while ( $saved_templates->have_posts() ) {
+				the_content();
+			}
+		} else {
+			esc_html_e( 'Template does not exists', 'elementive' );
+		}
+
+		// Restore original Post Data.
+		wp_reset_postdata();
+	}
+
 }
