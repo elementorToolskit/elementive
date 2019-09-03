@@ -806,14 +806,22 @@ class Elementive_Widget_Accordion extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-
+		$settings           = $this->get_settings_for_display();
 		$collapsable        = 'false';
 		$multiple           = 'false';
 		$icon               = '';
 		$animation_duration = '';
 		$content_background = '';
 		$determine_class    = '';
+
+		$allowed_html_accordion_ul = [
+			'uk-accordion' => [],
+			'class'        => [],
+		];
+
+		$allowed_html_accordion_content = [
+			'class' => [],
+		];
 
 		if ( $settings['accordion_collapsible'] ) {
 			$collapsable = 'true';
@@ -843,11 +851,27 @@ class Elementive_Widget_Accordion extends Widget_Base {
 			$determine_class = 'uk-dark';
 		}
 
+		$this->add_inline_editing_attributes( 'accordion_content', 'basic' );
+		$this->add_render_attribute(
+			'elementive_accordion',
+			[
+				'uk-accordion' => 'collapsible: ' . esc_attr( $collapsable ) . '; multiple: ' . esc_attr( $multiple ) . '; duration: ' . esc_attr( $animation_duration['size'] ) . '; transition: ' . esc_attr( $settings['accordion_animation_transition'] ) . ';',
+				'class'        => 'uk-accordion',
+			]
+		);
+
+		$this->add_render_attribute(
+			'elementive_accordion_content',
+			[
+				'class' => 'uk-accordion-content ' . esc_attr( $determine_class ),
+			]
+		);
+
 		if ( $settings['elementive_accordion'] ) {
-			echo '<ul uk-accordion="collapsible: ' . esc_attr( $collapsable ) . '; multiple: ' . esc_attr( $multiple ) . '; duration: ' . esc_attr( $animation_duration['size'] ) . '; transition: ' . esc_attr( $settings['accordion_animation_transition'] ) . '" class="uk-accordion">';
+			echo '<ul ' . wp_kses( $this->get_render_attribute_string( 'elementive_accordion' ), $allowed_html_accordion_ul ) . '>';
 			foreach ( $settings['elementive_accordion'] as $item ) {
 				$icon = $item['accordion_icon'];
-				echo '<li id="accordion-' . esc_attr( $item['_id'] ) . '">';
+				echo '<li id="' . esc_attr( $item['_id'] ) . '">';
 				echo '<a class="uk-accordion-title" href="#">';
 				echo '<' . esc_attr( $settings['accordion_title_tag'] ) . ' class="uk-flex uk-flex-middle uk-margin-remove">';
 				if ( $icon['value'] ) {
@@ -872,12 +896,10 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				echo esc_html( $item['accordion_title'] );
 				echo '</' . esc_attr( $settings['accordion_title_tag'] ) . '>';
 				echo '</a>';
-				echo '<div class="uk-accordion-content ' . esc_attr( $determine_class ) . '">' . wp_kses_post( $item['accordion_content'] ) . '</div>';
+				echo '<div ' . wp_kses( $this->get_render_attribute_string( 'elementive_accordion_content' ), $allowed_html_accordion_content ) . '>' . wp_kses_post( $item['accordion_content'] ) . '</div>';
 				echo '</li>';
 			}
 			echo '</ul>';
 		}
-		?>
-		<?php
 	}
 }
