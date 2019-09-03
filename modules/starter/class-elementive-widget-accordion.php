@@ -11,6 +11,8 @@
 
 namespace Elementive\Modules\Starter;
 
+use Elementor\Core\Base\App;
+use Elementor\Frontend;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
@@ -67,7 +69,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Accordion', 'elementive' );
+		return __( 'Advanced Accordion', 'elementive' );
 	}
 
 	/**
@@ -143,12 +145,57 @@ class Elementive_Widget_Accordion extends Widget_Base {
 		);
 
 		$repeater->add_control(
+			'use_elementor_template',
+			[
+				'label'        => __( 'User Elementor template', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+			]
+		);
+
+		$repeater->add_control(
 			'accordion_content',
 			[
 				'label'      => __( 'Content', 'elementive' ),
 				'type'       => Controls_Manager::WYSIWYG,
 				'default'    => __( 'Accordion Content', 'elementive' ),
 				'show_label' => false,
+				'conditions' => [
+					'terms' => [
+						[
+							'name'     => 'use_elementor_template',
+							'operator' => '!in',
+							'value'    => [
+								'yes',
+							],
+						],
+					],
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'elementor_template',
+			[
+				'label'      => __( 'Elementor templates', 'elementive' ),
+				'type'       => Controls_Manager::SELECT2,
+				'multiple'   => false,
+				'options'    => Elementive_Helpers::elementive_elementor_templates(),
+				'default'    => '',
+				'conditions' => [
+					'terms' => [
+						[
+							'name'     => 'use_elementor_template',
+							'operator' => 'in',
+							'value'    => [
+								'yes',
+							],
+						],
+					],
+				],
 			]
 		);
 
@@ -780,7 +827,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 			[
 				'label'       => __( 'Transition', 'elementive' ),
 				'description' => __( 'The transition to use when revealing items.', 'elementive' ),
-				'type'        => \Elementor\Controls_Manager::SELECT,
+				'type'        => Controls_Manager::SELECT,
 				'default'     => 'ease',
 				'options'     => [
 					'linear'      => __( 'linear', 'elementive' ),
@@ -867,6 +914,8 @@ class Elementive_Widget_Accordion extends Widget_Base {
 			]
 		);
 
+		$frontend = new Frontend();
+
 		if ( $settings['elementive_accordion'] ) {
 			echo '<ul ' . wp_kses( $this->get_render_attribute_string( 'elementive_accordion' ), $allowed_html_accordion_ul ) . '>';
 			foreach ( $settings['elementive_accordion'] as $item ) {
@@ -896,7 +945,11 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				echo esc_html( $item['accordion_title'] );
 				echo '</' . esc_attr( $settings['accordion_title_tag'] ) . '>';
 				echo '</a>';
-				echo '<div ' . wp_kses( $this->get_render_attribute_string( 'elementive_accordion_content' ), $allowed_html_accordion_content ) . '>' . wp_kses_post( $item['accordion_content'] ) . '</div>';
+				if ( 'yes' === $item['use_elementor_template'] ) {
+					echo '<div class="uk-accordion-content">' . $frontend->get_builder_content_for_display( $item['elementor_template'], true ) . '</div>';
+				} else {
+					echo '<div ' . wp_kses( $this->get_render_attribute_string( 'elementive_accordion_content' ), $allowed_html_accordion_content ) . '>' . wp_kses_post( $item['accordion_content'] ) . '</div>';
+				}
 				echo '</li>';
 			}
 			echo '</ul>';
