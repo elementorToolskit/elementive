@@ -11,7 +11,6 @@
 
 namespace Elementive\Modules\Starter;
 
-use Elementor\Core\Base\App;
 use Elementor\Frontend;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
