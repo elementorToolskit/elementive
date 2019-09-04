@@ -1,0 +1,14 @@
+.uk-tab {
+    &::before {
+        height: 100%;
+        width: calc( 100% - 20px );
+        z-index: -1;
+    }
+
+    &.uk-tab-left,
+    &.uk-tab-right {
+        &::before {
+            width: 100%;
+        }
+    }
+}

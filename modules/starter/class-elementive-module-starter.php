@@ -86,6 +86,7 @@ class Elementive_Module_Starter {
 		// Register Widgets.
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Hello_World() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Accordion() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Tab() );
 	}
 
 	/**
