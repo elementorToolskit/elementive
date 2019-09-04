@@ -81,7 +81,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fa fa-pencil';
+		return 'fas fa-bars';
 	}
 
 	/**
@@ -146,7 +146,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 		$repeater->add_control(
 			'use_elementor_template',
 			[
-				'label'        => __( 'User Elementor template', 'elementive' ),
+				'label'        => __( 'Use Elementor template', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
