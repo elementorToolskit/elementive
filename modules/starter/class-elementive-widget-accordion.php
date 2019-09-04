@@ -562,7 +562,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'label'    => __( 'Typography', 'elementive' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'devices'  => [ 'desktop', 'tablet', 'mobile' ],
-				'selector' => '{{WRAPPER}} .uk-accordion-content',
+				'selector' => '{{WRAPPER}} .uk-accordion-content:not(.elementor-template)',
 			]
 		);
 
@@ -593,7 +593,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 					'unit' => 'px',
 				],
 				'selectors'       => [
-					'{{WRAPPER}} .uk-accordion-content' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .uk-accordion-content:not(.elementor-template)' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 				'separator'       => 'before',
 			]
@@ -607,7 +607,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'size_units' => [ 'px', '%', 'em' ],
 				'devices'    => [ 'desktop', 'tablet', 'mobile' ],
 				'selectors'  => [
-					'{{WRAPPER}} .uk-accordion-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .uk-accordion-content:not(.elementor-template)' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'  => 'before',
 			]
@@ -621,7 +621,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'size_units' => [ 'px', '%', 'em' ],
 				'devices'    => [ 'desktop', 'tablet', 'mobile' ],
 				'selectors'  => [
-					'{{WRAPPER}} .uk-accordion-content' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-left-radius: {{BOTTOM}}{{UNIT}}; border-bottom-right-radius: {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .uk-accordion-content:not(.elementor-template)' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-left-radius: {{BOTTOM}}{{UNIT}}; border-bottom-right-radius: {{LEFT}}{{UNIT}};',
 				],
 				'separator'  => 'before',
 			]
@@ -632,7 +632,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 			[
 				'name'      => 'accordion_content_border',
 				'label'     => __( 'Border', 'elementive' ),
-				'selector'  => '{{WRAPPER}} .uk-accordion-content',
+				'selector'  => '{{WRAPPER}} .uk-accordion-content:not(.elementor-template)',
 				'separator' => 'before',
 			]
 		);
@@ -643,7 +643,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				'name'           => 'accordion_content_background',
 				'label'          => __( 'Background', 'elementive' ),
 				'types'          => [ 'classic', 'gradient' ],
-				'selector'       => '{{WRAPPER}} .uk-accordion-content',
+				'selector'       => '{{WRAPPER}} .uk-accordion-content:not(.elementor-template)',
 				'separator'      => 'before',
 				'fields_options' => [
 					'color' => [
@@ -659,7 +659,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'accordion_content_background_color_determine',
 			[
-				'label'        => __( 'Detemine background color', 'elementive' ),
+				'label'        => __( 'Determine background color', 'elementive' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
@@ -679,7 +679,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 					'value' => Scheme_Color::COLOR_1,
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .uk-accordion-content' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .uk-accordion-content:not(.elementor-template)' => 'color: {{VALUE}}',
 				],
 				'conditions' => [
 					'terms' => [
@@ -701,7 +701,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 			[
 				'name'      => 'accordion_content_box_shadow',
 				'label'     => __( 'Box Shadow', 'elementive' ),
-				'selector'  => '{{WRAPPER}} .uk-accordion-content',
+				'selector'  => '{{WRAPPER}} .uk-accordion-content:not(.elementor-template)',
 				'separator' => 'before',
 			]
 		);
@@ -945,7 +945,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 				echo '</' . esc_attr( $settings['accordion_title_tag'] ) . '>';
 				echo '</a>';
 				if ( 'yes' === $item['use_elementor_template'] ) {
-					echo '<div class="uk-accordion-content">' . $frontend->get_builder_content_for_display( $item['elementor_template'], true ) . '</div>';
+					echo '<div class="uk-accordion-content elementor-template">' . $frontend->get_builder_content_for_display( $item['elementor_template'], true ) . '</div>';
 				} else {
 					echo '<div ' . wp_kses( $this->get_render_attribute_string( 'elementive_accordion_content' ), $allowed_html_accordion_content ) . '>' . wp_kses_post( $item['accordion_content'] ) . '</div>';
 				}
