@@ -1,3 +1,6 @@
 .elementor-widget-elementive-accordion .uk-accordion-title>*{min-height:25px}
 .uk-tab::before{height:100%;width:calc(100% - 20px);z-index:-1}
 .uk-tab.uk-tab-left::before,.uk-tab.uk-tab-right::before{width:100%}
+.elementor-widget-elementive-text .elementive-text-content.has_background_mask{position:relative;display:inline-block;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;text-fill-color:transparent !important}
+.elementor-widget-elementive-text .elementive-text-content::-moz-selection{background:transparent}
+.elementor-widget-elementive-text .elementive-text-content::selection{background:transparent}

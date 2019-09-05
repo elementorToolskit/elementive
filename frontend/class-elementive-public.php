@@ -74,6 +74,7 @@ class Elementive_Public {
 		 * class.
 		 */
 
+		wp_enqueue_style( 'uikit', plugin_dir_url( __FILE__ ) . 'vendors/uikit/css/uikit.min.css', '3.1.8', 'all' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/elementive-public.css', array(), $this->version, 'all' );
 
 	}
@@ -99,6 +100,8 @@ class Elementive_Public {
 
 		wp_register_script( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit.min.js', array( 'jquery' ), '3.1.8', true );
 		wp_register_script( 'uikit-icons', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit-icons.min.js', array( 'jquery' ), '3.1.8', true );
+		wp_register_script( 'tweenmax', ELEMENTIVE_URL . 'frontend/vendors/gsap/TweenMax.min.js', array( 'jquery' ), '2.1.3', true );
+		wp_register_script( 'textplugin', ELEMENTIVE_URL . 'frontend/vendors/gsap/plugins/TextPlugin.min.js', array( 'jquery' ), '2.1.3', true );
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementive-public.js', array( 'jquery' ), $this->version, false );
 

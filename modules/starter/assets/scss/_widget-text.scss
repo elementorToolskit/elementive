@@ -1,0 +1,17 @@
+.elementor-widget-elementive-text {
+    .elementive-text-content {
+        
+        &.has_background_mask {
+            position: relative;
+            display: inline-block;
+            -webkit-background-clip: text!important;
+            background-clip: text!important;
+            -webkit-text-fill-color: transparent!important;
+            text-fill-color: transparent!important;
+        }
+
+        &::selection {
+            background: transparent;
+        }
+    }
+}
