@@ -11,19 +11,13 @@
 
 namespace Elementive\Modules\Starter;
 
-use Elementor\Frontend;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Color;
-use Elementor\Icons_Manager;
-use Elementive\Includes\Elementive_Helpers;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -115,7 +109,7 @@ class Elementive_Widget_Text extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'uikit', 'tweenmax', 'textplugin' ];
+		return [ 'jquery-lettering' ];
 	}
 
 
@@ -207,8 +201,9 @@ class Elementive_Widget_Text extends Widget_Base {
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
-					'mask'    => __( 'Background mask', 'elementive' ),
-					'default' => __( 'Default', 'elementive' ),
+					'default'  => __( 'Default', 'elementive' ),
+					'mask'     => __( 'Background mask', 'elementive' ),
+					'animated' => __( 'Animated colors', 'elementive' ),
 				],
 			]
 		);
@@ -299,6 +294,10 @@ class Elementive_Widget_Text extends Widget_Base {
 			if ( 'gradient' === $settings['text_background_background'] ) {
 				$classes[] = 'has_background_gradient_mask';
 			}
+		}
+
+		if ( 'animated' === $settings['text_style'] ) {
+			$classes[] = 'has-text-color-animation';
 		}
 
 		$classes[] = $settings['text_align'];

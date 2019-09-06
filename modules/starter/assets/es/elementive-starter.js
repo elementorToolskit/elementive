@@ -7,7 +7,15 @@ Author: 		 Dimative
 Author URI:      https://dimative.com/
 -------------------------------------------------------------------*/
 
-jQuery(document).ready( function($) {
+/**
+ * File custom.js.
+ *
+ */
+"use strict";
+
+;
+
+(function ($) {
 
     'use strict';
 
@@ -20,20 +28,43 @@ jQuery(document).ready( function($) {
             
         },
 
-        /** Lightbox */
-        lightbox: function() {
+        /** Add span tag into all words */
+        run_lettering_chars: function() {
+            var text_content = $('.elementive-text-content');
+            if ( text_content.hasClass('has-text-color-animation') ) {
+                text_content.lettering();
+
+            }
         },
 
-        /** Checkout */
-        checkout: function() {
+        /**
+         * Typed init.
+         * Used it for animated text widget.
+         */
+        run_typed: function() {
+            var el = $('.elementive-run-typed');
+            if ( el.length ) {
+                console.log( 'aaaaaaaaaaaaa' );
+            }
         },
 
     }  
 
+    $(document).ready(function () {
+        elementive_starter.run_lettering_chars();
+        elementive_starter.run_typed();
+    });
+    
     $(window).on('load', function() {
         elementive_starter.reviews();
-        elementive_starter.lightbox();
-        elementive_starter.checkout();
     });
 
-});
+    if ( window.elementorFrontend ) {
+        $( window ).on( 'elementor/frontend/init', function() {
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars );
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-text.default', elementive_starter.run_typed );
+            elementorFrontend.hooks.addAction( 'panel/open_editor/elementive-text/elementive-text', elementive_starter.run_typed );
+        } );
+    }
+
+})(jQuery);
