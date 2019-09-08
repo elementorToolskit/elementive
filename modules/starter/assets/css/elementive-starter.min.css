@@ -2,150 +2,149 @@
 .uk-tab::before{height:100%;width:calc(100% - 20px);z-index:-1}
 .uk-tab.uk-tab-left::before,.uk-tab.uk-tab-right::before{width:100%}
 .elementor-widget-elementive-text .elementive-text-content.has_background_mask{position:relative;display:inline-block;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;text-fill-color:transparent !important}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span{-webkit-animation-name:anim-text-flow-keys;animation-name:anim-text-flow-keys;-webkit-animation-duration:25s;animation-duration:25s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-direction:alternate;animation-direction:alternate;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(1){-webkit-animation-delay:-19.8s;animation-delay:-19.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(2){-webkit-animation-delay:-19.6s;animation-delay:-19.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(3){-webkit-animation-delay:-19.4s;animation-delay:-19.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(4){-webkit-animation-delay:-19.2s;animation-delay:-19.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(5){-webkit-animation-delay:-19s;animation-delay:-19s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(6){-webkit-animation-delay:-18.8s;animation-delay:-18.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(7){-webkit-animation-delay:-18.6s;animation-delay:-18.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(8){-webkit-animation-delay:-18.4s;animation-delay:-18.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(9){-webkit-animation-delay:-18.2s;animation-delay:-18.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(10){-webkit-animation-delay:-18s;animation-delay:-18s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(11){-webkit-animation-delay:-17.8s;animation-delay:-17.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(12){-webkit-animation-delay:-17.6s;animation-delay:-17.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(13){-webkit-animation-delay:-17.4s;animation-delay:-17.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(14){-webkit-animation-delay:-17.2s;animation-delay:-17.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(15){-webkit-animation-delay:-17s;animation-delay:-17s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(16){-webkit-animation-delay:-16.8s;animation-delay:-16.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(17){-webkit-animation-delay:-16.6s;animation-delay:-16.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(18){-webkit-animation-delay:-16.4s;animation-delay:-16.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(19){-webkit-animation-delay:-16.2s;animation-delay:-16.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(20){-webkit-animation-delay:-16s;animation-delay:-16s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(21){-webkit-animation-delay:-15.8s;animation-delay:-15.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(22){-webkit-animation-delay:-15.6s;animation-delay:-15.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(23){-webkit-animation-delay:-15.4s;animation-delay:-15.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(24){-webkit-animation-delay:-15.2s;animation-delay:-15.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(25){-webkit-animation-delay:-15s;animation-delay:-15s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(26){-webkit-animation-delay:-14.8s;animation-delay:-14.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(27){-webkit-animation-delay:-14.6s;animation-delay:-14.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(28){-webkit-animation-delay:-14.4s;animation-delay:-14.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(29){-webkit-animation-delay:-14.2s;animation-delay:-14.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(30){-webkit-animation-delay:-14s;animation-delay:-14s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(31){-webkit-animation-delay:-13.8s;animation-delay:-13.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(32){-webkit-animation-delay:-13.6s;animation-delay:-13.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(33){-webkit-animation-delay:-13.4s;animation-delay:-13.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(34){-webkit-animation-delay:-13.2s;animation-delay:-13.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(35){-webkit-animation-delay:-13s;animation-delay:-13s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(36){-webkit-animation-delay:-12.8s;animation-delay:-12.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(37){-webkit-animation-delay:-12.6s;animation-delay:-12.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(38){-webkit-animation-delay:-12.4s;animation-delay:-12.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(39){-webkit-animation-delay:-12.2s;animation-delay:-12.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(40){-webkit-animation-delay:-12s;animation-delay:-12s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(41){-webkit-animation-delay:-11.8s;animation-delay:-11.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(42){-webkit-animation-delay:-11.6s;animation-delay:-11.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(43){-webkit-animation-delay:-11.4s;animation-delay:-11.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(44){-webkit-animation-delay:-11.2s;animation-delay:-11.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(45){-webkit-animation-delay:-11s;animation-delay:-11s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(46){-webkit-animation-delay:-10.8s;animation-delay:-10.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(47){-webkit-animation-delay:-10.6s;animation-delay:-10.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(48){-webkit-animation-delay:-10.4s;animation-delay:-10.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(49){-webkit-animation-delay:-10.2s;animation-delay:-10.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(50){-webkit-animation-delay:-10s;animation-delay:-10s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(51){-webkit-animation-delay:-9.8s;animation-delay:-9.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(52){-webkit-animation-delay:-9.6s;animation-delay:-9.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(53){-webkit-animation-delay:-9.4s;animation-delay:-9.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(54){-webkit-animation-delay:-9.2s;animation-delay:-9.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(55){-webkit-animation-delay:-9s;animation-delay:-9s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(56){-webkit-animation-delay:-8.8s;animation-delay:-8.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(57){-webkit-animation-delay:-8.6s;animation-delay:-8.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(58){-webkit-animation-delay:-8.4s;animation-delay:-8.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(59){-webkit-animation-delay:-8.2s;animation-delay:-8.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(60){-webkit-animation-delay:-8s;animation-delay:-8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(61){-webkit-animation-delay:-7.8s;animation-delay:-7.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(62){-webkit-animation-delay:-7.6s;animation-delay:-7.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(63){-webkit-animation-delay:-7.4s;animation-delay:-7.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(64){-webkit-animation-delay:-7.2s;animation-delay:-7.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(65){-webkit-animation-delay:-7s;animation-delay:-7s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(66){-webkit-animation-delay:-6.8s;animation-delay:-6.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(67){-webkit-animation-delay:-6.6s;animation-delay:-6.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(68){-webkit-animation-delay:-6.4s;animation-delay:-6.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(69){-webkit-animation-delay:-6.2s;animation-delay:-6.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(70){-webkit-animation-delay:-6s;animation-delay:-6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(71){-webkit-animation-delay:-5.8s;animation-delay:-5.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(72){-webkit-animation-delay:-5.6s;animation-delay:-5.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(73){-webkit-animation-delay:-5.4s;animation-delay:-5.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(74){-webkit-animation-delay:-5.2s;animation-delay:-5.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(75){-webkit-animation-delay:-5s;animation-delay:-5s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(76){-webkit-animation-delay:-4.8s;animation-delay:-4.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(77){-webkit-animation-delay:-4.6s;animation-delay:-4.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(78){-webkit-animation-delay:-4.4s;animation-delay:-4.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(79){-webkit-animation-delay:-4.2s;animation-delay:-4.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(80){-webkit-animation-delay:-4s;animation-delay:-4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(81){-webkit-animation-delay:-3.8s;animation-delay:-3.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(82){-webkit-animation-delay:-3.6s;animation-delay:-3.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(83){-webkit-animation-delay:-3.4s;animation-delay:-3.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(84){-webkit-animation-delay:-3.2s;animation-delay:-3.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(85){-webkit-animation-delay:-3s;animation-delay:-3s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(86){-webkit-animation-delay:-2.8s;animation-delay:-2.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(87){-webkit-animation-delay:-2.6s;animation-delay:-2.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(88){-webkit-animation-delay:-2.4s;animation-delay:-2.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(89){-webkit-animation-delay:-2.2s;animation-delay:-2.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(90){-webkit-animation-delay:-2s;animation-delay:-2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(91){-webkit-animation-delay:-1.8s;animation-delay:-1.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(92){-webkit-animation-delay:-1.6s;animation-delay:-1.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(93){-webkit-animation-delay:-1.4s;animation-delay:-1.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(94){-webkit-animation-delay:-1.2s;animation-delay:-1.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(95){-webkit-animation-delay:-1s;animation-delay:-1s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(96){-webkit-animation-delay:-0.8s;animation-delay:-0.8s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(97){-webkit-animation-delay:-0.6s;animation-delay:-0.6s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(98){-webkit-animation-delay:-0.4s;animation-delay:-0.4s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(99){-webkit-animation-delay:-0.2s;animation-delay:-0.2s}
-.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(100){-webkit-animation-delay:0s;animation-delay:0s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div{-webkit-animation-name:anim-text-flow-keys;animation-name:anim-text-flow-keys;-webkit-animation-duration:25s;animation-duration:25s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-direction:alternate;animation-direction:alternate;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(1){-webkit-animation-delay:-19.8s;animation-delay:-19.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(2){-webkit-animation-delay:-19.6s;animation-delay:-19.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(3){-webkit-animation-delay:-19.4s;animation-delay:-19.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(4){-webkit-animation-delay:-19.2s;animation-delay:-19.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(5){-webkit-animation-delay:-19s;animation-delay:-19s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(6){-webkit-animation-delay:-18.8s;animation-delay:-18.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(7){-webkit-animation-delay:-18.6s;animation-delay:-18.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(8){-webkit-animation-delay:-18.4s;animation-delay:-18.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(9){-webkit-animation-delay:-18.2s;animation-delay:-18.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(10){-webkit-animation-delay:-18s;animation-delay:-18s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(11){-webkit-animation-delay:-17.8s;animation-delay:-17.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(12){-webkit-animation-delay:-17.6s;animation-delay:-17.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(13){-webkit-animation-delay:-17.4s;animation-delay:-17.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(14){-webkit-animation-delay:-17.2s;animation-delay:-17.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(15){-webkit-animation-delay:-17s;animation-delay:-17s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(16){-webkit-animation-delay:-16.8s;animation-delay:-16.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(17){-webkit-animation-delay:-16.6s;animation-delay:-16.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(18){-webkit-animation-delay:-16.4s;animation-delay:-16.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(19){-webkit-animation-delay:-16.2s;animation-delay:-16.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(20){-webkit-animation-delay:-16s;animation-delay:-16s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(21){-webkit-animation-delay:-15.8s;animation-delay:-15.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(22){-webkit-animation-delay:-15.6s;animation-delay:-15.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(23){-webkit-animation-delay:-15.4s;animation-delay:-15.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(24){-webkit-animation-delay:-15.2s;animation-delay:-15.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(25){-webkit-animation-delay:-15s;animation-delay:-15s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(26){-webkit-animation-delay:-14.8s;animation-delay:-14.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(27){-webkit-animation-delay:-14.6s;animation-delay:-14.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(28){-webkit-animation-delay:-14.4s;animation-delay:-14.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(29){-webkit-animation-delay:-14.2s;animation-delay:-14.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(30){-webkit-animation-delay:-14s;animation-delay:-14s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(31){-webkit-animation-delay:-13.8s;animation-delay:-13.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(32){-webkit-animation-delay:-13.6s;animation-delay:-13.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(33){-webkit-animation-delay:-13.4s;animation-delay:-13.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(34){-webkit-animation-delay:-13.2s;animation-delay:-13.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(35){-webkit-animation-delay:-13s;animation-delay:-13s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(36){-webkit-animation-delay:-12.8s;animation-delay:-12.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(37){-webkit-animation-delay:-12.6s;animation-delay:-12.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(38){-webkit-animation-delay:-12.4s;animation-delay:-12.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(39){-webkit-animation-delay:-12.2s;animation-delay:-12.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(40){-webkit-animation-delay:-12s;animation-delay:-12s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(41){-webkit-animation-delay:-11.8s;animation-delay:-11.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(42){-webkit-animation-delay:-11.6s;animation-delay:-11.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(43){-webkit-animation-delay:-11.4s;animation-delay:-11.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(44){-webkit-animation-delay:-11.2s;animation-delay:-11.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(45){-webkit-animation-delay:-11s;animation-delay:-11s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(46){-webkit-animation-delay:-10.8s;animation-delay:-10.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(47){-webkit-animation-delay:-10.6s;animation-delay:-10.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(48){-webkit-animation-delay:-10.4s;animation-delay:-10.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(49){-webkit-animation-delay:-10.2s;animation-delay:-10.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(50){-webkit-animation-delay:-10s;animation-delay:-10s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(51){-webkit-animation-delay:-9.8s;animation-delay:-9.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(52){-webkit-animation-delay:-9.6s;animation-delay:-9.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(53){-webkit-animation-delay:-9.4s;animation-delay:-9.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(54){-webkit-animation-delay:-9.2s;animation-delay:-9.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(55){-webkit-animation-delay:-9s;animation-delay:-9s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(56){-webkit-animation-delay:-8.8s;animation-delay:-8.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(57){-webkit-animation-delay:-8.6s;animation-delay:-8.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(58){-webkit-animation-delay:-8.4s;animation-delay:-8.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(59){-webkit-animation-delay:-8.2s;animation-delay:-8.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(60){-webkit-animation-delay:-8s;animation-delay:-8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(61){-webkit-animation-delay:-7.8s;animation-delay:-7.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(62){-webkit-animation-delay:-7.6s;animation-delay:-7.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(63){-webkit-animation-delay:-7.4s;animation-delay:-7.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(64){-webkit-animation-delay:-7.2s;animation-delay:-7.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(65){-webkit-animation-delay:-7s;animation-delay:-7s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(66){-webkit-animation-delay:-6.8s;animation-delay:-6.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(67){-webkit-animation-delay:-6.6s;animation-delay:-6.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(68){-webkit-animation-delay:-6.4s;animation-delay:-6.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(69){-webkit-animation-delay:-6.2s;animation-delay:-6.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(70){-webkit-animation-delay:-6s;animation-delay:-6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(71){-webkit-animation-delay:-5.8s;animation-delay:-5.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(72){-webkit-animation-delay:-5.6s;animation-delay:-5.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(73){-webkit-animation-delay:-5.4s;animation-delay:-5.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(74){-webkit-animation-delay:-5.2s;animation-delay:-5.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(75){-webkit-animation-delay:-5s;animation-delay:-5s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(76){-webkit-animation-delay:-4.8s;animation-delay:-4.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(77){-webkit-animation-delay:-4.6s;animation-delay:-4.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(78){-webkit-animation-delay:-4.4s;animation-delay:-4.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(79){-webkit-animation-delay:-4.2s;animation-delay:-4.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(80){-webkit-animation-delay:-4s;animation-delay:-4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(81){-webkit-animation-delay:-3.8s;animation-delay:-3.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(82){-webkit-animation-delay:-3.6s;animation-delay:-3.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(83){-webkit-animation-delay:-3.4s;animation-delay:-3.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(84){-webkit-animation-delay:-3.2s;animation-delay:-3.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(85){-webkit-animation-delay:-3s;animation-delay:-3s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(86){-webkit-animation-delay:-2.8s;animation-delay:-2.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(87){-webkit-animation-delay:-2.6s;animation-delay:-2.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(88){-webkit-animation-delay:-2.4s;animation-delay:-2.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(89){-webkit-animation-delay:-2.2s;animation-delay:-2.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(90){-webkit-animation-delay:-2s;animation-delay:-2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(91){-webkit-animation-delay:-1.8s;animation-delay:-1.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(92){-webkit-animation-delay:-1.6s;animation-delay:-1.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(93){-webkit-animation-delay:-1.4s;animation-delay:-1.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(94){-webkit-animation-delay:-1.2s;animation-delay:-1.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(95){-webkit-animation-delay:-1s;animation-delay:-1s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(96){-webkit-animation-delay:-0.8s;animation-delay:-0.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(97){-webkit-animation-delay:-0.6s;animation-delay:-0.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(98){-webkit-animation-delay:-0.4s;animation-delay:-0.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(99){-webkit-animation-delay:-0.2s;animation-delay:-0.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(100){-webkit-animation-delay:0s;animation-delay:0s}
 .elementor-widget-elementive-text .elementive-text-content::-moz-selection{background:transparent}
 .elementor-widget-elementive-text .elementive-text-content::selection{background:transparent}
-.elementor-widget-elementive-animated-text .elementive-animated-text-content{display:block}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#bf7940}
-5%{color:#7d40bf}
-10%{color:#40bf6a}
-15%{color:#86bf40}
-20%{color:#bf7340}
-25%{color:#7540bf}
-30%{color:#40a8bf}
-35%{color:#40bf8a}
-40%{color:#6a40bf}
-45%{color:#6040bf}
-50%{color:#bf8040}
-55%{color:#bf9540}
-60%{color:#bfb940}
-65%{color:#40bfb7}
-70%{color:#9140bf}
-75%{color:#bf7340}
-80%{color:#bf40b5}
-85%{color:#40bf53}
-90%{color:#bf4a40}
-95%{color:#7140bf}
-100%{color:#bf5540}
-}@keyframes anim-text-flow-keys{0{color:#bf7940}
-5%{color:#7d40bf}
-10%{color:#40bf6a}
-15%{color:#86bf40}
-20%{color:#bf7340}
-25%{color:#7540bf}
-30%{color:#40a8bf}
-35%{color:#40bf8a}
-40%{color:#6a40bf}
-45%{color:#6040bf}
-50%{color:#bf8040}
-55%{color:#bf9540}
-60%{color:#bfb940}
-65%{color:#40bfb7}
-70%{color:#9140bf}
-75%{color:#bf7340}
-80%{color:#bf40b5}
-85%{color:#40bf53}
-90%{color:#bf4a40}
-95%{color:#7140bf}
-100%{color:#bf5540}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#4086bf}
+5%{color:#bf6440}
+10%{color:#404fbf}
+15%{color:#a840bf}
+20%{color:#bf4044}
+25%{color:#40bf8c}
+30%{color:#aebf40}
+35%{color:#bfbf40}
+40%{color:#4071bf}
+45%{color:#5940bf}
+50%{color:#bf4057}
+55%{color:#8e40bf}
+60%{color:#7740bf}
+65%{color:#7140bf}
+70%{color:#aa40bf}
+75%{color:#4060bf}
+80%{color:#bf9340}
+85%{color:#4075bf}
+90%{color:#bf4060}
+95%{color:#bfb740}
+100%{color:#bfaa40}
+}@keyframes anim-text-flow-keys{0{color:#4086bf}
+5%{color:#bf6440}
+10%{color:#404fbf}
+15%{color:#a840bf}
+20%{color:#bf4044}
+25%{color:#40bf8c}
+30%{color:#aebf40}
+35%{color:#bfbf40}
+40%{color:#4071bf}
+45%{color:#5940bf}
+50%{color:#bf4057}
+55%{color:#8e40bf}
+60%{color:#7740bf}
+65%{color:#7140bf}
+70%{color:#aa40bf}
+75%{color:#4060bf}
+80%{color:#bf9340}
+85%{color:#4075bf}
+90%{color:#bf4060}
+95%{color:#bfb740}
+100%{color:#bfaa40}
 }

@@ -74,7 +74,8 @@ class Elementive_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( 'uikit', plugin_dir_url( __FILE__ ) . 'vendors/uikit/css/uikit.min.css', '3.1.8', 'all' );
+		wp_enqueue_style( 'uikit', ELEMENTIVE_URL . 'assets/vendors/uikit/css/uikit.min.css', '3.1.8', 'all' );
+		wp_enqueue_style( 'swiper', ELEMENTIVE_URL . 'frontend/vendors/swiper/css/swiper.min.css', '4.5.0', 'all' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/elementive-public.css', array(), $this->version, 'all' );
 
 	}
@@ -98,11 +99,13 @@ class Elementive_Public {
 		 * class.
 		 */
 
-		wp_register_script( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit.min.js', array( 'jquery' ), '3.1.8', true );
-		wp_register_script( 'uikit-icons', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit-icons.min.js', array( 'jquery' ), '3.1.8', true );
-		wp_register_script( 'jquery-lettering', ELEMENTIVE_URL . 'frontend/vendors/jquery.lettering.js', array( 'jquery' ), '0.7.0', true );
-		wp_enqueue_script( 'typewriterjs', ELEMENTIVE_URL . 'frontend/vendors/typewriterjs/core.js', '', '2.7.1', false );
+		wp_register_script( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit.min.js', '', '3.1.8', true );
+		wp_register_script( 'uikit-icons', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit-icons.min.js', '', '3.1.8', true );
+		wp_register_script( 'SplitText', ELEMENTIVE_URL . 'frontend/vendors/greensock/utils/SplitText.min.js', '', '0.5.6', true );
+		wp_register_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', true );
+		wp_register_script( 'swiper', ELEMENTIVE_URL . 'frontend/vendors/swiper/js/swiper.min.js', '', '4.5.0', true );
 
+		wp_enqueue_script( 'typewriterjs', ELEMENTIVE_URL . 'frontend/vendors/typewriterjs/core.js', '', '2.7.1', false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementive-public.js', array( 'jquery' ), $this->version, false );
 
 	}

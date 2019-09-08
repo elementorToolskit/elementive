@@ -88,7 +88,7 @@ class Elementive_Module_Starter {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Accordion() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Tab() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Text() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Animated_Text() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Text_Rotator() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Typewriter() );
 	}
 

@@ -50,6 +50,8 @@ module.exports = {
 	watchStyles: './**/**/*.scss', // Path to all *.scss files inside css folder and inside them.
 	watchJsVendor: './assets/js/vendor/*.js', // Path to all vendor JS files.
 	watchJsCustom: './**/*.js', // Path to all custom JS files.
+	watchJsStarter: './modules/starter/assets/es/*.js', // Path to all custom JS files.
+	watchStylesStarter: './modules/starter/assets/scss/*.scss', // Path to all *.scss files inside css folder and inside them.
 	watchPhp: './**/*.php', // Path to all PHP files.
 
 	// Translation options.

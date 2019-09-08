@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @subpackage Elementive/Modules/Starter
  * @author     Dimative <contact@dimative.com>
  */
-class Elementive_Widget_Animated_Text extends Widget_Base {
+class Elementive_Widget_Text_Rotator extends Widget_Base {
 
 	/**
 	 * Content template disable.
@@ -56,7 +56,7 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'elementive-animated-text';
+		return 'elementive-text-rotator';
 	}
 
 	/**
@@ -69,7 +69,7 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Animated Text', 'elementive' );
+		return __( 'Text Rotator', 'elementive' );
 	}
 
 	/**
@@ -115,7 +115,7 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'jquery-lettering', 'typed', 'attrchange' ];
+		return [ 'SplitText', 'anime', 'swiper' ];
 	}
 
 
@@ -150,7 +150,7 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'animated_text_item',
+			'item',
 			[
 				'label'       => __( 'Animated text', 'elementive' ),
 				'type'        => Controls_Manager::TEXT,
@@ -160,20 +160,20 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 		);
 
 		$this->add_control(
-			'animated_text',
+			'strings',
 			[
 				'label'       => __( 'Animated text', 'elementive' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => [
 					[
-						'animated_text_item'   => __( 'Pizza', 'elementive' ),
+						'item'   => __( 'Pizza', 'elementive' ),
 					],
 					[
-						'animated_text_item'   => __( 'Burger', 'elementive' ),
+						'item'   => __( 'Burger', 'elementive' ),
 					],
 				],
-				'title_field' => '{{{ animated_text_item }}}',
+				'title_field' => '{{{ item }}}',
 				'separator'   => 'before',
 			]
 		);
@@ -209,13 +209,28 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 		);
 
 		$this->add_control(
+			'split',
+			[
+				'label'     => __( 'Spilit', 'elementive' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'words',
+				'options'   => [
+					'chars' => __( 'Chars', 'elementive' ),
+					'words' => __( 'Words', 'elementive' ),
+					'lines' => __( 'Lines', 'elementive' ),
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
 			'animation',
 			[
 				'label'     => __( 'Animations', 'elementive' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'typed',
 				'options'   => [
-					'typed' => __( 'Auto typing', 'elementive' ),
+					'hello' => __( 'First', 'elementive' ),
 					'fade'  => __( 'Fade', 'elementive' ),
 					'slide' => __( 'Slide', 'elementive' ),
 				],
@@ -224,128 +239,48 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 		);
 
 		$this->add_control(
-			'typed_speed',
+			'speed',
 			[
-				'label'       => __( 'Typing speed', 'elementive' ),
-				'description' => __( 'Type speed in milliseconds', 'elementive' ),
+				'label'       => __( 'Animation speed', 'elementive' ),
+				'description' => __( 'Animation speed in milliseconds', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
 				'min'         => 1,
 				'max'         => 1000,
 				'step'        => 10,
 				'default'     => 30,
-				'conditions'  => [
-					'terms' => [
-						[
-							'name'     => 'animation',
-							'operator' => 'in',
-							'value'    => [
-								'typed',
-							],
-						],
-					],
-				],
 				'separator'   => 'before',
 			]
 		);
 
 		$this->add_control(
-			'typed_start_delay',
+			'delay',
 			[
 				'label'       => __( 'Start delay', 'elementive' ),
-				'description' => __( 'Time before typing starts in milliseconds', 'elementive' ),
+				'description' => __( 'Time before animation starts in milliseconds', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
 				'min'         => 1,
 				'max'         => 1000,
 				'step'        => 10,
 				'default'     => 30,
-				'conditions'  => [
-					'terms' => [
-						[
-							'name'     => 'animation',
-							'operator' => 'in',
-							'value'    => [
-								'typed',
-							],
-						],
-					],
-				],
 				'separator'   => 'before',
 			]
 		);
 
 		$this->add_control(
-			'typed_back_speed',
+			'duration',
 			[
-				'label'       => __( 'Back speed', 'elementive' ),
-				'description' => __( 'Backspacing speed in milliseconds', 'elementive' ),
+				'label'       => __( 'Animation duration', 'elementive' ),
+				'description' => __( 'Animation duration in milliseconds', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
 				'min'         => 1,
 				'max'         => 100,
 				'step'        => 1,
 				'default'     => 30,
-				'conditions'  => [
-					'terms' => [
-						[
-							'name'     => 'animation',
-							'operator' => 'in',
-							'value'    => [
-								'typed',
-							],
-						],
-					],
-				],
 			]
 		);
 
 		$this->add_control(
-			'typed_back_delay',
-			[
-				'label'       => __( 'Back delay', 'elementive' ),
-				'description' => __( 'Time before backspacing in milliseconds.', 'elementive' ),
-				'type'        => Controls_Manager::NUMBER,
-				'min'         => 1,
-				'max'         => 2000,
-				'step'        => 10,
-				'default'     => 1000,
-				'conditions'  => [
-					'terms' => [
-						[
-							'name'     => 'animation',
-							'operator' => 'in',
-							'value'    => [
-								'typed',
-							],
-						],
-					],
-				],
-			]
-		);
-
-		$this->add_control(
-			'typed_cursor',
-			[
-				'label'        => __( 'Show cursor', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'True', 'elementive' ),
-				'label_off'    => __( 'False', 'elementive' ),
-				'return_value' => 'true',
-				'default'      => 'true',
-				'conditions'   => [
-					'terms' => [
-						[
-							'name'     => 'animation',
-							'operator' => 'in',
-							'value'    => [
-								'typed',
-							],
-						],
-					],
-				],
-			]
-		);
-
-		$this->add_control(
-			'typed_loop',
+			'loop',
 			[
 				'label'        => __( 'Loop', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
@@ -353,22 +288,11 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 				'label_off'    => __( 'False', 'elementive' ),
 				'return_value' => 'true',
 				'default'      => 'true',
-				'conditions'   => [
-					'terms' => [
-						[
-							'name'     => 'animation',
-							'operator' => 'in',
-							'value'    => [
-								'typed',
-							],
-						],
-					],
-				],
 			]
 		);
 
 		$this->add_control(
-			'typed_loop_count',
+			'loop_count',
 			[
 				'label'      => __( 'Loop count', 'elementive' ),
 				'type'       => Controls_Manager::NUMBER,
@@ -379,14 +303,7 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 				'conditions' => [
 					'terms' => [
 						[
-							'name'     => 'animation',
-							'operator' => 'in',
-							'value'    => [
-								'typed',
-							],
-						],
-						[
-							'name'     => 'typed_loop',
+							'name'     => 'loop',
 							'value'    => 'true',
 						],
 					],
@@ -401,13 +318,13 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 				'name'      => 'typography',
 				'label'     => __( 'Typography', 'elementive' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
-				'selector'  => '{{WRAPPER}} .elementive-text-content',
+				'selector'  => '{{WRAPPER}} .elementive-widget-content',
 				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
-			'text_align',
+			'alignment',
 			[
 				'label'   => __( 'Alignment', 'elementive' ),
 				'type'    => Controls_Manager::CHOOSE,
@@ -441,7 +358,7 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 				],
 				'default'    => 'inherit',
 				'selectors'  => [
-					'{{WRAPPER}} .elementive-text-content' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .elementive-widget-content' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -451,7 +368,7 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 			[
 				'name'     => 'text_shadow',
 				'label'    => __( 'Text Shadow', 'elementive' ),
-				'selector' => '{{WRAPPER}} .elementive-text-content',
+				'selector' => '{{WRAPPER}} .elementive-widget-content',
 			]
 		);
 
@@ -470,35 +387,12 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 	 */
 	protected function render() {
 
-		$settings           = $this->get_settings_for_display();
-		$classes            = [ 'elementive-animated-text-content', 'uk-width-1-1', 'uk-margin-remove' ];
-		$typed_string       = '';
-		$allowed_html_typed = [
-			'class'           => [],
-			'data-speed'      => [],
-			'data-dealy'      => [],
-			'data-strings'    => [],
-			'data-back-speed' => [],
-			'data-back-delay' => [],
-			'data-back-delay' => [],
-			'data-cursor'     => [],
-			'data-loop'       => [],
-			'data-loop-count' => [],
-        ];
-
-		$classes[] = $settings['text_align'];
+		$settings  = $this->get_settings_for_display();
+		$classes   = [ 'elementive-text-rotator', 'swiper-container', 'uk-width-1-1', 'uk-margin-remove' ];
+		$classes[] = $settings['alignment'];
+		$classes[] = $settings['split'];
 
 		$classes = array_map( 'esc_attr', $classes );
-
-		if ( 'typed' === $settings['animation'] ) {
-			if ( $settings['animated_text'] ) {
-				echo '<div class="typed-strings">';
-				foreach ( $settings['animated_text'] as $item ) {
-					echo esc_attr( $item['animated_text_item'] );
-				}
-				echo '</div>';
-			}
-		}
 
 		$this->add_render_attribute(
 			'text_content',
@@ -507,32 +401,14 @@ class Elementive_Widget_Animated_Text extends Widget_Base {
 			]
 		);
 
-		$this->add_render_attribute(
-			'text_content_typed',
-			[
-				'class'           => 'elementive-animated-text-content elementive-run-typed uk-display-inline',
-			]
-		);
-
-		echo '<' . esc_attr( $settings['tag'] ) . ' ' . wp_kses( $this->get_render_attribute_string( 'text_content' ), [ 'class' => [] ] ) . '>';
-		echo esc_html( $settings['text_before'] );
-		if ( $settings['animated_text'] ) {
-			if ( 'typed' === $settings['animation'] ) {
-				echo ' <div ' . wp_kses( $this->get_render_attribute_string( 'text_content_typed' ), $allowed_html_typed ) . '></div>';
-			} else {
-				echo ' <div class="animation uk-display-inline">';
-				foreach ( $settings['animated_text'] as $item ) {
-
-					echo '<span>' . esc_html( $item['animated_text_item'] ) . '</span>';
-				}
-				echo '</div>';
+		if ( $settings['strings'] ) {
+			echo '<' . esc_attr( $settings['tag'] ) . ' ' . wp_kses( $this->get_render_attribute_string( 'text_content' ), [ 'class' => [] ] ) . '>';
+			echo '<div class="swiper-wrapper">';
+			foreach ( $settings['strings'] as $item ) {
+				echo '<div class="swiper-slide elementive-content-item">' . esc_html( $item['item'] ) . '</div>';
 			}
-		}
-		echo esc_html( $settings['text'] );
-		echo esc_html( $settings['text_after'] );
-		echo '</' . esc_attr( $settings['tag'] ) . '>';
-		if ( 'typed' === $settings['animation'] ) {
-			echo '<script>var typed_' . esc_attr( $this->get_id() ) . ' = new Typed(".elementive-run-typed", {stringsElement: ".elementor-element-' . esc_attr( $this->get_id() ) . ' .typed-strings"});</script>';
+			echo '</div>';
+			echo '</' . esc_attr( $settings['tag'] ) . '>';
 		}
 	}
 }

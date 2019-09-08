@@ -507,5 +507,8 @@ gulp.task(
  */
 gulp.task(
 	'starter',
-	gulp.parallel( 'stylesStarter', 'starterJS')
+	gulp.parallel( 'stylesStarter', 'starterJS', () => {
+		gulp.watch( config.watchJsStarter, gulp.series( 'starterJS', reload ) ); // Reload on customJS file changes.
+		gulp.watch( config.watchStylesStarter, gulp.series( 'stylesStarter', reload ) ); // Reload on customJS file changes.
+	})
 );
