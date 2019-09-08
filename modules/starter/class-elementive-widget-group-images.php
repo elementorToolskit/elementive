@@ -114,7 +114,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'elementive' ];
+		return [ 'uikit', 'uikit-icons' ];
 	}
 
 	/**
