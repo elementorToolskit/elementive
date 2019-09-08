@@ -392,8 +392,8 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 		if ( 'true' === $settings['loop'] ) {
 			$loop = 'true';
 		} else {
-            $loop = 'false';
-        }
+			$loop = 'false';
+		}
 
 		$classes[] = $settings['text_align'];
 

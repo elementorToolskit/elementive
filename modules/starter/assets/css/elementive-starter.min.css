@@ -106,7 +106,7 @@
 .elementor-widget-elementive-text .elementive-text-content::-moz-selection{background:transparent}
 .elementor-widget-elementive-text .elementive-text-content::selection{background:transparent}
 .elementor-widget-elementive-group-images .elementive-group-images{position:relative;width:100%}
-.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);width:100%;display:block}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);display:block}
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0)}
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span{position:relative;display:block;width:60px;height:60px;border-radius:30px;line-height:60px;text-align:center;background-color:#FFF;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span:hover{background-color:rgba(0,0,0,0);color:#FFF}
@@ -116,48 +116,48 @@
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.contain img{-o-object-fit:contain;object-fit:contain;font-family:'object-fit: contain;'}
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.fill img{-o-object-fit:fill;object-fit:fill;font-family:'object-fit: fill;'}
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item img{position:absolute;width:100%;height:100%;left:0;top:0}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#a640bf}
-5%{color:#40bfaa}
-10%{color:#bf4075}
-15%{color:#88bf40}
-20%{color:#bf4095}
-25%{color:#6840bf}
-30%{color:#40bf4a}
-35%{color:#40bfa8}
-40%{color:#8640bf}
-45%{color:#409dbf}
-50%{color:#40bf5e}
-55%{color:#404fbf}
-60%{color:#4440bf}
-65%{color:#b5bf40}
-70%{color:#7140bf}
-75%{color:#bf4068}
-80%{color:#bf40a8}
-85%{color:#ae40bf}
-90%{color:#7540bf}
-95%{color:#b3bf40}
-100%{color:#bf4082}
-}@keyframes anim-text-flow-keys{0{color:#a640bf}
-5%{color:#40bfaa}
-10%{color:#bf4075}
-15%{color:#88bf40}
-20%{color:#bf4095}
-25%{color:#6840bf}
-30%{color:#40bf4a}
-35%{color:#40bfa8}
-40%{color:#8640bf}
-45%{color:#409dbf}
-50%{color:#40bf5e}
-55%{color:#404fbf}
-60%{color:#4440bf}
-65%{color:#b5bf40}
-70%{color:#7140bf}
-75%{color:#bf4068}
-80%{color:#bf40a8}
-85%{color:#ae40bf}
-90%{color:#7540bf}
-95%{color:#b3bf40}
-100%{color:#bf4082}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#40b3bf}
+5%{color:#4075bf}
+10%{color:#409bbf}
+15%{color:#bf6240}
+20%{color:#bf6440}
+25%{color:#4240bf}
+30%{color:#bf6f40}
+35%{color:#bf9b40}
+40%{color:#40bfb7}
+45%{color:#79bf40}
+50%{color:#bf6440}
+55%{color:#bf4084}
+60%{color:#4abf40}
+65%{color:#bf4240}
+70%{color:#bf4240}
+75%{color:#bf4077}
+80%{color:#9fbf40}
+85%{color:#bf4840}
+90%{color:#bd40bf}
+95%{color:#7740bf}
+100%{color:#bf4240}
+}@keyframes anim-text-flow-keys{0{color:#40b3bf}
+5%{color:#4075bf}
+10%{color:#409bbf}
+15%{color:#bf6240}
+20%{color:#bf6440}
+25%{color:#4240bf}
+30%{color:#bf6f40}
+35%{color:#bf9b40}
+40%{color:#40bfb7}
+45%{color:#79bf40}
+50%{color:#bf6440}
+55%{color:#bf4084}
+60%{color:#4abf40}
+65%{color:#bf4240}
+70%{color:#bf4240}
+75%{color:#bf4077}
+80%{color:#9fbf40}
+85%{color:#bf4840}
+90%{color:#bd40bf}
+95%{color:#7740bf}
+100%{color:#bf4240}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

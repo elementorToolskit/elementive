@@ -470,7 +470,8 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 			foreach ( $settings['images'] as $image ) {
 				$counter++;
 				echo '<div class="item elementor-repeater-item-' . esc_attr( $image['_id'] ) . '" uk-scrollspy-class="' . esc_attr( $image['custom_animation'] ) . '">';
-				echo '<div class="elementive-group-image-wrapper" uk-parallax="y: ' . esc_attr( $image['parallax_y'] ) . '; x: ' . esc_attr( $image['parallax_x'] ) . '; easing: -2">';
+                echo '<div class="elementive-group-image-wrapper">';
+                echo '<div uk-parallax="y: ' . esc_attr( $image['parallax_y'] ) . '; x: ' . esc_attr( $image['parallax_x'] ) . '; easing: -2">';
 				echo '<div class="elementive-group-image-item uk-position-relative ' . esc_attr( $image['object_fit'] ) . ' ' . esc_attr( $image['box_shadow'] ) . '">';
 				if ( count( $settings['images'] ) === $counter && 'true' === $settings['lightbox'] && $settings['video'] ) {
 					?>
@@ -480,6 +481,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 					<?php
 				}
 				echo wp_get_attachment_image( $image['image']['id'], 'full' );
+				echo '</div>';
 				echo '</div>';
 				echo '</div>';
 				echo '</div>';
