@@ -49,10 +49,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (el.length) {
         var text_rotator = new Swiper(el, {
+          delay: 3000,
           effect: 'fade',
           fadeEffect: {
             crossFade: true
           },
+          loop: true,
           on: {
             init: function init() {
               if (el.hasClass('chars')) {
@@ -85,11 +87,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         });
-        text_rotator.on('reachEnd', function () {
-          text_rotator.slideTo(1, 300);
-          console.log('end');
-        });
-        text_rotator.on('slideNextTransitionStart', function () {
+        text_rotator.on('slideChangeTransitionStart', function () {
           var _anime$timeline$add$a;
 
           anime.timeline({
@@ -119,7 +117,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }), _defineProperty(_anime$timeline$add$a, "complete", function complete(anim) {
             text_rotator.slideNext();
           }), _anime$timeline$add$a));
-          ;
         });
         var scroll_spy = UIkit.scrollspy(el);
         UIkit.util.on(el, 'inview', function (e) {
@@ -131,16 +128,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   };
   $(document).ready(function () {
     elementive_starter.run_lettering_chars();
-    elementive_starter.run_text_animation();
   });
   $(window).on('load', function () {
-    elementive_starter.reviews();
+    elementive_starter.reviews(); //elementive_starter.run_text_animation();
   });
 
   if (window.elementorFrontend) {
     $(window).on('elementor/frontend/init', function () {
-      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars);
-      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-animated-text.default', elementive_starter.run_text_animation);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars); //elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-animated-text.default', elementive_starter.run_text_animation );
     });
   }
 })(jQuery);

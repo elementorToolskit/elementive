@@ -105,46 +105,63 @@
 .elementor-widget-elementive-text .elementive-text-content.has-text-color-animation div:nth-of-type(100){-webkit-animation-delay:0s;animation-delay:0s}
 .elementor-widget-elementive-text .elementive-text-content::-moz-selection{background:transparent}
 .elementor-widget-elementive-text .elementive-text-content::selection{background:transparent}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#4086bf}
-5%{color:#bf6440}
-10%{color:#404fbf}
-15%{color:#a840bf}
-20%{color:#bf4044}
-25%{color:#40bf8c}
-30%{color:#aebf40}
-35%{color:#bfbf40}
-40%{color:#4071bf}
-45%{color:#5940bf}
-50%{color:#bf4057}
-55%{color:#8e40bf}
-60%{color:#7740bf}
-65%{color:#7140bf}
-70%{color:#aa40bf}
-75%{color:#4060bf}
-80%{color:#bf9340}
-85%{color:#4075bf}
-90%{color:#bf4060}
-95%{color:#bfb740}
-100%{color:#bfaa40}
-}@keyframes anim-text-flow-keys{0{color:#4086bf}
-5%{color:#bf6440}
-10%{color:#404fbf}
-15%{color:#a840bf}
-20%{color:#bf4044}
-25%{color:#40bf8c}
-30%{color:#aebf40}
-35%{color:#bfbf40}
-40%{color:#4071bf}
-45%{color:#5940bf}
-50%{color:#bf4057}
-55%{color:#8e40bf}
-60%{color:#7740bf}
-65%{color:#7140bf}
-70%{color:#aa40bf}
-75%{color:#4060bf}
-80%{color:#bf9340}
-85%{color:#4075bf}
-90%{color:#bf4060}
-95%{color:#bfb740}
-100%{color:#bfaa40}
+.elementor-widget-elementive-group-images .elementive-group-images{position:relative;width:100%}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);width:100%;display:block}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0)}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span{position:relative;display:block;width:60px;height:60px;border-radius:30px;line-height:60px;text-align:center;background-color:#FFF;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span:hover{background-color:rgba(0,0,0,0);color:#FFF}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span::before{content:'';display:inline-block;position:absolute;top:-2px;left:-2px;bottom:-2px;right:-2px;border-radius:inherit;border:1px solid #FFF;-webkit-animation:btnIconRipple 3s cubic-bezier(0.23,1,0.32,1) both infinite;animation:btnIconRipple 3s cubic-bezier(0.23,1,0.32,1) both infinite}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span::after{content:'';display:inline-block;position:absolute;top:-2px;left:-2px;bottom:-2px;right:-2px;border-radius:inherit;border:1px solid #FFF;-webkit-animation:btnIconRipple 1.5s cubic-bezier(0.23,1,0.32,1) both infinite;animation:btnIconRipple 1.5s cubic-bezier(0.23,1,0.32,1) both infinite}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.cover img{-o-object-fit:cover;object-fit:cover;font-family:'object-fit: cover;'}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.contain img{-o-object-fit:contain;object-fit:contain;font-family:'object-fit: contain;'}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.fill img{-o-object-fit:fill;object-fit:fill;font-family:'object-fit: fill;'}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item img{position:absolute;width:100%;height:100%;left:0;top:0}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#40bf95}
+5%{color:#9bbf40}
+10%{color:#bf4046}
+15%{color:#bfaa40}
+20%{color:#40a2bf}
+25%{color:#4fbf40}
+30%{color:#bf4040}
+35%{color:#40bfb5}
+40%{color:#bfaa40}
+45%{color:#bf409f}
+50%{color:#97bf40}
+55%{color:#68bf40}
+60%{color:#4082bf}
+65%{color:#8cbf40}
+70%{color:#bf4086}
+75%{color:#6abf40}
+80%{color:#bf40b5}
+85%{color:#40b7bf}
+90%{color:#b040bf}
+95%{color:#40bf6c}
+100%{color:#409bbf}
+}@keyframes anim-text-flow-keys{0{color:#40bf95}
+5%{color:#9bbf40}
+10%{color:#bf4046}
+15%{color:#bfaa40}
+20%{color:#40a2bf}
+25%{color:#4fbf40}
+30%{color:#bf4040}
+35%{color:#40bfb5}
+40%{color:#bfaa40}
+45%{color:#bf409f}
+50%{color:#97bf40}
+55%{color:#68bf40}
+60%{color:#4082bf}
+65%{color:#8cbf40}
+70%{color:#bf4086}
+75%{color:#6abf40}
+80%{color:#bf40b5}
+85%{color:#40b7bf}
+90%{color:#b040bf}
+95%{color:#40bf6c}
+100%{color:#409bbf}
+}@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
+80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
+100%{opacity:0}
+}@keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
+80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
+100%{opacity:0}
 }
