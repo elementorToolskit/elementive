@@ -345,7 +345,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 					'px' => [
 						'min'  => 0,
 						'max'  => 1000,
-						'step' => 5,
+						'step' => 1,
 					],
 					'%' => [
 						'min' => 0,
@@ -359,7 +359,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 					'unit' => '%',
 				],
 				'selectors'  => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} elementive-group-image-item img' => 'border-radius: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .elementive-group-image-item img' => 'border-radius: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
