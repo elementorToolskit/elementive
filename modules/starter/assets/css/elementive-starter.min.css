@@ -119,48 +119,48 @@
 .elementor-widget-elementive-justified-gallery img{position:absolute}
 .elementor-widget-elementive-justified-gallery .justified-gallery>.entry-visible>img,.elementor-widget-elementive-justified-gallery .justified-gallery>.entry-visible>a>img{-webkit-transition:.3s ease-out;transition:.3s ease-out;-webkit-transition-property:opacity,-webkit-transform,-webkit-filter;transition-property:opacity,-webkit-transform,-webkit-filter;transition-property:opacity,transform,filter;transition-property:opacity,transform,filter,-webkit-transform,-webkit-filter}
 .elementor-widget-elementive-justified-gallery .jg-caption{font-size:10px}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#4099bf}
-5%{color:#4059bf}
-10%{color:#bf4051}
-15%{color:#68bf40}
-20%{color:#4059bf}
-25%{color:#5140bf}
-30%{color:#40bf59}
-35%{color:#aabf40}
-40%{color:#6640bf}
-45%{color:#bf7540}
-50%{color:#79bf40}
-55%{color:#bfbb40}
-60%{color:#6a40bf}
-65%{color:#bf4071}
-70%{color:#bf9f40}
-75%{color:#bf7140}
-80%{color:#40bfb9}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#7740bf}
+5%{color:#bf404f}
+10%{color:#9740bf}
+15%{color:#8c40bf}
+20%{color:#bf7d40}
+25%{color:#40bf84}
+30%{color:#bf4042}
+35%{color:#bf8c40}
+40%{color:#406cbf}
+45%{color:#4073bf}
+50%{color:#7dbf40}
+55%{color:#82bf40}
+60%{color:#9fbf40}
+65%{color:#6040bf}
+70%{color:#bf40a4}
+75%{color:#bfbf40}
+80%{color:#aebf40}
 85%{color:#40a4bf}
-90%{color:#40bf9b}
-95%{color:#bf9d40}
-100%{color:#7bbf40}
-}@keyframes anim-text-flow-keys{0{color:#4099bf}
-5%{color:#4059bf}
-10%{color:#bf4051}
-15%{color:#68bf40}
-20%{color:#4059bf}
-25%{color:#5140bf}
-30%{color:#40bf59}
-35%{color:#aabf40}
-40%{color:#6640bf}
-45%{color:#bf7540}
-50%{color:#79bf40}
-55%{color:#bfbb40}
-60%{color:#6a40bf}
-65%{color:#bf4071}
-70%{color:#bf9f40}
-75%{color:#bf7140}
-80%{color:#40bfb9}
+90%{color:#bf4840}
+95%{color:#bf6c40}
+100%{color:#bf7540}
+}@keyframes anim-text-flow-keys{0{color:#7740bf}
+5%{color:#bf404f}
+10%{color:#9740bf}
+15%{color:#8c40bf}
+20%{color:#bf7d40}
+25%{color:#40bf84}
+30%{color:#bf4042}
+35%{color:#bf8c40}
+40%{color:#406cbf}
+45%{color:#4073bf}
+50%{color:#7dbf40}
+55%{color:#82bf40}
+60%{color:#9fbf40}
+65%{color:#6040bf}
+70%{color:#bf40a4}
+75%{color:#bfbf40}
+80%{color:#aebf40}
 85%{color:#40a4bf}
-90%{color:#40bf9b}
-95%{color:#bf9d40}
-100%{color:#7bbf40}
+90%{color:#bf4840}
+95%{color:#bf6c40}
+100%{color:#bf7540}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

@@ -103,10 +103,11 @@ class Elementive_Public {
 		wp_register_script( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit.min.js', '', '3.2.0', true );
 		wp_register_script( 'uikit-icons', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit-icons.min.js', '', '3.2.0', true );
 		wp_register_script( 'SplitText', ELEMENTIVE_URL . 'frontend/vendors/greensock/utils/SplitText.min.js', '', '0.5.6', true );
-		wp_register_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', true );
 		wp_register_script( 'swiper', ELEMENTIVE_URL . 'frontend/vendors/swiper/js/swiper.min.js', '', '4.5.0', true );
 		wp_register_script( 'jquery-justifiedGallery', ELEMENTIVE_URL . 'frontend/vendors/justifiedgallery/jquery.justifiedGallery.min.js', array( 'jquery' ), '3.7.0', true );
+		wp_register_script( 'svg-injector', ELEMENTIVE_URL . 'frontend/vendors/svg-injector.min.js', array( 'jquery' ), '1.1.3', true );
 
+		wp_enqueue_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', false );
 		wp_enqueue_script( 'typewriterjs', ELEMENTIVE_URL . 'frontend/vendors/typewriterjs/core.js', '', '2.7.1', false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementive-public.js', array( 'jquery' ), $this->version, false );
 
