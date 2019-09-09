@@ -116,48 +116,49 @@
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.contain img{-o-object-fit:contain;object-fit:contain;font-family:'object-fit: contain;'}
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.fill img{-o-object-fit:fill;object-fit:fill;font-family:'object-fit: fill;'}
 .elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item img{position:absolute;width:100%;height:100%;left:0;top:0}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#40b3bf}
-5%{color:#4075bf}
-10%{color:#409bbf}
-15%{color:#bf6240}
-20%{color:#bf6440}
-25%{color:#4240bf}
-30%{color:#bf6f40}
-35%{color:#bf9b40}
-40%{color:#40bfb7}
-45%{color:#79bf40}
-50%{color:#bf6440}
-55%{color:#bf4084}
-60%{color:#4abf40}
-65%{color:#bf4240}
-70%{color:#bf4240}
-75%{color:#bf4077}
-80%{color:#9fbf40}
-85%{color:#bf4840}
-90%{color:#bd40bf}
-95%{color:#7740bf}
-100%{color:#bf4240}
-}@keyframes anim-text-flow-keys{0{color:#40b3bf}
-5%{color:#4075bf}
-10%{color:#409bbf}
-15%{color:#bf6240}
-20%{color:#bf6440}
-25%{color:#4240bf}
-30%{color:#bf6f40}
-35%{color:#bf9b40}
-40%{color:#40bfb7}
-45%{color:#79bf40}
-50%{color:#bf6440}
-55%{color:#bf4084}
-60%{color:#4abf40}
-65%{color:#bf4240}
-70%{color:#bf4240}
-75%{color:#bf4077}
-80%{color:#9fbf40}
-85%{color:#bf4840}
-90%{color:#bd40bf}
-95%{color:#7740bf}
-100%{color:#bf4240}
+.elementor-widget-elementive-justified-gallery img{position:absolute}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#bf40b7}
+5%{color:#bf40a4}
+10%{color:#40bf66}
+15%{color:#40bf51}
+20%{color:#4091bf}
+25%{color:#407dbf}
+30%{color:#40bf95}
+35%{color:#40bf8a}
+40%{color:#40bdbf}
+45%{color:#bf404f}
+50%{color:#bf4240}
+55%{color:#bbbf40}
+60%{color:#40bf6c}
+65%{color:#4048bf}
+70%{color:#40bfa2}
+75%{color:#bf4d40}
+80%{color:#5ebf40}
+85%{color:#7bbf40}
+90%{color:#bf4075}
+95%{color:#4084bf}
+100%{color:#404dbf}
+}@keyframes anim-text-flow-keys{0{color:#bf40b7}
+5%{color:#bf40a4}
+10%{color:#40bf66}
+15%{color:#40bf51}
+20%{color:#4091bf}
+25%{color:#407dbf}
+30%{color:#40bf95}
+35%{color:#40bf8a}
+40%{color:#40bdbf}
+45%{color:#bf404f}
+50%{color:#bf4240}
+55%{color:#bbbf40}
+60%{color:#40bf6c}
+65%{color:#4048bf}
+70%{color:#40bfa2}
+75%{color:#bf4d40}
+80%{color:#5ebf40}
+85%{color:#7bbf40}
+90%{color:#bf4075}
+95%{color:#4084bf}
+100%{color:#404dbf}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

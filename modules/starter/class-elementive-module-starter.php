@@ -91,6 +91,7 @@ class Elementive_Module_Starter {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Text_Rotator() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Typewriter() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Group_Images() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Justified_Gallery() );
 	}
 
 	/**

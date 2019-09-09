@@ -38,6 +38,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
+     * Justified Gallery Init
+     */
+    run_justified_gallery: function run_justified_gallery() {
+      var jgallery = $('.elementive-justified-gallery');
+
+      if (jgallery.length) {
+        var id, row_height, max_row_height, lastrow, fixed_height, show_captions, margin, border, randomize, swipebox;
+        jgallery.each(function (index, el) {
+          row_height = $(this).data('row-height');
+          max_row_height = $(this).data('row-height-max');
+          lastrow = $(this).data('last-row');
+          show_captions = $(this).data('captions');
+          margin = $(this).data('row-margins');
+          randomize = $(this).data('randomize');
+          $(el).justifiedGallery({
+            rowHeight: row_height,
+            maxRowHeight: max_row_height,
+            lastRow: lastrow,
+            captions: show_captions,
+            margins: margin,
+            randomize: randomize
+          });
+        });
+      }
+    },
+
+    /**
      * Typed init.
      * Used it for animated text widget.
      */
@@ -130,12 +157,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     elementive_starter.run_lettering_chars();
   });
   $(window).on('load', function () {
-    elementive_starter.reviews(); //elementive_starter.run_text_animation();
+    elementive_starter.reviews();
   });
 
   if (window.elementorFrontend) {
     $(window).on('elementor/frontend/init', function () {
-      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars); //elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-animated-text.default', elementive_starter.run_text_animation );
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-justified-gallery.default', elementive_starter.run_justified_gallery);
     });
   }
 })(jQuery);

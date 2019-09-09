@@ -112,6 +112,21 @@ class Elementive_Widget_Text extends Widget_Base {
 		return [ 'SplitText' ];
 	}
 
+	/**
+	 * Retrieve the list of style dependencies the element requires.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @access public
+	 *
+	 * @return array Element styles dependencies.
+	 */
+	public function get_style_depends() {
+		return [ 'uikit' ];
+	}
+
 
 	/**
 	 * Register the widget controls.

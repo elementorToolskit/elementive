@@ -11,17 +11,9 @@
 
 namespace Elementive\Modules\Starter;
 
-use Elementor\Frontend;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
-use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Scheme_Color;
-use Elementor\Icons_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Image_Size;
 
@@ -115,6 +107,21 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 	 */
 	public function get_script_depends() {
 		return [ 'uikit', 'uikit-icons' ];
+	}
+
+	/**
+	 * Retrieve the list of style dependencies the element requires.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @access public
+	 *
+	 * @return array Element styles dependencies.
+	 */
+	public function get_style_depends() {
+		return [ 'uikit' ];
 	}
 
 	/**
