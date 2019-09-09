@@ -238,10 +238,18 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings  = $this->get_settings_for_display();
-		$randomize = 'false';
-		$captions  = 'false';
-
+		$settings             = $this->get_settings_for_display();
+		$randomize            = 'false';
+		$captions             = 'false';
+		$allowed_html_wrapper = [
+			'class'               => [],
+			'data-row-height'     => [],
+			'data-row-height-max' => [],
+			'data-last-row'       => [],
+			'data-randomize'      => [],
+			'data-row-margins'    => [],
+			'data-captions'       => [],
+		];
 		if ( 'yes' === $settings['randomize'] ) {
 			$randomize = 'true';
 		}
@@ -250,32 +258,44 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 			$captions = 'true';
 		}
 
+		$this->add_render_attribute(
+			'wrapper',
+			[
+				'class'               => [ 'elementive-justified-gallery' ],
+				'data-row-height'     => esc_attr( $settings['row_height'] ),
+				'data-row-height-max' => esc_attr( $settings['row_height_max'] ),
+				'data-last-row'       => esc_attr( $settings['last_row'] ),
+				'data-randomize'      => esc_attr( $randomize ),
+				'data-row-margins'    => esc_attr( $settings['margins'] ),
+				'data-captions'       => esc_attr( $captions ),
+				'uk-lightbox'         => '',
+			]
+		);
+
 		if ( $settings['gallery'] ) {
-			echo '<div class="elementive-justified-gallery justified-gallery" data-row-height="' . esc_attr( $settings['row_height'] ) . '" data-row-height-max="' . esc_attr( $settings['row_height_max'] ) . '" data-last-row="' . esc_attr( $settings['last_row'] ) . '" data-randomize="' . esc_attr( $randomize ) . '" data-row-margins="' . esc_attr( $settings['margins'] ) . '" data-captions="' . esc_attr( $captions ) . '">';
+			echo '<div ' . wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_html_wrapper ) . '>';
 			foreach ( $settings['gallery'] as $image ) {
-				echo '<a class="elementive-justified-gallery-item jg-item" href="' . esc_url( $image['url'] ) . '">';
-				echo '<img src="' . esc_url( $image['url'] ) . '">';
+				echo '<a class="elementive-justified-gallery-item uk-inline-clip uk-transition-toggle" data-elementor-open-lightbox="no" href="' . esc_url( $image['url'] ) . '" data-caption="' . esc_html( wp_get_attachment_caption( $image['id'] ) ) . '">';
+				?>
+				<div class="uk-transition-fade uk-position-z-index uk-position-cover uk-overlay uk-overlay-primary">
+					<?php
+					if ( 'true' === $captions ) {
+						if ( wp_get_attachment_caption( $image['id'] ) ) {
+							echo '<span class="jg-caption uk-position-bottom uk-padding-small uk-dark"> ' . esc_html( wp_get_attachment_caption( $image['id'] ) ) . '</span>';
+						} else {
+							echo '<span class="uk-position-center uk-dark" uk-overlay-icon></span>';
+						}
+					} else {
+						echo '<span class="uk-position-center uk-dark" uk-overlay-icon></span>';
+					}
+					?>
+				</div>
+				<?php
+				echo wp_get_attachment_image( $image['id'], 'full', '', [ 'class' => 'uk-transition-scale-up uk-transition-opaque' ] );
 				echo '</a>';
 			}
 			echo '</div>';
 		}
 
-	}
-
-	/**
-	 * Render the widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @access protected
-	 */
-	protected function _content_template() {
-		?>
-		<div class="title">
-			{{{ settings.title }}}
-		</div>
-		<?php
 	}
 }

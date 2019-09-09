@@ -58,8 +58,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             lastRow: lastrow,
             captions: show_captions,
             margins: margin,
-            randomize: randomize
+            randomize: randomize,
+            cssAnimation: false
           });
+          console.log('jGallery Ran ====>');
         });
       }
     },
@@ -157,6 +159,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     elementive_starter.run_lettering_chars();
   });
   $(window).on('load', function () {
+    elementive_starter.run_justified_gallery();
     elementive_starter.reviews();
   });
 
@@ -164,6 +167,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     $(window).on('elementor/frontend/init', function () {
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-justified-gallery.default', elementive_starter.run_justified_gallery);
+      elementorFrontend.hooks.addAction('panel/open_editor/widget/elementive-justified-gallery', function (panel, model, view) {
+        console.log('fjkdjafkljdklsaf');
+      });
+      console.log('Elementor Init Works.');
     });
   }
 })(jQuery);
