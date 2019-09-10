@@ -32,7 +32,7 @@ Author URI:      https://dimative.com/
         run_lettering_chars: function() {
             var el = $('.elementive-text-content');
             if ( el.hasClass('has-text-color-animation') ) {
-                new SplitText(el, {type:"chars"});
+                el.lettering();
             }
         },
 
@@ -119,19 +119,11 @@ Author URI:      https://dimative.com/
                     on: {
                         init: function () {
                             if ( el.hasClass('chars') ) {
-                                new SplitText(el_child, {
-                                    type: 'chars'
-                                });
+                                el.lettering();
                             } else if( el.hasClass('words') ) {
-                                new SplitText(el_child, {
-                                    type:'words',
-                                    wordsClass: 'aaa',
-                                });
+                                el.lettering('words');
                             } else if( el.hasClass('lines') ) {
-                                new SplitText(el_child, {
-                                    type:'lines',
-                                    linesClass: 'animate',
-                                });
+                                el.lettering('lines');
                             }
                         },
 

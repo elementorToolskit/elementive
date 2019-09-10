@@ -31,9 +31,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var el = $('.elementive-text-content');
 
       if (el.hasClass('has-text-color-animation')) {
-        new SplitText(el, {
-          type: "chars"
-        });
+        el.lettering();
       }
     },
 
@@ -122,19 +120,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           on: {
             init: function init() {
               if (el.hasClass('chars')) {
-                new SplitText(el_child, {
-                  type: 'chars'
-                });
+                el.lettering();
               } else if (el.hasClass('words')) {
-                new SplitText(el_child, {
-                  type: 'words',
-                  wordsClass: 'aaa'
-                });
+                el.lettering('words');
               } else if (el.hasClass('lines')) {
-                new SplitText(el_child, {
-                  type: 'lines',
-                  linesClass: 'animate'
-                });
+                el.lettering('lines');
               }
             },
             slideChangeTransitionStart: function slideChangeTransitionStart() {
