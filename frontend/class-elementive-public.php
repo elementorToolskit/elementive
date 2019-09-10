@@ -102,7 +102,7 @@ class Elementive_Public {
 
 		wp_register_script( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit.min.js', '', '3.2.0', true );
 		wp_register_script( 'uikit-icons', ELEMENTIVE_URL . 'frontend/vendors/uikit/js/uikit-icons.min.js', '', '3.2.0', true );
-		wp_register_script( 'SplitText', ELEMENTIVE_URL . 'frontend/vendors/greensock/utils/SplitText.min.js', '', '0.5.6', true );
+		wp_register_script( 'jquery-lettering', ELEMENTIVE_URL . 'frontend/vendors/jquery.lettering-0.6.1.min.js', array( 'jquery' ), '0.6.1', true );
 		wp_register_script( 'swiper', ELEMENTIVE_URL . 'frontend/vendors/swiper/js/swiper.min.js', '', '4.5.0', true );
 		wp_register_script( 'jquery-justifiedGallery', ELEMENTIVE_URL . 'frontend/vendors/justifiedgallery/jquery.justifiedGallery.min.js', array( 'jquery' ), '3.7.0', true );
 		wp_register_script( 'svg-injector', ELEMENTIVE_URL . 'frontend/vendors/svg-injector.min.js', array( 'jquery' ), '1.1.3', true );
