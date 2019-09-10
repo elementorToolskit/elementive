@@ -195,8 +195,7 @@ class Elementive_Widget_Shape_Mask extends Widget_Base {
 		?>
 		<figure class="my-icon-wrapper">
 			<?php // \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
-			<?php echo wp_get_attachment_image( $settings['image']['id'], 'full', '', '' ); ?>
-			<img src="<?php echo esc_url( ELEMENTIVE_URL . 'frontend/svg/blob-shape-1.svg' ) ?>" class="lazyload-disabled svg-process">
+			<img src="<?php echo esc_url( ELEMENTIVE_URL . 'frontend/svg/blob-shape-1.svg' ) ?>" class="lazyload-disabled svg-process" data-url="<?php echo esc_url( $settings['image']['url'] ); ?>">
 		</figure>
 		<?php
 		echo '</div>';
