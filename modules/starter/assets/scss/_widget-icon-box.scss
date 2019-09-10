@@ -1,0 +1,12 @@
+.elementor-widget-elementive-icon-box {
+    .elementive-icon-box {
+        transition: all .3s ease-in-out;
+        .elementive-icon-box-content {
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

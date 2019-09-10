@@ -182,4 +182,64 @@ class Elementive_Helpers {
 		wp_reset_postdata();
 	}
 
+	/**
+	 * Video Background for Widgets.
+	 *
+	 * @param array  $settings Elementor widget settings.
+	 * @param string $control Background Setting.
+	 * @param string $class Classes.
+	 */
+	public static function elementive_video_background( $settings, $control, $class = '' ) {
+
+		$is_enabled = false;
+
+		if ( 'video' === $settings[ $control . '_background' ] ) {
+			$is_enabled = true;
+		}
+
+		if ( ! $is_enabled ) {
+			return;
+		}
+
+		$classes = [];
+
+		if ( $class ) {
+			if ( ! is_array( $class ) ) {
+				$class = preg_split( '#\s+#', $class );
+			}
+			$classes = array_map( 'esc_attr', $class );
+		} else {
+			// Ensure that we always coerce class to being an array.
+			$class = [];
+		}
+
+		$loop  = 'true';
+		$url   = $settings[ $control . '_video_link' ];
+		$start = $settings[ $control . '_video_start' ];
+		$stop  = $settings[ $control . '_video_end' ];
+		$thumb = $settings[ $control . '_video_fallback' ];
+
+		if ( $settings[ $control . '_play_once' ] ) {
+			$loop = 'false';
+		}
+
+		$classes[] = 'jarallax-video';
+
+		$classes = array_map( 'esc_attr', $classes );
+
+		if ( $is_enabled ) {
+			if ( $url ) {
+				?>
+				<div class="elementive-background-video jarallax <?php echo esc_attr( join( ' ', $classes ) ); ?>" data-speed="1" data-jarallax-video="<?php echo esc_url( $url ); ?>" data-video-start-time="<?php echo esc_attr( $start ); ?>" data-video-loop="<?php echo esc_attr( $loop ); ?>" data-video-end-time="<?php echo esc_attr( $stop ); ?>">
+				<?php
+				if ( $thumb ) {
+					echo wp_get_attachment_image( $thumb['id'], 'full', '', [ 'class' => 'jarallax-img' ] );
+				}
+				?>
+				</div>
+				<?php
+			}
+		} // End if video background option enabled.
+	}
+
 }

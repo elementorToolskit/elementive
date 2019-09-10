@@ -76,6 +76,7 @@ class Elementive_Public {
 		wp_register_style( 'justifiedGallery', ELEMENTIVE_URL . 'frontend/vendors/justifiedgallery/justifiedGallery.min.css', '3.7.0', 'all' );
 		wp_register_style( 'swiper', ELEMENTIVE_URL . 'frontend/vendors/swiper/css/swiper.min.css', '4.5.0', 'all' );
 		wp_register_style( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/css/uikit.min.css', '3.2.0', 'all' );
+		wp_register_style( 'jarallax', ELEMENTIVE_URL . 'frontend/vendors/jarallax/jarallax.css', '1.11.0', 'all' );
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/elementive-public.css', array(), $this->version, 'all' );
 
@@ -106,6 +107,9 @@ class Elementive_Public {
 		wp_register_script( 'swiper', ELEMENTIVE_URL . 'frontend/vendors/swiper/js/swiper.min.js', '', '4.5.0', true );
 		wp_register_script( 'jquery-justifiedGallery', ELEMENTIVE_URL . 'frontend/vendors/justifiedgallery/jquery.justifiedGallery.min.js', array( 'jquery' ), '3.7.0', true );
 		wp_register_script( 'svg-injector', ELEMENTIVE_URL . 'frontend/vendors/svg-injector.min.js', array( 'jquery' ), '1.1.3', true );
+		wp_register_script( 'jarallax', ELEMENTIVE_URL . 'frontend/vendors/jarallax/jarallax.min.js', '', '1.11.0', true );
+		wp_register_script( 'jarallax-video', ELEMENTIVE_URL . 'frontend/vendors/jarallax/jarallax-video.min.js', '', '1.11.0', true );
+		wp_register_script( 'jarallax-element', ELEMENTIVE_URL . 'frontend/vendors/jarallax/jarallax-element.min.js', '', '1.11.0', true );
 
 		wp_enqueue_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', false );
 		wp_enqueue_script( 'typewriterjs', ELEMENTIVE_URL . 'frontend/vendors/typewriterjs/core.js', '', '2.7.1', false );

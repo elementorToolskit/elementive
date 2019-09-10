@@ -28,6 +28,18 @@ Author URI:      https://dimative.com/
             
         },
 
+        /**
+         * Jarallax Init.
+         */
+        run_jarallax: function() {
+            var el = $('.jarallax');
+            if ( el.length ) {
+                el.jarallax({
+                    speed: 1
+                });
+            }
+        },
+
         /** Add span tag into all words */
         run_lettering_chars: function() {
             var el = $('.elementive-text-content');
@@ -193,12 +205,14 @@ Author URI:      https://dimative.com/
         elementive_starter.run_justified_gallery();
         elementive_starter.reviews();
         elementive_starter.run_svg_shape();
+        elementive_starter.run_jarallax();
     });
 
     if ( window.elementorFrontend ) {
         $( window ).on( 'elementor/frontend/init', function() {
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-justified-gallery.default', elementive_starter.run_justified_gallery );
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-icon-box.default', elementive_starter.run_jarallax );
             elementorFrontend.hooks.addAction(
                 'panel/open_editor/widget/elementive-justified-gallery',
                 function( panel, model, view ) {
