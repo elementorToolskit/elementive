@@ -78,6 +78,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
+     * Tilt Effect.
+     */
+    run_tilt_js: function run_tilt_js() {
+      var tilt = $('.run-tilt-js');
+
+      if (tilt.length) {
+        tilt.tilt({
+          easing: 'cubic-bezier(.03,.98,.52,.99)'
+        });
+      }
+    },
+
+    /**
+     * SVG Icon Animation.
+     */
+    run_svg_vivus: function run_svg_vivus() {
+      // Get your HTMLCollection of SVG to animate
+      var svg = document.querySelectorAll(".run-vivus svg"); // Go across them to create a Vivus instance
+      // with each of them
+
+      for (var i = svg.length - 1; i >= 0; i--) {
+        new Vivus(svg[i], {
+          duration: 100,
+          onReady: function onReady(myVivus) {
+            // `el` property is the SVG element
+            myVivus.el.classList.add("show-svg");
+          }
+        });
+      }
+    },
+
+    /**
      * SVG Shape
      */
     run_svg_shape: function run_svg_shape() {
@@ -195,12 +227,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   };
   $(document).ready(function () {
     elementive_starter.run_lettering_chars();
+    elementive_starter.run_svg_vivus();
   });
   $(window).on('load', function () {
     elementive_starter.run_justified_gallery();
     elementive_starter.reviews();
     elementive_starter.run_svg_shape();
     elementive_starter.run_jarallax();
+    elementive_starter.run_tilt_js();
   });
 
   if (window.elementorFrontend) {
@@ -208,8 +242,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-text.default', elementive_starter.run_lettering_chars);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-justified-gallery.default', elementive_starter.run_justified_gallery);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-icon-box.default', elementive_starter.run_jarallax);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-icon-box.default', elementive_starter.run_svg_vivus);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-icon-box.default', elementive_starter.run_tilt_js);
       elementorFrontend.hooks.addAction('panel/open_editor/widget/elementive-justified-gallery', function (panel, model, view) {
-        console.log('fjkdjafkljdklsaf');
+        console.log('toch hook ok');
       });
       console.log('Elementor Init Works.');
     });
