@@ -16,8 +16,32 @@
                     }
                 }
             }
+
+            .elementive-icon-diameter {
+                transition: all .3s ease-in-out;
+
+                .elementive-icon-wrapper {
+                    margin: 0 auto;
+                }
+            }
         }
+
+        &.uk-text-left .elementive-icon-box-icon .elementive-icon-diameter svg {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        &.uk-text-right .elementive-icon-box-icon .elementive-icon-diameter svg {
+            margin-right: 0;
+            margin-left: auto;
+        }
+
         .elementive-icon-box-content {
+            .elementive-icon-box-heading,
+            .elementive-icon-box-description,
+            .elementive-icon-box-link {
+                transition: all .3s ease-in-out;
+            }
             p {
                 &:last-child {
                     margin-bottom: 0;

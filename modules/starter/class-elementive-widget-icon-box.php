@@ -67,7 +67,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Icon Box', 'elementive' );
+		return __( 'Icon Box Advanced', 'elementive' );
 	}
 
 	/**
@@ -145,6 +145,184 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			'section_content',
 			[
 				'label' => __( 'Content', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'icon',
+			[
+				'label'   => __( 'Icon', 'elementive' ),
+				'type'    => Controls_Manager::ICONS,
+				'default' => [
+					'value'   => 'fas fa-star',
+					'library' => 'solid',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_font_size',
+			[
+				'label'           => __( 'Icon font size', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => [ 'px', '%' ],
+				'range'           => [
+					'px' => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'desktop_default' => [
+					'size' => 40,
+					'unit' => 'px',
+				],
+				'tablet_default'  => [
+					'size' => 40,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 40,
+					'unit' => 'px',
+				],
+				'condition'       => [
+					'icon[library]!' => 'svg',
+				],
+				'selectors'       => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_width',
+			[
+				'label'           => __( 'Icon width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => [ 'px' ],
+				'range'           => [
+					'px' => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					],
+				],
+				'devices'         => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'size' => 40,
+					'unit' => 'px',
+				],
+				'tablet_default'  => [
+					'size' => 40,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 40,
+					'unit' => 'px',
+				],
+				'condition'       => [
+					'icon[library]' => 'svg',
+				],
+				'selectors'       => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_animation',
+			[
+				'label'        => __( 'Stroke animation', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+				'condition'    => [
+					'icon[library]' => 'svg',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_color_reset',
+			[
+				'label'        => __( 'Use text color', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+				'condition'    => [
+					'icon[library]' => 'svg',
+				],
+			]
+		);
+
+		$this->add_control(
+			'title',
+			[
+				'label'       => __( 'Title', 'elementive' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => __( 'Default title', 'elementive' ),
+				'placeholder' => __( 'Type your title here', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'description',
+			[
+				'label'       => __( 'Description', 'elementive' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'rows'        => 10,
+				'default'     => __( 'Default description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.​', 'elementive' ),
+				'placeholder' => __( 'Type your description here', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'link',
+			[
+				'label'         => __( 'Link', 'elementive' ),
+				'type'          => Controls_Manager::URL,
+				'placeholder'   => __( 'https://your-link.com', 'elementive' ),
+				'show_external' => true,
+				'default'       => [
+					'url'         => '',
+					'is_external' => true,
+					'nofollow'    => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'link_text',
+			[
+				'label'   => __( 'Link text', 'elementive' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => __( 'Learn more', 'elementive' ),
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_design',
+			[
+				'label' => __( 'Design', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'icon_design_heading',
+			[
+				'label'     => __( 'Icon Design', 'elementive' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -325,79 +503,205 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		);
 
 		$this->add_control(
-			'icon',
+			'icon_diameter',
 			[
-				'label'   => __( 'Icon', 'elementive' ),
-				'type'    => Controls_Manager::ICONS,
-				'default' => [
-					'value'   => 'fas fa-star',
-					'library' => 'solid',
+				'label'        => __( 'Enable background', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_diameter_width',
+			[
+				'label'           => __( 'Diameter', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => [ 'px' ],
+				'range'           => [
+					'px' => [
+						'min'  => 30,
+						'max'  => 200,
+						'step' => 1,
+					],
+				],
+				'devices'         => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'size' => 50,
+					'unit' => 'px',
+				],
+				'condition'       => [
+					'icon_diameter' => 'yes',
+				],
+				'selectors'       => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-diameter' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
 		$this->add_responsive_control(
-			'icon_width',
+			'icon_radius',
 			[
-				'label'           => __( 'Icon width', 'elementive' ),
-				'type'            => Controls_Manager::SLIDER,
-				'size_units'      => [ 'px' ],
-				'range'           => [
+				'label'          => __( 'Border radius', 'elementive' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => [ 'px' ],
+				'range'          => [
 					'px' => [
 						'min'  => 0,
 						'max'  => 100,
 						'step' => 1,
 					],
 				],
-				'devices'         => [ 'desktop', 'tablet', 'mobile' ],
-				'desktop_default' => [
-					'size' => 40,
-					'unit' => 'px',
+				'devices'        => [ 'desktop', 'tablet', 'mobile' ],
+				'condition'      => [
+					'icon_diameter' => 'yes',
 				],
-				'tablet_default'  => [
-					'size' => 40,
-					'unit' => 'px',
-				],
-				'mobile_default'  => [
-					'size' => 40,
-					'unit' => 'px',
-				],
-				'condition'       => [
-					'icon[library]' => 'svg',
-				],
-				'selectors'       => [
-					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+				'selectors'      => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-diameter' => 'border-radius: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
-		$this->add_control(
-			'icon_animation',
+		$this->start_controls_tabs(
+			'icon_tabs'
+		);
+
+		$this->start_controls_tab(
+			'icon_normal_tab',
 			[
-				'label'        => __( 'Stroke animation', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-				'condition'    => [
-					'icon[library]' => 'svg',
-				],
+				'label' => __( 'Normal', 'elementive' ),
 			]
 		);
 
 		$this->add_control(
-			'icon_color_reset',
+			'icon_color',
 			[
-				'label'        => __( 'Use text color', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-				'condition'    => [
-					'icon[library]' => 'svg',
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
 				],
+				'selectors' => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-diameter' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'      => 'icon_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => [
+					'icon_diameter' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box .elementive-icon-diameter',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'icon_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => [ 'classic', 'gradient' ],
+				'condition' => [
+					'icon_diameter' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box .elementive-icon-diameter',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'      => 'icon_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => [
+					'icon_diameter' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box .elementive-icon-diameter',
+				'separator' => 'before',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'icon_hover_tab',
+			[
+				'label' => __( 'Hover', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'icon_color_hover',
+			[
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}}  .elementive-icon-box:hover .elementive-icon-diameter' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'      => 'icon_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => [
+					'icon_diameter' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-diameter',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'icon_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => [ 'classic', 'gradient' ],
+				'condition' => [
+					'icon_diameter' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-diameter .icon-background-hover',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'      => 'icon_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => [
+					'icon_diameter' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-diameter',
+				'separator' => 'before',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'heading_design_heading',
+			[
+				'label'     => __( 'Heading Design', 'elementive' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -418,48 +722,342 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'title',
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
 			[
-				'label'       => __( 'Title', 'elementive' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'Default title', 'elementive' ),
-				'placeholder' => __( 'Type your title here', 'elementive' ),
+				'name'     => 'heading_typography',
+				'label'    => __( 'Typography', 'elementive' ),
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-heading',
+			]
+		);
+
+		$this->start_controls_tabs(
+			'heading_tabs'
+		);
+
+		$this->start_controls_tab(
+			'heading_normal_tab',
+			[
+				'label' => __( 'Normal', 'elementive' ),
 			]
 		);
 
 		$this->add_control(
-			'description',
+			'heading_color',
 			[
-				'label'       => __( 'Description', 'elementive' ),
-				'type'        => Controls_Manager::TEXTAREA,
-				'rows'        => 10,
-				'default'     => __( 'Default description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.​', 'elementive' ),
-				'placeholder' => __( 'Type your description here', 'elementive' ),
-			]
-		);
-
-		$this->add_control(
-			'link',
-			[
-				'label'         => __( 'Link', 'elementive' ),
-				'type'          => Controls_Manager::URL,
-				'placeholder'   => __( 'https://your-link.com', 'elementive' ),
-				'show_external' => true,
-				'default'       => [
-					'url'         => '',
-					'is_external' => true,
-					'nofollow'    => true,
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementive-icon-box-content .elementive-icon-box-heading' => 'color: {{VALUE}}',
 				],
 			]
 		);
 
-		$this->add_control(
-			'link_text',
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'heading_hover_tab',
 			[
-				'label'   => __( 'Link text', 'elementive' ),
-				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Learn more', 'elementive' ),
+				'label' => __( 'Hover', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'heading_color_hover',
+			[
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-box-content .elementive-icon-box-heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'description_design_heading',
+			[
+				'label'     => __( 'Description Design', 'elementive' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'description_typography',
+				'label'    => __( 'Typography', 'elementive' ),
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description',
+			]
+		);
+
+		$this->start_controls_tabs(
+			'description_tabs'
+		);
+
+		$this->start_controls_tab(
+			'description_normal_tab',
+			[
+				'label' => __( 'Normal', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'description_color',
+			[
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementive-icon-box-content .elementive-icon-box-description' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'description_hover_tab',
+			[
+				'label' => __( 'Hover', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'description_color_hover',
+			[
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-box-content .elementive-icon-box-description' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'link_design_heading',
+			[
+				'label'     => __( 'Link Button Design', 'elementive' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'link_typography',
+				'label'    => __( 'Link typography', 'elementive' ),
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-link',
+			]
+		);
+
+		$this->add_control(
+			'link_background_enable',
+			[
+				'label'        => __( 'Enable background', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			]
+		);
+
+		$this->add_responsive_control(
+			'link_padding',
+			[
+				'label'      => __( 'Padding', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'condition'      => [
+					'link_background_enable' => 'yes',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-link' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'link_radius',
+			[
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'condition'      => [
+					'link_background_enable' => 'yes',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-link' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->start_controls_tabs(
+			'link_tabs'
+		);
+
+		$this->start_controls_tab(
+			'link_normal_tab',
+			[
+				'label' => __( 'Normal', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'link_color',
+			[
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-link' => 'color: {{VALUE}} !important;',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'      => 'link_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => [
+					'link_background_enable' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-link',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'link_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => [ 'classic', 'gradient' ],
+				'condition' => [
+					'link_background_enable' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-link',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'      => 'link_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => [
+					'link_background_enable' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-link',
+				'separator' => 'before',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'link_hover_tab',
+			[
+				'label' => __( 'Hover', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'link_color_hover',
+			[
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}}  .elementive-icon-box:hover .elementive-icon-box-link' => 'color: {{VALUE}} !important',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'      => 'link_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => [
+					'link_background_enable' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-box-link',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'link_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => [ 'classic', 'gradient' ],
+				'condition' => [
+					'link_background_enable' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-box-link',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'      => 'link_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => [
+					'link_background_enable' => 'yes',
+				],
+				'selector'  => '{{WRAPPER}} .elementive-icon-box:hover .elementive-icon-box-link',
+				'separator' => 'before',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'box_design_heading',
+			[
+				'label'     => __( 'Icon Box Design', 'elementive' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -483,19 +1081,6 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
 					'{{WRAPPER}} .elementive-icon-box' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'margin',
-			[
-				'label'      => __( 'Margin', 'elementive' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'selectors'  => [
-					'{{WRAPPER}} .elementive-icon-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-hover' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -597,8 +1182,50 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 					'unit' => '%',
 					'size' => 0.7,
 				],
-				'condition'  => [
-					'background_overlay!' => 'none',
+				'conditions' => [
+					'terms' => [
+						[
+							'relation' => 'or',
+							'terms'    => [
+								[
+									'terms' => [
+										[
+											'name'  => 'background_background',
+											'value' => 'classic',
+										],
+										[
+											'name'     => 'background_image[url]',
+											'operator' => '!=',
+											'value'    => '',
+										],
+										[
+											'name'     => 'background_overlay',
+											'operator' => '!=',
+											'value'    => 'none',
+										],
+									],
+								],
+								[
+									'terms' => [
+										[
+											'name'  => 'background_background',
+											'value' => 'video',
+										],
+										[
+											'name'     => 'background_video_link',
+											'operator' => '!=',
+											'value'    => '',
+										],
+										[
+											'name'     => 'background_overlay',
+											'operator' => '!=',
+											'value'    => 'none',
+										],
+									],
+								],
+							],
+						],
+					],
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-overlay' => 'opacity: {{SIZE}};',
@@ -630,7 +1257,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			[
 				'name'     => 'border_hover',
 				'label'    => __( 'Border', 'elementive' ),
-				'selector' => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-hover',
+				'selector' => '{{WRAPPER}} .elementive-icon-box:hover',
 			]
 		);
 
@@ -711,8 +1338,50 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 					'unit' => '%',
 					'size' => 0.7,
 				],
-				'condition'  => [
-					'background_overlay_hover!' => 'none',
+				'conditions' => [
+					'terms' => [
+						[
+							'relation' => 'or',
+							'terms'    => [
+								[
+									'terms' => [
+										[
+											'name'  => 'background_hover_background',
+											'value' => 'classic',
+										],
+										[
+											'name'     => 'background_hover_image[url]',
+											'operator' => '!=',
+											'value'    => '',
+										],
+										[
+											'name'     => 'background_overlay_hover',
+											'operator' => '!=',
+											'value'    => 'none',
+										],
+									],
+								],
+								[
+									'terms' => [
+										[
+											'name'  => 'background_hover_background',
+											'value' => 'video',
+										],
+										[
+											'name'     => 'background_hover_video_link',
+											'operator' => '!=',
+											'value'    => '',
+										],
+										[
+											'name'     => 'background_overlay_hover',
+											'operator' => '!=',
+											'value'    => 'none',
+										],
+									],
+								],
+							],
+						],
+					],
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-hover .elementive-icon-box-hover-overlay' => 'opacity: {{SIZE}};',
@@ -739,7 +1408,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Tilt Effect', 'elementive' ),
+				'label' => __( 'Tilt', 'elementive' ),
 			]
 		);
 
@@ -935,70 +1604,6 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_style',
-			[
-				'label' => __( 'Icon', 'elementive' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->start_controls_tabs(
-			'icon_tabs'
-		);
-
-		$this->start_controls_tab(
-			'icon_normal_tab',
-			[
-				'label' => __( 'Normal', 'elementive' ),
-			]
-		);
-
-		$this->add_control(
-			'icon_color',
-			[
-				'label'     => __( 'Color', 'elementive' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .wrapper' => 'color: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'icon_hover_tab',
-			[
-				'label' => __( 'Hover', 'elementive' ),
-			]
-		);
-
-		$this->add_control(
-			'icon_color_hover',
-			[
-				'label'     => __( 'Color', 'elementive' ),
-				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .wrapper' => 'color: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
-
-		$this->end_controls_section();
 	}
 
 	/**
@@ -1016,6 +1621,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		$classes               = [ 'elementive-icon-box', 'uk-width-1-1', 'uk-position-relative', 'uk-transition-toggle', 'uk-inline-clip' ];
 		$classes_icon          = [ 'elementive-icon-box-icon', 'uk-position-relative', 'uk-position-z-index' ];
 		$classes_content       = [ 'elementive-icon-box-content', 'uk-position-relative', 'uk-position-z-index' ];
+		$classes_diameter      = [ 'elementive-icon-diameter', 'uk-position-relative', 'uk-overflow-hidden' ];
 		$icon                  = $settings['icon'];
 		$target                = $settings['link']['is_external'] ? ' target="_blank"' : '';
 		$nofollow              = $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
@@ -1063,6 +1669,14 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			$classes_icon[] = 'uk-svg';
 		}
 
+		if ( 'svg' === $icon['library'] && 'yes' === $settings['icon_diameter'] ) {
+			$classes_diameter[] = 'uk-flex-inline';
+		}
+		if ( 'svg' !== $icon['library'] && 'yes' === $settings['icon_diameter'] ) {
+			$classes_diameter[] = 'uk-display-inline-block';
+		}
+
+		// Tilt effect attrs.
 		if ( 'yes' === $settings['tilt_transition'] ) {
 			$tilt_transition       = 'true';
 			$tilt_transition_speed = $settings['tilt_speed']['size'];
@@ -1077,9 +1691,10 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			$tilt_glare_value = $settings['tilt_glare_value']['size'];
 		}
 
-		$classes         = array_map( 'esc_attr', $classes );
-		$classes_icon    = array_map( 'esc_attr', $classes_icon );
-		$classes_content = array_map( 'esc_attr', $classes_content );
+		$classes          = array_map( 'esc_attr', $classes );
+		$classes_icon     = array_map( 'esc_attr', $classes_icon );
+		$classes_diameter = array_map( 'esc_attr', $classes_diameter );
+		$classes_content  = array_map( 'esc_attr', $classes_content );
 
 		$this->add_render_attribute(
 			'wrapper',
@@ -1106,6 +1721,13 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		);
 
 		$this->add_render_attribute(
+			'icon_diameter',
+			[
+				'class' => esc_attr( join( ' ', $classes_diameter ) ),
+			]
+		);
+
+		$this->add_render_attribute(
 			'content',
 			[
 				'class' => esc_attr( join( ' ', $classes_content ) ),
@@ -1115,15 +1737,26 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		?>
 		<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), [ 'class' => [] ] ); ?>>
 			<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon' ), [ 'class' => [] ] ); ?>>
-				<?php Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
+
+				<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon_diameter' ), [ 'class' => [] ] ); ?>>
+					<div class="elementive-icon-wrapper uk-position-relative uk-position-z-index uk-align-center">
+						<?php Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
+					</div>
+					<div class="icon-background-hover uk-position-cover uk-transition-fade"></div>
+				</div>
+
 			</div>
 			<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), [ 'class' => [] ] ); ?>>
-				<<?php echo esc_attr( $settings['tag'] ); ?>><?php echo esc_html( $settings['title'] ); ?></<?php echo esc_attr( $settings['tag'] ); ?>>
+				<?php
+				if ( $settings['title'] ) {
+					echo '<' . esc_attr( $settings['tag'] ) . ' class="elementive-icon-box-heading">' . esc_html( $settings['title'] ) . '</' . esc_attr( $settings['tag'] ) . '>';
+				}
+				?>
 				<?php
 				if ( $settings['description'] ) {
-					echo '<p>' . esc_html( $settings['description'] ) . '</p>';
+					echo '<p class="elementive-icon-box-description">' . esc_html( $settings['description'] ) . '</p>';
 					if ( $settings['link']['url'] && $settings['link_text'] ) {
-						echo '<a class="uk-link-reset" href="' . esc_url( $settings['link']['url'] ) . '" ' . wp_kses( $target . $nofollow, $allowed_html_link ) . '>' . esc_html( $settings['link_text'] ) . '</a>';
+						echo '<a class="uk-link-reset elementive-icon-box-link" href="' . esc_url( $settings['link']['url'] ) . '" ' . wp_kses( $target . $nofollow, $allowed_html_link ) . '>' . esc_html( $settings['link_text'] ) . '</a>';
 					} // End link and link_text exists.
 				} // End Description exists.
 				?>
