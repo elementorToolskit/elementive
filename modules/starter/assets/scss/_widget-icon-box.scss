@@ -1,4 +1,5 @@
-.elementor-widget-elementive-icon-box {
+.elementor-widget-elementive-icon-box,
+.elementor-widget-elementive-icon-box-carousel {
     .elementive-icon-box {
         transition: all .3s ease-in-out;
         .elementive-icon-box-icon {
@@ -42,9 +43,26 @@
             .elementive-icon-box-link {
                 transition: all .3s ease-in-out;
             }
+
+            .elementive-icon-box-description {
+                span {
+                    display: inline-block;
+                }
+            }
             p {
                 &:last-child {
                     margin-bottom: 0;
+                }
+            }
+        }
+
+        &.run-tilt-js {
+            &.tilt-parallax {
+                transform-style: preserve-3d;
+
+                .elementive-icon-box-icon,
+                .elementive-icon-box-content {
+                    transform: translate3d(0,0,60px);
                 }
             }
         }

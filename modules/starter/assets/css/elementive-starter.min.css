@@ -123,57 +123,60 @@
 .elementor-widget-elementive-justified-gallery img{position:absolute}
 .elementor-widget-elementive-justified-gallery .justified-gallery>.entry-visible>img,.elementor-widget-elementive-justified-gallery .justified-gallery>.entry-visible>a>img{-webkit-transition:.3s ease-out;transition:.3s ease-out;-webkit-transition-property:opacity,-webkit-transform,-webkit-filter;transition-property:opacity,-webkit-transform,-webkit-filter;transition-property:opacity,transform,filter;transition-property:opacity,transform,filter,-webkit-transform,-webkit-filter}
 .elementor-widget-elementive-justified-gallery .jg-caption{font-size:10px}
-.elementor-widget-elementive-icon-box .elementive-icon-box{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
-.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon.run-vivus svg{visibility:hidden;opacity:0;max-width:100%;height:auto;-webkit-transition:all .1s ease-in-out;transition:all .1s ease-in-out}
-.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon.run-vivus svg.show-svg{visibility:visible;opacity:1}
-.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
-.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter .elementive-icon-wrapper{margin:0 auto}
-.elementor-widget-elementive-icon-box .elementive-icon-box.uk-text-left .elementive-icon-box-icon .elementive-icon-diameter svg{margin-left:0;margin-right:auto}
-.elementor-widget-elementive-icon-box .elementive-icon-box.uk-text-right .elementive-icon-box-icon .elementive-icon-diameter svg{margin-right:0;margin-left:auto}
-.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-heading,.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description,.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-link{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
-.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content p:last-child{margin-bottom:0}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#40bfbb}
-5%{color:#b9bf40}
-10%{color:#4046bf}
-15%{color:#bfbf40}
-20%{color:#40a6bf}
-25%{color:#bfb540}
-30%{color:#bf4d40}
-35%{color:#40bf91}
-40%{color:#bf9340}
-45%{color:#bf6840}
-50%{color:#40bf82}
-55%{color:#bf4075}
-60%{color:#404fbf}
-65%{color:#bf8a40}
-70%{color:#40a2bf}
-75%{color:#acbf40}
-80%{color:#7940bf}
-85%{color:#40bf44}
-90%{color:#bf4062}
-95%{color:#bf4097}
-100%{color:#6440bf}
-}@keyframes anim-text-flow-keys{0{color:#40bfbb}
-5%{color:#b9bf40}
-10%{color:#4046bf}
-15%{color:#bfbf40}
-20%{color:#40a6bf}
-25%{color:#bfb540}
-30%{color:#bf4d40}
-35%{color:#40bf91}
-40%{color:#bf9340}
-45%{color:#bf6840}
-50%{color:#40bf82}
-55%{color:#bf4075}
-60%{color:#404fbf}
-65%{color:#bf8a40}
-70%{color:#40a2bf}
-75%{color:#acbf40}
-80%{color:#7940bf}
-85%{color:#40bf44}
-90%{color:#bf4062}
-95%{color:#bf4097}
-100%{color:#6440bf}
+.elementor-widget-elementive-icon-box .elementive-icon-box,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon.run-vivus svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon.run-vivus svg{visibility:hidden;opacity:0;max-width:100%;height:auto;-webkit-transition:all .1s ease-in-out;transition:all .1s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon.run-vivus svg.show-svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon.run-vivus svg.show-svg{visibility:visible;opacity:1}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter .elementive-icon-wrapper,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter .elementive-icon-wrapper{margin:0 auto}
+.elementor-widget-elementive-icon-box .elementive-icon-box.uk-text-left .elementive-icon-box-icon .elementive-icon-diameter svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.uk-text-left .elementive-icon-box-icon .elementive-icon-diameter svg{margin-left:0;margin-right:auto}
+.elementor-widget-elementive-icon-box .elementive-icon-box.uk-text-right .elementive-icon-box-icon .elementive-icon-diameter svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.uk-text-right .elementive-icon-box-icon .elementive-icon-diameter svg{margin-right:0;margin-left:auto}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-heading,.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description,.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-link,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-heading,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-link{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description span,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description span{display:inline-block}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content p:last-child,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content p:last-child{margin-bottom:0}
+.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
+.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content{-webkit-transform:translate3d(0,0,60px);transform:translate3d(0,0,60px)}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#bf40aa}
+5%{color:#4053bf}
+10%{color:#91bf40}
+15%{color:#bf40bd}
+20%{color:#40bf7b}
+25%{color:#6a40bf}
+30%{color:#407dbf}
+35%{color:#40bf80}
+40%{color:#bf40a8}
+45%{color:#40bfaa}
+50%{color:#bf9b40}
+55%{color:#4840bf}
+60%{color:#40bbbf}
+65%{color:#bf40b3}
+70%{color:#aebf40}
+75%{color:#bf6240}
+80%{color:#4dbf40}
+85%{color:#6640bf}
+90%{color:#bf5740}
+95%{color:#6040bf}
+100%{color:#bf4f40}
+}@keyframes anim-text-flow-keys{0{color:#bf40aa}
+5%{color:#4053bf}
+10%{color:#91bf40}
+15%{color:#bf40bd}
+20%{color:#40bf7b}
+25%{color:#6a40bf}
+30%{color:#407dbf}
+35%{color:#40bf80}
+40%{color:#bf40a8}
+45%{color:#40bfaa}
+50%{color:#bf9b40}
+55%{color:#4840bf}
+60%{color:#40bbbf}
+65%{color:#bf40b3}
+70%{color:#aebf40}
+75%{color:#bf6240}
+80%{color:#4dbf40}
+85%{color:#6640bf}
+90%{color:#bf5740}
+95%{color:#6040bf}
+100%{color:#bf4f40}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

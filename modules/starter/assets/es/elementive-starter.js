@@ -231,6 +231,104 @@ Author URI:      https://dimative.com/
             }
         },
 
+        run_swiper_slider: function() {
+
+            var carousel = '[data-carousel="swiper"]';
+            if ( carousel.length ) {
+                $('[data-carousel="swiper"]').each( function() {
+
+                    var container		= $(this).find('[data-swiper="container"]').attr('id');
+                    var pagination		= $(this).find('[data-swiper="pagination"]').attr('id');
+                    var prev		= $(this).find('[data-swiper="prev"]').attr('id');
+                    var next		= $(this).find('[data-swiper="next"]').attr('id');
+                    var items		= $(this).data('items');
+                    var autoplay		= $(this).data('autoplay');
+                    var iSlide		= $(this).data('initial');
+                    var loop		= $(this).data('loop');
+                    var center		= $(this).data('center');
+                    var effect		= $(this).data('effect');
+                    var direction		= $(this).data('direction');
+                    var space		= $(this).data('space');
+                
+                    // Configuration
+                    var conf 	= {};
+                
+                    if ( items ) {
+                        conf.slidesPerView = items
+                    };
+                    if ( autoplay ) {
+                        conf.autoplay = autoplay
+                    };
+                    if ( iSlide ) {
+                        conf.initialSlide = iSlide
+                    };
+                    if ( center ) {
+                        conf.centeredSlides = center
+                    };
+                    if ( loop ) {
+                        conf.loop = loop
+                    };
+                    if ( effect ) {
+                        conf.effect = effect
+                    };
+                    if ( direction ) {
+                        conf.direction = direction
+                    };
+                    if ( prev ) {
+                        conf.prevButton = '#' + prev
+                    };
+                    if ( next ) {
+                        conf.nextButton = '#' + next
+                    };
+                    if ( pagination ) {
+                        conf.pagination = '#' + pagination,
+                        conf.paginationClickable = true
+                    };
+                    if ( space ) {
+                        conf.spaceBetween = space;
+                    }
+                
+                    // Animate Function
+                    function animated_swiper(selector, init) {
+                        var animated = function animated() {
+                            $(selector + ' [data-animate]').each(function(){
+                                var anim = $(this).data('animate');
+                                var delay = $(this).data('delay');
+                                var duration = $(this).data('duration');
+                
+                                $(this).removeClass('anim' + anim)
+                                .addClass(anim + ' animated')
+                                .css({
+                                    webkitAnimationDelay: delay,
+                                    animationDelay: delay,
+                                    webkitAnimationDuration: duration,
+                                    animationDuration: duration
+                                })
+                                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                                    $(this).removeClass(anim + ' animated');
+                                });
+                            });
+                        };
+                        animated();
+                        // Make animated when slide change
+                        init.on('SlideChangeStart', function() {
+                            $(initID + ' [data-animate]').removeClass('animated');
+                        });
+                        init.on('SlideChangeEnd', animated);
+                    };
+                
+                    // Initialization
+                    if (container) {
+                        var initID = '#' + container;
+                        var init = new Swiper( initID, conf);
+                        animated_swiper(initID, init);
+                    };
+                });
+            }
+
+            
+        },
+
     }  
 
     $(document).ready(function () {
@@ -239,6 +337,7 @@ Author URI:      https://dimative.com/
     });
     
     $(window).on('load', function() {
+        elementive_starter.run_swiper_slider();
         elementive_starter.run_justified_gallery();
         elementive_starter.reviews();
         elementive_starter.run_svg_shape();
@@ -253,6 +352,7 @@ Author URI:      https://dimative.com/
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-icon-box.default', elementive_starter.run_jarallax );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-icon-box.default', elementive_starter.run_svg_vivus );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-icon-box.default', elementive_starter.run_tilt_js );
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-icon-box-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction(
                 'panel/open_editor/widget/elementive-justified-gallery',
                 function( panel, model, view ) {

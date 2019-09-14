@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Elementive_Widget_Icon_Box extends Widget_Base {
+class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 
 	/**
 	 * Content template disable.
@@ -54,7 +54,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'elementive-icon-box';
+		return 'elementive-icon-box-carousel';
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Icon Box Advanced', 'elementive' );
+		return __( 'Icon Box Carousel', 'elementive' );
 	}
 
 	/**
@@ -113,7 +113,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'uikit', 'jarallax', 'jarallax-video', 'vivus', 'jquery-tilt' ];
+		return [ 'uikit', 'jarallax', 'jarallax-video', 'vivus', 'jquery-tilt', 'swiper' ];
 	}
 
 	/**
@@ -128,7 +128,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 	 * @return array Element styles dependencies.
 	 */
 	public function get_style_depends() {
-		return [ 'uikit' ];
+		return [ 'uikit', 'swiper' ];
 	}
 
 	/**
@@ -148,7 +148,9 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$repeater = new Repeater();
+
+		$repeater->add_control(
 			'icon',
 			[
 				'label'   => __( 'Icon', 'elementive' ),
@@ -160,7 +162,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
+		$repeater->add_responsive_control(
 			'icon_font_size',
 			[
 				'label'           => __( 'Icon font size', 'elementive' ),
@@ -198,7 +200,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
+		$repeater->add_responsive_control(
 			'icon_width',
 			[
 				'label'           => __( 'Icon width', 'elementive' ),
@@ -233,7 +235,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'icon_animation',
 			[
 				'label'        => __( 'Stroke animation', 'elementive' ),
@@ -248,7 +250,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'icon_color_reset',
 			[
 				'label'        => __( 'Disable SVG color', 'elementive' ),
@@ -263,7 +265,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'title',
 			[
 				'label'       => __( 'Title', 'elementive' ),
@@ -273,7 +275,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'description',
 			[
 				'label'       => __( 'Description', 'elementive' ),
@@ -284,7 +286,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'link',
 			[
 				'label'         => __( 'Link', 'elementive' ),
@@ -299,12 +301,23 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'link_text',
 			[
 				'label'   => __( 'Link text', 'elementive' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => __( 'Learn more', 'elementive' ),
+			]
+		);
+
+		$this->add_control(
+			'icon_boxes',
+			[
+				'label'       => __( 'Icon box list', 'elementive' ),
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater->get_controls(),
+				'default'     => [],
+				'title_field' => '{{{ title }}}',
 			]
 		);
 
@@ -1163,8 +1176,8 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'overlay_background_title',
 			[
-				'label' => __( 'Overlay background', 'elementive' ),
-				'type' => Controls_Manager::HEADING,
+				'label'     => __( 'Overlay background', 'elementive' ),
+				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
 		);
@@ -1749,13 +1762,13 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$classes               = [ 'elementive-icon-box', 'uk-width-1-1', 'uk-position-relative', 'uk-transition-toggle', 'uk-inline-clip' ];
-		$classes_icon          = [ 'elementive-icon-box-icon', 'uk-position-relative', 'uk-position-z-index' ];
-		$classes_content       = [ 'elementive-icon-box-content', 'uk-position-relative', 'uk-position-z-index' ];
-		$classes_diameter      = [ 'elementive-icon-diameter', 'uk-position-relative', 'uk-overflow-hidden' ];
-		$icon                  = $settings['icon'];
-		$target                = $settings['link']['is_external'] ? ' target="_blank"' : '';
-		$nofollow              = $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
+		$classes          = [ 'elementive-icon-box', 'uk-wdith-1-3@m', 'uk-position-relative', 'uk-transition-toggle', 'uk-inline-clip', 'swiper-slide' ];
+		$classes_icon     = [ 'elementive-icon-box-icon', 'uk-position-relative', 'uk-position-z-index' ];
+		$classes_content  = [ 'elementive-icon-box-content', 'uk-position-relative', 'uk-position-z-index' ];
+		$classes_diameter = [ 'elementive-icon-diameter', 'uk-position-relative', 'uk-overflow-hidden' ];
+		// $icon                  = $item['icon'];
+		// $target                = $item['link']['is_external'] ? ' target="_blank"' : '';
+		// $nofollow              = $item['link']['nofollow'] ? ' rel="nofollow"' : '';
 		$tilt_transition       = 'false';
 		$tilt_transition_speed = '300';
 		$tilt_reset            = 'false';
@@ -1791,12 +1804,13 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			$classes_content[] = 'uk-flex-first';
 		}
 
-		if ( 'svg' === $icon['library'] && 'yes' === $settings['icon_animation'] ) {
+		/*
+		if ( 'svg' === $icon['library'] && 'yes' === $item['icon_animation'] ) {
 			$classes_icon[] = 'run-vivus';
-			$classes_icon[] = $settings['icon_animation'];
+			$classes_icon[] = $item['icon_animation'];
 		}
 
-		if ( 'svg' === $icon['library'] && 'yes' === $settings['icon_color_reset'] ) {
+		if ( 'svg' === $icon['library'] && 'yes' === $item['icon_color_reset'] ) {
 			$classes_icon[] = 'uk-svg';
 		}
 
@@ -1805,7 +1819,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		}
 		if ( 'svg' !== $icon['library'] && 'yes' === $settings['icon_diameter'] ) {
 			$classes_diameter[] = 'uk-display-inline-block';
-		}
+		}*/
 
 		// Tilt effect attrs.
 		if ( 'yes' === $settings['tilt_transition'] ) {
@@ -1865,60 +1879,84 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			]
 		);
 
-		?>
-		<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), [ 'class' => [] ] ); ?>>
-			<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon' ), [ 'class' => [] ] ); ?>>
+		if ( $settings['icon_boxes'] ) {
+			?>
+			<div class="elementive-icon-box-carousel" data-carousel="swiper" data-autoplay="true" data-items="4" data-initial="3" data-space="30">
+				<div class="controls">
+		`          <a id="elementive_icon_box_carousel_prev_<?php echo esc_attr( $this->get_id() ); ?>" data-swiper="prev">
+						<i class="fa fa-angle-left"></i>
+					</a>
+					<a id="elementive_icon_box_carousel_next<?php echo esc_attr( $this->get_id() ); ?>" data-swiper="next">
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</div><!-- /.controls -->
+				<div id="elementive_icon_box_carousel_pagination_<?php echo esc_attr( $this->get_id() ); ?>"class="slider-pagination" data-swiper="pagination"></div><!-- /.slider-pagination -->
+				<div id="elementive_icon_box_carousel_<?php echo esc_attr( $this->get_id() ); ?>" class="swiper-container" data-swiper="container">
+					<div class="swiper-wrapper uk-flex">
+					<?php
+					foreach ( $settings['icon_boxes'] as $item ) {
 
-				<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon_diameter' ), [ 'class' => [] ] ); ?>>
-					<div class="elementive-icon-wrapper uk-position-relative uk-position-z-index uk-align-center">
-						<?php Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
+						?>
+						<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), [ 'class' => [] ] ); ?>>
+							<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon' ), [ 'class' => [] ] ); ?>>
+
+								<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon_diameter' ), [ 'class' => [] ] ); ?>>
+									<div class="elementive-icon-wrapper uk-position-relative uk-position-z-index uk-align-center">
+										<?php Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] ); ?>
+									</div>
+									<div class="icon-background-hover uk-position-cover uk-transition-fade"></div>
+								</div>
+
+							</div>
+							<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), [ 'class' => [] ] ); ?>>
+								<?php
+								if ( $item['title'] ) {
+									echo '<' . esc_attr( $settings['tag'] ) . ' class="elementive-icon-box-heading">' . esc_html( $item['title'] ) . '</' . esc_attr( $settings['tag'] ) . '>';
+								}
+								?>
+								<?php
+								if ( $item['description'] ) {
+									echo '<p class="elementive-icon-box-description run-text-animation">' . esc_html( $item['description'] ) . '</p>';
+									if ( $item['link']['url'] && $item['link_text'] ) {
+										echo '<a class="uk-link-reset elementive-icon-box-link" href="' . esc_url( $item['link']['url'] ) . '">' . esc_html( $item['link_text'] ) . '</a>';
+									} // End link and link_text exists.
+								} // End Description exists.
+								?>
+							</div>
+							<?php
+
+							// Background Video.
+							if ( 'video' === $settings['background_background'] && $settings['background_video_link'] ) {
+								Elementive_Helpers::elementive_video_background( $settings, 'background', [ 'uk-position-cover', 'uk-height-1-1', 'uk-width-1-1' ] );
+							}
+
+							// Overlay.
+							if ( ( 'yes' === $settings['background_overlay'] && 'classic' === $settings['background_background'] && '' !== $settings['background_image']['url'] ) || ( 'yes' !== $settings['background_overlay'] && 'video' === $settings['background_background'] && '' !== $settings['background_video_link'] ) ) {
+								echo '<div class="elementive-icon-box-overlay uk-position-cover ' . esc_attr( $settings['overlay_background_blend'] ) . '"></div>';
+							}
+							?>
+							<div class="elementive-icon-box-hover uk-position-cover uk-transition-fade">
+								<?php
+
+								// Background Video.
+								if ( 'video' === $settings['background_hover_background'] && $settings['background_hover_video_link'] ) {
+									Elementive_Helpers::elementive_video_background( $settings, 'background_hover', [ 'uk-position-cover', 'uk-height-1-1', 'uk-width-1-1' ] );
+								}
+
+								// Overlay.
+								if ( ( 'yes' === $settings['background_overlay_hover'] && 'classic' === $settings['background_hover_background'] && '' !== $settings['background_hover_image']['url'] ) || ( 'yes' === $settings['background_overlay_hover'] && 'video' === $settings['background_hover_background'] && '' !== $settings['background_hover_video_link'] ) ) {
+									echo '<div class="elementive-icon-box-hover-overlay uk-position-cover ' . esc_attr( $settings['overlay_background_blend_hover'] ) . '"></div>';
+								}
+								?>
+							</div>
+						</div>
+						<?php
+					}
+					?>
 					</div>
-					<div class="icon-background-hover uk-position-cover uk-transition-fade"></div>
 				</div>
-
-			</div>
-			<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), [ 'class' => [] ] ); ?>>
-				<?php
-				if ( $settings['title'] ) {
-					echo '<' . esc_attr( $settings['tag'] ) . ' class="elementive-icon-box-heading">' . esc_html( $settings['title'] ) . '</' . esc_attr( $settings['tag'] ) . '>';
-				}
-				?>
-				<?php
-				if ( $settings['description'] ) {
-					echo '<p class="elementive-icon-box-description run-text-animation">' . esc_html( $settings['description'] ) . '</p>';
-					if ( $settings['link']['url'] && $settings['link_text'] ) {
-						echo '<a class="uk-link-reset elementive-icon-box-link" href="' . esc_url( $settings['link']['url'] ) . '" ' . wp_kses( $target . $nofollow, $allowed_html_link ) . '>' . esc_html( $settings['link_text'] ) . '</a>';
-					} // End link and link_text exists.
-				} // End Description exists.
-				?>
 			</div>
 			<?php
-
-			// Background Video.
-			if ( 'video' === $settings['background_background'] && $settings['background_video_link'] ) {
-				Elementive_Helpers::elementive_video_background( $settings, 'background', [ 'uk-position-cover', 'uk-height-1-1', 'uk-width-1-1' ] );
-			}
-
-			// Overlay.
-			if ( ( 'yes' === $settings['background_overlay'] && 'classic' === $settings['background_background'] && '' !== $settings['background_image']['url'] ) || ( 'yes' !== $settings['background_overlay'] && 'video' === $settings['background_background'] && '' !== $settings['background_video_link'] ) ) {
-				echo '<div class="elementive-icon-box-overlay uk-position-cover ' . esc_attr( $settings['overlay_background_blend'] ) . '"></div>';
-			}
-			?>
-			<div class="elementive-icon-box-hover uk-position-cover uk-transition-fade">
-				<?php
-
-				// Background Video.
-				if ( 'video' === $settings['background_hover_background'] && $settings['background_hover_video_link'] ) {
-					Elementive_Helpers::elementive_video_background( $settings, 'background_hover', [ 'uk-position-cover', 'uk-height-1-1', 'uk-width-1-1' ] );
-				}
-
-				// Overlay.
-				if ( ( 'yes' === $settings['background_overlay_hover'] && 'classic' === $settings['background_hover_background'] && '' !== $settings['background_hover_image']['url'] ) || ( 'yes' === $settings['background_overlay_hover'] && 'video' === $settings['background_hover_background'] && '' !== $settings['background_hover_video_link'] ) ) {
-					echo '<div class="elementive-icon-box-hover-overlay uk-position-cover ' . esc_attr( $settings['overlay_background_blend_hover'] ) . '"></div>';
-				}
-				?>
-			</div>
-		</div>
-		<?php
+		}
 	}
 }
