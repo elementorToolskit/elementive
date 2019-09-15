@@ -1,0 +1,27 @@
+.elementive-carousel {
+    &.swiper-container {
+        
+        .swiper-wrapper {
+            visibility: hidden;
+        }
+
+        &.swiper-container-horizontal {
+            .swiper-wrapper {
+                visibility: visible;
+            }
+        }
+        
+        .swiper-slide {
+            width: 30%;
+            margin-right: 30px;
+            //opacity: 0;
+            //transform: translateX(30px);
+            transition: all .3s ease-in;
+
+            &.swiper-slide-visible {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+}
