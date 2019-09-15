@@ -100,7 +100,7 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'elementive-starter' ];
+		return array( 'elementive-starter' );
 	}
 
 	/**
@@ -115,7 +115,7 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'jquery-lettering', 'anime', 'swiper' ];
+		return array( 'jquery-lettering', 'anime', 'swiper' );
 	}
 
 
@@ -131,69 +131,69 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content',
-			[
+			array(
 				'label' => __( 'Content', 'elementive' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'text_before',
-			[
+			array(
 				'label'       => __( 'Text before', 'elementive' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'rows'        => 10,
 				'placeholder' => __( 'Type your text here', 'elementive' ),
 				'default'     => __( 'My favorite food is', 'elementive' ),
-			]
+			)
 		);
 
 		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'item',
-			[
+			array(
 				'label'       => __( 'Animated text', 'elementive' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => __( 'Your text', 'elementive' ),
 				'label_block' => true,
-			]
+			)
 		);
 
 		$this->add_control(
 			'strings',
-			[
+			array(
 				'label'       => __( 'Animated text', 'elementive' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
-				'default'     => [
-					[
+				'default'     => array(
+					array(
 						'item'   => __( 'Pizza', 'elementive' ),
-					],
-					[
+					),
+					array(
 						'item'   => __( 'Burger', 'elementive' ),
-					],
-				],
+					),
+				),
 				'title_field' => '{{{ item }}}',
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'text_after',
-			[
+			array(
 				'label'       => __( 'Text after', 'elementive' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'rows'        => 10,
 				'placeholder' => __( 'Type your text here', 'elementive' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'tag',
-			[
+			array(
 				'label'   => __( 'Title HTML Tag', 'elementive' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => [
+				'options' => array(
 					'h1'   => 'H1',
 					'h2'   => 'H2',
 					'h3'   => 'H3',
@@ -203,44 +203,44 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 					'div'  => 'div',
 					'span' => 'span',
 					'p'    => 'p',
-				],
+				),
 				'default' => 'h3',
-			]
+			)
 		);
 
 		$this->add_control(
 			'split',
-			[
+			array(
 				'label'     => __( 'Spilit', 'elementive' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'words',
-				'options'   => [
+				'options'   => array(
 					'chars' => __( 'Chars', 'elementive' ),
 					'words' => __( 'Words', 'elementive' ),
 					'lines' => __( 'Lines', 'elementive' ),
-				],
+				),
 				'separator' => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'animation',
-			[
+			array(
 				'label'     => __( 'Animations', 'elementive' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'typed',
-				'options'   => [
+				'options'   => array(
 					'hello' => __( 'First', 'elementive' ),
 					'fade'  => __( 'Fade', 'elementive' ),
 					'slide' => __( 'Slide', 'elementive' ),
-				],
+				),
 				'separator' => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'speed',
-			[
+			array(
 				'label'       => __( 'Animation speed', 'elementive' ),
 				'description' => __( 'Animation speed in milliseconds', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -249,12 +249,12 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 				'step'        => 10,
 				'default'     => 30,
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'delay',
-			[
+			array(
 				'label'       => __( 'Start delay', 'elementive' ),
 				'description' => __( 'Time before animation starts in milliseconds', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -263,12 +263,12 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 				'step'        => 10,
 				'default'     => 30,
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'duration',
-			[
+			array(
 				'label'       => __( 'Animation duration', 'elementive' ),
 				'description' => __( 'Animation duration in milliseconds', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -276,100 +276,100 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 				'max'         => 100,
 				'step'        => 1,
 				'default'     => 30,
-			]
+			)
 		);
 
 		$this->add_control(
 			'loop',
-			[
+			array(
 				'label'        => __( 'Loop', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'True', 'elementive' ),
 				'label_off'    => __( 'False', 'elementive' ),
 				'return_value' => 'true',
 				'default'      => 'true',
-			]
+			)
 		);
 
 		$this->add_control(
 			'loop_count',
-			[
+			array(
 				'label'      => __( 'Loop count', 'elementive' ),
 				'type'       => Controls_Manager::NUMBER,
 				'min'        => 1,
 				'max'        => 100,
 				'step'       => 1,
 				'default'    => 30,
-				'conditions' => [
-					'terms' => [
-						[
+				'conditions' => array(
+					'terms' => array(
+						array(
 							'name'     => 'loop',
 							'value'    => 'true',
-						],
-					],
-				],
+						),
+					),
+				),
 				'separator'  => 'after',
-			]
+			)
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			[
+			array(
 				'name'      => 'typography',
 				'label'     => __( 'Typography', 'elementive' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .elementive-widget-content',
 				'separator' => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'alignment',
-			[
+			array(
 				'label'   => __( 'Alignment', 'elementive' ),
 				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'uk-text-left' => [
+				'options' => array(
+					'uk-text-left' => array(
 						'title' => __( 'Left', 'elementive' ),
 						'icon'  => 'fa fa-align-left',
-					],
-					'uk-text-center' => [
+					),
+					'uk-text-center' => array(
 						'title' => __( 'Center', 'elementive' ),
 						'icon'  => 'fa fa-align-center',
-					],
-					'uk-text-right' => [
+					),
+					'uk-text-right' => array(
 						'title' => __( 'Right', 'elementive' ),
 						'icon'  => 'fa fa-align-right',
-					],
-				],
+					),
+				),
 				'default' => '',
 				'toggle'  => true,
-			]
+			)
 		);
 
 		$this->add_control(
 			'color',
-			[
+			array(
 				'label'      => __( 'Color', 'elementive' ),
 				'type'       => Controls_Manager::COLOR,
-				'scheme'     => [
+				'scheme'     => array(
 					'type'  => Scheme_Color::get_type(),
-					'value' => '',
-				],
+					'value' => Scheme_Color::COLOR_1,
+				),
 				'default'    => 'inherit',
-				'selectors'  => [
+				'selectors'  => array(
 					'{{WRAPPER}} .elementive-widget-content' => 'color: {{VALUE}}',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			[
+			array(
 				'name'     => 'text_shadow',
 				'label'    => __( 'Text Shadow', 'elementive' ),
 				'selector' => '{{WRAPPER}} .elementive-widget-content',
-			]
+			)
 		);
 
 		// End section customize accortion.
@@ -388,7 +388,7 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 	protected function render() {
 
 		$settings  = $this->get_settings_for_display();
-		$classes   = [ 'elementive-text-rotator', 'swiper-container', 'uk-width-1-1', 'uk-margin-remove' ];
+		$classes   = array( 'elementive-text-rotator', 'swiper-container', 'uk-width-1-1', 'uk-margin-remove' );
 		$classes[] = $settings['alignment'];
 		$classes[] = $settings['split'];
 
@@ -396,13 +396,13 @@ class Elementive_Widget_Text_Rotator extends Widget_Base {
 
 		$this->add_render_attribute(
 			'text_content',
-			[
+			array(
 				'class' => esc_attr( join( ' ', $classes ) ),
-			]
+			)
 		);
 
 		if ( $settings['strings'] ) {
-			echo '<' . esc_attr( $settings['tag'] ) . ' ' . wp_kses( $this->get_render_attribute_string( 'text_content' ), [ 'class' => [] ] ) . '>';
+			echo '<' . esc_attr( $settings['tag'] ) . ' ' . wp_kses( $this->get_render_attribute_string( 'text_content' ), array( 'class' => array() ) ) . '>';
 			echo '<div class="swiper-wrapper">';
 			foreach ( $settings['strings'] as $item ) {
 				echo '<div class="swiper-slide elementive-content-item">' . esc_html( $item['item'] ) . '</div>';

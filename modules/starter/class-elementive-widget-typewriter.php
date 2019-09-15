@@ -94,7 +94,7 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'elementive-starter' ];
+		return array( 'elementive-starter' );
 	}
 
 	/**
@@ -109,7 +109,7 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'uikit' ];
+		return array( 'uikit' );
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 	 * @return array Element styles dependencies.
 	 */
 	public function get_style_depends() {
-		return [ 'uikit' ];
+		return array( 'uikit' );
 	}
 
 
@@ -140,28 +140,28 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content',
-			[
+			array(
 				'label' => __( 'Typewriter', 'elementive' ),
-			]
+			)
 		);
 
 		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'type_string',
-			[
+			array(
 				'label'        => __( 'Type string', 'elementive' ),
 				'desckription' => __( 'Type out a string using the typewriter effect.', 'elementive' ),
 				'type'         => Controls_Manager::TEXTAREA,
 				'rows'         => 10,
 				'default'      => '',
 				'placeholder'  => __( 'Type your text here', 'elementive' ),
-			]
+			)
 		);
 
 		$repeater->add_control(
 			'pause_for',
-			[
+			array(
 				'label'       => __( 'Pause for', 'elementive' ),
 				'description' => __( 'Pause for milliseconds', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -170,12 +170,12 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 				'step'        => 10,
 				'default'     => '',
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$repeater->add_control(
 			'delete_all',
-			[
+			array(
 				'label'        => __( 'Delete all', 'elementive' ),
 				'description'  => __( 'Delete everything that is visible inside of the typewriter wrapper element.', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
@@ -183,12 +183,12 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 				'label_off'    => __( 'False', 'elementive' ),
 				'return_value' => 'true',
 				'default'      => 'true',
-			]
+			)
 		);
 
 		$repeater->add_control(
 			'delete_chars',
-			[
+			array(
 				'label'       => __( 'Delete chars', 'elementive' ),
 				'description' => __( 'Delete and amount of characters, starting at the end of the visible string.', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -197,21 +197,21 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 				'step'        => 1,
 				'default'     => '',
 				'separator'   => 'before',
-				'conditions'  => [
-					'terms' => [
-						[
+				'conditions'  => array(
+					'terms' => array(
+						array(
 							'name'     => 'delete_all',
 							'operator' => '==',
 							'value'    => '',
-						],
-					],
-				],
-			]
+						),
+					),
+				),
+			)
 		);
 
 		$repeater->add_control(
 			'change_delete_speed',
-			[
+			array(
 				'label'       => __( 'Change delete speed', 'elementive' ),
 				'description' => __( 'The speed at which to delete the characters, lower number is faster.', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -220,12 +220,12 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 				'step'        => 10,
 				'default'     => '',
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$repeater->add_control(
 			'change_delay',
-			[
+			array(
 				'label'       => __( 'Change delay', 'elementive' ),
 				'description' => __( 'Change the delay when typing out each character.', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -234,41 +234,41 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 				'step'        => 1,
 				'default'     => '',
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'typewriter',
-			[
+			array(
 				'label'       => __( 'Typewriter', 'elementive' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
-				'default'     => [
-					[
+				'default'     => array(
+					array(
 						'type_string'  => __( 'A simple yet powerful typewriter', 'elementive' ),
-					],
-					[
+					),
+					array(
 						'type_string'  => __( '<strong>Typewriter</strong> widget for a cool typewriter effect and ', 'elementive' ),
 						'pause_for'    => 300,
 						'delete_all'   => '',
 						'delete_chars' => 10,
-					],
-					[
+					),
+					array(
 						'type_string' => __( '<strong>easy to use!</strong>', 'elementive' ),
 						'pause_for'   => 1000,
-					],
-				],
+					),
+				),
 				'title_field' => '{{{ type_string }}}',
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'tag',
-			[
+			array(
 				'label'   => __( 'Title HTML Tag', 'elementive' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => [
+				'options' => array(
 					'h1'   => 'H1',
 					'h2'   => 'H2',
 					'h3'   => 'H3',
@@ -278,74 +278,74 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 					'div'  => 'div',
 					'span' => 'span',
 					'p'    => 'p',
-				],
+				),
 				'default' => 'h3',
-			]
+			)
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			[
+			array(
 				'name'      => 'typography',
 				'label'     => __( 'Typography', 'elementive' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .elementive-run-typewriter',
 				'separator' => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'text_align',
-			[
+			array(
 				'label'   => __( 'Alignment', 'elementive' ),
 				'type'    => Controls_Manager::CHOOSE,
-				'options' => [
-					'uk-text-right' => [
+				'options' => array(
+					'uk-text-right' => array(
 						'title' => __( 'Left', 'elementive' ),
 						'icon'  => 'fa fa-align-left',
-					],
-					'uk-text-center' => [
+					),
+					'uk-text-center' => array(
 						'title' => __( 'Center', 'elementive' ),
 						'icon'  => 'fa fa-align-center',
-					],
-					'uk-text-left' => [
+					),
+					'uk-text-left' => array(
 						'title' => __( 'Right', 'elementive' ),
 						'icon'  => 'fa fa-align-right',
-					],
-				],
+					),
+				),
 				'default' => '',
 				'toggle'  => true,
-			]
+			)
 		);
 
 		$this->add_control(
 			'color',
-			[
+			array(
 				'label'      => __( 'Color', 'elementive' ),
 				'type'       => Controls_Manager::COLOR,
-				'scheme'     => [
+				'scheme'     => array(
 					'type'  => Scheme_Color::get_type(),
-					'value' => '',
-				],
+					'value' => Scheme_Color::COLOR_1,
+				),
 				'default'    => 'inherit',
-				'selectors'  => [
+				'selectors'  => array(
 					'{{WRAPPER}} .elementive-run-typewriter' => 'color: {{VALUE}}',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
-			[
+			array(
 				'name'     => 'text_shadow',
 				'label'    => __( 'Text Shadow', 'elementive' ),
 				'selector' => '{{WRAPPER}} .elementive-run-typewriter',
-			]
+			)
 		);
 
 		$this->add_control(
 			'delay',
-			[
+			array(
 				'label'       => __( 'Delay', 'elementive' ),
 				'description' => __( 'The delay between each key when typing.', 'elementive' ),
 				'type'        => Controls_Manager::NUMBER,
@@ -354,12 +354,12 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 				'step'        => 10,
 				'default'     => '100',
 				'separator'   => 'before',
-			]
+			)
 		);
 
 		$this->add_control(
 			'loop',
-			[
+			array(
 				'label'        => __( 'Loop', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'description'  => __( 'Whether to keep looping or not.', 'elementive' ),
@@ -367,7 +367,7 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 				'label_off'    => __( 'False', 'elementive' ),
 				'return_value' => 'true',
 				'default'      => 'true',
-			]
+			)
 		);
 
 		// End section customize accortion.
@@ -386,23 +386,23 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 	protected function render() {
 
 		$settings      = $this->get_settings_for_display();
-		$classes       = [ 'elementive-run-typewriter', 'uk-width-1-1', 'uk-margin-remove' ];
+		$classes       = array( 'elementive-run-typewriter', 'uk-width-1-1', 'uk-margin-remove' );
 		$loop          = 'false';
 		$typewriter_id = $this->get_id();
-		$allowed_html  = [
-			'a'      => [
-				'href'   => [],
-				'target' => [],
-				'class'  => [],
-			],
-			'span'   => [
-				'class'  => [],
-			],
-			'strong' => [],
-			'b'      => [],
-			'em'     => [],
-			'i'      => [],
-		];
+		$allowed_html  = array(
+			'a'      => array(
+				'href'   => array(),
+				'target' => array(),
+				'class'  => array(),
+			),
+			'span'   => array(
+				'class'  => array(),
+			),
+			'strong' => array(),
+			'b'      => array(),
+			'em'     => array(),
+			'i'      => array(),
+		);
 
 		if ( 'true' === $settings['loop'] ) {
 			$loop = 'true';
@@ -416,18 +416,18 @@ class Elementive_Widget_Typewriter extends Widget_Base {
 
 		$this->add_render_attribute(
 			'typewriter_attr',
-			[
+			array(
 				'id'    => esc_attr( $typewriter_id ),
 				'class' => esc_attr( join( ' ', $classes ) ),
-			]
+			)
 		);
 
 		echo '<' . esc_attr( $settings['tag'] ) . ' ' . wp_kses(
 			$this->get_render_attribute_string( 'typewriter_attr' ),
-			[
-				'id'    => [],
-				'class' => [],
-			]
+			array(
+				'id'    => array(),
+				'class' => array(),
+			)
 		) . '></' . esc_attr( $settings['tag'] ) . '>';
 		echo '<script>';
 		echo 'var typewriter_app_' . esc_attr( $typewriter_id ) . ' = document.getElementById("' . esc_attr( $typewriter_id ) . '");';

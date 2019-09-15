@@ -37,7 +37,7 @@ class Elementive_Module_Starter {
 		wp_enqueue_style(
 			'elementive-starter',
 			ELEMENTIVE_MODULES_URL . 'starter/assets/css/elementive-starter' . $direction_suffix . $suffix . '.css',
-			[],
+			array(),
 			ELEMENTIVE_VERSION
 		);
 	}
@@ -55,11 +55,11 @@ class Elementive_Module_Starter {
 		wp_enqueue_script(
 			'elementive-starter-js',
 			ELEMENTIVE_MODULES_URL . 'starter/assets/js/elementive-starter' . $suffix . '.js',
-			[
+			array(
 				'jquery',
 				'uikit',
 				'uikit-icons',
-			],
+			),
 			ELEMENTIVE_VERSION,
 			true
 		);
@@ -67,10 +67,10 @@ class Elementive_Module_Starter {
 		wp_localize_script(
 			'elementive-starter-js',
 			'ElementiveStarterFrontendConfig', // This is used in the js file to group all of your scripts together.
-			[
+			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'elementive-starter-js' ),
-			]
+			)
 		);
 	}
 
@@ -109,10 +109,10 @@ class Elementive_Module_Starter {
 		// Add element category in panel.
 		\Elementor\Plugin::instance()->elements_manager->add_category(
 			'elementive-starter', // This is the name of your addon's category and will be used to group your widgets/elements in the Edit sidebar pane!
-			[
+			array(
 				'title' => esc_html__( 'Elementive Starter', 'elementive' ), // The title of your modules category - keep it simple and short!
 				'icon'  => 'font',
-			],
+			),
 			1
 		);
 	}
@@ -127,12 +127,12 @@ class Elementive_Module_Starter {
 	 */
 	public function __construct() {
 		// Register widgets category.
-		add_action( 'elementor/init', [ $this, 'register_starter_category' ] );
+		add_action( 'elementor/init', array( $this, 'register_starter_category' ) );
 		// Register widget scripts.
-		add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'starter_widgets_scripts' ], 998 );
+		add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'starter_widgets_scripts' ), 998 );
 		// Register widget styles.
-		add_action( 'wp_enqueue_scripts', [ $this, 'starter_widgets_styles' ], 998 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'starter_widgets_styles' ), 998 );
 		// Register widgets.
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_starter_widgets' ] );
+		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_starter_widgets' ) );
 	}
 }
