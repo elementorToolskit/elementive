@@ -1116,7 +1116,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			'background_overlay',
 			array(
 				'label'        => __( 'Enable overlay', 'elementive' ),
-				'type'         => \Elementor\Controls_Manager::SWITCHER,
+				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Show', 'elementive' ),
 				'label_off'    => __( 'Hide', 'elementive' ),
 				'return_value' => 'yes',
@@ -1163,9 +1163,54 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'overlay_background_title',
 			array(
-				'label' => __( 'Overlay background', 'elementive' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
+				'label'      => __( 'Overlay background', 'elementive' ),
+				'type'       => Controls_Manager::HEADING,
+				'separator'  => 'before',
+				'conditions' => array(
+					'terms' => array(
+						array(
+							'relation' => 'or',
+							'terms'    => array(
+								array(
+									'terms' => array(
+										array(
+											'name'  => 'background_background',
+											'value' => 'classic',
+										),
+										array(
+											'name'     => 'background_image[url]',
+											'operator' => '!=',
+											'value'    => '',
+										),
+										array(
+											'name'     => 'background_overlay',
+											'operator' => '===',
+											'value'    => 'yes',
+										),
+									),
+								),
+								array(
+									'terms' => array(
+										array(
+											'name'  => 'background_background',
+											'value' => 'video',
+										),
+										array(
+											'name'     => 'background_video_link',
+											'operator' => '!=',
+											'value'    => '',
+										),
+										array(
+											'name'     => 'background_overlay',
+											'operator' => '===',
+											'value'    => 'yes',
+										),
+									),
+								),
+							),
+						),
+					),
+				),
 			)
 		);
 
@@ -1339,7 +1384,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			'background_overlay_hover',
 			array(
 				'label'        => __( 'Enable overlay', 'elementive' ),
-				'type'         => \Elementor\Controls_Manager::SWITCHER,
+				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Show', 'elementive' ),
 				'label_off'    => __( 'Hide', 'elementive' ),
 				'return_value' => 'yes',
@@ -1900,7 +1945,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 			}
 
 			// Overlay.
-			if ( ( 'yes' === $settings['background_overlay'] && 'classic' === $settings['background_background'] && '' !== $settings['background_image']['url'] ) || ( 'yes' !== $settings['background_overlay'] && 'video' === $settings['background_background'] && '' !== $settings['background_video_link'] ) ) {
+			if ( ( 'yes' === $settings['background_overlay'] && 'classic' === $settings['background_background'] && '' !== $settings['background_image']['url'] ) || ( 'yes' === $settings['background_overlay'] && 'video' === $settings['background_background'] && '' !== $settings['background_video_link'] ) ) {
 				echo '<div class="elementive-icon-box-overlay uk-position-cover ' . esc_attr( $settings['overlay_background_blend'] ) . '"></div>';
 			}
 			?>

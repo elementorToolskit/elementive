@@ -237,35 +237,124 @@ Author URI:      https://dimative.com/
             if ( carousel.hasClass('swiper-container') ) {
 
                 carousel.each(function() {
-                    var elementive_carousel = new Swiper($(this), {
+
+                    var autoplay        = false;
+                    var loop            = false;
+                    var centered        = false;
+                    var columns_desktop = 3;
+                    var columns_tablet  = 2;
+                    var columns_mobile  = 1;
+                    var margin_desktop  = 30;
+                    var margin_tablet   = 30;
+                    var margin_mobile   = 0;
+                    var speed           = 500;
+
+                    if ( $(this).data('auto-play') ) {
+                        autoplay = $(this).data('auto-play');
+                    }
+                    
+                    if ( $(this).data('loop') ) {
+                        loop = $(this).data('loop');
+                    }
+                    
+                    if ( $(this).data('centered') ) {
+                        centered = $(this).data('centered');
+                    }
+
+                    if ( $(this).data('speed') ) {
+                        speed = $(this).data('speed');
+                    }
+                    
+                    if ( $(this).data('column-desktop') ) {
+                        columns_desktop = $(this).data('column-desktop');
+                    }
+
+                    if ( $(this).data('column-tablet') ) {
+                        columns_tablet = $(this).data('column-tablet');
+                    }
+
+                    if ( $(this).data('column-mobile') ) {
+                        columns_mobile = $(this).data('column-mobile');
+                    }
+
+                    if ( $(this).data('margin-desktop') ) {
+                        margin_desktop = $(this).data('margin-desktop');
+                    }
+
+                    if ( $(this).data('margin-tablet') ) {
+                        margin_tablet = $(this).data('margin-tablet');
+                    }
+
+                    if ( $(this).data('margin-mobile') ) {
+                        margin_mobile = $(this).data('margin-mobile');
+                    }
+                    
+                    var swiper = new Swiper($(this), {
+                        autoplay: autoplay,
                         slidesPerView: 1,
-                        spaceBetween: 30,
-                        //watchSlidesVisibility: true,
+                        spaceBetween: 0,
+                        loop: loop,
+                        speed: speed,
+                        centeredSlides: centered,
                         updateOnImagesReady: true,
                         setWrapperSize: true,
                         pagination: {
                             el: '.swiper-pagination',
                             clickable: true,
                         },
+                        navigation: {
+                            nextEl: '.elementive-carousel-button-next',
+                            prevEl: '.elementive-carousel-button-prev',
+                          },
+                        coverflowEffect: {
+                            rotate: 30,
+                            slideShadows: false,
+                        },
                         breakpointsInverse: true,
                         breakpoints: {
                             // when window width is >= 320px
-                            320: {
-                            slidesPerView: 1,
-                            spaceBetween: 20
+                            500: {
+                                slidesPerView: columns_mobile,
+                                spaceBetween: margin_mobile,
                             },
                             // when window width is >= 480px
-                            480: {
-                            slidesPerView: 2,
-                            spaceBetween: 30
+                            768: {
+                                slidesPerView: columns_tablet,
+                                spaceBetween: margin_tablet,
                             },
                             // when window width is >= 640px
-                            640: {
-                            slidesPerView: 4,
-                            spaceBetween: 30
+                            1025: {
+                                slidesPerView: columns_desktop,
+                                spaceBetween: margin_desktop,
                             }
                         },
+                        onInit:function(swiper){
+                            slide=swiper.slides.eq(0);
+                            slide.addClass('ani-slide');
+                        },
+                        onTransitionStart: function(swiper){
+                            for(i=0;i<swiper.slides.length;i++){
+                                slide=swiper.slides.eq(i);
+                                slide.removeClass('ani-slide');
+                                }
+                        },
+                        onTransitionEnd: function(swiper){
+                                slide=swiper.slides.eq(swiper.activeIndex);
+                                slide.addClass('ani-slide');
+                        },
                     });
+
+                    if ( autoplay ) {
+
+                        $(this).mouseenter(function() {
+                            swiper.autoplay.stop();
+                        });
+                        
+                        $(this).mouseleave(function() {
+                            swiper.autoplay.start();
+                        });
+                    }
+
                 });
             }
         },

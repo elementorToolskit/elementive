@@ -22,7 +22,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Scheme_Color;
 use Elementor\Icons_Manager;
-use Elementive\Includes\Elementive_Helpers;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -113,7 +112,7 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array( 'uikit', 'jarallax', 'jarallax-video', 'vivus', 'jquery-tilt', 'swiper' );
+		return array( 'uikit', 'swiper' );
 	}
 
 	/**
@@ -158,109 +157,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 				'default' => array(
 					'value'   => 'fas fa-star',
 					'library' => 'solid',
-				),
-			)
-		);
-
-		$repeater->add_responsive_control(
-			'icon_font_size',
-			array(
-				'label'           => __( 'Icon font size', 'elementive' ),
-				'type'            => Controls_Manager::SLIDER,
-				'size_units'      => array( 'px', '%' ),
-				'range'           => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-					'%' => array(
-						'min' => 0,
-						'max' => 100,
-					),
-				),
-				'desktop_default' => array(
-					'size' => 40,
-					'unit' => 'px',
-				),
-				'tablet_default'  => array(
-					'size' => 40,
-					'unit' => 'px',
-				),
-				'mobile_default'  => array(
-					'size' => 40,
-					'unit' => 'px',
-				),
-				'condition'       => array(
-					'icon[library]!' => 'svg',
-				),
-				'selectors'       => array(
-					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-				),
-			)
-		);
-
-		$repeater->add_responsive_control(
-			'icon_width',
-			array(
-				'label'           => __( 'Icon width', 'elementive' ),
-				'type'            => Controls_Manager::SLIDER,
-				'size_units'      => array( 'px' ),
-				'range'           => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
-				'desktop_default' => array(
-					'size' => 40,
-					'unit' => 'px',
-				),
-				'tablet_default'  => array(
-					'size' => 40,
-					'unit' => 'px',
-				),
-				'mobile_default'  => array(
-					'size' => 40,
-					'unit' => 'px',
-				),
-				'condition'       => array(
-					'icon[library]' => 'svg',
-				),
-				'selectors'       => array(
-					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-icon svg' => 'width: {{SIZE}}{{UNIT}};',
-				),
-			)
-		);
-
-		$repeater->add_control(
-			'icon_animation',
-			array(
-				'label'        => __( 'Stroke animation', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-				'condition'    => array(
-					'icon[library]' => 'svg',
-				),
-			)
-		);
-
-		$repeater->add_control(
-			'icon_color_reset',
-			array(
-				'label'        => __( 'Disable SVG color', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-				'condition'    => array(
-					'icon[library]' => 'svg',
 				),
 			)
 		);
@@ -507,6 +403,85 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 			)
 		);
 
+		$this->add_responsive_control(
+			'icon_font_size',
+			array(
+				'label'           => __( 'Icon font size', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px', '%' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+					'%' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'desktop_default' => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'tablet_default'  => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'mobile_default'  => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'icon_width',
+			array(
+				'label'           => __( 'SVG Icon width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'tablet_default'  => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'mobile_default'  => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-icon svg' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'icon_color_reset',
+			array(
+				'label'        => __( 'Disable SVG color', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
 		$this->add_control(
 			'icon_diameter',
 			array(
@@ -728,6 +703,38 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 			)
 		);
 
+		$this->add_responsive_control(
+			'heading_margin_bottom',
+			array(
+				'label'           => __( 'Margin bottom', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 60,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'tablet_default'  => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'mobile_default'  => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-heading' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
@@ -820,6 +827,38 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 			'description_normal_tab',
 			array(
 				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_responsive_control(
+			'description_margin_bottom',
+			array(
+				'label'           => __( 'Margin bottom', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 60,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'tablet_default'  => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'mobile_default'  => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-icon-box .elementive-icon-box-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
 			)
 		);
 
@@ -1119,7 +1158,7 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 			array(
 				'name'      => 'background',
 				'label'     => __( 'Background', 'elementive' ),
-				'types'     => array( 'classic', 'gradient', 'video', 'slideshow' ),
+				'types'     => array( 'classic', 'gradient' ),
 				'selector'  => '{{WRAPPER}} .elementive-icon-box',
 				'separator' => 'before',
 			)
@@ -1147,19 +1186,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 										),
 										array(
 											'name'     => 'background_image[url]',
-											'operator' => '!=',
-											'value'    => '',
-										),
-									),
-								),
-								array(
-									'terms' => array(
-										array(
-											'name'  => 'background_background',
-											'value' => 'video',
-										),
-										array(
-											'name'     => 'background_video_link',
 											'operator' => '!=',
 											'value'    => '',
 										),
@@ -1201,24 +1227,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 										),
 										array(
 											'name'     => 'background_image[url]',
-											'operator' => '!=',
-											'value'    => '',
-										),
-										array(
-											'name'     => 'background_overlay',
-											'operator' => '===',
-											'value'    => 'yes',
-										),
-									),
-								),
-								array(
-									'terms' => array(
-										array(
-											'name'  => 'background_background',
-											'value' => 'video',
-										),
-										array(
-											'name'     => 'background_video_link',
 											'operator' => '!=',
 											'value'    => '',
 										),
@@ -1284,24 +1292,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 										),
 									),
 								),
-								array(
-									'terms' => array(
-										array(
-											'name'  => 'background_background',
-											'value' => 'video',
-										),
-										array(
-											'name'     => 'background_video_link',
-											'operator' => '!=',
-											'value'    => '',
-										),
-										array(
-											'name'     => 'background_overlay',
-											'operator' => '===',
-											'value'    => 'yes',
-										),
-									),
-								),
 							),
 						),
 					),
@@ -1342,7 +1332,7 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 			array(
 				'name'      => 'background_hover',
 				'label'     => __( 'Background', 'elementive' ),
-				'types'     => array( 'classic', 'gradient', 'video' ),
+				'types'     => array( 'classic', 'gradient' ),
 				'selector'  => '{{WRAPPER}} .elementive-icon-box .elementive-icon-box-hover',
 				'separator' => 'before',
 			)
@@ -1370,19 +1360,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 										),
 										array(
 											'name'     => 'background_hover_image[url]',
-											'operator' => '!=',
-											'value'    => '',
-										),
-									),
-								),
-								array(
-									'terms' => array(
-										array(
-											'name'  => 'background_hover_background',
-											'value' => 'video',
-										),
-										array(
-											'name'     => 'background_hover_video_link',
 											'operator' => '!=',
 											'value'    => '',
 										),
@@ -1424,24 +1401,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 										),
 										array(
 											'name'     => 'background_hover_image[url]',
-											'operator' => '!=',
-											'value'    => '',
-										),
-										array(
-											'name'     => 'background_overlay_hover',
-											'operator' => '===',
-											'value'    => 'yes',
-										),
-									),
-								),
-								array(
-									'terms' => array(
-										array(
-											'name'  => 'background_hover_background',
-											'value' => 'video',
-										),
-										array(
-											'name'     => 'background_hover_video_link',
 											'operator' => '!=',
 											'value'    => '',
 										),
@@ -1507,24 +1466,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 										),
 									),
 								),
-								array(
-									'terms' => array(
-										array(
-											'name'  => 'background_hover_background',
-											'value' => 'video',
-										),
-										array(
-											'name'     => 'background_hover_video_link',
-											'operator' => '!=',
-											'value'    => '',
-										),
-										array(
-											'name'     => 'background_overlay_hover',
-											'operator' => '===',
-											'value'    => 'yes',
-										),
-									),
-								),
 							),
 						),
 					),
@@ -1551,120 +1492,158 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			array(
-				'label' => __( 'Tilt', 'elementive' ),
+				'label' => __( 'Carousel', 'elementive' ),
 				'tab'   => Controls_Manager::TAB_SETTINGS,
 			)
 		);
 
 		$this->add_control(
-			'tilt',
+			'vertical_align',
 			array(
-				'label'        => __( 'Enable tilt effect', 'elementive' ),
+				'label'   => __( 'Vertical align', 'elementive' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'uk-flex-top',
+				'options' => array(
+					'uk-flex-top'    => __( 'Top', 'elementive' ),
+					'uk-flex-middle' => __( 'Middle', 'elementive' ),
+					'uk-flex-bottom' => __( 'Bottom', 'elementive' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'auto_play',
+			array(
+				'label'        => __( 'Enable auto play', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
+				'return_value' => 'true',
 				'default'      => '',
 				'separator'    => 'after',
 			)
 		);
 
-		$this->add_control(
-			'tilt_max',
+		$this->add_responsive_control(
+			'columns',
 			array(
-				'label'          => __( 'Max tilt', 'elementive' ),
-				'description'    => __( 'Maximum tilt effect value', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
+				'label'           => __( 'Columns', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array(),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'range'           => array(
 					'px' => array(
-						'min'  => 0,
-						'max'  => 50,
+						'min'  => 1,
+						'max'  => 5,
 						'step' => 1,
 					),
 				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 20,
+				'desktop_default' => array(
+					'size' => 3,
 				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_perspective',
-			array(
-				'label'          => __( 'Perspective', 'elementive' ),
-				'description'    => __( 'Transform perspective, the lower the more extreme the tilt gets.', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 100,
-						'max'  => 1000,
-						'step' => 10,
-					),
+				'tablet_default'  => array(
+					'size' => 2,
 				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 1000,
-				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_scale',
-			array(
-				'label'          => __( 'Scale', 'elementive' ),
-				'description'    => __( '1 = 100%, 1.5 = 150%, etc ...', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 0.5,
-						'max'  => 1.5,
-						'step' => 0.1,
-					),
-				),
-				'default'        => array(
-					'unit' => 'px',
+				'mobile_default'  => array(
 					'size' => 1,
 				),
 			)
 		);
 
-		$this->add_control(
-			'tilt_parallax',
+		$this->add_responsive_control(
+			'margins',
 			array(
-				'label'        => __( 'Parallax effect', 'elementive' ),
-				'description'  => __( 'Add parallax effect with inner elements that have to pop out.', 'elementive' ),
+				'label'           => __( 'Column margin', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array(),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'desktop_default' => array(
+					'size' => 30,
+				),
+				'tablet_default'  => array(
+					'size' => 30,
+				),
+				'mobile_default'  => array(
+					'size' => 0,
+				),
+			)
+		);
+
+		$this->add_control(
+			'overflow',
+			array(
+				'label'        => __( 'Overflow', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
 				'default'      => '',
 			)
 		);
 
 		$this->add_control(
-			'tilt_transition',
+			'loop',
 			array(
-				'label'        => __( 'Transition', 'elementive' ),
-				'description'  => __( 'Set a transition on enter/exit.', 'elementive' ),
+				'label'        => __( 'Loop', 'elementive' ),
+				'description'  => __( 'Set to yes to enable continuous loop mode', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => 'yes',
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
 			)
 		);
 
 		$this->add_control(
-			'tilt_speed',
+			'pagination',
+			array(
+				'label'        => __( 'Pagination', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'navigation',
+			array(
+				'label'        => __( 'Navigation', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'centered',
+			array(
+				'label'        => __( 'Centered slider', 'elementive' ),
+				'description'  => __( 'If yes, then active slide will be centered, not always on the left side.', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'speed',
 			array(
 				'label'          => __( 'Speed', 'elementive' ),
 				'description'    => __( 'Speed of the enter/exit transition.', 'elementive' ),
 				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
 				'range'          => array(
 					'px' => array(
 						'min'  => 10,
@@ -1673,76 +1652,23 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 					),
 				),
 				'default'        => array(
-					'unit' => 'px',
-					'size' => 300,
-				),
-				'condition'      => array(
-					'tilt_transition' => 'yes',
+					'size' => 500,
 				),
 			)
 		);
 
 		$this->add_control(
-			'tilt_axis',
+			'effect',
 			array(
-				'label'       => __( 'Disable axis', 'elementive' ),
+				'label'       => __( 'Effect', 'elementive' ),
 				'description' => __( 'What axis should be disabled. Can be X or Y.', 'elementive' ),
 				'type'        => Controls_Manager::SELECT,
-				'default'     => 'null',
+				'default'     => 'slide',
 				'options'     => array(
-					'null' => __( 'None', 'elementive' ),
-					'x'    => __( 'X', 'elementive' ),
-					'y'    => __( 'Y', 'elementive' ),
-				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_reset',
-			array(
-				'label'        => __( 'Reset', 'elementive' ),
-				'description'  => __( 'If the tilt effect has to be reset on exit.', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-			)
-		);
-
-		$this->add_control(
-			'tilt_glare',
-			array(
-				'label'        => __( 'Glare', 'elementive' ),
-				'description'  => __( 'Enables glare effect.', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-			)
-		);
-
-		$this->add_control(
-			'tilt_glare_value',
-			array(
-				'label'          => __( 'Max glare', 'elementive' ),
-				'description'    => __( 'Maximum galre effect value. From 0 - 1.', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1,
-						'step' => 0.1,
-					),
-				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 1,
-				),
-				'condition'      => array(
-					'tilt_glare' => 'yes',
+					'slide' => __( 'None', 'elementive' ),
+					'fade'  => __( 'Slide', 'elementive' ),
+					'cube'  => __( 'Fade', 'elementive' ),
+					'flip'  => __( 'Flip', 'elementive' ),
 				),
 			)
 		);
@@ -1762,14 +1688,10 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$classes          = array( 'elementive-icon-box', 'uk-position-relative', 'uk-transition-toggle', 'uk-inline-clip', 'swiper-slide' );
-		$classes_icon     = array( 'elementive-icon-box-icon', 'uk-position-relative', 'uk-position-z-index' );
-		$classes_content  = array( 'elementive-icon-box-content', 'uk-position-relative', 'uk-position-z-index' );
-		$classes_diameter = array( 'elementive-icon-diameter', 'uk-position-relative', 'uk-overflow-hidden' );
-		// $icon                  = $item['icon'];
-		// $target                = $item['link']['is_external'] ? ' target="_blank"' : '';
-		// $nofollow              = $item['link']['nofollow'] ? ' rel="nofollow"' : '';
-		$allowed_html_link     = array(
+		$classes           = array( 'elementive-icon-box', 'uk-position-relative', 'uk-transition-toggle', 'uk-inline-clip', 'swiper-slide' );
+		$classes_icon      = array( 'elementive-icon-box-icon', 'uk-position-relative', 'uk-position-z-index' );
+		$classes_content   = array( 'elementive-icon-box-content', 'uk-position-relative', 'uk-position-z-index' );
+		$allowed_html_link = array(
 			'target' => array(),
 			'rel'    => array(),
 		);
@@ -1791,48 +1713,74 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 			$classes_content[] = 'uk-flex-first';
 		}
 
-		/*
-		if ( 'svg' === $icon['library'] && 'yes' === $item['icon_animation'] ) {
-			$classes_icon[] = 'run-vivus';
-			$classes_icon[] = $item['icon_animation'];
+		$classes         = array_map( 'esc_attr', $classes );
+		$classes_icon    = array_map( 'esc_attr', $classes_icon );
+		$classes_content = array_map( 'esc_attr', $classes_content );
+
+		// Slider default values.
+		$overflow   = '';
+		$autoplay   = 'false';
+		$pagination = 'false';
+		$navigation = 'false';
+		$loop       = 'false';
+		$centered   = 'false';
+
+		if ( 'true' === $settings['overflow'] ) {
+			$overflow = 'carousel-disable-overlfow';
 		}
 
-		if ( 'svg' === $icon['library'] && 'yes' === $item['icon_color_reset'] ) {
-			$classes_icon[] = 'uk-svg';
+		if ( 'true' === $settings['loop'] ) {
+			$loop = $settings['loop'];
 		}
 
-		if ( 'svg' === $icon['library'] && 'yes' === $settings['icon_diameter'] ) {
-			$classes_diameter[] = 'uk-flex-inline';
-		}
-		if ( 'svg' !== $icon['library'] && 'yes' === $settings['icon_diameter'] ) {
-			$classes_diameter[] = 'uk-display-inline-block';
-		}*/
-
-		// Tilt effect attrs.
-		if ( 'yes' === $settings['tilt_transition'] ) {
-			$tilt_transition       = 'true';
-			$tilt_transition_speed = $settings['tilt_speed']['size'];
+		if ( 'true' === $settings['pagination'] ) {
+			$pagination = $settings['pagination'];
 		}
 
-		if ( 'yes' === $settings['tilt_reset'] ) {
-			$tilt_reset = 'true';
+		if ( 'true' === $settings['navigation'] ) {
+			$navigation = $settings['navigation'];
 		}
 
-		if ( 'yes' === $settings['tilt_glare'] ) {
-			$tilt_glare       = 'true';
-			$tilt_glare_value = $settings['tilt_glare_value']['size'];
+		if ( 'true' === $settings['auto_play'] ) {
+			$autoplay = $settings['auto_play'];
 		}
 
-		$classes          = array_map( 'esc_attr', $classes );
-		$classes_icon     = array_map( 'esc_attr', $classes_icon );
-		$classes_diameter = array_map( 'esc_attr', $classes_diameter );
-		$classes_content  = array_map( 'esc_attr', $classes_content );
+		if ( 'true' === $settings['centered'] ) {
+			$centered = $settings['centered'];
+		}
+
+		$this->add_render_attribute(
+			'carousel',
+			array(
+				'class'               => array( 'elementive-carousel', 'swiper-container', $overflow ),
+				'data-auto-play'      => esc_attr( $autoplay ),
+				'data-column-desktop' => esc_attr( $settings['columns']['size'] ),
+				'data-column-tablet'  => esc_attr( $settings['columns_tablet']['size'] ),
+				'data-column-mobile'  => esc_attr( $settings['columns_mobile']['size'] ),
+				'data-margin-desktop' => esc_attr( $settings['margins']['size'] ),
+				'data-margin-tablet'  => esc_attr( $settings['margins_tablet']['size'] ),
+				'data-margin-mobile'  => esc_attr( $settings['margins_mobile']['size'] ),
+				'data-speed'          => esc_attr( $settings['speed']['size'] ),
+				'data-loop'           => esc_attr( $loop ),
+				'data-pagination'     => esc_attr( $pagination ),
+				'data-navigation'     => esc_attr( $navigation ),
+				'data-centered'       => esc_attr( $centered ),
+			)
+		);
+
+		$this->add_render_attribute(
+			'carousel_wrapper',
+			array(
+				'class'               => 'swiper-wrapper ' . esc_attr( $settings['vertical_align'] ),
+				'tabindex'            => '0',
+			)
+		);
 
 		$this->add_render_attribute(
 			'wrapper',
 			array(
-				'class'    => esc_attr( join( ' ', $classes ) ),
-				'tabindex' => '0',
+				'class'               => esc_attr( join( ' ', $classes ) ),
+				'tabindex'            => '0',
 			)
 		);
 
@@ -1840,13 +1788,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 			'icon',
 			array(
 				'class' => esc_attr( join( ' ', $classes_icon ) ),
-			)
-		);
-
-		$this->add_render_attribute(
-			'icon_diameter',
-			array(
-				'class' => esc_attr( join( ' ', $classes_diameter ) ),
 			)
 		);
 
@@ -1859,16 +1800,33 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 
 		if ( $settings['icon_boxes'] ) {
 			?>
-			<div class="elementive-carousel swiper-container">
-				<div class="swiper-wrapper">
+			<div <?php echo wp_kses( $this->get_render_attribute_string( 'carousel' ), array( 'class' => array() ) ); ?>>
+				<div <?php echo wp_kses( $this->get_render_attribute_string( 'carousel_wrapper' ), array( 'class' => array() ) ); ?>>
 				<?php
 				foreach ( $settings['icon_boxes'] as $item ) {
-
+					$class_output = '';
+					$icon         = $item['icon'];
+					$target       = $item['link']['is_external'] ? ' target="_blank"' : '';
+					$nofollow     = $item['link']['nofollow'] ? ' rel="nofollow"' : '';
 					?>
 					<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), array( 'class' => array() ) ); ?>>
 						<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon' ), array( 'class' => array() ) ); ?>>
 
-							<div <?php echo wp_kses( $this->get_render_attribute_string( 'icon_diameter' ), array( 'class' => array() ) ); ?>>
+							<div class="elementive-icon-diameter uk-position-relative uk-overflow-hidden
+							<?php
+							if ( 'svg' === $icon['library'] && 'yes' === $settings['icon_color_reset'] ) {
+								$class_output .= ' uk-svg';
+							}
+
+							if ( 'svg' === $icon['library'] && 'yes' === $settings['icon_diameter'] ) {
+								$class_output .= ' uk-flex-inline';
+							}
+							if ( 'svg' !== $icon['library'] && 'yes' === $settings['icon_diameter'] ) {
+								$class_output .= ' uk-display-inline-block';
+							}
+							echo esc_attr( $class_output );
+							?>
+							">
 								<div class="elementive-icon-wrapper uk-position-relative uk-position-z-index uk-align-center">
 									<?php Icons_Manager::render_icon( $item['icon'], array( 'aria-hidden' => 'true' ) ); ?>
 								</div>
@@ -1884,35 +1842,23 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 							?>
 							<?php
 							if ( $item['description'] ) {
-								echo '<p class="elementive-icon-box-description run-text-animation">' . esc_html( $item['description'] ) . '</p>';
+								echo '<p class="elementive-icon-box-description">' . esc_html( $item['description'] ) . '</p>';
 								if ( $item['link']['url'] && $item['link_text'] ) {
-									echo '<a class="uk-link-reset elementive-icon-box-link" href="' . esc_url( $item['link']['url'] ) . '">' . esc_html( $item['link_text'] ) . '</a>';
+									echo '<a class="uk-link-reset elementive-icon-box-link" href="' . esc_url( $item['link']['url'] ) . '" ' . wp_kses( $target . $nofollow, $allowed_html_link ) . '>' . esc_html( $item['link_text'] ) . '</a>';
 								} // End link and link_text exists.
 							} // End Description exists.
 							?>
 						</div>
 						<?php
-
-						// Background Video.
-						if ( 'video' === $settings['background_background'] && $settings['background_video_link'] ) {
-							Elementive_Helpers::elementive_video_background( $settings, 'background', array( 'uk-position-cover', 'uk-height-1-1', 'uk-width-1-1' ) );
-						}
-
 						// Overlay.
-						if ( ( 'yes' === $settings['background_overlay'] && 'classic' === $settings['background_background'] && '' !== $settings['background_image']['url'] ) || ( 'yes' !== $settings['background_overlay'] && 'video' === $settings['background_background'] && '' !== $settings['background_video_link'] ) ) {
+						if ( 'yes' === $settings['background_overlay'] && 'classic' === $settings['background_background'] && '' !== $settings['background_image']['url'] ) {
 							echo '<div class="elementive-icon-box-overlay uk-position-cover ' . esc_attr( $settings['overlay_background_blend'] ) . '"></div>';
 						}
 						?>
 						<div class="elementive-icon-box-hover uk-position-cover uk-transition-fade">
 							<?php
-
-							// Background Video.
-							if ( 'video' === $settings['background_hover_background'] && $settings['background_hover_video_link'] ) {
-								Elementive_Helpers::elementive_video_background( $settings, 'background_hover', array( 'uk-position-cover', 'uk-height-1-1', 'uk-width-1-1' ) );
-							}
-
 							// Overlay.
-							if ( ( 'yes' === $settings['background_overlay_hover'] && 'classic' === $settings['background_hover_background'] && '' !== $settings['background_hover_image']['url'] ) || ( 'yes' === $settings['background_overlay_hover'] && 'video' === $settings['background_hover_background'] && '' !== $settings['background_hover_video_link'] ) ) {
+							if ( 'yes' === $settings['background_overlay_hover'] && 'classic' === $settings['background_hover_background'] && '' !== $settings['background_hover_image']['url'] ) {
 								echo '<div class="elementive-icon-box-hover-overlay uk-position-cover ' . esc_attr( $settings['overlay_background_blend_hover'] ) . '"></div>';
 							}
 							?>
@@ -1922,6 +1868,9 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 				}
 				?>
 				</div>
+				<div class="swiper-pagination uk-dot-nav"></div>
+				<a href="" class="elementive-carousel-button-next uk-position-center-right uk-position-z-index" uk-slidenav-next></a>
+				<a href="" class="elementive-carousel-button-prev uk-position-center-left uk-position-z-index" uk-slidenav-previous></a>
 			</div>
 			<?php
 		}

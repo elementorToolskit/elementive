@@ -1,5 +1,9 @@
 .elementive-carousel {
     &.swiper-container {
+
+        &.carousel-disable-overlfow {
+            overflow: unset;
+        }
         
         .swiper-wrapper {
             visibility: hidden;
@@ -12,16 +16,6 @@
         }
         
         .swiper-slide {
-            width: 30%;
-            margin-right: 30px;
-            //opacity: 0;
-            //transform: translateX(30px);
-            transition: all .3s ease-in;
-
-            &.swiper-slide-visible {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
     }
 }

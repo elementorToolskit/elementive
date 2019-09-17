@@ -91,7 +91,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'elementive-starter' ];
+		return array( 'elementive-starter' );
 	}
 
 	/**
@@ -106,7 +106,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'uikit', 'uikit-icons' ];
+		return array( 'uikit', 'uikit-icons' );
 	}
 
 	/**
@@ -121,7 +121,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 	 * @return array Element styles dependencies.
 	 */
 	public function get_style_depends() {
-		return [ 'uikit' ];
+		return array( 'uikit' );
 	}
 
 	/**
@@ -136,152 +136,152 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content',
-			[
+			array(
 				'label' => __( 'Images', 'elementive' ),
-			]
+			)
 		);
 
 		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'image',
-			[
+			array(
 				'label'   => __( 'Choose Image', 'elementive' ),
 				'type'    => Controls_Manager::MEDIA,
-				'default' => [
+				'default' => array(
 					'url' => Utils::get_placeholder_image_src(),
-				],
-			]
+				),
+			)
 		);
 
 		$repeater->add_control(
 			Group_Control_Image_Size::get_type(),
-			[
+			array(
 				'name'    => 'thumbnail',
-				'exclude' => [],
-				'include' => [ 'custom' ],
+				'exclude' => array(),
+				'include' => array( 'custom' ),
 				'default' => 'large',
-			]
+			)
 		);
 
 		$repeater->add_control(
 			'object_fit',
-			[
+			array(
 				'label'   => __( 'Object fit', 'elementive' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'cover',
-				'options' => [
+				'options' => array(
 					'cover'   => __( 'Cover', 'elementive' ),
 					'contain' => __( 'Contain', 'elementive' ),
 					'fill'    => __( 'Fill', 'elementive' ),
 					'none'    => __( 'None', 'elementive' ),
-				],
-			]
+				),
+			)
 		);
 
 		$repeater->add_responsive_control(
 			'transform',
-			[
+			array(
 				'label'              => __( 'Transform', 'elementive' ),
 				'type'               => Controls_Manager::DIMENSIONS,
-				'size_units'         => [ 'px' ],
-				'allowed_dimensions' => [ 'top', 'right' ],
-				'devices'            => [ 'desktop', 'tablet', 'mobile' ],
-				'desktop_default'    => [
+				'size_units'         => array( 'px' ),
+				'allowed_dimensions' => array( 'top', 'right' ),
+				'devices'            => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default'    => array(
 					'top'      => '0',
 					'right'    => '0',
 					'unit'     => 'px',
 					'isLinked' => false,
-				],
-				'tablet_default'     => [
+				),
+				'tablet_default'     => array(
 					'top'      => '0',
 					'right'    => '0',
 					'unit'     => 'px',
 					'isLinked' => false,
-				],
-				'mobile_default'     => [
+				),
+				'mobile_default'     => array(
 					'top'      => '',
 					'right'    => '0',
 					'unit'     => '0',
 					'isLinked' => false,
-				],
-				'selectors'          => [
+				),
+				'selectors'          => array(
 					'{{WRAPPER}} {{CURRENT_ITEM}} .elementive-group-image-item' => 'transform: translate3d({{RIGHT}}{{UNIT}}, {{TOP}}{{UNIT}}, 0{{UNIT}});',
-				],
-			]
+				),
+			)
 		);
 
 		$repeater->add_responsive_control(
 			'width',
-			[
+			array(
 				'label'           => __( 'Width (px)', 'elementive' ),
 				'type'            => Controls_Manager::SLIDER,
-				'size_units'      => [ 'px' ],
-				'range'           => [
-					'px' => [
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
 						'min'  => 0,
 						'max'  => 1000,
 						'step' => 1,
-					],
-				],
-				'devices'         => [ 'desktop', 'tablet', 'mobile' ],
-				'desktop_default' => [
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'tablet_default'  => [
+				),
+				'tablet_default'  => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'mobile_default'  => [
+				),
+				'mobile_default'  => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'selectors'       => [
+				),
+				'selectors'       => array(
 					'{{WRAPPER}} {{CURRENT_ITEM}} .elementive-group-image-item' => 'width: {{SIZE}}{{UNIT}};',
-				],
-			]
+				),
+			)
 		);
 
 		$repeater->add_responsive_control(
 			'height',
-			[
+			array(
 				'label'           => __( 'Height (px)', 'elementive' ),
 				'type'            => Controls_Manager::SLIDER,
-				'size_units'      => [ 'px' ],
-				'range'           => [
-					'px' => [
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
 						'min'  => 0,
 						'max'  => 1000,
 						'step' => 1,
-					],
-				],
-				'devices'         => [ 'desktop', 'tablet', 'mobile' ],
-				'desktop_default' => [
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'tablet_default'  => [
+				),
+				'tablet_default'  => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'mobile_default'  => [
+				),
+				'mobile_default'  => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'selectors'       => [
+				),
+				'selectors'       => array(
 					'{{WRAPPER}} {{CURRENT_ITEM}} .elementive-group-image-item' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
+				),
+			)
 		);
 
 		$repeater->add_control(
 			'custom_animation',
-			[
+			array(
 				'label'       => __( 'Custom Animation', 'elementive' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'uk-animation-fade',
-				'options'     => [
+				'options'     => array(
 					'none'                             => __( 'None', 'elementive' ),
 					'uk-animation-fade'                => __( 'Fade', 'elementive' ),
 					'uk-animation-scale-up'            => __( 'Scale up', 'elementive' ),
@@ -298,162 +298,162 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 					'uk-animation-slide-bottom-medium' => __( 'Slide bottom medium', 'elementive' ),
 					'uk-animation-slide-left-medium'   => __( 'Slide left medium', 'elementive' ),
 					'uk-animation-slide-right-medium'  => __( 'Slide right medium', 'elementive' ),
-				],
-			]
+				),
+			)
 		);
 
 		$repeater->add_control(
 			'parallax_x',
-			[
+			array(
 				'label'   => __( 'Parallax on X axis', 'elementive' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => -1000,
 				'max'     => 1000,
 				'step'    => 1,
 				'default' => 0,
-			]
+			)
 		);
 
 		$repeater->add_control(
 			'parallax_y',
-			[
+			array(
 				'label'   => __( 'Parallax on Y axis', 'elementive' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => -1000,
 				'max'     => 1000,
 				'step'    => 1,
 				'default' => 0,
-			]
+			)
 		);
 
 		$repeater->add_control(
 			'box_shadow',
-			[
+			array(
 				'label'   => __( 'Box shadow', 'elementive' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'uk-box-shadow-none',
-				'options' => [
+				'options' => array(
 					'uk-box-shadow-none'   => __( 'none', 'elementive' ),
 					'uk-box-shadow-small'  => __( 'Small', 'elementive' ),
 					'uk-box-shadow-medium' => __( 'Medium', 'elementive' ),
 					'uk-box-shadow-large'  => __( 'Large', 'elementive' ),
 					'uk-box-shadow-xlarge' => __( 'X Large', 'elementive' ),
-				],
-			]
+				),
+			)
 		);
 
 		$repeater->add_control(
 			'radius',
-			[
+			array(
 				'label'      => __( 'radius', 'elementive' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range'      => [
-					'px' => [
+				'size_units' => array( 'px', '%' ),
+				'range'      => array(
+					'px' => array(
 						'min'  => 0,
 						'max'  => 1000,
 						'step' => 1,
-					],
-					'%' => [
+					),
+					'%' => array(
 						'min' => 0,
 						'max' => 100,
-					],
-				],
-				'default'    => [
+					),
+				),
+				'default'    => array(
 					'size' => 0,
 					'unit' => 'px',
 					'size' => 0,
 					'unit' => '%',
-				],
-				'selectors'  => [
+				),
+				'selectors'  => array(
 					'{{WRAPPER}} {{CURRENT_ITEM}} .elementive-group-image-item img' => 'border-radius: {{SIZE}}{{UNIT}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'images',
-			[
+			array(
 				'label'       => __( 'Images', 'elementive' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
-				'default'     => [],
+				'default'     => array(),
 				'title_field' => 'image',
-			]
+			)
 		);
 
 		$this->add_responsive_control(
 			'wrapper_height',
-			[
+			array(
 				'label'           => __( 'Wrapper height (px)', 'elementive' ),
 				'type'            => Controls_Manager::SLIDER,
-				'size_units'      => [ 'px' ],
-				'range'           => [
-					'px' => [
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
 						'min'  => 0,
 						'max'  => 1500,
 						'step' => 1,
-					],
-				],
-				'devices'         => [ 'desktop', 'tablet', 'mobile' ],
-				'desktop_default' => [
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'tablet_default'  => [
+				),
+				'tablet_default'  => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'mobile_default'  => [
+				),
+				'mobile_default'  => array(
 					'size' => 500,
 					'unit' => 'px',
-				],
-				'selectors'       => [
+				),
+				'selectors'       => array(
 					'{{WRAPPER}} .elementive-group-images' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'scrollspy',
-			[
+			array(
 				'label'        => __( 'Scrollspy', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'True', 'elementive' ),
 				'label_off'    => __( 'False', 'elementive' ),
 				'return_value' => 'true',
 				'default'      => 'true',
-			]
+			)
 		);
 
 		$this->add_control(
 			'lightbox',
-			[
+			array(
 				'label'        => __( 'Lightbox', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'True', 'elementive' ),
 				'label_off'    => __( 'False', 'elementive' ),
 				'return_value' => 'true',
 				'default'      => 'false',
-			]
+			)
 		);
 
 		$this->add_control(
 			'video',
-			[
+			array(
 				'label'       => __( 'Video URL', 'elementive' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => '',
 				'placeholder' => __( 'Youtube or Vimeo URL', 'elementive' ),
-				'conditions'  => [
-					'terms' => [
-						[
+				'conditions'  => array(
+					'terms' => array(
+						array(
 							'name'     => 'lightbox',
 							'value'    => 'true',
-						],
-					],
-				],
-			]
+						),
+					),
+				),
+			)
 		);
 
 		$this->end_controls_section();
@@ -477,8 +477,8 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 			foreach ( $settings['images'] as $image ) {
 				$counter++;
 				echo '<div class="item elementor-repeater-item-' . esc_attr( $image['_id'] ) . '" uk-scrollspy-class="' . esc_attr( $image['custom_animation'] ) . '">';
-                echo '<div class="elementive-group-image-wrapper">';
-                echo '<div uk-parallax="y: ' . esc_attr( $image['parallax_y'] ) . '; x: ' . esc_attr( $image['parallax_x'] ) . '; easing: -2">';
+				echo '<div class="elementive-group-image-wrapper">';
+				echo '<div uk-parallax="y: ' . esc_attr( $image['parallax_y'] ) . '; x: ' . esc_attr( $image['parallax_x'] ) . '; easing: -2">';
 				echo '<div class="elementive-group-image-item uk-position-relative ' . esc_attr( $image['object_fit'] ) . ' ' . esc_attr( $image['box_shadow'] ) . '">';
 				if ( count( $settings['images'] ) === $counter && 'true' === $settings['lightbox'] && $settings['video'] ) {
 					?>
