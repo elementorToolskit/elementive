@@ -15,7 +15,12 @@
             }
         }
         
-        .swiper-slide {
+        .swiper-pagination-bullet {
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 }

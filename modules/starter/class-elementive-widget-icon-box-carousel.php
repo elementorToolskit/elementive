@@ -1602,30 +1602,6 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'pagination',
-			array(
-				'label'        => __( 'Pagination', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'True', 'elementive' ),
-				'label_off'    => __( 'False', 'elementive' ),
-				'return_value' => 'true',
-				'default'      => '',
-			)
-		);
-
-		$this->add_control(
-			'navigation',
-			array(
-				'label'        => __( 'Navigation', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'True', 'elementive' ),
-				'label_off'    => __( 'False', 'elementive' ),
-				'return_value' => 'true',
-				'default'      => '',
-			)
-		);
-
-		$this->add_control(
 			'centered',
 			array(
 				'label'        => __( 'Centered slider', 'elementive' ),
@@ -1658,21 +1634,557 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'effect',
+			'navigation',
 			array(
-				'label'       => __( 'Effect', 'elementive' ),
-				'description' => __( 'What axis should be disabled. Can be X or Y.', 'elementive' ),
-				'type'        => Controls_Manager::SELECT,
-				'default'     => 'slide',
-				'options'     => array(
-					'slide' => __( 'None', 'elementive' ),
-					'fade'  => __( 'Slide', 'elementive' ),
-					'cube'  => __( 'Fade', 'elementive' ),
-					'flip'  => __( 'Flip', 'elementive' ),
+				'label'        => __( 'Navigation', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'separator'    => 'before',
+				'default'      => '',
+			)
+		);
+
+		$this->add_responsive_control(
+			'navigation_diameter_width',
+			array(
+				'label'           => __( 'Diameter', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 30,
+						'max'  => 200,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'navigation' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation ' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
 
+		$this->add_responsive_control(
+			'navigation_icon_width',
+			array(
+				'label'           => __( 'Icon width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 5,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 10,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'navigation' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation svg' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'navigation_radius',
+			array(
+				'label'          => __( 'Border radius', 'elementive' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px' ),
+				'range'          => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'devices'        => array( 'desktop', 'tablet', 'mobile' ),
+				'condition'      => array(
+					'navigation' => 'true',
+				),
+				'selectors'      => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation' => 'border-radius: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'navigation_tabs',
+			array(
+				'condition' => array(
+					'navigation' => 'true',
+				),
+			)
+		);
+
+		$this->start_controls_tab(
+			'navigation_normal_tab',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'navigation_color',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation svg' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'navigation_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'navigation_diameter' => 'yes',
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'navigation_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'navigation_diameter' => 'yes',
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation',
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'navigation_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'navigation_diameter' => 'yes',
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'navigation_hover_tab',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'navigation_color_hover',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}}  .elementive-carousel .elementive-carousel-navigation:hover svg' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'navigation_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation:hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'navigation_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation .navigation-background-hover',
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'navigation_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation:hover',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'pagination',
+			array(
+				'label'        => __( 'Pagination', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'separator'    => 'before',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'pagination_bullet_align',
+			array(
+				'label'   => __( 'Border Style', 'elementive' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'uk-text-center',
+				'options' => array(
+					'uk-text-center' => __( 'Center', 'elementive' ),
+					'uk-text-left'   => __( 'Left', 'elementive' ),
+					'uk-text-right'  => __( 'Right', 'elementive' ),
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bottom',
+			array(
+				'label'           => __( 'Bottom size', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => -100,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 20,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-pagination ' => 'bottom: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullet_margin',
+			array(
+				'label'           => __( 'Bullet margin', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 3,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet ' => 'margin: 0 {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullet_width',
+			array(
+				'label'           => __( 'Bullet width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 3,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 5,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet ' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullet_height',
+			array(
+				'label'           => __( 'Bullet height', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 5,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet ' => 'height: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_radius',
+			array(
+				'label'          => __( 'Border radius', 'elementive' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px' ),
+				'range'          => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 10,
+						'step' => 1,
+					),
+				),
+				'devices'        => array( 'desktop', 'tablet', 'mobile' ),
+				'condition'      => array(
+					'pagination' => 'true',
+				),
+				'selectors'      => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet' => 'border-radius: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'pagination_tabs',
+			array(
+				'condition' => array(
+					'pagination' => 'true',
+				),
+			)
+		);
+
+		$this->start_controls_tab(
+			'pagination_normal_tab',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'pagination_color',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'pagination_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'pagination_diameter' => 'yes',
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'pagination_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'pagination_diameter' => 'yes',
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'pagination_hover_tab',
+			array(
+				'label' => __( 'Active', 'elementive' ),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_diameter_width_active',
+			array(
+				'label'           => __( 'Bullet width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 5,
+						'max'  => 40,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 8,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet-active' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_color_hover',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}}  .elementive-carousel .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'pagination_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet-active',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'pagination_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet-active',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		// End carousel navigation section.
 		$this->end_controls_section();
 	}
 
@@ -1842,7 +2354,7 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 							?>
 							<?php
 							if ( $item['description'] ) {
-								echo '<p class="elementive-icon-box-description">' . esc_html( $item['description'] ) . '</p>';
+								echo '<p class="elementive-icon-box-description uk-margin-remove-top">' . esc_html( $item['description'] ) . '</p>';
 								if ( $item['link']['url'] && $item['link_text'] ) {
 									echo '<a class="uk-link-reset elementive-icon-box-link" href="' . esc_url( $item['link']['url'] ) . '" ' . wp_kses( $target . $nofollow, $allowed_html_link ) . '>' . esc_html( $item['link_text'] ) . '</a>';
 								} // End link and link_text exists.
@@ -1868,9 +2380,27 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 				}
 				?>
 				</div>
-				<div class="swiper-pagination uk-dot-nav"></div>
-				<a href="" class="elementive-carousel-button-next uk-position-center-right uk-position-z-index" uk-slidenav-next></a>
-				<a href="" class="elementive-carousel-button-prev uk-position-center-left uk-position-z-index" uk-slidenav-previous></a>
+				<?php
+				if ( 'true' === $settings['pagination'] ) {
+					?>
+					<div class="swiper-pagination elementive-carousel-pagination  <?php echo esc_attr( $settings['pagination_bullet_align'] ); ?>"></div>
+					<?php
+				}
+				?>
+				<?php
+				if ( 'true' === $settings['navigation'] ) {
+					?>
+					<a href="" class="elementive-carousel-navigation uk-hidden-hover elementive-carousel-button-next uk-inline-clip uk-transition-toggle uk-position-center-right uk-position-z-index uk-text-center uk-svg" tabindex="0">
+						<span class="uk-transform-center uk-position-center uk-position-z-index" uk-slidenav-next></span>
+						<span class="navigation-background-hover uk-position-cover uk-transition-fade"></span>
+					</a>
+					<a href="" class="elementive-carousel-navigation uk-hidden-hover elementive-carousel-button-prev uk-inline-clip uk-transition-toggle uk-position-center-left uk-position-z-index uk-text-center uk-svg" tabindex="0">
+						<span class="uk-transform-center uk-position-center uk-position-z-index" uk-slidenav-previous></span>
+						<span class="navigation-background-hover uk-position-cover uk-transition-fade"></span>
+					</a>
+					<?php
+				}
+				?>
 			</div>
 			<?php
 		}

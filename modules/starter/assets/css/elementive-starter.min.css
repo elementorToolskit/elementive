@@ -5,6 +5,8 @@
 .elementive-carousel.swiper-container.carousel-disable-overlfow{overflow:unset}
 .elementive-carousel.swiper-container .swiper-wrapper{visibility:hidden}
 .elementive-carousel.swiper-container.swiper-container-horizontal .swiper-wrapper{visibility:visible}
+.elementive-carousel.swiper-container .swiper-pagination-bullet{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementive-carousel.swiper-container .swiper-pagination-bullet:hover{opacity:1}
 .elementor-widget-elementive-accordion .uk-accordion-title>*{min-height:25px}
 .uk-tab::before{height:100%;width:calc(100% - 20px);z-index:-1}
 .uk-tab.uk-tab-left::before,.uk-tab.uk-tab-right::before{width:100%}
@@ -138,48 +140,48 @@
 .elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content p:last-child,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content p:last-child{margin-bottom:0}
 .elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
 .elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content{-webkit-transform:translate3d(0,0,60px);transform:translate3d(0,0,60px)}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#5e40bf}
-5%{color:#bf406c}
-10%{color:#bf7b40}
-15%{color:#40bf60}
-20%{color:#bf40ae}
-25%{color:#bf40a4}
-30%{color:#bf9b40}
-35%{color:#84bf40}
-40%{color:#bf407d}
-45%{color:#80bf40}
-50%{color:#4079bf}
-55%{color:#bdbf40}
-60%{color:#40bfac}
-65%{color:#6840bf}
-70%{color:#bf4240}
-75%{color:#b740bf}
-80%{color:#4053bf}
-85%{color:#40bfa4}
-90%{color:#80bf40}
-95%{color:#4051bf}
-100%{color:#bf5540}
-}@keyframes anim-text-flow-keys{0{color:#5e40bf}
-5%{color:#bf406c}
-10%{color:#bf7b40}
-15%{color:#40bf60}
-20%{color:#bf40ae}
-25%{color:#bf40a4}
-30%{color:#bf9b40}
-35%{color:#84bf40}
-40%{color:#bf407d}
-45%{color:#80bf40}
-50%{color:#4079bf}
-55%{color:#bdbf40}
-60%{color:#40bfac}
-65%{color:#6840bf}
-70%{color:#bf4240}
-75%{color:#b740bf}
-80%{color:#4053bf}
-85%{color:#40bfa4}
-90%{color:#80bf40}
-95%{color:#4051bf}
-100%{color:#bf5540}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#9940bf}
+5%{color:#7340bf}
+10%{color:#bf6840}
+15%{color:#bf4040}
+20%{color:#46bf40}
+25%{color:#b9bf40}
+30%{color:#bf4091}
+35%{color:#40bfae}
+40%{color:#407dbf}
+45%{color:#9dbf40}
+50%{color:#6640bf}
+55%{color:#40bf75}
+60%{color:#40a4bf}
+65%{color:#bf407b}
+70%{color:#6c40bf}
+75%{color:#4071bf}
+80%{color:#4079bf}
+85%{color:#4086bf}
+90%{color:#4086bf}
+95%{color:#40bfb7}
+100%{color:#bf4088}
+}@keyframes anim-text-flow-keys{0{color:#9940bf}
+5%{color:#7340bf}
+10%{color:#bf6840}
+15%{color:#bf4040}
+20%{color:#46bf40}
+25%{color:#b9bf40}
+30%{color:#bf4091}
+35%{color:#40bfae}
+40%{color:#407dbf}
+45%{color:#9dbf40}
+50%{color:#6640bf}
+55%{color:#40bf75}
+60%{color:#40a4bf}
+65%{color:#bf407b}
+70%{color:#6c40bf}
+75%{color:#4071bf}
+80%{color:#4079bf}
+85%{color:#4086bf}
+90%{color:#4086bf}
+95%{color:#40bfb7}
+100%{color:#bf4088}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}
