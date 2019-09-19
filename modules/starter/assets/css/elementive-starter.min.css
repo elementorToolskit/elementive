@@ -140,48 +140,58 @@
 .elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content p:last-child,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content p:last-child{margin-bottom:0}
 .elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
 .elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content{-webkit-transform:translate3d(0,0,60px);transform:translate3d(0,0,60px)}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#9940bf}
-5%{color:#7340bf}
-10%{color:#bf6840}
-15%{color:#bf4040}
-20%{color:#46bf40}
-25%{color:#b9bf40}
-30%{color:#bf4091}
-35%{color:#40bfae}
-40%{color:#407dbf}
-45%{color:#9dbf40}
-50%{color:#6640bf}
-55%{color:#40bf75}
-60%{color:#40a4bf}
-65%{color:#bf407b}
-70%{color:#6c40bf}
-75%{color:#4071bf}
-80%{color:#4079bf}
-85%{color:#4086bf}
-90%{color:#4086bf}
-95%{color:#40bfb7}
-100%{color:#bf4088}
-}@keyframes anim-text-flow-keys{0{color:#9940bf}
-5%{color:#7340bf}
-10%{color:#bf6840}
-15%{color:#bf4040}
-20%{color:#46bf40}
-25%{color:#b9bf40}
-30%{color:#bf4091}
-35%{color:#40bfae}
-40%{color:#407dbf}
-45%{color:#9dbf40}
-50%{color:#6640bf}
-55%{color:#40bf75}
-60%{color:#40a4bf}
-65%{color:#bf407b}
-70%{color:#6c40bf}
-75%{color:#4071bf}
-80%{color:#4079bf}
-85%{color:#4086bf}
-90%{color:#4086bf}
-95%{color:#40bfb7}
-100%{color:#bf4088}
+.elementive-clients-grid.uk-flex-middle>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.elementive-clients-grid.uk-flex-top>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
+.elementive-clients-grid.uk-flex-bottom>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
+.elementive-clients-grid.uk-text-center>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.elementive-clients-grid.uk-text-left>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
+.elementive-clients-grid.uk-text-right>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.elementive-clients-grid .elementive-client-grid-logo{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
+.elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale:hover{-webkit-filter:grayscale(0);filter:grayscale(0)}
+.elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale-hover:hover{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#b940bf}
+5%{color:#4f40bf}
+10%{color:#4051bf}
+15%{color:#9d40bf}
+20%{color:#bf408e}
+25%{color:#bf9b40}
+30%{color:#4093bf}
+35%{color:#4044bf}
+40%{color:#bf40b5}
+45%{color:#bfa440}
+50%{color:#aebf40}
+55%{color:#40bf6a}
+60%{color:#40bf99}
+65%{color:#6040bf}
+70%{color:#bf4068}
+75%{color:#71bf40}
+80%{color:#bf9740}
+85%{color:#bf7940}
+90%{color:#40bf84}
+95%{color:#aa40bf}
+100%{color:#408abf}
+}@keyframes anim-text-flow-keys{0{color:#b940bf}
+5%{color:#4f40bf}
+10%{color:#4051bf}
+15%{color:#9d40bf}
+20%{color:#bf408e}
+25%{color:#bf9b40}
+30%{color:#4093bf}
+35%{color:#4044bf}
+40%{color:#bf40b5}
+45%{color:#bfa440}
+50%{color:#aebf40}
+55%{color:#40bf6a}
+60%{color:#40bf99}
+65%{color:#6040bf}
+70%{color:#bf4068}
+75%{color:#71bf40}
+80%{color:#bf9740}
+85%{color:#bf7940}
+90%{color:#40bf84}
+95%{color:#aa40bf}
+100%{color:#408abf}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

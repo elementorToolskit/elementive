@@ -1891,15 +1891,15 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 		$this->add_control(
 			'pagination_bullet_align',
 			array(
-				'label'   => __( 'Border Style', 'elementive' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'uk-text-center',
-				'options' => array(
+				'label'     => __( 'Border Style', 'elementive' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'uk-text-center',
+				'options'   => array(
 					'uk-text-center' => __( 'Center', 'elementive' ),
 					'uk-text-left'   => __( 'Left', 'elementive' ),
 					'uk-text-right'  => __( 'Right', 'elementive' ),
 				),
-				'condition'       => array(
+				'condition' => array(
 					'pagination' => 'true',
 				),
 			)
