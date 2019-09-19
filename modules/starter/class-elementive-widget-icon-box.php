@@ -481,7 +481,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 						'icon'  => 'fa fa-align-right',
 					),
 				),
-				'default'    => 'center',
+				'default'    => 'uk-text-center',
 				'toggle'     => true,
 				'conditions' => array(
 					'terms' => array(

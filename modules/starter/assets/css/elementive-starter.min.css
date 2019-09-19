@@ -150,48 +150,54 @@
 .elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
 .elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale:hover{-webkit-filter:grayscale(0);filter:grayscale(0)}
 .elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale-hover:hover{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#b940bf}
-5%{color:#4f40bf}
-10%{color:#4051bf}
-15%{color:#9d40bf}
-20%{color:#bf408e}
-25%{color:#bf9b40}
-30%{color:#4093bf}
-35%{color:#4044bf}
-40%{color:#bf40b5}
-45%{color:#bfa440}
-50%{color:#aebf40}
-55%{color:#40bf6a}
-60%{color:#40bf99}
-65%{color:#6040bf}
-70%{color:#bf4068}
-75%{color:#71bf40}
-80%{color:#bf9740}
-85%{color:#bf7940}
-90%{color:#40bf84}
-95%{color:#aa40bf}
-100%{color:#408abf}
-}@keyframes anim-text-flow-keys{0{color:#b940bf}
-5%{color:#4f40bf}
-10%{color:#4051bf}
-15%{color:#9d40bf}
-20%{color:#bf408e}
-25%{color:#bf9b40}
-30%{color:#4093bf}
-35%{color:#4044bf}
-40%{color:#bf40b5}
-45%{color:#bfa440}
-50%{color:#aebf40}
-55%{color:#40bf6a}
-60%{color:#40bf99}
-65%{color:#6040bf}
-70%{color:#bf4068}
-75%{color:#71bf40}
-80%{color:#bf9740}
-85%{color:#bf7940}
-90%{color:#40bf84}
-95%{color:#aa40bf}
-100%{color:#408abf}
+.elementive-testimonials .testimonials-content.show-arrow blockquote{position:relative}
+.elementive-testimonials .testimonials-content.show-arrow blockquote::after{content:'';display:inline-block;width:10px;height:10px;position:absolute;z-index:0;-webkit-transform:rotate(45deg);transform:rotate(45deg);background:inherit}
+.elementive-testimonials.image-top .testimonials-content.show-arrow blockquote::after{top:-5px}
+.elementive-testimonials.image-bottom .testimonials-content.show-arrow blockquote::after{bottom:-5px}
+.elementive-testimonials.image-left .testimonials-content.show-arrow blockquote::after{left:-5px}
+.elementive-testimonials.image-right .testimonials-content.show-arrow blockquote::after{right:-5px}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#bf404f}
+5%{color:#4044bf}
+10%{color:#40bfbd}
+15%{color:#40bfae}
+20%{color:#99bf40}
+25%{color:#408abf}
+30%{color:#40bf9b}
+35%{color:#bf4055}
+40%{color:#4062bf}
+45%{color:#40bfbd}
+50%{color:#bf4060}
+55%{color:#bf5b40}
+60%{color:#bf4a40}
+65%{color:#bf4077}
+70%{color:#9740bf}
+75%{color:#7740bf}
+80%{color:#b0bf40}
+85%{color:#40bf97}
+90%{color:#40aabf}
+95%{color:#bf8240}
+100%{color:#bf4240}
+}@keyframes anim-text-flow-keys{0{color:#bf404f}
+5%{color:#4044bf}
+10%{color:#40bfbd}
+15%{color:#40bfae}
+20%{color:#99bf40}
+25%{color:#408abf}
+30%{color:#40bf9b}
+35%{color:#bf4055}
+40%{color:#4062bf}
+45%{color:#40bfbd}
+50%{color:#bf4060}
+55%{color:#bf5b40}
+60%{color:#bf4a40}
+65%{color:#bf4077}
+70%{color:#9740bf}
+75%{color:#7740bf}
+80%{color:#b0bf40}
+85%{color:#40bf97}
+90%{color:#40aabf}
+95%{color:#bf8240}
+100%{color:#bf4240}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

@@ -81,7 +81,7 @@ class Elementive_Widget_Shape_Mask extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'elementive-starter' ];
+		return array( 'elementive-starter' );
 	}
 
 	/**
@@ -96,7 +96,7 @@ class Elementive_Widget_Shape_Mask extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'anime', 'svg-injector', 'uikit' ];
+		return array( 'anime', 'svg-injector', 'uikit' );
 	}
 
 	/**
@@ -111,68 +111,68 @@ class Elementive_Widget_Shape_Mask extends Widget_Base {
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content',
-			[
+			array(
 				'label' => __( 'Content', 'elementive' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'icon',
-			[
+			array(
 				'label'   => __( 'Icon', 'elementive' ),
 				'type'    => Controls_Manager::ICONS,
-				'default' => [
+				'default' => array(
 					'value'   => 'fas fa-star',
 					'library' => 'solid',
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'image',
-			[
+			array(
 				'label'   => __( 'Choose Image', 'elementive' ),
 				'type'    => \Elementor\Controls_Manager::MEDIA,
-				'default' => [
+				'default' => array(
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'title',
-			[
+			array(
 				'label' => __( 'Title', 'elementive' ),
 				'type'  => Controls_Manager::TEXT,
-			]
+			)
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_style',
-			[
+			array(
 				'label' => __( 'Style', 'elementive' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
-			]
+			)
 		);
 
 		$this->add_control(
 			'text_transform',
-			[
+			array(
 				'label'     => __( 'Text Transform', 'elementive' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
-				'options'   => [
+				'options'   => array(
 					''           => __( 'None', 'elementive' ),
 					'uppercase'  => __( 'UPPERCASE', 'elementive' ),
 					'lowercase'  => __( 'lowercase', 'elementive' ),
 					'capitalize' => __( 'Capitalize', 'elementive' ),
-				],
-				'selectors' => [
+				),
+				'selectors' => array(
 					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->end_controls_section();
@@ -195,7 +195,7 @@ class Elementive_Widget_Shape_Mask extends Widget_Base {
 		?>
 		<figure class="my-icon-wrapper">
 			<?php // \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
-			<img src="<?php echo esc_url( ELEMENTIVE_URL . 'frontend/svg/blob-shape-1.svg' ) ?>" class="lazyload-disabled svg-process" data-url="<?php echo esc_url( $settings['image']['url'] ); ?>">
+			<img src="<?php echo esc_url( ELEMENTIVE_URL . 'frontend/svg/blob-shape-1.svg' ); ?>" class="lazyload-disabled svg-process" data-url="<?php echo esc_url( $settings['image']['url'] ); ?>">
 		</figure>
 		<?php
 		echo '</div>';

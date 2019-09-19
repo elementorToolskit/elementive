@@ -81,7 +81,7 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'elementive-starter' ];
+		return array( 'elementive-starter' );
 	}
 
 	/**
@@ -96,7 +96,7 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'elementor-hello-world' ];
+		return array( 'elementor-hello-world' );
 	}
 
 	/**
@@ -111,45 +111,45 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content',
-			[
+			array(
 				'label' => __( 'Content', 'elementor-hello-world' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'title',
-			[
+			array(
 				'label' => __( 'Title', 'elementor-hello-world' ),
 				'type' => Controls_Manager::TEXT,
-			]
+			)
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_style',
-			[
+			array(
 				'label' => __( 'Style', 'elementor-hello-world' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-			]
+			)
 		);
 
 		$this->add_control(
 			'text_transform',
-			[
+			array(
 				'label' => __( 'Text Transform', 'elementor-hello-world' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
-				'options' => [
+				'options' => array(
 					'' => __( 'None', 'elementor-hello-world' ),
 					'uppercase' => __( 'UPPERCASE', 'elementor-hello-world' ),
 					'lowercase' => __( 'lowercase', 'elementor-hello-world' ),
 					'capitalize' => __( 'Capitalize', 'elementor-hello-world' ),
-				],
-				'selectors' => [
+				),
+				'selectors' => array(
 					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
-				],
-			]
+				),
+			)
 		);
 
 		$this->end_controls_section();
