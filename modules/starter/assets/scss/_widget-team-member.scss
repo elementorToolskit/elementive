@@ -1,0 +1,31 @@
+.elementive-team-memeber {
+    ul.team-member-social {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+    }
+
+    &.uk-text-center {
+        ul li {
+            margin: 0 5px;
+        }
+    }
+
+    &.uk-text-left {
+        ul li {
+            margin-right: 10px;
+        }
+    }
+
+    &.uk-text-right {
+        ul li {
+            margin-left: 10px;
+        }
+    }
+}
