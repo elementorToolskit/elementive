@@ -1,6 +1,6 @@
 <?php
 /**
- * Clients Widget
+ * Testimonials Carousel Widget for Elementive.
  *
  * @link       https://dimative.com
  * @since      1.0.0
@@ -13,12 +13,15 @@ namespace Elementive\Modules\Starter;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Repeater;
 use Elementor\Utils;
-use Elementor\Scheme_Color;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
+use Elementor\Scheme_Color;
+use Elementor\Group_Control_Background;
+use Elementor\Repeater;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -31,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Elementive_Widget_Clients_Carousel extends Widget_Base {
+class Elementive_Widget_Testimonials_Carousel extends Widget_Base {
 
 	/**
 	 * Content template disable.
@@ -50,7 +53,7 @@ class Elementive_Widget_Clients_Carousel extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'elementive-clients-carousel';
+		return 'elementive-testimonials-carousel';
 	}
 
 	/**
@@ -63,7 +66,7 @@ class Elementive_Widget_Clients_Carousel extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Clients Carousel', 'elementive' );
+		return __( 'Advanced Testimonials Carousel', 'elementive' );
 	}
 
 	/**
@@ -147,9 +150,9 @@ class Elementive_Widget_Clients_Carousel extends Widget_Base {
 		$repeater = new Repeater();
 
 		$repeater->add_control(
-			'client_logo',
+			'image',
 			array(
-				'label'   => __( 'Choose Image', 'elementive' ),
+				'label'   => __( 'Avatar', 'elementive' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => array(
 					'url' => Utils::get_placeholder_image_src(),
@@ -158,174 +161,576 @@ class Elementive_Widget_Clients_Carousel extends Widget_Base {
 		);
 
 		$repeater->add_control(
-			'client_name',
+			'name',
 			array(
-				'label'       => __( 'Title', 'elementive' ),
-				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'Client Name', 'elementive' ),
-				'placeholder' => __( 'Type your client name here', 'elementive' ),
+				'label' => __( 'Name', 'elementive' ),
+				'type'  => Controls_Manager::TEXT,
 			)
 		);
 
 		$repeater->add_control(
-			'client_link',
+			'title',
 			array(
-				'label'         => __( 'Link', 'elementive' ),
-				'type'          => Controls_Manager::URL,
-				'placeholder'   => __( 'https://your-client.com', 'elementive' ),
-				'show_external' => true,
-				'default'       => array(
-					'url'         => '',
-					'is_external' => true,
-					'nofollow'    => true,
-				),
+				'label' => __( 'Title', 'elementive' ),
+				'type'  => Controls_Manager::TEXT,
+			)
+		);
+
+		$repeater->add_control(
+			'testimonials',
+			array(
+				'label'       => __( 'Testimonials', 'elementive' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'rows'        => 10,
+				'default'     => '',
+				'placeholder' => __( 'Type your testimonials here', 'elementive' ),
 			)
 		);
 
 		$this->add_control(
-			'clients',
+			'testimonials_carousel',
 			array(
-				'label'       => __( 'Clients List', 'elementive' ),
+				'label'       => __( 'Testimonials list', 'elementive' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => array(),
-				'title_field' => '{{{ client_name }}}',
+				'title_field' => '{{{ name }}}',
 			)
 		);
 
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_style',
+			'section_style_image',
 			array(
-				'label' => __( 'Carousel', 'elementive' ),
+				'label' => __( 'Image', 'elementive' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
 
-		$this->add_responsive_control(
-			'max_width',
+		$this->add_control(
+			'image_position',
 			array(
-				'label'           => __( 'Logo max width', 'elementive' ),
-				'type'            => Controls_Manager::SLIDER,
-				'size_units'      => array( 'px' ),
-				'range'           => array(
+				'label'   => __( 'Image position', 'elementive' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => array(
+					'image-left' => array(
+						'title' => __( 'Left', 'elementive' ),
+						'icon'  => 'eicon-h-align-left',
+					),
+					'image-top' => array(
+						'title' => __( 'Top', 'elementive' ),
+						'icon'  => 'eicon-v-align-top',
+					),
+					'image-bottom' => array(
+						'title' => __( 'Bottom', 'elementive' ),
+						'icon'  => 'eicon-v-align-bottom',
+					),
+					'image-right' => array(
+						'title' => __( 'Right', 'elementive' ),
+						'icon'  => 'eicon-h-align-right',
+					),
+				),
+				'default' => 'image-top',
+				'toggle'  => true,
+			)
+		);
+
+		$this->add_control(
+			'text_align',
+			array(
+				'label'      => __( 'Alignment', 'elementive' ),
+				'type'       => Controls_Manager::CHOOSE,
+				'options'    => array(
+					'uk-text-left' => array(
+						'title' => __( 'Left', 'elementive' ),
+						'icon'  => 'fa fa-align-left',
+					),
+					'uk-text-center' => array(
+						'title' => __( 'Center', 'elementive' ),
+						'icon'  => 'fa fa-align-center',
+					),
+					'uk-text-right' => array(
+						'title' => __( 'Right', 'elementive' ),
+						'icon'  => 'fa fa-align-right',
+					),
+				),
+				'default'    => 'uk-text-center',
+				'toggle'     => true,
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'image_position',
+							'value'    => 'image-top',
+						),
+						array(
+							'name'     => 'image_position',
+							'value'    => 'image-bottom',
+						),
+					),
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			array(
+				'name'      => 'image_size',
+				'default'   => 'thumbnail',
+				'separator' => 'none',
+			)
+		);
+
+		$this->add_responsive_control(
+			'image_margin_top',
+			array(
+				'label'      => __( 'Margin top', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
 					'px' => array(
 						'min'  => 0,
-						'max'  => 600,
+						'max'  => 50,
 						'step' => 1,
 					),
 				),
-				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
-				'desktop_default' => array(
-					'size' => 120,
+				'default'    => array(
 					'unit' => 'px',
+					'size' => 33,
 				),
-				'tablet_default'  => array(
-					'size' => 120,
-					'unit' => 'px',
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'conditions' => array(
+					'terms' => array(
+						array(
+							'name'  => 'image_position',
+							'value' => 'image-bottom',
+						),
+					),
 				),
-				'mobile_default'  => array(
-					'size' => 120,
-					'unit' => 'px',
-				),
-				'selectors'       => array(
-					'{{WRAPPER}} .elementive-clients-grid .elementive-client-grid-logo img' => 'max-width : {{SIZE}}{{UNIT}};',
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-testimonials-user' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .testimonials-arrow' => 'margin-top: -{{SIZE}}{{UNIT}};',
 				),
 			)
 		);
 
-		$this->start_controls_tabs(
-			'style_tabs'
+		$this->add_responsive_control(
+			'image_margin_bottom',
+			array(
+				'label'      => __( 'Margin bottom', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 33,
+				),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'conditions' => array(
+					'terms' => array(
+						array(
+							'name'  => 'image_position',
+							'value' => 'image-top',
+						),
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-testimonials-user' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .testimonials-arrow' => 'margin-bottom: -{{SIZE}}{{UNIT}};',
+				),
+			)
 		);
 
-		$this->start_controls_tab(
-			'style_normal_tab',
+		$this->add_responsive_control(
+			'image_margin_left',
 			array(
-				'label' => __( 'Normal', 'elementive' ),
+				'label'      => __( 'Margin left', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 33,
+				),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'conditions' => array(
+					'terms' => array(
+						array(
+							'name'  => 'image_position',
+							'value' => 'image-right',
+						),
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-testimonials-user-image' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .testimonials-arrow' => 'margin-left: -{{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'image_margin_right',
+			array(
+				'label'      => __( 'Margin right', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 33,
+				),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'conditions' => array(
+					'terms' => array(
+						array(
+							'name'  => 'image_position',
+							'value' => 'image-left',
+						),
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-testimonials-user-image' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .testimonials-arrow' => 'margin-right: -{{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'image_padding',
+			array(
+				'label'      => __( 'Padding', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonials-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'     => 'image_border',
+				'label'    => __( 'Border', 'elementive' ),
+				'selector' => '{{WRAPPER}} .testimonials-image',
+			)
+		);
+
+		$this->add_responsive_control(
+			'image_radius',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+					'%'  => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonials-image' => 'border-radius: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'image_width',
+			array(
+				'label'      => __( 'Image width', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 30,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 80,
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonials-image' => 'max-width: {{SIZE}}{{UNIT}}; height: auto;',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'image_box_shadow',
+				'label'    => __( 'Box Shadow', 'elementive' ),
+				'selector' => '{{WRAPPER}} .testimonials-image',
+			)
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_content',
+			array(
+				'label' => __( 'Content', 'elementive' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'content_typography',
+				'label'    => __( 'Typography', 'elementive' ),
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'selector' => '{{WRAPPER}} .testimonials-content blockquote p',
 			)
 		);
 
 		$this->add_control(
-			'grayscale',
+			'content_color',
 			array(
-				'label'        => __( 'Crayscale', 'elementive' ),
+				'label'     => __( 'Title Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .testimonials-content blockquote p' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'content_margin',
+			array(
+				'label'      => __( 'Margin', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonials-content blockquote' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'content_padding',
+			array(
+				'label'      => __( 'Padding', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonials-content blockquote' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'show_arrow',
+			array(
+				'label'        => __( 'Show arrow', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
+				'label_on'     => __( 'Show', 'elementive' ),
+				'label_off'    => __( 'Hide', 'elementive' ),
 				'return_value' => 'yes',
 				'default'      => '',
 			)
 		);
 
 		$this->add_control(
-			'opacity',
+			'arrow_background_color',
 			array(
-				'label'      => __( 'Opacity', 'elementive' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array(),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1,
-						'step' => 0.1,
-					),
+				'label'     => __( 'Background color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_3,
 				),
-				'default'    => array(
-					'size' => 0.5,
+				'condition' => array(
+					'show_arrow' => 'yes',
 				),
-				'selectors'  => array(
-					'{{WRAPPER}} .elementive-clients-grid .elementive-client-grid-logo' => 'opacity : {{SIZE}};',
+				'selectors' => array(
+					'{{WRAPPER}} .testimonials-content blockquote' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .testimonials-arrow' => 'background-color: {{VALUE}}',
 				),
 			)
 		);
 
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'style_hover_tab',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			array(
-				'label' => __( 'Hover', 'elementive' ),
+				'name'      => 'content_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'selector'  => '{{WRAPPER}} .testimonials-content blockquote',
+				'separator' => 'before',
+				'condition' => array(
+					'show_arrow!' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'content_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'show_arrow!' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .testimonials-content blockquote',
+			)
+		);
+
+		$this->add_responsive_control(
+			'content_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonials-content blockquote' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'content_box_shadow',
+				'label'    => __( 'Box Shadow', 'elementive' ),
+				'selector' => '{{WRAPPER}} .testimonials-content blockquote',
+			)
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_name',
+			array(
+				'label' => __( 'Name', 'elementive' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'name_typography',
+				'label'    => __( 'Typography', 'elementive' ),
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'selector' => '{{WRAPPER}} .testimonials-name',
 			)
 		);
 
 		$this->add_control(
-			'grayscale_hover',
+			'name_color',
 			array(
-				'label'        => __( 'Crayscale', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .testimonials-name' => 'color: {{VALUE}}',
+				),
 			)
 		);
 
 		$this->add_control(
-			'opacity_hover',
+			'name_position',
 			array(
-				'label'      => __( 'Opacity', 'elementive' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array(),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1,
-						'step' => 0.1,
+				'label'      => __( 'Name & title position', 'elementive' ),
+				'type'       => Controls_Manager::CHOOSE,
+				'options'    => array(
+					'name-top' => array(
+						'title' => __( 'Top', 'elementive' ),
+						'icon'  => 'eicon-v-align-top',
+					),
+					'name-bottom' => array(
+						'title' => __( 'Bottom', 'elementive' ),
+						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
-				'default'    => array(
-					'size' => 1,
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .elementive-clients-grid .elementive-client-grid-logo:hover' => 'opacity : {{SIZE}};',
+				'default'    => 'name-top',
+				'toggle'     => true,
+				'conditions' => array(
+					'relation' => 'or',
+					'terms'    => array(
+						array(
+							'name'     => 'image_position',
+							'value'    => 'image-left',
+						),
+						array(
+							'name'     => 'image_position',
+							'value'    => 'image-right',
+						),
+					),
 				),
 			)
 		);
 
-		$this->end_controls_tab();
+		$this->end_controls_section();
 
-		$this->end_controls_tabs();
+		$this->start_controls_section(
+			'section_style_title',
+			array(
+				'label' => __( 'Title', 'elementive' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'title_typography',
+				'label'    => __( 'Typography', 'elementive' ),
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'selector' => '{{WRAPPER}} .testimonials-title',
+			)
+		);
+
+		$this->add_control(
+			'title_color',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .testimonials-title' => 'color: {{VALUE}}',
+				),
+			)
+		);
 
 		$this->end_controls_section();
 
@@ -1040,26 +1445,231 @@ class Elementive_Widget_Clients_Carousel extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$allowed_tags_link = array(
-			'target' => array(),
-			'rel'    => array(),
+		// Wrapper Classes.
+		$allowed_tags_wrapper = array(
+			'class' => array(),
 		);
+		$classes_wrapper      = array( 'elementive-testimonials', 'uk-flex' );
 
-		$allowed_html_wrapper = array(
-			'class'   => array(),
-			'uk-grid' => array(),
-		);
+		if ( 'image-left' === $settings['image_position'] || 'image-right' === $settings['image_position'] ) {
 
-		$wrapper_classes = array( 'elementive-clients-grid' );
-		$wrapper_classes = array_map( 'esc_attr', $wrapper_classes );
+			$classes_wrapper[] = 'uk-flex-row';
+		}
+
+		if ( 'image-left' === $settings['image_position'] ) {
+			$classes_wrapper[] = 'uk-flex-row-reverse';
+		}
+
+		if ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) {
+
+			$classes_wrapper[] = 'uk-flex-column';
+		}
+
+		if ( 'image-top' === $settings['image_position'] ) {
+			$classes_wrapper[] = 'uk-flex-column-reverse';
+		}
+
+		$classes_wrapper[] = esc_attr( $settings['image_position'] );
+		$classes_wrapper[] = esc_attr( $settings['text_align'] );
+
+		$classes_wrapper = array_map( 'esc_attr', $classes_wrapper );
 
 		$this->add_render_attribute(
 			'wrapper',
 			array(
-				'class'           => esc_attr( join( ' ', $wrapper_classes ) ),
+				'class' => esc_attr( join( ' ', $classes_wrapper ) ),
 			)
 		);
 
+		// User Classes.
+		$allowed_tags_user = array(
+			'class' => array(),
+		);
+		$classes_user      = array( 'elementive-testimonials-user', 'uk-flex-middle' );
+
+		if ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) {
+			$classes_user[] = 'uk-width-1-1';
+		}
+
+		if ( 'uk-text-center' === $settings['text_align'] ) {
+			$classes_user[] = 'uk-inline-flex';
+		} else {
+			$classes_user[] = 'uk-flex';
+		}
+
+		if ( 'yes' === $settings['show_arrow'] && ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-center' === $settings['text_align'] ) {
+			$classes_user[] = 'uk-position-relatiive';
+		}
+
+		$classes_user = array_map( 'esc_attr', $classes_user );
+
+		$this->add_render_attribute(
+			'user',
+			array(
+				'class' => esc_attr( join( ' ', $classes_user ) ),
+			)
+		);
+
+		// Зэрэгцүүлэлт баруун үед хэрэглэгчийн нэр болон албан тушаал бас зургуудад класс оруулах шаардалаар үүсгэв.
+		$allowed_tags_user_content_image = array(
+			'class' => array(),
+		);
+		$classes_user_content_image      = array( 'uk-width-auto' );
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-right' === $settings['text_align'] ) {
+			$classes_user_content_image[] = 'uk-flex-last';
+		}
+
+		if ( 'yes' === $settings['show_arrow'] && ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && ( 'uk-text-left' === $settings['text_align'] || 'uk-text-right' === $settings['text_align'] ) ) {
+			$classes_user_content_image[] = 'uk-position-relative';
+		}
+
+		$classes_user_content_image = array_map( 'esc_attr', $classes_user_content_image );
+
+		$this->add_render_attribute(
+			'user_content_image',
+			array(
+				'class' => esc_attr( join( ' ', $classes_user_content_image ) ),
+			)
+		);
+
+		$allowed_tags_user_content_text = array(
+			'class' => array(),
+		);
+		$classes_user_content_text      = array( 'uk-flex-1', 'uk-width-expand' );
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-right' === $settings['text_align'] ) {
+			$classes_user_content_text[] = 'uk-flex-first';
+			$classes_user_content_text[] = 'uk-text-right';
+		} elseif ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-center' === $settings['text_align'] ) {
+			$classes_user_content_text[] = 'uk-text-center';
+		} else {
+			$classes_user_content_text[] = 'uk-text-left';
+		}
+
+		$classes_user_content_text = array_map( 'esc_attr', $classes_user_content_text );
+
+		$this->add_render_attribute(
+			'user_content_text',
+			array(
+				'class' => esc_attr( join( ' ', $classes_user_content_text ) ),
+			)
+		);
+
+		// Classes for name and title.
+		$allowed_tags_name = array(
+			'class' => array(),
+		);
+		$classes_name      = array( 'testimonials-name', 'uk-display-block' );
+
+		if ( ( 'image-right' === $settings['image_position'] || 'image-left' === $settings['image_position'] ) && 'name-bottom' === $settings['name_position'] ) {
+			$classes_name[] = 'uk-margin-top';
+		}
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-center' === $settings['text_align'] ) {
+			$classes_name[] = 'uk-margin-top';
+			$classes_name[] = 'uk-text-center';
+		}
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-left' === $settings['text_align'] ) {
+			$classes_name[] = 'uk-margin-left';
+		}
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-right' === $settings['text_align'] ) {
+			$classes_name[] = 'uk-margin-right';
+		}
+
+		$classes_name = array_map( 'esc_attr', $classes_name );
+
+		$this->add_render_attribute(
+			'name',
+			array(
+				'class' => esc_attr( join( ' ', $classes_name ) ),
+			)
+		);
+
+		// Classes for title.
+		$allowed_tags_title = array(
+			'class' => array(),
+		);
+		$classes_title      = array( 'testimonials-title', 'uk-display-block' );
+
+		if ( ( 'image-right' === $settings['image_position'] || 'image-left' === $settings['image_position'] ) && 'name-top' === $settings['name_position'] ) {
+			$classes_title[] = 'uk-margin-bottom';
+		}
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-center' === $settings['text_align'] ) {
+			$classes_title[] = 'uk-text-center';
+		}
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-left' === $settings['text_align'] ) {
+			$classes_title[] = 'uk-margin-left';
+		}
+
+		if ( ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-right' === $settings['text_align'] ) {
+			$classes_title[] = 'uk-margin-right';
+		}
+
+		$classes_title = array_map( 'esc_attr', $classes_title );
+
+		$this->add_render_attribute(
+			'title',
+			array(
+				'class' => esc_attr( join( ' ', $classes_title ) ),
+			)
+		);
+
+		// Image Classes.
+		$allowed_tags_image = array(
+			'class' => array(),
+		);
+		$classes_image      = array( 'elementive-testimonials-user-image' );
+
+		$classes_image = array_map( 'esc_attr', $classes_image );
+
+		$this->add_render_attribute(
+			'image',
+			array(
+				'class' => esc_attr( join( ' ', $classes_image ) ),
+			)
+		);
+
+		// Content Classes.
+		$allowed_tags_content = array(
+			'class' => array(),
+		);
+		$allowed_html_content = array(
+			'strong' => array(),
+			'b'      => array(),
+			'em'     => array(),
+			'i'      => array(),
+			'span'   => array(
+				'class' => array(),
+			),
+
+		);
+		$classes_content = array( 'testimonials-content' );
+
+		if ( 'image-top' === $settings['image_position'] || 'image-top' === $settings['image_position'] ) {
+			$classes_content[] = 'uk-width-1-1';
+		} else {
+			$classes_content[] = 'uk-width-expand';
+		}
+
+		if ( 'yes' === $settings['show_arrow'] ) {
+			$classes_content[] = 'show-arrow';
+		}
+
+		$classes_content = array_map( 'esc_attr', $classes_content );
+
+		$this->add_render_attribute(
+			'content',
+			array(
+				'class' => esc_attr( join( ' ', $classes_content ) ),
+			)
+		);
+
+		// Carousel Values.
 		// Slider default values.
 		$overflow   = '';
 		$autoplay   = 'false';
@@ -1134,29 +1744,81 @@ class Elementive_Widget_Clients_Carousel extends Widget_Base {
 			)
 		);
 
-		if ( $settings['clients'] ) {
+		if ( $settings['testimonials_carousel'] ) {
 			?>
-			<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_html_wrapper ); ?>>
+			<div class="elementive-testimonials-carousel">
 				<div <?php echo wp_kses( $this->get_render_attribute_string( 'carousel' ), array( 'class' => array() ) ); ?>>
 					<div <?php echo wp_kses( $this->get_render_attribute_string( 'carousel_wrapper' ), array( 'class' => array() ) ); ?>>
 						<?php
-						foreach ( $settings['clients'] as $client ) {
-							// Get Targets.
-							$target   = $client['client_link']['is_external'] ? ' target="_blank"' : '';
-							$nofollow = $client['client_link']['nofollow'] ? ' rel="nofollow"' : '';
-
+						foreach ( $settings['testimonials_carousel'] as $testimonials ) {
 							?>
-							<div class="swiper-slide uk-text-center">
-								<div <?php echo wp_kses( $this->get_render_attribute_string( 'logo' ), $allowed_html_logo ); ?>>
-								<?php
-								if ( $client['client_link']['url'] ) {
-									echo '<a href="' . esc_url( $item['client_link']['url'] ) . '"' . wp_kses( $target . $nofollow, $allowed_html_link ) . '>';
-									echo wp_get_attachment_image( $client['client_logo']['id'], 'full' );
-									echo '</a>';
-								} else {
-									echo wp_get_attachment_image( $client['client_logo']['id'], 'full' );
-								}
-								?>
+							<div class="swiper-slide">
+								<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_tags_wrapper ); ?>>
+									<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), $allowed_tags_content ); ?>>
+										<blockquote>
+											<?php
+											if ( ( 'image-right' === $settings['image_position'] || 'image-left' === $settings['image_position'] ) && 'name-top' === $settings['name_position'] ) {
+												?>
+												<cite <?php echo wp_kses( $this->get_render_attribute_string( 'name' ), $allowed_tags_name ); ?>><?php echo esc_html( $testimonials['name'] ); ?></cite>
+												<span <?php echo wp_kses( $this->get_render_attribute_string( 'title' ), $allowed_tags_title ); ?>><?php echo esc_html( $testimonials['title'] ); ?></span>
+												<?php
+											}
+											?>
+											<p class="uk-margin-remove"><?php echo wp_kses( $testimonials['testimonials'], $allowed_html_content ); ?></p>
+											<?php
+											if ( ( 'image-right' === $settings['image_position'] || 'image-left' === $settings['image_position'] ) && 'name-bottom' === $settings['name_position'] ) {
+												?>
+												<cite <?php echo wp_kses( $this->get_render_attribute_string( 'name' ), $allowed_tags_name ); ?>><?php echo esc_html( $testimonials['name'] ); ?></cite>
+												<span <?php echo wp_kses( $this->get_render_attribute_string( 'title' ), $allowed_tags_title ); ?>><?php echo esc_html( $testimonials['title'] ); ?></span>
+												<?php
+											}
+											?>
+										</blockquote>
+									</div>
+									<?php
+									if ( 'image-left' === $settings['image_position'] || 'image-right' === $settings['image_position'] ) {
+										?>
+										<div <?php echo wp_kses( $this->get_render_attribute_string( 'image' ), $allowed_tags_image ); ?>>
+											<div class="uk-position-relative">
+												<?php echo wp_get_attachment_image( $testimonials['image']['id'], $settings['image_size_size'], '', array( 'class' => 'testimonials-image' ) ); ?>
+												<?php
+												if ( 'yes' === $settings['show_arrow'] ) {
+													?>
+													<div class="testimonials-arrow"></div>
+													<?php
+												}
+												?>
+											</div>
+										</div>
+										<?php
+									} else {
+										?>
+										<div <?php echo wp_kses( $this->get_render_attribute_string( 'user' ), $allowed_tags_user ); ?>>
+											<div <?php echo wp_kses( $this->get_render_attribute_string( 'user_content_image' ), $allowed_tags_user_content_image ); ?>>
+												<?php echo wp_get_attachment_image( $testimonials['image']['id'], $settings['image_size_size'], '', array( 'class' => 'testimonials-image' ) ); ?>
+												<?php
+												if ( 'yes' === $settings['show_arrow'] && ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && ( 'uk-text-left' === $settings['text_align'] || 'uk-text-right' === $settings['text_align'] ) ) {
+													?>
+													<div class="testimonials-arrow"></div>
+													<?php
+												}
+												?>
+											</div>
+											<div <?php echo wp_kses( $this->get_render_attribute_string( 'user_content_text' ), $allowed_tags_user_content_text ); ?>>
+												<cite <?php echo wp_kses( $this->get_render_attribute_string( 'name' ), $allowed_tags_name ); ?>><?php echo esc_html( $testimonials['name'] ); ?></cite>
+												<span <?php echo wp_kses( $this->get_render_attribute_string( 'title' ), $allowed_tags_title ); ?>><?php echo esc_html( $testimonials['title'] ); ?></span>
+											</div>
+											<?php
+											if ( 'yes' === $settings['show_arrow'] && ( 'image-top' === $settings['image_position'] || 'image-bottom' === $settings['image_position'] ) && 'uk-text-center' === $settings['text_align'] ) {
+												?>
+												<div class="testimonials-arrow"></div>
+												<?php
+											}
+											?>
+										</div>
+										<?php
+									}
+									?>
 								</div>
 							</div>
 							<?php
@@ -1164,7 +1826,6 @@ class Elementive_Widget_Clients_Carousel extends Widget_Base {
 						?>
 					</div>
 					<?php
-
 					if ( 'true' === $settings['pagination'] ) {
 						?>
 						<div class="swiper-pagination elementive-carousel-pagination  <?php echo esc_attr( $settings['pagination_bullet_align'] ); ?>"></div>

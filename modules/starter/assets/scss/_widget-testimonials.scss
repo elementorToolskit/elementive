@@ -1,60 +1,48 @@
 .elementive-testimonials {
     .testimonials-content {
-        &.show-arrow {
-            blockquote {
-                position: relative;
-
-                &::after {
-                    content: '';
-                    display: inline-block;
-                    width: 10px;
-                    height: 10px;
-                    position: absolute;
-                    z-index: 0;
-                    transform: rotate(45deg);
-                    background: inherit;
-                }
-            }
+        blockquote {
+            margin-bottom: 0;
         }
+    }
+    .testimonials-arrow {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        z-index: 0;
+        transform: rotate(45deg);
     }
 
     &.image-top {
-        .testimonials-content {
-            &.show-arrow {
-                blockquote::after {
-                    top: -5px;
-                }
-            }
+        .testimonials-arrow {
+            left: 50%;
+            margin-left: -5px;
+            bottom: -5px;
         }
     }
 
     &.image-bottom {
-        .testimonials-content {
-            &.show-arrow {
-                blockquote::after {
-                    bottom: -5px;
-                }
-            }
+        .testimonials-arrow {
+            left: 50%;
+            margin-left: -5px;
+            top: -5px;
         }
     }
 
     &.image-left {
-        .testimonials-content {
-            &.show-arrow {
-                blockquote::after {
-                    left: -5px;
-                }
-            }
+        .testimonials-arrow {
+            top: 50%;
+            margin-top: -5px;
+            right: -5px;
         }
     }
 
     &.image-right {
-        .testimonials-content {
-            &.show-arrow {
-                blockquote::after {
-                    right: -5px;
-                }
-            }
+        .testimonials-arrow {
+            top: 50%;
+            margin-top: -5px;
+            left: -5px;
         }
     }
 }

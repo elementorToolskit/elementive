@@ -1891,7 +1891,7 @@ class Elementive_Widget_Icon_Box_Carousel extends Widget_Base {
 		$this->add_control(
 			'pagination_bullet_align',
 			array(
-				'label'     => __( 'Border Style', 'elementive' ),
+				'label'     => __( 'Bullet align', 'elementive' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'uk-text-center',
 				'options'   => array(
