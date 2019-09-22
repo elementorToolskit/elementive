@@ -19,6 +19,7 @@ use Elementor\Icons_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Box_Shadow;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -145,7 +146,18 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$this->add_control(
 			'image',
 			array(
-				'label'   => __( 'Choose Image', 'elementive' ),
+				'label'   => __( 'Choose Image 1', 'elementive' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => array(
+					'url' => Utils::get_placeholder_image_src(),
+				),
+			)
+		);
+
+		$this->add_control(
+			'image_second',
+			array(
+				'label'   => __( 'Choose Image 2', 'elementive' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => array(
 					'url' => Utils::get_placeholder_image_src(),
@@ -232,9 +244,186 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		);
 
 		$this->add_control(
+			'image_kenburns',
+			array(
+				'label'        => __( 'Kenburs effect', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'image_second_transition',
+			array(
+				'label'     => __( 'Second image transition', 'elementive' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'uk-transition-fade',
+				'options'   => array(
+					'uk-transition-fade'                => __( 'Fade', 'elementive' ),
+					'uk-transition-scale-up'            => __( 'Scale up', 'elementive' ),
+					'uk-transition-scale-down'          => __( 'Scale down', 'elementive' ),
+					'uk-transition-slide-top'           => __( 'Slide top', 'elementive' ),
+					'uk-transition-slide-bottom'        => __( 'Slide bottom', 'elementive' ),
+					'uk-transition-slide-left'          => __( 'Slide left', 'elementive' ),
+					'uk-transition-slide-right'         => __( 'Slide right', 'elementive' ),
+					'uk-transition-slide-top-small'     => __( 'Slide top small', 'elementive' ),
+					'uk-transition-slide-bottom-small'  => __( 'Slide bottom small', 'elementive' ),
+					'uk-transition-slide-left-small'    => __( 'Slide left small', 'elementive' ),
+					'uk-transition-slide-right-small'   => __( 'Slide right small', 'elementive' ),
+					'uk-transition-slide-top-medium'    => __( 'Slide top medium', 'elementive' ),
+					'uk-transition-slide-bottom-medium' => __( 'Slide bottom medium', 'elementive' ),
+					'uk-transition-slide-left-medium'   => __( 'Slide left medium', 'elementive' ),
+					'uk-transition-slide-right-medium'  => __( 'Slide right medium', 'elementive' ),
+				),
+				'condition' => array(
+					'image_content_transition' => 'yes',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			array(
+				'name'      => 'image_size',
+				'default'   => 'medium',
+				'exclude'   => array( 'custom' ),
+				'separator' => 'before',
+				'default'   => 'full',
+			)
+		);
+
+		$this->add_control(
+			'alignment',
+			array(
+				'label'     => __( 'Alignment', 'elementive' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'uk-text-left' => array(
+						'title' => __( 'Left', 'elementive' ),
+						'icon'  => 'fa fa-align-left',
+					),
+					'uk-text-center' => array(
+						'title' => __( 'Center', 'elementive' ),
+						'icon'  => 'fa fa-align-center',
+					),
+					'uk-text-right' => array(
+						'title' => __( 'Right', 'elementive' ),
+						'icon'  => 'fa fa-align-right',
+					),
+				),
+				'default'   => 'uk-text-left',
+				'toggle'    => true,
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_control(
+			'image_margin',
+			array(
+				'label'      => __( 'Margin', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-member-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_control(
+			'image_radius',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-member-image' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+				'separator' => 'before',
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_image_tabs'
+		);
+
+		$this->start_controls_tab(
+			'style_image_normal_tab',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'image_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-member-image',
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'image_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-member-image',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_image_hover_tab',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'image_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-team-member:hover .elementive-member-image',
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'image_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-team-member:hover .elementive-member-image',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_content_inside',
+			array(
+				'label' => __( 'Content inside image', 'elementive' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_control(
 			'image_content',
 			array(
-				'label'        => __( 'Content inside', 'elementive' ),
+				'label'        => __( 'Pull content', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
@@ -246,7 +435,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$this->add_control(
 			'image_content_name',
 			array(
-				'label'        => __( 'Name inside', 'elementive' ),
+				'label'        => __( 'Pull name', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
@@ -261,7 +450,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$this->add_control(
 			'image_content_title',
 			array(
-				'label'        => __( 'Title inside', 'elementive' ),
+				'label'        => __( 'Pull title', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
@@ -276,7 +465,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$this->add_control(
 			'image_content_description',
 			array(
-				'label'        => __( 'Description inside', 'elementive' ),
+				'label'        => __( 'Pull description', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
@@ -291,7 +480,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$this->add_control(
 			'image_content_social',
 			array(
-				'label'        => __( 'Social inside', 'elementive' ),
+				'label'        => __( 'Pull social', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
@@ -303,81 +492,197 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 			)
 		);
 
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
+		$this->add_control(
+			'image_content_transition',
 			array(
-				'name'      => 'image_size',
-				'default'   => 'medium',
-				'separator' => 'none',
+				'label'        => __( 'Enable transition', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+				'separator'    => 'before',
 			)
 		);
 
 		$this->add_control(
-			'alignment',
+			'image_content_transition_value',
 			array(
-				'label'   => __( 'Alignment', 'elementive' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'options' => array(
-					'uk-text-left' => array(
-						'title' => __( 'Left', 'elementive' ),
-						'icon'  => 'fa fa-align-left',
-					),
-					'uk-text-center' => array(
-						'title' => __( 'Center', 'elementive' ),
-						'icon'  => 'fa fa-align-center',
-					),
-					'uk-text-right' => array(
-						'title' => __( 'Right', 'elementive' ),
-						'icon'  => 'fa fa-align-right',
-					),
+				'label'     => __( 'Hover transition', 'elementive' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'uk-transition-fade',
+				'options'   => array(
+					'uk-transition-fade'                => __( 'Fade', 'elementive' ),
+					'uk-transition-scale-up'            => __( 'Scale up', 'elementive' ),
+					'uk-transition-scale-down'          => __( 'Scale down', 'elementive' ),
+					'uk-transition-slide-top'           => __( 'Slide top', 'elementive' ),
+					'uk-transition-slide-bottom'        => __( 'Slide bottom', 'elementive' ),
+					'uk-transition-slide-left'          => __( 'Slide left', 'elementive' ),
+					'uk-transition-slide-right'         => __( 'Slide right', 'elementive' ),
+					'uk-transition-slide-top-small'     => __( 'Slide top small', 'elementive' ),
+					'uk-transition-slide-bottom-small'  => __( 'Slide bottom small', 'elementive' ),
+					'uk-transition-slide-left-small'    => __( 'Slide left small', 'elementive' ),
+					'uk-transition-slide-right-small'   => __( 'Slide right small', 'elementive' ),
+					'uk-transition-slide-top-medium'    => __( 'Slide top medium', 'elementive' ),
+					'uk-transition-slide-bottom-medium' => __( 'Slide bottom medium', 'elementive' ),
+					'uk-transition-slide-left-medium'   => __( 'Slide left medium', 'elementive' ),
+					'uk-transition-slide-right-medium'  => __( 'Slide right medium', 'elementive' ),
 				),
-				'default' => 'uk-text-left',
-				'toggle'  => true,
-			)
-		);
-
-		$this->add_control(
-			'image_margin',
-			array(
-				'label'      => __( 'Margin', 'elementive' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
-				'selectors'  => array(
-					'{{WRAPPER}} .team-member-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'condition' => array(
+					'image_content_transition' => 'yes',
 				),
 			)
 		);
 
 		$this->add_control(
-			'image_padding',
+			'image_content_position',
 			array(
-				'label'      => __( 'Padding', 'elementive' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em' ),
-				'selectors'  => array(
-					'{{WRAPPER}} .team-member-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'label'     => __( 'Content position', 'elementive' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'uk-position-cover',
+				'options'   => array(
+					'uk-position-cover'         => __( 'Cover', 'elementive' ),
+					'uk-position-top'           => __( 'Top', 'elementive' ),
+					'uk-position-left'          => __( 'Left', 'elementive' ),
+					'uk-position-right'         => __( 'Right', 'elementive' ),
+					'uk-position-bottom'        => __( 'Bottom', 'elementive' ),
+					'uk-position-top-left'      => __( 'Top left', 'elementive' ),
+					'uk-position-top-center'    => __( 'Top center', 'elementive' ),
+					'uk-position-top-right'     => __( 'Top right', 'elementive' ),
+					'uk-position-center'        => __( 'Center', 'elementive' ),
+					'uk-position-center-left'   => __( 'Center left', 'elementive' ),
+					'uk-position-center-right'  => __( 'Center right', 'elementive' ),
+					'uk-position-bottom-left'   => __( 'Bottom left', 'elementive' ),
+					'uk-position-bottom-center' => __( 'Bottom center', 'elementive' ),
+					'uk-position-bottom-right'  => __( 'Bottom right', 'elementive' ),
+				),
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_responsive_control(
+			'image_content_width',
+			array(
+				'label'           => __( 'Width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( '%', 'px' ),
+				'range'           => array(
+					'%' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 100,
+					'unit' => '%',
+				),
+				'tablet_default'  => array(
+					'size' => 100,
+					'unit' => '%',
+				),
+				'mobile_default'  => array(
+					'size' => 100,
+					'unit' => '%',
+				),
+				'condition' => array(
+					'image_content_position!' => 'uk-position-cover',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .member-image-content' => 'width: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
 
 		$this->add_control(
-			'image_radius',
+			'image_content_align',
+			array(
+				'label'     => __( 'Vertical align', 'elementive' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'uk-flex-top' => array(
+						'title' => __( 'Top', 'elementive' ),
+						'icon'  => 'eicon-v-align-top',
+					),
+					'uk-flex-middle' => array(
+						'title' => __( 'Middle', 'elementive' ),
+						'icon'  => 'eicon-v-align-middle',
+					),
+					'uk-flex-bottom' => array(
+						'title' => __( 'Bottom', 'elementive' ),
+						'icon'  => 'eicon-v-align-bottom',
+					),
+				),
+				'condition' => array(
+					'image_content_position' => 'uk-position-cover',
+				),
+				'default'   => 'uk-flex-bottom',
+				'toggle'    => true,
+				'condition' => array(
+					'image_content_position' => 'uk-position-cover',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'content_in_margin',
+			array(
+				'label'           => __( 'Margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'size_units'      => array( 'px', '%', 'em' ),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .member-image-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'separator'       => 'before',
+			)
+		);
+
+		$this->add_responsive_control(
+			'content_in_padding',
+			array(
+				'label'           => __( 'Padding', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'size_units'      => array( 'px', '%', 'em' ),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'tablet_default'  => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'mobile_default'  => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .member-image-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'separator'       => 'before',
+			)
+		);
+
+		$this->add_control(
+			'content_in_radius',
 			array(
 				'label'      => __( 'Border radius', 'elementive' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .team-member-image' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .member-image-content' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
 				),
+				'separator'       => 'before',
 			)
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			array(
-				'name'      => 'image_border',
+				'name'      => 'content_in_border',
 				'label'     => __( 'Border', 'elementive' ),
-				'selector'  => '{{WRAPPER}} .team-member-image',
+				'selector'  => '{{WRAPPER}} .member-image-content',
 				'separator' => 'before',
 			)
 		);
@@ -385,10 +690,20 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			array(
-				'name'      => 'image_background',
+				'name'      => 'content_in_background',
 				'label'     => __( 'Background', 'elementive' ),
 				'types'     => array( 'classic', 'gradient' ),
-				'selector'  => '{{WRAPPER}} .team-member-image',
+				'selector'  => '{{WRAPPER}} .member-image-content',
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'content_in_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .member-image-content',
 				'separator' => 'before',
 			)
 		);
@@ -436,12 +751,56 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		// Member Image Classes.
 		$classes_image = array( 'elementive-member-image' );
 
+		if ( 'yes' === $settings['image_content'] && ( 'yes' === $settings['image_content_name'] || 'yes' === $settings['image_content_title'] || 'yes' === $settings['image_content_description'] || 'yes' === $settings['image_content_social'] ) ) {
+			$classes_image[] = 'uk-position-relative';
+		}
+
+		$classes_image[] = 'uk-transition-toggle';
+		$classes_image[] = 'uk-inline-clip';
+
 		$classes_image = array_map( 'esc_attr', $classes_image );
 
 		$this->add_render_attribute(
 			'image',
 			array(
 				'class' => esc_attr( join( ' ', $classes_image ) ),
+			)
+		);
+
+		// Member Image Tag Classes.
+		$classes_image_tag = array( 'team-member-image' );
+
+		if ( 'yes' === $settings['image_kenburns'] ) {
+			$classes_image_tag[] = 'uk-transition-scale-up';
+			$classes_image_tag[] = 'uk-transition-opaque';
+		}
+
+		$classes_image_tag = array_map( 'esc_attr', $classes_image_tag );
+
+		// Member Image Second Tag Classes.
+		$classes_image_tag_second = array( 'team-member-image-second', 'uk-position-cover', 'uk-transition-scale-up', $settings['image_second_transition'] );
+
+		$classes_image_tag_second = array_map( 'esc_attr', $classes_image_tag_second );
+
+		// Image content.
+		$classes_image_content = array( 'member-image-content', 'uk-position-z-index', 'uk-flex', 'uk-width-1-1', 'uk-flex-row' );
+
+		$classes_image_content[] = esc_attr( $settings['image_content_position'] );
+
+		if ( 'uk-position-cover' === $settings['image_content_position'] ) {
+			$classes_image_content[] = esc_attr( $settings['image_content_align'] );
+		}
+
+		if ( 'yes' === $settings['image_content_transition'] ) {
+			$classes_image_content[] = esc_attr( $settings['image_content_transition_value'] );
+		}
+
+		$classes_image_content = array_map( 'esc_attr', $classes_image_content );
+
+		$this->add_render_attribute(
+			'image_content',
+			array(
+				'class' => esc_attr( join( ' ', $classes_image_content ) ),
 			)
 		);
 
@@ -459,30 +818,77 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 
 		?>
 		<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?>>
-			<div <?php echo wp_kses( $this->get_render_attribute_string( 'image' ), $allowed_attr_class ); ?>>
-				<?php echo wp_get_attachment_image( $settings['image']['id'], $settings['image_size_size'], '', array( 'class' => 'team-member-image' ) ); ?>
-
-				<?php
-				if ( 'yes' === $settings['image_content'] && ( 'yes' === $settings['image_content_name'] || 'yes' === $settings['image_content_title'] || 'yes' === $settings['image_content_description'] || 'yes' === $settings['image_content_social'] ) ) {
-					?>
-					<div class="member-image-content uk-position-cover">
+			<div <?php echo wp_kses( $this->get_render_attribute_string( 'image' ), $allowed_attr_class ); ?> tabindex="0">
+				<div class="uk-position-relative">
+					<?php echo wp_get_attachment_image( $settings['image']['id'], $settings['image_size_size'], '', array( 'class' => esc_attr( join( ' ', $classes_image_tag ) ) ) ); ?>
+					<?php echo wp_get_attachment_image( $settings['image_second']['id'], $settings['image_size_size'], '', array( 'class' => esc_attr( join( ' ', $classes_image_tag_second ) ) ) ); ?>
 					<?php
-					if ( 'yes' === $settings['image_content_name'] ) {
+					if ( 'yes' === $settings['image_content'] && ( 'yes' === $settings['image_content_name'] || 'yes' === $settings['image_content_title'] || 'yes' === $settings['image_content_description'] || 'yes' === $settings['image_content_social'] ) ) {
 						?>
-						<h3><?php echo esc_attr( $settings['name'] ); ?></h3>
+						<div <?php echo wp_kses( $this->get_render_attribute_string( 'image_content' ), $allowed_attr_class ); ?>>
+							<div class="image-content-wrapper">
+							<?php
+							if ( 'yes' === $settings['image_content_name'] ) {
+								?>
+								<h3><?php echo esc_attr( $settings['name'] ); ?></h3>
+								<?php
+							}
+							if ( 'yes' === $settings['image_content_title'] ) {
+								?>
+								<span><?php echo esc_attr( $settings['title'] ); ?></span>
+								<?php
+							}
+							if ( 'yes' === $settings['image_content_description'] ) {
+								?>
+								<p><?php echo esc_attr( $settings['description'] ); ?></p>
+								<?php
+							}
+							if ( 'yes' === $settings['image_content_social'] && $settings['social'] ) {
+								?>
+								<ul class="team-member-social">
+								<?php
+								foreach ( $settings['social'] as $social ) {
+									$target   = $social['social_url']['is_external'] ? ' target="_blank"' : '';
+									$nofollow = $social['social_url']['nofollow'] ? ' rel="nofollow"' : '';
+									?>
+									<li>
+										<a href="<?php echo esc_url( $social['social_url']['url'] ); ?>" <?php echo wp_kses( $target . $nofollow, $allowed_attr_link ); ?>>
+											<?php Icons_Manager::render_icon( $social['social_icon'], array( 'aria-hidden' => 'true' ) ); ?>
+										</a>
+									</li>
+									<?php
+								}
+								?>
+								</ul>
+								<?php
+							}
+							?>
+							</div>
+						</div>
 						<?php
 					}
-					if ( 'yes' === $settings['image_content_title'] ) {
-						?>
-						<span><?php echo esc_attr( $settings['title'] ); ?></span>
-						<?php
-					}
-					if ( 'yes' === $settings['image_content_description'] ) {
-						?>
-						<p><?php echo esc_attr( $settings['description'] ); ?></p>
-						<?php
-					}
-					if ( 'yes' === $settings['image_content_social'] && $settings['social'] ) {
+					?>
+				</div>
+			</div>
+			<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), $allowed_attr_class ); ?>>
+				<?php
+				if ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_name'] ) ) {
+					?>
+					<h3><?php echo esc_attr( $settings['name'] ); ?></h3>
+					<?php
+				}
+				if ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_title'] ) ) {
+					?>
+					<span><?php echo esc_attr( $settings['title'] ); ?></span>
+					<?php
+				}
+				if ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_description'] ) ) {
+					?>
+					<p><?php echo esc_attr( $settings['description'] ); ?></p>
+					<?php
+				}
+				if ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_social'] ) ) {
+					if ( $settings['social'] ) {
 						?>
 						<ul class="team-member-social">
 						<?php
@@ -501,35 +907,6 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 						</ul>
 						<?php
 					}
-					?>
-					</div>
-					<?php
-				}
-				?>
-			</div>
-			<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), $allowed_attr_class ); ?>>
-				<h3><?php echo esc_attr( $settings['name'] ); ?></h3>
-				<span><?php echo esc_attr( $settings['title'] ); ?></span>
-				<p><?php echo esc_attr( $settings['description'] ); ?></p>
-				<?php
-				if ( $settings['social'] ) {
-					?>
-					<ul class="team-member-social">
-					<?php
-					foreach ( $settings['social'] as $social ) {
-						$target   = $social['social_url']['is_external'] ? ' target="_blank"' : '';
-						$nofollow = $social['social_url']['nofollow'] ? ' rel="nofollow"' : '';
-						?>
-						<li>
-							<a href="<?php echo esc_url( $social['social_url']['url'] ); ?>" <?php echo wp_kses( $target . $nofollow, $allowed_attr_link ); ?>>
-								<?php Icons_Manager::render_icon( $social['social_icon'], array( 'aria-hidden' => 'true' ) ); ?>
-							</a>
-						</li>
-						<?php
-					}
-					?>
-					</ul>
-					<?php
 				}
 				?>
 			</div>

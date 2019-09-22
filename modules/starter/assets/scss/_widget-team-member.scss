@@ -1,4 +1,4 @@
-.elementive-team-memeber {
+.elementive-team-member {
     ul.team-member-social {
         list-style: none;
         margin: 0;
@@ -12,20 +12,31 @@
     }
 
     &.uk-text-center {
-        ul li {
+        ul.team-member-social li {
             margin: 0 5px;
         }
     }
 
     &.uk-text-left {
-        ul li {
+        ul.team-member-social li {
             margin-right: 10px;
         }
     }
 
     &.uk-text-right {
-        ul li {
+        ul.team-member-social li {
             margin-left: 10px;
+        }
+    }
+
+    .elementive-member-image {
+        transition: border .3s ease-in-out;
+        transition: box-shadow .3s ease-in-out;
+    }
+
+    .member-image-content {
+        h3, span, p, ul {
+            width: 100%;
         }
     }
 }

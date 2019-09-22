@@ -265,6 +265,7 @@ class Elementive_Widget_Testimonials extends Widget_Base {
 				'name'      => 'image_size',
 				'default'   => 'thumbnail',
 				'separator' => 'none',
+				'exclude'   => array( 'custom' ),
 			)
 		);
 

@@ -156,53 +156,55 @@
 .elementive-testimonials.image-bottom .testimonials-arrow{left:50%;margin-left:-5px;top:-5px}
 .elementive-testimonials.image-left .testimonials-arrow{top:50%;margin-top:-5px;right:-5px}
 .elementive-testimonials.image-right .testimonials-arrow{top:50%;margin-top:-5px;left:-5px}
-.elementive-team-memeber ul.team-member-social{list-style:none;margin:0;padding:0}
-.elementive-team-memeber ul.team-member-social li{margin:0;padding:0;display:inline-block}
-.elementive-team-memeber.uk-text-center ul li{margin:0 5px}
-.elementive-team-memeber.uk-text-left ul li{margin-right:10px}
-.elementive-team-memeber.uk-text-right ul li{margin-left:10px}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#bf40b5}
-5%{color:#7bbf40}
-10%{color:#40bfa6}
-15%{color:#ac40bf}
-20%{color:#88bf40}
-25%{color:#bf7b40}
-30%{color:#4f40bf}
-35%{color:#bf9940}
-40%{color:#bf407b}
-45%{color:#bf4d40}
-50%{color:#8440bf}
-55%{color:#62bf40}
-60%{color:#40bf6f}
-65%{color:#4095bf}
-70%{color:#4048bf}
-75%{color:#bf4053}
-80%{color:#bf4440}
-85%{color:#5940bf}
-90%{color:#a640bf}
-95%{color:#8840bf}
-100%{color:#bfa440}
-}@keyframes anim-text-flow-keys{0{color:#bf40b5}
-5%{color:#7bbf40}
-10%{color:#40bfa6}
-15%{color:#ac40bf}
-20%{color:#88bf40}
-25%{color:#bf7b40}
-30%{color:#4f40bf}
-35%{color:#bf9940}
-40%{color:#bf407b}
-45%{color:#bf4d40}
-50%{color:#8440bf}
-55%{color:#62bf40}
-60%{color:#40bf6f}
-65%{color:#4095bf}
-70%{color:#4048bf}
-75%{color:#bf4053}
-80%{color:#bf4440}
-85%{color:#5940bf}
-90%{color:#a640bf}
-95%{color:#8840bf}
-100%{color:#bfa440}
+.elementive-team-member ul.team-member-social{list-style:none;margin:0;padding:0}
+.elementive-team-member ul.team-member-social li{margin:0;padding:0;display:inline-block}
+.elementive-team-member.uk-text-center ul.team-member-social li{margin:0 5px}
+.elementive-team-member.uk-text-left ul.team-member-social li{margin-right:10px}
+.elementive-team-member.uk-text-right ul.team-member-social li{margin-left:10px}
+.elementive-team-member .elementive-member-image{-webkit-transition:border .3s ease-in-out;transition:border .3s ease-in-out;-webkit-transition:-webkit-box-shadow .3s ease-in-out;transition:-webkit-box-shadow .3s ease-in-out;transition:box-shadow .3s ease-in-out;transition:box-shadow .3s ease-in-out,-webkit-box-shadow .3s ease-in-out}
+.elementive-team-member .member-image-content h3,.elementive-team-member .member-image-content span,.elementive-team-member .member-image-content p,.elementive-team-member .member-image-content ul{width:100%}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#5940bf}
+5%{color:#407dbf}
+10%{color:#bf7140}
+15%{color:#408abf}
+20%{color:#40bf57}
+25%{color:#40bf66}
+30%{color:#bf4440}
+35%{color:#407dbf}
+40%{color:#bf406f}
+45%{color:#bf4084}
+50%{color:#bf404d}
+55%{color:#82bf40}
+60%{color:#bf4d40}
+65%{color:#6fbf40}
+70%{color:#bfb940}
+75%{color:#bf7740}
+80%{color:#40bf4d}
+85%{color:#8240bf}
+90%{color:#40bf53}
+95%{color:#6cbf40}
+100%{color:#b940bf}
+}@keyframes anim-text-flow-keys{0{color:#5940bf}
+5%{color:#407dbf}
+10%{color:#bf7140}
+15%{color:#408abf}
+20%{color:#40bf57}
+25%{color:#40bf66}
+30%{color:#bf4440}
+35%{color:#407dbf}
+40%{color:#bf406f}
+45%{color:#bf4084}
+50%{color:#bf404d}
+55%{color:#82bf40}
+60%{color:#bf4d40}
+65%{color:#6fbf40}
+70%{color:#bfb940}
+75%{color:#bf7740}
+80%{color:#40bf4d}
+85%{color:#8240bf}
+90%{color:#40bf53}
+95%{color:#6cbf40}
+100%{color:#b940bf}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}
