@@ -1,0 +1,26 @@
+.elementive-carousel {
+    &.swiper-container {
+
+        &.carousel-disable-overlfow {
+            overflow: unset;
+        }
+        
+        .swiper-wrapper {
+            visibility: hidden;
+        }
+
+        &.swiper-container-horizontal {
+            .swiper-wrapper {
+                visibility: visible;
+            }
+        }
+        
+        .swiper-pagination-bullet {
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

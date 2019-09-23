@@ -1,0 +1,48 @@
+.elementive-testimonials {
+    .testimonials-content {
+        blockquote {
+            margin-bottom: 0;
+        }
+    }
+    .testimonials-arrow {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        z-index: 0;
+        transform: rotate(45deg);
+    }
+
+    &.image-top {
+        .testimonials-arrow {
+            left: 50%;
+            margin-left: -5px;
+            bottom: -5px;
+        }
+    }
+
+    &.image-bottom {
+        .testimonials-arrow {
+            left: 50%;
+            margin-left: -5px;
+            top: -5px;
+        }
+    }
+
+    &.image-left {
+        .testimonials-arrow {
+            top: 50%;
+            margin-top: -5px;
+            right: -5px;
+        }
+    }
+
+    &.image-right {
+        .testimonials-arrow {
+            top: 50%;
+            margin-top: -5px;
+            left: -5px;
+        }
+    }
+}

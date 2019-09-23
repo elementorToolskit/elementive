@@ -1,0 +1,15 @@
+.elementor-widget-elementive-justified-gallery {
+    img {
+        position: absolute;
+    }
+    .justified-gallery > .entry-visible > img,
+    .justified-gallery > .entry-visible > a > img {
+
+        transition: .3s ease-out;
+        transition-property: opacity,transform,filter;
+    }
+
+    .jg-caption {
+        font-size: 10px;
+    }
+}

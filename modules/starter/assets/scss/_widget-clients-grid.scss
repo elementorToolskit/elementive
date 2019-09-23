@@ -1,0 +1,46 @@
+.elementive-clients-grid {
+    &.uk-flex-middle > div {
+        display: flex;
+        align-items: center;
+    }
+
+    &.uk-flex-top > div {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &.uk-flex-bottom > div {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &.uk-text-center > div {
+        display: flex;
+        justify-content: center;
+    }
+
+    &.uk-text-left > div {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    &.uk-text-right > div {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .elementive-client-grid-logo {
+        transition: all .3s ease-in-out;
+        &.elementive-client-logo-grayscale {
+            filter: grayscale(100%);
+            
+            &:hover {
+                filter: grayscale(0%);
+            }
+        }
+
+        &.elementive-client-logo-grayscale-hover:hover {
+            filter: grayscale(100%);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.run-tilt-js {
+    &.tilt-parallax {
+        transform-style: preserve-3d;
+
+        .elementive-icon-box-icon {
+            transform: translateZ( 50px );
+        }
+    }
+}

@@ -45,6 +45,51 @@ require_once plugin_dir_path( __FILE__ ) . 'lib/autoload.php';
  */
 define( 'ELEMENTIVE_VERSION', '1.0.0' );
 
+define( 'ELEMENTIVE__FILE__', __FILE__ );
+define( 'ELEMENTIVE_PLUGIN_BASE', plugin_basename( ELEMENTIVE__FILE__ ) );
+define( 'ELEMENTIVE_PATH', plugin_dir_path( ELEMENTIVE__FILE__ ) );
+define( 'ELEMENTIVE_MODULES_PATH', ELEMENTIVE_PATH . 'modules/' );
+define( 'ELEMENTIVE_URL', plugins_url( '/', ELEMENTIVE__FILE__ ) );
+define( 'ELEMENTIVE_ASSETS_URL', ELEMENTIVE_URL . 'assets/' );
+define( 'ELEMENTIVE_MODULES_URL', ELEMENTIVE_URL . 'modules/' );
+
+if ( ! function_exists( 'elementive_fs' ) ) {
+	/**
+	 * Create a helper function for easy SDK access.
+	 */
+	function elementive_fs() {
+		global $elementive_fs;
+
+		if ( ! isset( $elementive_fs ) ) {
+			// Include Freemius SDK.
+			require_once dirname( __FILE__ ) . '/freemius/start.php';
+
+			$elementive_fs = fs_dynamic_init(
+				array(
+					'id'                  => '4501',
+					'slug'                => 'elementive',
+					'type'                => 'plugin',
+					'public_key'          => 'pk_a1c4e9ab4f310b99ad3d01186d485',
+					'is_premium'          => false,
+					'has_addons'          => false,
+					'has_paid_plans'      => false,
+					'menu'                => array(
+						'first-path'     => 'plugins.php',
+						'support'        => false,
+					),
+				)
+			);
+		}
+
+		return $elementive_fs;
+	}
+
+	// Init Freemius.
+	elementive_fs();
+	// Signal that SDK was initiated.
+	do_action( 'elementive_fs_loaded' );
+}
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-elementive-activator.php

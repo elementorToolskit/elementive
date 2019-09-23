@@ -1,0 +1,207 @@
+.jarallax{position:absolute;top:0;bottom:0;left:0;right:0;z-index:0}
+.jarallax>.jarallax-img{position:absolute;-o-object-fit:cover;object-fit:cover;font-family:'object-fit: cover;';top:0;left:0;width:100%;height:100%;z-index:-1}
+.run-tilt-js.tilt-parallax{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
+.run-tilt-js.tilt-parallax .elementive-icon-box-icon{-webkit-transform:translateZ(50px);transform:translateZ(50px)}
+.elementive-carousel.swiper-container.carousel-disable-overlfow{overflow:unset}
+.elementive-carousel.swiper-container .swiper-wrapper{visibility:hidden}
+.elementive-carousel.swiper-container.swiper-container-horizontal .swiper-wrapper{visibility:visible}
+.elementive-carousel.swiper-container .swiper-pagination-bullet{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementive-carousel.swiper-container .swiper-pagination-bullet:hover{opacity:1}
+.elementor-widget-elementive-accordion .uk-accordion-title>*{min-height:25px}
+.uk-tab::before{height:100%;width:calc(100% - 20px);z-index:-1}
+.uk-tab.uk-tab-left::before,.uk-tab.uk-tab-right::before{width:100%}
+.elementor-widget-elementive-text .elementive-text-content.has_background_mask{position:relative;display:inline-block;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;text-fill-color:transparent !important}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span{-webkit-animation-name:anim-text-flow-keys;animation-name:anim-text-flow-keys;-webkit-animation-duration:25s;animation-duration:25s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-direction:alternate;animation-direction:alternate;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(1){-webkit-animation-delay:-19.8s;animation-delay:-19.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(2){-webkit-animation-delay:-19.6s;animation-delay:-19.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(3){-webkit-animation-delay:-19.4s;animation-delay:-19.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(4){-webkit-animation-delay:-19.2s;animation-delay:-19.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(5){-webkit-animation-delay:-19s;animation-delay:-19s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(6){-webkit-animation-delay:-18.8s;animation-delay:-18.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(7){-webkit-animation-delay:-18.6s;animation-delay:-18.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(8){-webkit-animation-delay:-18.4s;animation-delay:-18.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(9){-webkit-animation-delay:-18.2s;animation-delay:-18.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(10){-webkit-animation-delay:-18s;animation-delay:-18s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(11){-webkit-animation-delay:-17.8s;animation-delay:-17.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(12){-webkit-animation-delay:-17.6s;animation-delay:-17.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(13){-webkit-animation-delay:-17.4s;animation-delay:-17.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(14){-webkit-animation-delay:-17.2s;animation-delay:-17.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(15){-webkit-animation-delay:-17s;animation-delay:-17s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(16){-webkit-animation-delay:-16.8s;animation-delay:-16.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(17){-webkit-animation-delay:-16.6s;animation-delay:-16.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(18){-webkit-animation-delay:-16.4s;animation-delay:-16.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(19){-webkit-animation-delay:-16.2s;animation-delay:-16.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(20){-webkit-animation-delay:-16s;animation-delay:-16s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(21){-webkit-animation-delay:-15.8s;animation-delay:-15.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(22){-webkit-animation-delay:-15.6s;animation-delay:-15.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(23){-webkit-animation-delay:-15.4s;animation-delay:-15.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(24){-webkit-animation-delay:-15.2s;animation-delay:-15.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(25){-webkit-animation-delay:-15s;animation-delay:-15s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(26){-webkit-animation-delay:-14.8s;animation-delay:-14.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(27){-webkit-animation-delay:-14.6s;animation-delay:-14.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(28){-webkit-animation-delay:-14.4s;animation-delay:-14.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(29){-webkit-animation-delay:-14.2s;animation-delay:-14.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(30){-webkit-animation-delay:-14s;animation-delay:-14s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(31){-webkit-animation-delay:-13.8s;animation-delay:-13.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(32){-webkit-animation-delay:-13.6s;animation-delay:-13.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(33){-webkit-animation-delay:-13.4s;animation-delay:-13.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(34){-webkit-animation-delay:-13.2s;animation-delay:-13.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(35){-webkit-animation-delay:-13s;animation-delay:-13s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(36){-webkit-animation-delay:-12.8s;animation-delay:-12.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(37){-webkit-animation-delay:-12.6s;animation-delay:-12.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(38){-webkit-animation-delay:-12.4s;animation-delay:-12.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(39){-webkit-animation-delay:-12.2s;animation-delay:-12.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(40){-webkit-animation-delay:-12s;animation-delay:-12s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(41){-webkit-animation-delay:-11.8s;animation-delay:-11.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(42){-webkit-animation-delay:-11.6s;animation-delay:-11.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(43){-webkit-animation-delay:-11.4s;animation-delay:-11.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(44){-webkit-animation-delay:-11.2s;animation-delay:-11.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(45){-webkit-animation-delay:-11s;animation-delay:-11s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(46){-webkit-animation-delay:-10.8s;animation-delay:-10.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(47){-webkit-animation-delay:-10.6s;animation-delay:-10.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(48){-webkit-animation-delay:-10.4s;animation-delay:-10.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(49){-webkit-animation-delay:-10.2s;animation-delay:-10.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(50){-webkit-animation-delay:-10s;animation-delay:-10s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(51){-webkit-animation-delay:-9.8s;animation-delay:-9.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(52){-webkit-animation-delay:-9.6s;animation-delay:-9.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(53){-webkit-animation-delay:-9.4s;animation-delay:-9.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(54){-webkit-animation-delay:-9.2s;animation-delay:-9.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(55){-webkit-animation-delay:-9s;animation-delay:-9s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(56){-webkit-animation-delay:-8.8s;animation-delay:-8.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(57){-webkit-animation-delay:-8.6s;animation-delay:-8.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(58){-webkit-animation-delay:-8.4s;animation-delay:-8.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(59){-webkit-animation-delay:-8.2s;animation-delay:-8.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(60){-webkit-animation-delay:-8s;animation-delay:-8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(61){-webkit-animation-delay:-7.8s;animation-delay:-7.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(62){-webkit-animation-delay:-7.6s;animation-delay:-7.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(63){-webkit-animation-delay:-7.4s;animation-delay:-7.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(64){-webkit-animation-delay:-7.2s;animation-delay:-7.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(65){-webkit-animation-delay:-7s;animation-delay:-7s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(66){-webkit-animation-delay:-6.8s;animation-delay:-6.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(67){-webkit-animation-delay:-6.6s;animation-delay:-6.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(68){-webkit-animation-delay:-6.4s;animation-delay:-6.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(69){-webkit-animation-delay:-6.2s;animation-delay:-6.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(70){-webkit-animation-delay:-6s;animation-delay:-6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(71){-webkit-animation-delay:-5.8s;animation-delay:-5.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(72){-webkit-animation-delay:-5.6s;animation-delay:-5.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(73){-webkit-animation-delay:-5.4s;animation-delay:-5.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(74){-webkit-animation-delay:-5.2s;animation-delay:-5.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(75){-webkit-animation-delay:-5s;animation-delay:-5s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(76){-webkit-animation-delay:-4.8s;animation-delay:-4.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(77){-webkit-animation-delay:-4.6s;animation-delay:-4.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(78){-webkit-animation-delay:-4.4s;animation-delay:-4.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(79){-webkit-animation-delay:-4.2s;animation-delay:-4.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(80){-webkit-animation-delay:-4s;animation-delay:-4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(81){-webkit-animation-delay:-3.8s;animation-delay:-3.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(82){-webkit-animation-delay:-3.6s;animation-delay:-3.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(83){-webkit-animation-delay:-3.4s;animation-delay:-3.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(84){-webkit-animation-delay:-3.2s;animation-delay:-3.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(85){-webkit-animation-delay:-3s;animation-delay:-3s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(86){-webkit-animation-delay:-2.8s;animation-delay:-2.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(87){-webkit-animation-delay:-2.6s;animation-delay:-2.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(88){-webkit-animation-delay:-2.4s;animation-delay:-2.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(89){-webkit-animation-delay:-2.2s;animation-delay:-2.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(90){-webkit-animation-delay:-2s;animation-delay:-2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(91){-webkit-animation-delay:-1.8s;animation-delay:-1.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(92){-webkit-animation-delay:-1.6s;animation-delay:-1.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(93){-webkit-animation-delay:-1.4s;animation-delay:-1.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(94){-webkit-animation-delay:-1.2s;animation-delay:-1.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(95){-webkit-animation-delay:-1s;animation-delay:-1s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(96){-webkit-animation-delay:-0.8s;animation-delay:-0.8s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(97){-webkit-animation-delay:-0.6s;animation-delay:-0.6s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(98){-webkit-animation-delay:-0.4s;animation-delay:-0.4s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(99){-webkit-animation-delay:-0.2s;animation-delay:-0.2s}
+.elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(100){-webkit-animation-delay:0s;animation-delay:0s}
+.elementor-widget-elementive-text .elementive-text-content::-moz-selection{background:transparent}
+.elementor-widget-elementive-text .elementive-text-content::selection{background:transparent}
+.elementor-widget-elementive-group-images .elementive-group-images{position:relative;width:100%}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);display:block}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0)}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span{position:relative;display:block;width:60px;height:60px;border-radius:30px;line-height:60px;text-align:center;background-color:#FFF;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span:hover{background-color:rgba(0,0,0,0);color:#FFF}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span::before{content:'';display:inline-block;position:absolute;top:-2px;left:-2px;bottom:-2px;right:-2px;border-radius:inherit;border:1px solid #FFF;-webkit-animation:btnIconRipple 3s cubic-bezier(0.23,1,0.32,1) both infinite;animation:btnIconRipple 3s cubic-bezier(0.23,1,0.32,1) both infinite}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item .elementive-group-image-button span::after{content:'';display:inline-block;position:absolute;top:-2px;left:-2px;bottom:-2px;right:-2px;border-radius:inherit;border:1px solid #FFF;-webkit-animation:btnIconRipple 1.5s cubic-bezier(0.23,1,0.32,1) both infinite;animation:btnIconRipple 1.5s cubic-bezier(0.23,1,0.32,1) both infinite}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.cover img{-o-object-fit:cover;object-fit:cover;font-family:'object-fit: cover;'}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.contain img{-o-object-fit:contain;object-fit:contain;font-family:'object-fit: contain;'}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item.fill img{-o-object-fit:fill;object-fit:fill;font-family:'object-fit: fill;'}
+.elementor-widget-elementive-group-images .elementive-group-images .elementive-group-image-wrapper .elementive-group-image-item img{position:absolute;width:100%;height:100%;left:0;top:0}
+.elementor-widget-elementive-justified-gallery img{position:absolute}
+.elementor-widget-elementive-justified-gallery .justified-gallery>.entry-visible>img,.elementor-widget-elementive-justified-gallery .justified-gallery>.entry-visible>a>img{-webkit-transition:.3s ease-out;transition:.3s ease-out;-webkit-transition-property:opacity,-webkit-transform,-webkit-filter;transition-property:opacity,-webkit-transform,-webkit-filter;transition-property:opacity,transform,filter;transition-property:opacity,transform,filter,-webkit-transform,-webkit-filter}
+.elementor-widget-elementive-justified-gallery .jg-caption{font-size:10px}
+.elementor-widget-elementive-icon-box .elementive-icon-box,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon.run-vivus svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon.run-vivus svg{visibility:hidden;opacity:0;max-width:100%;height:auto;-webkit-transition:all .1s ease-in-out;transition:all .1s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon.run-vivus svg.show-svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon.run-vivus svg.show-svg{visibility:visible;opacity:1}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter .elementive-icon-wrapper,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-icon .elementive-icon-diameter .elementive-icon-wrapper{margin:0 auto}
+.elementor-widget-elementive-icon-box .elementive-icon-box.uk-text-left .elementive-icon-box-icon .elementive-icon-diameter svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.uk-text-left .elementive-icon-box-icon .elementive-icon-diameter svg{margin-left:0;margin-right:auto}
+.elementor-widget-elementive-icon-box .elementive-icon-box.uk-text-right .elementive-icon-box-icon .elementive-icon-diameter svg,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.uk-text-right .elementive-icon-box-icon .elementive-icon-diameter svg{margin-right:0;margin-left:auto}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-heading,.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description,.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-link,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-heading,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-link{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description span,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content .elementive-icon-box-description span{display:inline-block}
+.elementor-widget-elementive-icon-box .elementive-icon-box .elementive-icon-box-content p:last-child,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box .elementive-icon-box-content p:last-child{margin-bottom:0}
+.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
+.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-icon,.elementor-widget-elementive-icon-box-carousel .elementive-icon-box.run-tilt-js.tilt-parallax .elementive-icon-box-content{-webkit-transform:translate3d(0,0,60px);transform:translate3d(0,0,60px)}
+.elementive-clients-grid.uk-flex-middle>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.elementive-clients-grid.uk-flex-top>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
+.elementive-clients-grid.uk-flex-bottom>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}
+.elementive-clients-grid.uk-text-center>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.elementive-clients-grid.uk-text-left>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
+.elementive-clients-grid.uk-text-right>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.elementive-clients-grid .elementive-client-grid-logo{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
+.elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale:hover{-webkit-filter:grayscale(0);filter:grayscale(0)}
+.elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale-hover:hover{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
+.elementive-testimonials .testimonials-content blockquote{margin-bottom:0}
+.elementive-testimonials .testimonials-arrow{content:'';display:inline-block;width:10px;height:10px;position:absolute;z-index:0;-webkit-transform:rotate(45deg);transform:rotate(45deg);background:#000}
+.elementive-testimonials.image-top .testimonials-arrow{left:50%;margin-left:-5px;bottom:-5px}
+.elementive-testimonials.image-bottom .testimonials-arrow{left:50%;margin-left:-5px;top:-5px}
+.elementive-testimonials.image-left .testimonials-arrow{top:50%;margin-top:-5px;right:-5px}
+.elementive-testimonials.image-right .testimonials-arrow{top:50%;margin-top:-5px;left:-5px}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#404dbf}
+5%{color:#6a40bf}
+10%{color:#40bf8a}
+15%{color:#a840bf}
+20%{color:#5b40bf}
+25%{color:#84bf40}
+30%{color:#6abf40}
+35%{color:#bf40b9}
+40%{color:#40bf6f}
+45%{color:#bf6240}
+50%{color:#bf40a2}
+55%{color:#bf5940}
+60%{color:#40bf57}
+65%{color:#bfaa40}
+70%{color:#40bf7b}
+75%{color:#bf7340}
+80%{color:#9d40bf}
+85%{color:#4f40bf}
+90%{color:#40acbf}
+95%{color:#bf406a}
+100%{color:#40aebf}
+}@keyframes anim-text-flow-keys{0{color:#404dbf}
+5%{color:#6a40bf}
+10%{color:#40bf8a}
+15%{color:#a840bf}
+20%{color:#5b40bf}
+25%{color:#84bf40}
+30%{color:#6abf40}
+35%{color:#bf40b9}
+40%{color:#40bf6f}
+45%{color:#bf6240}
+50%{color:#bf40a2}
+55%{color:#bf5940}
+60%{color:#40bf57}
+65%{color:#bfaa40}
+70%{color:#40bf7b}
+75%{color:#bf7340}
+80%{color:#9d40bf}
+85%{color:#4f40bf}
+90%{color:#40acbf}
+95%{color:#bf406a}
+100%{color:#40aebf}
+}@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
+80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
+100%{opacity:0}
+}@keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
+80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
+100%{opacity:0}
+}
