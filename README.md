@@ -7,7 +7,7 @@
 **License:** MIT  
 **License URI:** https://opensource.org/licenses/MIT  
 
-## Elementive widgets for Elementor Plugin ##
+## Elementive Widgets ##
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d44ac3d1c0624fa68eac034994bf9db9)](https://www.codacy.com/manual/dimative/elementive?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dimative/elementive&amp;utm_campaign=Badge_Grade)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 An ultimate toolkit for building websites with Elementor. We provide website creators with modern set of tools that allows to save time and build websites faster, smarter and easier.
