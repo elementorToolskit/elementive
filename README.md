@@ -1,4 +1,4 @@
-=== Elementive ===
+## Elementive ##
 Contributors: dimative
 Donate link: https://dimative.com
 Tags: comments, spam
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Elementive widgets for Elementor Plugin 
 
-== Description ==
+## Description ##
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d44ac3d1c0624fa68eac034994bf9db9)](https://www.codacy.com/manual/dimative/elementive?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dimative/elementive&amp;utm_campaign=Badge_Grade)
 
 An ultimate toolkit for building websites with Elementor. We provide website creators with modern set of tools that allows to save time and build websites faster, smarter and easier.
