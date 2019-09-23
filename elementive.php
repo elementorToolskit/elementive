@@ -56,8 +56,6 @@ define( 'ELEMENTIVE_MODULES_URL', ELEMENTIVE_URL . 'modules/' );
 if ( ! function_exists( 'elementive_fs' ) ) {
 	/**
 	 * Create a helper function for easy SDK access.
-	 *
-	 * @return array
 	 */
 	function elementive_fs() {
 		global $elementive_fs;
@@ -72,23 +70,13 @@ if ( ! function_exists( 'elementive_fs' ) ) {
 					'slug'                => 'elementive',
 					'type'                => 'plugin',
 					'public_key'          => 'pk_a1c4e9ab4f310b99ad3d01186d485',
-					'is_premium'          => true,
-					'premium_suffix'      => 'Pro',
-					// If your plugin is a serviceware, set this option to false.
-					'has_premium_version' => true,
+					'is_premium'          => false,
 					'has_addons'          => false,
-					'has_paid_plans'      => true,
-					'trial'               => array(
-						'days'               => 7,
-						'is_require_payment' => false,
-					),
+					'has_paid_plans'      => false,
 					'menu'                => array(
-						'first-path' => 'plugins.php',
-						'support'    => false,
+						'first-path'     => 'plugins.php',
+						'support'        => false,
 					),
-					// Set the SDK to work in a sandbox mode (for development & testing).
-					// IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
-					'secret_key'          => 'sk_00$)4@aau!v55QhepGRmkk1{tnlu;',
 				)
 			);
 		}
