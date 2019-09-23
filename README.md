@@ -1,11 +1,11 @@
 ## Elementive ##
-**Contributors:** [Dimative](https://dimative.com)
-**Tags:** Elementor, Widget, Elements, Extension
-**Requires at least:** 4.7
-**Tested up to:** 5.0
-**Stable tag:** 4.7
-**License:** MIT
-**License URI:** https://opensource.org/licenses/MIT
+**Contributors:** [Dimative](https://dimative.com)  
+**Tags:** Elementor, Widget, Elements, Extension  
+**Requires at least:** 4.7  
+**Tested up to:** 5.0  
+**Stable tag:** 4.7  
+**License:** MIT  
+**License URI:** https://opensource.org/licenses/MIT  
 
 ## Elementive widgets for Elementor Plugin ##
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d44ac3d1c0624fa68eac034994bf9db9)](https://www.codacy.com/manual/dimative/elementive?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dimative/elementive&amp;utm_campaign=Badge_Grade)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -15,8 +15,8 @@ Elementive for Elementor includes the most commonly used elements (called widget
 
 ## Installation ##
 
-- Step 1: Download plugin from Release page.
-- Step 2: Click “Add New” at the top of the page.
-- Step 3: Upload the plugin.
-- Step 4: Click “Install Now.”
-- Step 5: Activate the plugin.
+**Step 1:** Download plugin from Release page.  
+**Step 2:** Click “Add New” at the top of the page.  
+**Step 3:** Upload the plugin.  
+**Step 4:** Click “Install Now.”  
+**Step 5:** Activate the plugin.  
