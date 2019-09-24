@@ -1,13 +1,27 @@
 .elementive-team-member {
+    &.tilt-parallax {
+        .elementive-member-content {
+            h3, span, p, ul {
+                transform: translateZ(20px);
+            }
+        }
+    }
     ul.team-member-social {
         list-style: none;
         margin: 0;
         padding: 0;
+        margin-top: 20px;
 
         li {
             margin: 0;
             padding: 0;
             display: inline-block;
+
+            a {
+                text-align: center;
+                display: block;
+                transition: all .3s ease;
+            }
         }
     }
 
@@ -20,23 +34,51 @@
     &.uk-text-left {
         ul.team-member-social li {
             margin-right: 10px;
+            margin-left: 0 !important;
         }
     }
 
     &.uk-text-right {
         ul.team-member-social li {
             margin-left: 10px;
+            margin-right: 0 !important;
         }
     }
 
     .elementive-member-image {
         transition: border .3s ease-in-out;
         transition: box-shadow .3s ease-in-out;
+        margin-bottom: 20px;
+
+        .team-member-image-second.lazyloaded {
+            opacity: 0;
+        }
+
+        &.team-member-image-full {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    &:hover {
+        .elementive-member-image .team-member-image-second.lazyloaded {
+            opacity: 1;
+        }
     }
 
     .member-image-content {
+        padding: 30px;
+        background-color: rgba($color: #FFF, $alpha: .7);
+
         h3, span, p, ul {
             width: 100%;
+            transition: all .3s ease;
         }
+    }
+
+    .team-member-name {
+        margin-bottom: 5px;
     }
 }

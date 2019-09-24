@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Elementive_Widget_Team_Member extends Widget_Base {
+class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 
 
 
@@ -53,7 +53,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'elementive-team-member';
+		return 'elementive-team-member-carousel';
 	}
 
 	/**
@@ -66,7 +66,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Elementive Team Member', 'elementive' );
+		return __( 'Elementive Team Member Carousel', 'elementive' );
 	}
 
 	/**
@@ -112,7 +112,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array( 'uikit', 'jquery-tilt' );
+		return array( 'uikit' );
 	}
 
 	/**
@@ -1355,207 +1355,6 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_title',
-			array(
-				'label' => __( 'Tilt', 'elementive' ),
-				'tab'   => Controls_Manager::TAB_SETTINGS,
-			)
-		);
-
-		$this->add_control(
-			'tilt',
-			array(
-				'label'        => __( 'Enable tilt effect', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-				'separator'    => 'after',
-			)
-		);
-
-		$this->add_control(
-			'tilt_max',
-			array(
-				'label'          => __( 'Max tilt', 'elementive' ),
-				'description'    => __( 'Maximum tilt effect value', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 50,
-						'step' => 1,
-					),
-				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 20,
-				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_perspective',
-			array(
-				'label'          => __( 'Perspective', 'elementive' ),
-				'description'    => __( 'Transform perspective, the lower the more extreme the tilt gets.', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 100,
-						'max'  => 1000,
-						'step' => 10,
-					),
-				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 1000,
-				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_scale',
-			array(
-				'label'          => __( 'Scale', 'elementive' ),
-				'description'    => __( '1 = 100%, 1.5 = 150%, etc ...', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 0.5,
-						'max'  => 1.5,
-						'step' => 0.1,
-					),
-				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 1,
-				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_parallax',
-			array(
-				'label'        => __( 'Parallax effect', 'elementive' ),
-				'description'  => __( 'Add parallax effect with inner elements that have to pop out.', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-			)
-		);
-
-		$this->add_control(
-			'tilt_transition',
-			array(
-				'label'        => __( 'Transition', 'elementive' ),
-				'description'  => __( 'Set a transition on enter/exit.', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => 'yes',
-			)
-		);
-
-		$this->add_control(
-			'tilt_speed',
-			array(
-				'label'          => __( 'Speed', 'elementive' ),
-				'description'    => __( 'Speed of the enter/exit transition.', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 10,
-						'max'  => 1000,
-						'step' => 10,
-					),
-				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 300,
-				),
-				'condition'      => array(
-					'tilt_transition' => 'yes',
-				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_axis',
-			array(
-				'label'       => __( 'Disable axis', 'elementive' ),
-				'description' => __( 'What axis should be disabled. Can be X or Y.', 'elementive' ),
-				'type'        => Controls_Manager::SELECT,
-				'default'     => 'null',
-				'options'     => array(
-					'null' => __( 'None', 'elementive' ),
-					'x'    => __( 'X', 'elementive' ),
-					'y'    => __( 'Y', 'elementive' ),
-				),
-			)
-		);
-
-		$this->add_control(
-			'tilt_reset',
-			array(
-				'label'        => __( 'Reset', 'elementive' ),
-				'description'  => __( 'If the tilt effect has to be reset on exit.', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-			)
-		);
-
-		$this->add_control(
-			'tilt_glare',
-			array(
-				'label'        => __( 'Glare', 'elementive' ),
-				'description'  => __( 'Enables glare effect.', 'elementive' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Yes', 'elementive' ),
-				'label_off'    => __( 'No', 'elementive' ),
-				'return_value' => 'yes',
-				'default'      => '',
-			)
-		);
-
-		$this->add_control(
-			'tilt_glare_value',
-			array(
-				'label'          => __( 'Max glare', 'elementive' ),
-				'description'    => __( 'Maximum galre effect value. From 0 - 1.', 'elementive' ),
-				'type'           => Controls_Manager::SLIDER,
-				'size_units'     => array( 'px' ),
-				'range'          => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1,
-						'step' => 0.1,
-					),
-				),
-				'default'        => array(
-					'unit' => 'px',
-					'size' => 1,
-				),
-				'condition'      => array(
-					'tilt_glare' => 'yes',
-				),
-			)
-		);
-
-		$this->end_controls_section();
 	}
 
 	/**
@@ -1588,45 +1387,12 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 		$classes_wrapper[] = 'uk-transition-toggle';
 		$classes_wrapper[] = 'uk-animation-toggle';
 
-		if ( 'yes' === $settings['tilt'] ) {
-			$classes_wrapper[] = 'run-tilt-js';
-		}
-
-		if ( 'yes' === $settings['tilt_parallax'] ) {
-			$classes_wrapper[] = 'tilt-parallax';
-		}
-
 		$classes_wrapper = array_map( 'esc_attr', $classes_wrapper );
-
-		$tilt_transition       = 'false';
-		$tilt_transition_speed = '300';
-		$tilt_reset            = 'false';
-		$tilt_glare            = 'false';
-		$tilt_glare_value      = '1';
-
-		// Tilt effect attrs.
-		if ( 'yes' === $settings['tilt_transition'] ) {
-			$tilt_transition       = 'true';
-			$tilt_transition_speed = $settings['tilt_speed']['size'];
-		}
-
-		if ( 'yes' === $settings['tilt_reset'] ) {
-			$tilt_reset = 'true';
-		}
 
 		$this->add_render_attribute(
 			'wrapper',
 			array(
-				'class'                 => esc_attr( join( ' ', $classes_wrapper ) ),
-				'data-tilt-maxTilt'     => esc_attr( $settings['tilt_max']['size'] ),
-				'data-tilt-perspective' => esc_attr( $settings['tilt_perspective']['size'] ),
-				'data-tilt-scale'       => esc_attr( $settings['tilt_scale']['size'] ),
-				'data-tilt-transition'  => esc_attr( $tilt_transition ),
-				'data-tilt-speed'       => esc_attr( $tilt_transition_speed ),
-				'data-tilt-disableAxis' => esc_attr( $settings['tilt_axis'] ),
-				'data-tilt-transition'  => esc_attr( $tilt_reset ),
-				'data-tilt-transition'  => esc_attr( $tilt_glare ),
-				'data-tilt-maxGlare'    => esc_attr( $tilt_glare_value ),
+				'class' => esc_attr( join( ' ', $classes_wrapper ) ),
 			)
 		);
 
@@ -1758,7 +1524,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 				</div>
 			</div>
 			<?php
-			if ( ( 'yes' !== $settings['image_content'] && ( 'yes' !== $settings['image_content_name'] || 'yes' !== $settings['image_content_title'] || 'yes' !== $settings['image_content_description'] || 'yes' !== $settings['image_content_social'] ) ) && ( $settings['name'] || $settings['title'] || $settings['description'] || $settings['social'] ) ) {
+			if ( $settings['name'] || $settings['title'] || $settings['description'] || $settings['social'] ) {
 				?>
 				<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), $allowed_attr_class ); ?>>
 					<div class="uk-position-z-index uk-position-relative">
