@@ -100,6 +100,21 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	}
 
 	/**
+	 * Retrieve the list of style dependencies the element requires.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @access public
+	 *
+	 * @return array Element styles dependencies.
+	 */
+	public function get_style_depends() {
+		return array( 'uikit' );
+	}
+	
+	/**
 	 * Register the widget controls.
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.

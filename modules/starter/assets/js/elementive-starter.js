@@ -367,6 +367,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-icon-box.default', elementive_starter.run_jarallax);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-icon-box.default', elementive_starter.run_svg_vivus);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-icon-box.default', elementive_starter.run_tilt_js);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-team-member.default', elementive_starter.run_tilt_js);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-icon-box-carousel.default', elementive_starter.run_swiper_slider);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-clients-carousel.default', elementive_starter.run_swiper_slider);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-testimonials-carousel.default', elementive_starter.run_swiper_slider);
