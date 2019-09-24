@@ -25,6 +25,7 @@ use Elementive\Modules\Starter\Elementive_Module_Starter;
  */
 class Elementive_Modules {
 
+
 	/**
 	 * Widgets Scripts.
 	 *
