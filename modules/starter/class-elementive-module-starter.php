@@ -88,18 +88,16 @@ class Elementive_Module_Starter {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Accordion() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Tab() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Text() );
-		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Text_Rotator() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Typewriter() );
 		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Group_Images() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Justified_Gallery() );
-		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Shape_Mask() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Icon_Box() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Icon_Box_Carousel() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Clients_Grid() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Clients_Carousel() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Testimonials() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Testimonials_Carousel() );
-		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Team_Member() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Team_Member() );
 	}
 
 	/**
