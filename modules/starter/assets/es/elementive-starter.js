@@ -386,6 +386,7 @@ Author URI:      https://dimative.com/
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-icon-box-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-clients-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-testimonials-carousel.default', elementive_starter.run_swiper_slider );
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-team-member-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction(
                 'panel/open_editor/widget/elementive-justified-gallery',
                 function( panel, model, view ) {
