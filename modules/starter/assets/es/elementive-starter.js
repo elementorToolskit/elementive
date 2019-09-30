@@ -94,6 +94,42 @@ Author URI:      https://dimative.com/
         },
 
         /**
+         * Counter (Bounty.js)
+         */
+        run_counter: function() {
+            var counters = $('.run-counter');
+            
+            if ( counters.length ) {
+                counters.each( function( index, el ) {
+                    
+                    function run_bounty( el ) {
+                        bounty.default({
+                            el: el,
+                            value: $(el).data('number-end'),
+                            initialValue: $(el).data('number-start'),
+                            lineHeight: 1.35,
+                            letterSpacing: 0,
+                            animationDelay: 100,
+                            letterAnimationDelay: 100
+                        });
+                    }
+
+                    if ( $(this).data('scrollspy') ) {
+                    
+                        var scroll_spy = UIkit.scrollspy(el);
+                    
+                        UIkit.util.on(el, 'inview', (e) => {
+                            run_bounty(this);
+                        });
+                    } else {
+                        run_bounty(this);
+                    }
+                    
+                });
+            }
+        },
+
+        /**
          * SVG Icon Animation.
          */
         run_svg_vivus: function() {
@@ -373,6 +409,7 @@ Author URI:      https://dimative.com/
         elementive_starter.run_svg_shape();
         elementive_starter.run_jarallax();
         elementive_starter.run_tilt_js();
+        elementive_starter.run_counter();
     });
 
     if ( window.elementorFrontend ) {
@@ -387,6 +424,7 @@ Author URI:      https://dimative.com/
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-clients-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-testimonials-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-team-member-carousel.default', elementive_starter.run_swiper_slider );
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-counter.default', elementive_starter.run_counter );
             elementorFrontend.hooks.addAction(
                 'panel/open_editor/widget/elementive-justified-gallery',
                 function( panel, model, view ) {

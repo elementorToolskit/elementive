@@ -91,6 +91,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
+     * Counter (Bounty.js)
+     */
+    run_counter: function run_counter() {
+      var counters = $('.run-counter');
+
+      if (counters.length) {
+        counters.each(function (index, el) {
+          var _this = this;
+
+          function run_bounty(el) {
+            bounty.default({
+              el: el,
+              value: $(el).data('number-end'),
+              initialValue: $(el).data('number-start'),
+              lineHeight: 1.35,
+              letterSpacing: 0,
+              animationDelay: 100,
+              letterAnimationDelay: 100
+            });
+          }
+
+          if ($(this).data('scrollspy')) {
+            var scroll_spy = UIkit.scrollspy(el);
+            UIkit.util.on(el, 'inview', function (e) {
+              run_bounty(_this);
+            });
+          } else {
+            run_bounty(this);
+          }
+        });
+      }
+    },
+
+    /**
      * SVG Icon Animation.
      */
     run_svg_vivus: function run_svg_vivus() {
@@ -358,6 +392,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     elementive_starter.run_svg_shape();
     elementive_starter.run_jarallax();
     elementive_starter.run_tilt_js();
+    elementive_starter.run_counter();
   });
 
   if (window.elementorFrontend) {
@@ -372,6 +407,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-clients-carousel.default', elementive_starter.run_swiper_slider);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-testimonials-carousel.default', elementive_starter.run_swiper_slider);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-team-member-carousel.default', elementive_starter.run_swiper_slider);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-counter.default', elementive_starter.run_counter);
       elementorFrontend.hooks.addAction('panel/open_editor/widget/elementive-justified-gallery', function (panel, model, view) {
         console.log('toch hook ok');
       });
