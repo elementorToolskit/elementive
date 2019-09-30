@@ -98,6 +98,7 @@ class Elementive_Module_Starter {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Testimonials() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Testimonials_Carousel() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Team_Member() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Team_Member_Carousel() );
 	}
 
 	/**

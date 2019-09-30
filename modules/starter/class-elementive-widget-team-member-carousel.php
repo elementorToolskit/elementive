@@ -147,7 +147,9 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$repeater = new Repeater();
+
+		$repeater->add_control(
 			'image',
 			array(
 				'label'   => __( 'Choose image', 'elementive' ),
@@ -158,7 +160,7 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'second_image',
 			array(
 				'label'        => __( 'Second image', 'elementive' ),
@@ -170,7 +172,7 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'image_second',
 			array(
 				'label'     => __( 'Choose second image', 'elementive' ),
@@ -184,7 +186,7 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'name',
 			array(
 				'label' => __( 'Name', 'elementive' ),
@@ -192,7 +194,7 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'title',
 			array(
 				'label' => __( 'Title', 'elementive' ),
@@ -200,7 +202,7 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$repeater->add_control(
 			'description',
 			array(
 				'label'       => __( 'Description', 'elementive' ),
@@ -211,24 +213,103 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		$repeater = new Repeater();
-
 		$repeater->add_control(
-			'social_icon',
+			'social_icon_1',
 			array(
-				'label'   => __( 'Icon', 'elementive' ),
+				'label'   => __( 'Social icon 1', 'elementive' ),
 				'type'    => Controls_Manager::ICONS,
 				'default' => array(
-					'value'   => 'fas fa-star',
+					'value'   => 'fas fa-globe',
 					'library' => 'solid',
 				),
 			)
 		);
 
 		$repeater->add_control(
-			'social_url',
+			'social_url_1',
 			array(
-				'label'         => __( 'Link', 'elementive' ),
+				'label'         => __( 'Social link 1', 'elementive' ),
+				'type'          => Controls_Manager::URL,
+				'placeholder'   => __( 'https://your-link.com', 'elementive' ),
+				'show_external' => true,
+				'default'       => array(
+					'url'         => '',
+					'is_external' => true,
+					'nofollow'    => true,
+				),
+			)
+		);
+
+		$repeater->add_control(
+			'social_icon_2',
+			array(
+				'label'   => __( 'Social icon 1', 'elementive' ),
+				'type'    => Controls_Manager::ICONS,
+				'default' => array(
+					'value'   => 'fas fa-globe',
+					'library' => 'solid',
+				),
+			)
+		);
+
+		$repeater->add_control(
+			'social_url_2',
+			array(
+				'label'         => __( 'Social link 2', 'elementive' ),
+				'type'          => Controls_Manager::URL,
+				'placeholder'   => __( 'https://your-link.com', 'elementive' ),
+				'show_external' => true,
+				'default'       => array(
+					'url'         => '',
+					'is_external' => true,
+					'nofollow'    => true,
+				),
+			)
+		);
+
+		$repeater->add_control(
+			'social_icon_3',
+			array(
+				'label'   => __( 'Social icon 3', 'elementive' ),
+				'type'    => Controls_Manager::ICONS,
+				'default' => array(
+					'value'   => 'fas fa-globe',
+					'library' => 'solid',
+				),
+			)
+		);
+
+		$repeater->add_control(
+			'social_url_3',
+			array(
+				'label'         => __( 'Social link 3', 'elementive' ),
+				'type'          => Controls_Manager::URL,
+				'placeholder'   => __( 'https://your-link.com', 'elementive' ),
+				'show_external' => true,
+				'default'       => array(
+					'url'         => '',
+					'is_external' => true,
+					'nofollow'    => true,
+				),
+			)
+		);
+
+		$repeater->add_control(
+			'social_icon_4',
+			array(
+				'label'   => __( 'Social icon 4', 'elementive' ),
+				'type'    => Controls_Manager::ICONS,
+				'default' => array(
+					'value'   => 'fas fa-globe',
+					'library' => 'solid',
+				),
+			)
+		);
+
+		$repeater->add_control(
+			'social_url_4',
+			array(
+				'label'         => __( 'Social link 4', 'elementive' ),
 				'type'          => Controls_Manager::URL,
 				'placeholder'   => __( 'https://your-link.com', 'elementive' ),
 				'show_external' => true,
@@ -241,13 +322,13 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'social',
+			'team_member',
 			array(
-				'label'       => __( 'Social Icons', 'elementive' ),
+				'label'       => __( 'Team member', 'elementive' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default'     => array(),
-				'title_field' => __( 'Social icon', 'elementive' ),
+				'title_field' => '{{{ name }}}',
 				'separator'   => 'before',
 			)
 		);
@@ -1355,6 +1436,704 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_title',
+			array(
+				'label' => __( 'Carousel', 'elementive' ),
+				'tab'   => Controls_Manager::TAB_SETTINGS,
+			)
+		);
+
+		$this->add_control(
+			'vertical_align',
+			array(
+				'label'   => __( 'Vertical align', 'elementive' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'uk-flex-top',
+				'options' => array(
+					'uk-flex-top'    => __( 'Top', 'elementive' ),
+					'uk-flex-middle' => __( 'Middle', 'elementive' ),
+					'uk-flex-bottom' => __( 'Bottom', 'elementive' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'auto_play',
+			array(
+				'label'        => __( 'Enable auto play', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
+				'separator'    => 'after',
+			)
+		);
+
+		$this->add_responsive_control(
+			'columns',
+			array(
+				'label'           => __( 'Columns', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array(),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 5,
+						'step' => 1,
+					),
+				),
+				'desktop_default' => array(
+					'size' => 3,
+				),
+				'tablet_default'  => array(
+					'size' => 2,
+				),
+				'mobile_default'  => array(
+					'size' => 1,
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'margins',
+			array(
+				'label'           => __( 'Column margin', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array(),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'desktop_default' => array(
+					'size' => 30,
+				),
+				'tablet_default'  => array(
+					'size' => 30,
+				),
+				'mobile_default'  => array(
+					'size' => 0,
+				),
+			)
+		);
+
+		$this->add_control(
+			'overflow',
+			array(
+				'label'        => __( 'Overflow', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'loop',
+			array(
+				'label'        => __( 'Loop', 'elementive' ),
+				'description'  => __( 'Set to yes to enable continuous loop mode', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'centered',
+			array(
+				'label'        => __( 'Centered slider', 'elementive' ),
+				'description'  => __( 'If yes, then active slide will be centered, not always on the left side.', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'speed',
+			array(
+				'label'          => __( 'Speed', 'elementive' ),
+				'description'    => __( 'Speed of the enter/exit transition.', 'elementive' ),
+				'type'           => Controls_Manager::SLIDER,
+				'range'          => array(
+					'px' => array(
+						'min'  => 10,
+						'max'  => 1000,
+						'step' => 10,
+					),
+				),
+				'default'        => array(
+					'size' => 500,
+				),
+			)
+		);
+
+		$this->add_control(
+			'navigation',
+			array(
+				'label'        => __( 'Navigation', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'separator'    => 'before',
+				'default'      => '',
+			)
+		);
+
+		$this->add_responsive_control(
+			'navigation_diameter_width',
+			array(
+				'label'           => __( 'Diameter', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 30,
+						'max'  => 200,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'navigation' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation ' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'navigation_icon_width',
+			array(
+				'label'           => __( 'Icon width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 5,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 10,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'navigation' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation svg' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'navigation_radius',
+			array(
+				'label'          => __( 'Border radius', 'elementive' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px' ),
+				'range'          => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'devices'        => array( 'desktop', 'tablet', 'mobile' ),
+				'condition'      => array(
+					'navigation' => 'true',
+				),
+				'selectors'      => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation' => 'border-radius: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'navigation_tabs',
+			array(
+				'condition' => array(
+					'navigation' => 'true',
+				),
+			)
+		);
+
+		$this->start_controls_tab(
+			'navigation_normal_tab',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'navigation_color',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation svg' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'navigation_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'navigation_diameter' => 'yes',
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'navigation_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'navigation_diameter' => 'yes',
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation',
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'navigation_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'navigation_diameter' => 'yes',
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'navigation_hover_tab',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'navigation_color_hover',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}}  .elementive-carousel .elementive-carousel-navigation:hover svg' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'navigation_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation:hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'navigation_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation .navigation-background-hover',
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'navigation_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'navigation' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .elementive-carousel-navigation:hover',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'pagination',
+			array(
+				'label'        => __( 'Pagination', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'True', 'elementive' ),
+				'label_off'    => __( 'False', 'elementive' ),
+				'return_value' => 'true',
+				'separator'    => 'before',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'pagination_bullet_align',
+			array(
+				'label'     => __( 'Bullet align', 'elementive' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'uk-text-center',
+				'options'   => array(
+					'uk-text-center' => __( 'Center', 'elementive' ),
+					'uk-text-left'   => __( 'Left', 'elementive' ),
+					'uk-text-right'  => __( 'Right', 'elementive' ),
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bottom',
+			array(
+				'label'           => __( 'Bottom size', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => -100,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 20,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .elementive-carousel-pagination ' => 'bottom: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullet_margin',
+			array(
+				'label'           => __( 'Bullet margin', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 3,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet ' => 'margin: 0 {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullet_width',
+			array(
+				'label'           => __( 'Bullet width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 3,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 5,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet ' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_bullet_height',
+			array(
+				'label'           => __( 'Bullet height', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 20,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 5,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet ' => 'height: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_radius',
+			array(
+				'label'          => __( 'Border radius', 'elementive' ),
+				'type'           => Controls_Manager::SLIDER,
+				'size_units'     => array( 'px' ),
+				'range'          => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 10,
+						'step' => 1,
+					),
+				),
+				'devices'        => array( 'desktop', 'tablet', 'mobile' ),
+				'condition'      => array(
+					'pagination' => 'true',
+				),
+				'selectors'      => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet' => 'border-radius: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'pagination_tabs',
+			array(
+				'condition' => array(
+					'pagination' => 'true',
+				),
+			)
+		);
+
+		$this->start_controls_tab(
+			'pagination_normal_tab',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'pagination_color',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'pagination_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'pagination_diameter' => 'yes',
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'pagination_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'pagination_diameter' => 'yes',
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'pagination_hover_tab',
+			array(
+				'label' => __( 'Active', 'elementive' ),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pagination_diameter_width_active',
+			array(
+				'label'           => __( 'Bullet width', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 5,
+						'max'  => 40,
+						'step' => 1,
+					),
+				),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'desktop_default' => array(
+					'size' => 8,
+					'unit' => 'px',
+				),
+				'condition'       => array(
+					'pagination' => 'true',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet-active' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'pagination_color_hover',
+			array(
+				'label'     => __( 'Color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selectors' => array(
+					'{{WRAPPER}}  .elementive-carousel .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'pagination_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet-active',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'pagination_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'pagination' => 'true',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-carousel .swiper-pagination-bullet-active',
+				'separator' => 'before',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		// End carousel navigation section.
+		$this->end_controls_section();
 	}
 
 	/**
@@ -1469,111 +2248,243 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 			)
 		);
 
-		?>
-		<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?>>
-			<div <?php echo wp_kses( $this->get_render_attribute_string( 'image' ), $allowed_attr_class ); ?> tabindex="0">
-				<div class="uk-position-relative">
-					<?php echo wp_get_attachment_image( $settings['image']['id'], $settings['image_size_size'], '', array( 'class' => esc_attr( join( ' ', $classes_image_tag ) ) ) ); ?>
-					<?php echo wp_get_attachment_image( $settings['image_second']['id'], $settings['image_size_size'], '', array( 'class' => esc_attr( join( ' ', $classes_image_tag_second ) ) ) ); ?>
+		// Carousel Values.
+		// Slider default values.
+		$overflow   = '';
+		$autoplay   = 'false';
+		$pagination = 'false';
+		$navigation = 'false';
+		$loop       = 'false';
+		$centered   = 'false';
+
+		if ( 'true' === $settings['overflow'] ) {
+			$overflow = 'carousel-disable-overlfow';
+		}
+
+		if ( 'true' === $settings['loop'] ) {
+			$loop = $settings['loop'];
+		}
+
+		if ( 'true' === $settings['pagination'] ) {
+			$pagination = $settings['pagination'];
+		}
+
+		if ( 'true' === $settings['navigation'] ) {
+			$navigation = $settings['navigation'];
+		}
+
+		if ( 'true' === $settings['auto_play'] ) {
+			$autoplay = $settings['auto_play'];
+		}
+
+		if ( 'true' === $settings['centered'] ) {
+			$centered = $settings['centered'];
+		}
+
+		$this->add_render_attribute(
+			'carousel',
+			array(
+				'class'               => array( 'elementive-carousel', 'swiper-container', $overflow ),
+				'data-auto-play'      => esc_attr( $autoplay ),
+				'data-column-desktop' => esc_attr( $settings['columns']['size'] ),
+				'data-column-tablet'  => esc_attr( $settings['columns_tablet']['size'] ),
+				'data-column-mobile'  => esc_attr( $settings['columns_mobile']['size'] ),
+				'data-margin-desktop' => esc_attr( $settings['margins']['size'] ),
+				'data-margin-tablet'  => esc_attr( $settings['margins_tablet']['size'] ),
+				'data-margin-mobile'  => esc_attr( $settings['margins_mobile']['size'] ),
+				'data-speed'          => esc_attr( $settings['speed']['size'] ),
+				'data-loop'           => esc_attr( $loop ),
+				'data-pagination'     => esc_attr( $pagination ),
+				'data-navigation'     => esc_attr( $navigation ),
+				'data-centered'       => esc_attr( $centered ),
+			)
+		);
+
+		$this->add_render_attribute(
+			'carousel_wrapper',
+			array(
+				'class'               => 'swiper-wrapper ' . esc_attr( $settings['vertical_align'] ),
+				'tabindex'            => '0',
+			)
+		);
+
+		if ( $settings['team_member'] ) {
+			?>
+			<div class="elementive-testimonials-carousel">
+				<div <?php echo wp_kses( $this->get_render_attribute_string( 'carousel' ), array( 'class' => array() ) ); ?>>
+					<div <?php echo wp_kses( $this->get_render_attribute_string( 'carousel_wrapper' ), array( 'class' => array() ) ); ?>>
 					<?php
-					if ( ( 'yes' === $settings['image_content'] && ( 'yes' === $settings['image_content_name'] || 'yes' === $settings['image_content_title'] || 'yes' === $settings['image_content_description'] || 'yes' === $settings['image_content_social'] ) ) && ( $settings['name'] || $settings['title'] || $settings['description'] || $settings['social'] ) ) {
+					foreach ( $settings['team_member'] as $team ) {
+						$target_1   = $team['social_url_1']['is_external'] ? ' target="_blank"' : '';
+						$nofollow_1 = $team['social_url_1']['nofollow'] ? ' rel="nofollow"' : '';
+						$target_2   = $team['social_url_2']['is_external'] ? ' target="_blank"' : '';
+						$nofollow_2 = $team['social_url_2']['nofollow'] ? ' rel="nofollow"' : '';
+						$target_3   = $team['social_url_3']['is_external'] ? ' target="_blank"' : '';
+						$nofollow_3 = $team['social_url_3']['nofollow'] ? ' rel="nofollow"' : '';
+						$target_4   = $team['social_url_4']['is_external'] ? ' target="_blank"' : '';
+						$nofollow_4 = $team['social_url_4']['nofollow'] ? ' rel="nofollow"' : '';
 						?>
-						<div <?php echo wp_kses( $this->get_render_attribute_string( 'image_content' ), $allowed_attr_class ); ?>>
-							<div class="image-content-wrapper uk-width-1-1">
-							<?php
-							if ( 'yes' === $settings['image_content_name'] && $settings['name'] ) {
-								?>
-								<h3 class="team-member-name"><?php echo esc_attr( $settings['name'] ); ?></h3>
+						<div class="swiper-slide">
+							<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?>>
+								<div <?php echo wp_kses( $this->get_render_attribute_string( 'image' ), $allowed_attr_class ); ?> tabindex="0">
+									<div class="uk-position-relative">
+										<?php echo wp_get_attachment_image( $team['image']['id'], $settings['image_size_size'], '', array( 'class' => esc_attr( join( ' ', $classes_image_tag ) ) ) ); ?>
+										<?php echo wp_get_attachment_image( $team['image_second']['id'], $settings['image_size_size'], '', array( 'class' => esc_attr( join( ' ', $classes_image_tag_second ) ) ) ); ?>
+										<?php
+										if ( ( 'yes' === $settings['image_content'] && ( 'yes' === $settings['image_content_name'] || 'yes' === $settings['image_content_title'] || 'yes' === $settings['image_content_description'] || 'yes' === $settings['image_content_social'] ) ) && ( $team['name'] || $team['title'] || $team['description'] || ( $team['social_url_1']['url'] || $team['social_url_2']['url'] || $team['social_url_3']['url'] || $team['social_url_4']['url'] ) ) ) {
+											?>
+											<div <?php echo wp_kses( $this->get_render_attribute_string( 'image_content' ), $allowed_attr_class ); ?>>
+												<div class="image-content-wrapper uk-width-1-1">
+												<?php
+												if ( 'yes' === $settings['image_content_name'] && $team['name'] ) {
+													?>
+													<h3 class="team-member-name"><?php echo esc_attr( $team['name'] ); ?></h3>
+													<?php
+												}
+												if ( 'yes' === $settings['image_content_title'] && $team['title'] ) {
+													?>
+													<span class="team-member-title uk-display-block"><?php echo esc_attr( $team['title'] ); ?></span>
+													<?php
+												}
+												if ( 'yes' === $settings['image_content_description'] && $team['description'] ) {
+													?>
+													<p class="team-member-description"><?php echo esc_attr( $team['description'] ); ?></p>
+													<?php
+												}
+												if ( 'yes' === $settings['image_content_social'] && ( $team['social_url_1']['url'] || $team['social_url_2']['url'] || $team['social_url_3']['url'] || $team['social_url_4']['url'] ) ) {
+													?>
+													<ul class="team-member-social">
+													<?php
+													if ( $team['social_url_1']['url'] && $team['social_icon_1'] ) {
+														?>
+														<li>
+															<a href="<?php echo esc_url( $team['social_url_1']['url'] ); ?>" <?php echo wp_kses( $target_1 . $nofollow_1, $allowed_attr_link ); ?>>
+																<?php Icons_Manager::render_icon( $team['social_icon_1'], array( 'aria-hidden' => 'true' ) ); ?>
+															</a>
+														</li>
+														<?php
+													}
+													if ( $team['social_url_2']['url'] && $team['social_icon_2'] ) {
+														?>
+														<li>
+															<a href="<?php echo esc_url( $team['social_url_2']['url'] ); ?>" <?php echo wp_kses( $target_2 . $nofollow_2, $allowed_attr_link ); ?>>
+																<?php Icons_Manager::render_icon( $team['social_icon_2'], array( 'aria-hidden' => 'true' ) ); ?>
+															</a>
+														</li>
+														<?php
+													}
+													if ( $team['social_url_3']['url'] && $team['social_icon_3'] ) {
+														?>
+														<li>
+															<a href="<?php echo esc_url( $team['social_url_3']['url'] ); ?>" <?php echo wp_kses( $target_3 . $nofollow_3, $allowed_attr_link ); ?>>
+																<?php Icons_Manager::render_icon( $team['social_icon_3'], array( 'aria-hidden' => 'true' ) ); ?>
+															</a>
+														</li>
+														<?php
+													}
+													if ( $team['social_url_4']['url'] && $team['social_icon_4'] ) {
+														?>
+														<li>
+															<a href="<?php echo esc_url( $team['social_url_4']['url'] ); ?>" <?php echo wp_kses( $target_4 . $nofollow_4, $allowed_attr_link ); ?>>
+																<?php Icons_Manager::render_icon( $team['social_icon_4'], array( 'aria-hidden' => 'true' ) ); ?>
+															</a>
+														</li>
+														<?php
+													}
+													?>
+													</ul>
+													<?php
+												}
+												?>
+												</div>
+											</div>
+											<?php
+										}
+										?>
+									</div>
+								</div>
 								<?php
-							}
-							if ( 'yes' === $settings['image_content_title'] && $settings['title'] ) {
-								?>
-								<span class="team-member-title uk-display-block"><?php echo esc_attr( $settings['title'] ); ?></span>
-								<?php
-							}
-							if ( 'yes' === $settings['image_content_description'] && $settings['description'] ) {
-								?>
-								<p class="team-member-description"><?php echo esc_attr( $settings['description'] ); ?></p>
-								<?php
-							}
-							if ( 'yes' === $settings['image_content_social'] && $settings['social'] ) {
-								?>
-								<ul class="team-member-social">
-								<?php
-								foreach ( $settings['social'] as $social ) {
-									$target   = $social['social_url']['is_external'] ? ' target="_blank"' : '';
-									$nofollow = $social['social_url']['nofollow'] ? ' rel="nofollow"' : '';
+								if ( $team['name'] || $team['title'] || $team['description'] || ( $team['social_url_1']['url'] || $team['social_url_2']['url'] || $team['social_url_3']['url'] || $team['social_url_4']['url'] ) ) {
 									?>
-									<li>
-										<a href="<?php echo esc_url( $social['social_url']['url'] ); ?>" <?php echo wp_kses( $target . $nofollow, $allowed_attr_link ); ?>>
-											<?php Icons_Manager::render_icon( $social['social_icon'], array( 'aria-hidden' => 'true' ) ); ?>
-										</a>
-									</li>
+									<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), $allowed_attr_class ); ?>>
+										<div class="uk-position-z-index uk-position-relative">
+										<?php
+										if ( $team['name'] && ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_name'] ) ) ) {
+											?>
+											<h3 class="team-member-name"><?php echo esc_attr( $team['name'] ); ?></h3>
+											<?php
+										}
+										if ( $team['title'] && ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_title'] ) ) ) {
+											?>
+											<span class="team-member-title uk-display-block"><?php echo esc_attr( $team['title'] ); ?></span>
+											<?php
+										}
+										if ( $team['description'] && ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_description'] ) ) ) {
+											?>
+											<p class="team-member-description"><?php echo esc_attr( $team['description'] ); ?></p>
+											<?php
+										}
+										if ( ( $team['social_url_1']['url'] || $team['social_url_2']['url'] || $team['social_url_3']['url'] || $team['social_url_4']['url'] ) && ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_social'] ) ) ) {
+											?>
+											<ul class="team-member-social">
+											<?php
+											if ( $team['social_url_1']['url'] && $team['social_icon_1'] ) {
+												?>
+												<li>
+													<a href="<?php echo esc_url( $team['social_url_1']['url'] ); ?>" <?php echo wp_kses( $target_1 . $nofollow_1, $allowed_attr_link ); ?>>
+														<?php Icons_Manager::render_icon( $team['social_icon_1'], array( 'aria-hidden' => 'true' ) ); ?>
+													</a>
+												</li>
+												<?php
+											}
+											if ( $team['social_url_2']['url'] && $team['social_icon_2'] ) {
+												?>
+												<li>
+													<a href="<?php echo esc_url( $team['social_url_2']['url'] ); ?>" <?php echo wp_kses( $target_2 . $nofollow_2, $allowed_attr_link ); ?>>
+														<?php Icons_Manager::render_icon( $team['social_icon_2'], array( 'aria-hidden' => 'true' ) ); ?>
+													</a>
+												</li>
+												<?php
+											}
+											if ( $team['social_url_3']['url'] && $team['social_icon_3'] ) {
+												?>
+												<li>
+													<a href="<?php echo esc_url( $team['social_url_3']['url'] ); ?>" <?php echo wp_kses( $target_3 . $nofollow_3, $allowed_attr_link ); ?>>
+														<?php Icons_Manager::render_icon( $team['social_icon_3'], array( 'aria-hidden' => 'true' ) ); ?>
+													</a>
+												</li>
+												<?php
+											}
+											if ( $team['social_url_4']['url'] && $team['social_icon_4'] ) {
+												?>
+												<li>
+													<a href="<?php echo esc_url( $team['social_url_4']['url'] ); ?>" <?php echo wp_kses( $target_4 . $nofollow_4, $allowed_attr_link ); ?>>
+														<?php Icons_Manager::render_icon( $team['social_icon_4'], array( 'aria-hidden' => 'true' ) ); ?>
+													</a>
+												</li>
+												<?php
+											}
+											?>
+											</ul>
+											<?php
+										}
+										?>
+										</div>
+										<div class="team-member-content-background-hover uk-position-cover uk-transition-fade"></div>
+									</div>
 									<?php
 								}
 								?>
-								</ul>
-								<?php
-							}
-							?>
 							</div>
 						</div>
 						<?php
 					}
 					?>
+					</div>
 				</div>
 			</div>
 			<?php
-			if ( $settings['name'] || $settings['title'] || $settings['description'] || $settings['social'] ) {
-				?>
-				<div <?php echo wp_kses( $this->get_render_attribute_string( 'content' ), $allowed_attr_class ); ?>>
-					<div class="uk-position-z-index uk-position-relative">
-					<?php
-					if ( $settings['name'] && ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_name'] ) ) ) {
-						?>
-						<h3 class="team-member-name"><?php echo esc_attr( $settings['name'] ); ?></h3>
-						<?php
-					}
-					if ( $settings['title'] && ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_title'] ) ) ) {
-						?>
-						<span class="team-member-title uk-display-block"><?php echo esc_attr( $settings['title'] ); ?></span>
-						<?php
-					}
-					if ( $settings['description'] && ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_description'] ) ) ) {
-						?>
-						<p class="team-member-description"><?php echo esc_attr( $settings['description'] ); ?></p>
-						<?php
-					}
-					if ( 'yes' !== $settings['image_content'] || ( 'yes' === $settings['image_content'] && 'yes' !== $settings['image_content_social'] ) ) {
-						if ( $settings['social'] ) {
-							?>
-							<ul class="team-member-social">
-							<?php
-							foreach ( $settings['social'] as $social ) {
-								$target   = $social['social_url']['is_external'] ? ' target="_blank"' : '';
-								$nofollow = $social['social_url']['nofollow'] ? ' rel="nofollow"' : '';
-								?>
-								<li>
-									<a href="<?php echo esc_url( $social['social_url']['url'] ); ?>" <?php echo wp_kses( $target . $nofollow, $allowed_attr_link ); ?>>
-										<?php Icons_Manager::render_icon( $social['social_icon'], array( 'aria-hidden' => 'true' ) ); ?>
-									</a>
-								</li>
-								<?php
-							}
-							?>
-							</ul>
-							<?php
-						}
-					}
-					?>
-					</div>
-					<div class="team-member-content-background-hover uk-position-cover uk-transition-fade"></div>
-				</div>
-				<?php
-			}
-			?>
-		</div>
-		<?php
+		}
 	}
 }
 
