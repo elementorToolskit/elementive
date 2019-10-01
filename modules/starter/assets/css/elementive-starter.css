@@ -26,49 +26,49 @@
 
 .elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span { -webkit-animation-name: anim-text-flow-keys; animation-name: anim-text-flow-keys; -webkit-animation-duration: 25s; animation-duration: 25s; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: forwards; animation-fill-mode: forwards; }
 
-@-webkit-keyframes anim-text-flow-keys { 0% { color: #bf4640; }
-  5% { color: #bf5140; }
-  10% { color: #bf405e; }
-  15% { color: #bf4075; }
-  20% { color: #40bf53; }
-  25% { color: #60bf40; }
-  30% { color: #6f40bf; }
-  35% { color: #40a4bf; }
-  40% { color: #86bf40; }
-  45% { color: #bf40ac; }
-  50% { color: #40bf51; }
-  55% { color: #40bfb3; }
-  60% { color: #40aabf; }
-  65% { color: #bf4082; }
-  70% { color: #bf404f; }
-  75% { color: #8e40bf; }
-  80% { color: #42bf40; }
-  85% { color: #73bf40; }
-  90% { color: #9b40bf; }
-  95% { color: #40bf48; }
-  100% { color: #40bf99; } }
+@-webkit-keyframes anim-text-flow-keys { 0% { color: #8040bf; }
+  5% { color: #40bf55; }
+  10% { color: #bf40b3; }
+  15% { color: #bf8440; }
+  20% { color: #bf405e; }
+  25% { color: #40bf62; }
+  30% { color: #bf4088; }
+  35% { color: #bf4080; }
+  40% { color: #bf8040; }
+  45% { color: #bf4053; }
+  50% { color: #404fbf; }
+  55% { color: #ac40bf; }
+  60% { color: #bf4640; }
+  65% { color: #5740bf; }
+  70% { color: #bf4840; }
+  75% { color: #9f40bf; }
+  80% { color: #ac40bf; }
+  85% { color: #40bf59; }
+  90% { color: #bfac40; }
+  95% { color: #40bf95; }
+  100% { color: #40bf6c; } }
 
-@keyframes anim-text-flow-keys { 0% { color: #bf4640; }
-  5% { color: #bf5140; }
-  10% { color: #bf405e; }
-  15% { color: #bf4075; }
-  20% { color: #40bf53; }
-  25% { color: #60bf40; }
-  30% { color: #6f40bf; }
-  35% { color: #40a4bf; }
-  40% { color: #86bf40; }
-  45% { color: #bf40ac; }
-  50% { color: #40bf51; }
-  55% { color: #40bfb3; }
-  60% { color: #40aabf; }
-  65% { color: #bf4082; }
-  70% { color: #bf404f; }
-  75% { color: #8e40bf; }
-  80% { color: #42bf40; }
-  85% { color: #73bf40; }
-  90% { color: #9b40bf; }
-  95% { color: #40bf48; }
-  100% { color: #40bf99; } }
+@keyframes anim-text-flow-keys { 0% { color: #8040bf; }
+  5% { color: #40bf55; }
+  10% { color: #bf40b3; }
+  15% { color: #bf8440; }
+  20% { color: #bf405e; }
+  25% { color: #40bf62; }
+  30% { color: #bf4088; }
+  35% { color: #bf4080; }
+  40% { color: #bf8040; }
+  45% { color: #bf4053; }
+  50% { color: #404fbf; }
+  55% { color: #ac40bf; }
+  60% { color: #bf4640; }
+  65% { color: #5740bf; }
+  70% { color: #bf4840; }
+  75% { color: #9f40bf; }
+  80% { color: #ac40bf; }
+  85% { color: #40bf59; }
+  90% { color: #bfac40; }
+  95% { color: #40bf95; }
+  100% { color: #40bf6c; } }
 
 .elementor-widget-elementive-text .elementive-text-content.has-text-color-animation span:nth-of-type(1) { -webkit-animation-delay: -19.8s; animation-delay: -19.8s; }
 

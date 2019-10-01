@@ -101,30 +101,51 @@ Author URI:      https://dimative.com/
             
             if ( counters.length ) {
                 counters.each( function( index, el ) {
-                    
-                    function run_bounty( el ) {
-                        bounty.default({
-                            el: el,
-                            value: $(el).data('number-end'),
-                            initialValue: $(el).data('number-start'),
-                            lineHeight: 1.35,
-                            letterSpacing: 0,
-                            animationDelay: 100,
-                            letterAnimationDelay: 100
-                        });
+
+                    var data_value = '999';
+                    var data_initial_value = '000';
+                    var data_line_height = 1;
+                    var data_letter_spacing = 0;
+                    var data_delay = 100;
+                    var data_delay_letter = 100;
+
+                    if ( $(this).data('number-start') ) {
+                        data_initial_value = $(this).data('number-start');
                     }
 
-                    if ( $(this).data('scrollspy') ) {
-                    
-                        var scroll_spy = UIkit.scrollspy(el);
-                    
-                        UIkit.util.on(el, 'inview', (e) => {
-                            run_bounty(this);
-                        });
-                    } else {
-                        run_bounty(this);
+                    if ( $(this).data('number-end') ) {
+                        data_value = $(this).data('number-end');
+                    }
+
+                    if ( $(this).data('line-height') ) {
+                        data_line_height = $(this).data('line-height');
+                    }
+
+                    if ( $(this).data('letter-spacing') ) {
+                        data_letter_spacing = $(this).data('letter-spacing');
+                    }
+
+                    if ( $(this).data('animation-delay') ) {
+                        data_delay = $(this).data('animation-delay');
+                    }
+
+                    if ( $(this).data('letter-animation-delay') ) {
+                        data_delay_letter = $(this).data('letter-animation-delay');
                     }
                     
+                    var scroll_spy = UIkit.scrollspy(el);
+                
+                    UIkit.util.on(el, 'inview', (e) => {
+                        bounty.default({
+                            el: el,
+                            value: data_value,
+                            initialValue: data_initial_value,
+                            lineHeight: data_line_height,
+                            letterSpacing: data_letter_spacing,
+                            animationDelay: data_delay_letter,
+                            letterAnimationDelay: data_delay_letter
+                        });
+                    });
                 });
             }
         },
