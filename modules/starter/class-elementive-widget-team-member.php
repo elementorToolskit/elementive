@@ -319,10 +319,9 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'      => 'image_size',
-				'default'   => 'medium',
+				'default'   => 'full',
 				'exclude'   => array( 'custom' ),
 				'separator' => 'before',
-				'default'   => 'full',
 			)
 		);
 
