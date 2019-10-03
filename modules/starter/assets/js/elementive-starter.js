@@ -91,6 +91,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
+     * Counter (Bounty.js)
+     */
+    run_counter: function run_counter() {
+      var counters = $('.run-counter');
+
+      if (counters.length) {
+        counters.each(function (index, el) {
+          var data_value = '999';
+          var data_initial_value = '000';
+          var data_line_height = 1;
+          var data_letter_spacing = 0;
+          var data_delay = 100;
+          var data_delay_letter = 100;
+
+          if ($(this).data('number-start')) {
+            data_initial_value = $(this).data('number-start');
+          }
+
+          if ($(this).data('number-end')) {
+            data_value = $(this).data('number-end');
+          }
+
+          if ($(this).data('line-height')) {
+            data_line_height = $(this).data('line-height');
+          }
+
+          if ($(this).data('letter-spacing')) {
+            data_letter_spacing = $(this).data('letter-spacing');
+          }
+
+          if ($(this).data('animation-delay')) {
+            data_delay = $(this).data('animation-delay');
+          }
+
+          if ($(this).data('letter-animation-delay')) {
+            data_delay_letter = $(this).data('letter-animation-delay');
+          }
+
+          function js_bountry(el, data_value, data_initial_value, data_line_height, data_letter_spacing, data_delay, data_delay_letter) {
+            bounty.default({
+              el: el,
+              value: data_value,
+              initialValue: data_initial_value,
+              lineHeight: data_line_height,
+              letterSpacing: data_letter_spacing,
+              animationDelay: data_delay,
+              letterAnimationDelay: data_delay_letter
+            });
+          }
+
+          js_bountry(el, data_value, data_initial_value, data_line_height, data_letter_spacing, data_delay, data_delay_letter);
+          var scroll_spy = UIkit.scrollspy(el);
+          UIkit.util.on(el, 'inview', function (e) {
+            js_bountry(el, data_value, data_initial_value, data_line_height, data_letter_spacing, data_delay, data_delay_letter);
+          });
+        });
+      }
+    },
+
+    /**
      * SVG Icon Animation.
      */
     run_svg_vivus: function run_svg_vivus() {
@@ -351,6 +411,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     elementive_starter.run_lettering_chars();
     elementive_starter.run_svg_vivus();
     elementive_starter.run_swiper_slider();
+    elementive_starter.run_counter();
   });
   $(window).on('load', function () {
     elementive_starter.run_justified_gallery();
@@ -372,6 +433,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-clients-carousel.default', elementive_starter.run_swiper_slider);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-testimonials-carousel.default', elementive_starter.run_swiper_slider);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-team-member-carousel.default', elementive_starter.run_swiper_slider);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-counter.default', elementive_starter.run_counter);
       elementorFrontend.hooks.addAction('panel/open_editor/widget/elementive-justified-gallery', function (panel, model, view) {
         console.log('toch hook ok');
       });
