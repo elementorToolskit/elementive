@@ -132,19 +132,24 @@ Author URI:      https://dimative.com/
                     if ( $(this).data('letter-animation-delay') ) {
                         data_delay_letter = $(this).data('letter-animation-delay');
                     }
-                    
-                    var scroll_spy = UIkit.scrollspy(el);
-                
-                    UIkit.util.on(el, 'inview', (e) => {
+
+                    function js_bountry( el, data_value, data_initial_value, data_line_height, data_letter_spacing, data_delay, data_delay_letter ) {
                         bounty.default({
                             el: el,
                             value: data_value,
                             initialValue: data_initial_value,
                             lineHeight: data_line_height,
                             letterSpacing: data_letter_spacing,
-                            animationDelay: data_delay_letter,
+                            animationDelay: data_delay,
                             letterAnimationDelay: data_delay_letter
                         });
+                    }
+                    
+                    js_bountry( el, data_value, data_initial_value, data_line_height, data_letter_spacing, data_delay, data_delay_letter );
+                    var scroll_spy = UIkit.scrollspy(el);
+                
+                    UIkit.util.on(el, 'inview', (e) => {
+                        js_bountry( el, data_value, data_initial_value, data_line_height, data_letter_spacing, data_delay, data_delay_letter );
                     });
                 });
             }
@@ -422,6 +427,7 @@ Author URI:      https://dimative.com/
         elementive_starter.run_lettering_chars();
         elementive_starter.run_svg_vivus();
         elementive_starter.run_swiper_slider();
+        elementive_starter.run_counter();
     });
     
     $(window).on('load', function() {
@@ -430,7 +436,6 @@ Author URI:      https://dimative.com/
         elementive_starter.run_svg_shape();
         elementive_starter.run_jarallax();
         elementive_starter.run_tilt_js();
-        elementive_starter.run_counter();
     });
 
     if ( window.elementorFrontend ) {

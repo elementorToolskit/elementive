@@ -540,7 +540,7 @@ class Elementive_Widget_Counter extends Widget_Base {
 					'value' => Scheme_Color::COLOR_2,
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .elementive-counter-icon .elementive-icon-wrapper i' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -647,6 +647,48 @@ class Elementive_Widget_Counter extends Widget_Base {
 			)
 		);
 
+		$this->add_responsive_control(
+			'number_margin',
+			array(
+				'label'           => __( 'Margin bottom', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px', '%' ),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'desktop_default' => array(
+					'size' => 30,
+					'unit' => 'px',
+				),
+				'tablet_default'  => array(
+					'size' => 20,
+					'unit' => 'px',
+				),
+				'mobile_default'  => array(
+					'size' => 10,
+					'unit' => 'px',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-counter-number' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'number_notice',
+			array(
+				'label'           => __( 'Note:', 'elementive' ),
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => __( 'Number counter based bounty.js. It will convert text to SVG. If you want to change typography options, please save and update page, refresh see changes.', 'elementive' ),
+				'content_classes' => '',
+			)
+		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
@@ -654,17 +696,6 @@ class Elementive_Widget_Counter extends Widget_Base {
 				'label'    => __( 'Typography', 'elementive' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementive-counter-number',
-			)
-		);
-
-		$this->add_control(
-			'number_font',
-			array(
-				'label'     => __( 'Font Family', 'elementive' ),
-				'type'      => Controls_Manager::FONT,
-				'selectors' => array(
-					'{{WRAPPER}} .elementive-counter-number' => 'font-family: {{VALUE}}',
-				),
 			)
 		);
 
@@ -781,6 +812,87 @@ class Elementive_Widget_Counter extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_wrapper',
+			array(
+				'label' => __( 'Wrapper', 'elementive' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'wraooer)margin',
+			array(
+				'label'      => __( 'Margin', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-counter' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'wrapper_padding',
+			array(
+				'label'      => __( 'Padding', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-counter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'wrapper_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-counter' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'padding',
+			array(
+				'label'      => __( 'Padding', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-counter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'     => 'wrapper_background',
+				'label'    => __( 'Background', 'elementive' ),
+				'types'    => array( 'classic', 'gradient' ),
+				'selector' => '{{WRAPPER}} .elementive-counter',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'     => 'wrapper_border',
+				'label'    => __( 'Border', 'elementive' ),
+				'selector' => '{{WRAPPER}} .wrapper',
+			)
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -893,7 +1005,7 @@ class Elementive_Widget_Counter extends Widget_Base {
 		);
 
 		?>
-		<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?>>
+		<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?> uk-match-height=".elementor-widget-wrap">
 			<?php
 			if ( $settings['image']['id'] || $settings['icon'] ) {
 				?>
@@ -901,7 +1013,7 @@ class Elementive_Widget_Counter extends Widget_Base {
 					<?php
 					if ( 'yes' === $settings['use_image'] ) {
 						?>
-						<div class="elementive-image-wrapper elementive-counter-icon-wrapper uk-overflow-hidden">
+						<div class="elementive-image-wrapper elementive-counter-icon-wrapper uk-overflow-hidden uk-display-inline-block">
 							<?php
 							echo wp_get_attachment_image( $settings['image']['id'], $settings['image_size_size'] );
 							?>
