@@ -1,1 +1,0 @@
-<img class="elementive-template-preview-img">

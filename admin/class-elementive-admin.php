@@ -11,10 +11,6 @@
 
 namespace Elementive\Admin;
 
-use Elementive\Admin\Modules\Library\Elementive_Template_Library;
-use Elementive\Admin\Modules\Header_Footer\Elementive_Header_Footer;
-use Elementive\Admin\Modules\Dynamic_Content\Elementive_Dynamic_Content;
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -56,10 +52,6 @@ class Elementive_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version     = $version;
-
-		new Elementive_Header_Footer();
-		new Elementive_Dynamic_Content();
-		new Elementive_Template_Library();
 
 	}
 
