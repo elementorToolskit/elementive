@@ -112,7 +112,7 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array( 'uikit' );
+		return array( 'uikit', 'swiper' );
 	}
 
 	/**
@@ -127,7 +127,7 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 	 * @return array Element styles dependencies.
 	 */
 	public function get_style_depends() {
-		return array( 'uikit' );
+		return array( 'uikit', 'swiper' );
 	}
 
 	/**

@@ -50,7 +50,7 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Hello World', 'elementor-hello-world' );
+		return __( 'Hello World', 'elementive' );
 	}
 
 	/**
@@ -96,7 +96,7 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array( 'elementor-hello-world' );
+		return array( 'elementive' );
 	}
 
 	/**
@@ -127,14 +127,14 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			array(
-				'label' => __( 'Content', 'elementor-hello-world' ),
+				'label' => __( 'Content', 'elementive' ),
 			)
 		);
 
 		$this->add_control(
 			'title',
 			array(
-				'label' => __( 'Title', 'elementor-hello-world' ),
+				'label' => __( 'Title', 'elementive' ),
 				'type' => Controls_Manager::TEXT,
 			)
 		);
@@ -144,7 +144,7 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			array(
-				'label' => __( 'Style', 'elementor-hello-world' ),
+				'label' => __( 'Style', 'elementive' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -152,14 +152,14 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 		$this->add_control(
 			'text_transform',
 			array(
-				'label' => __( 'Text Transform', 'elementor-hello-world' ),
+				'label' => __( 'Text Transform', 'elementive' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => array(
-					'' => __( 'None', 'elementor-hello-world' ),
-					'uppercase' => __( 'UPPERCASE', 'elementor-hello-world' ),
-					'lowercase' => __( 'lowercase', 'elementor-hello-world' ),
-					'capitalize' => __( 'Capitalize', 'elementor-hello-world' ),
+					'' => __( 'None', 'elementive' ),
+					'uppercase' => __( 'UPPERCASE', 'elementive' ),
+					'lowercase' => __( 'lowercase', 'elementive' ),
+					'capitalize' => __( 'Capitalize', 'elementive' ),
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
