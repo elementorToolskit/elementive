@@ -49,6 +49,7 @@ define( 'ELEMENTIVE__FILE__', __FILE__ );
 define( 'ELEMENTIVE_PLUGIN_BASE', plugin_basename( ELEMENTIVE__FILE__ ) );
 define( 'ELEMENTIVE_PATH', plugin_dir_path( ELEMENTIVE__FILE__ ) );
 define( 'ELEMENTIVE_MODULES_PATH', ELEMENTIVE_PATH . 'modules/' );
+define( 'ELEMENTIVE_MODULES_ADMIN_PATH', ELEMENTIVE_PATH . 'admin/modules/' );
 define( 'ELEMENTIVE_URL', plugins_url( '/', ELEMENTIVE__FILE__ ) );
 define( 'ELEMENTIVE_ASSETS_URL', ELEMENTIVE_URL . 'assets/' );
 define( 'ELEMENTIVE_MODULES_URL', ELEMENTIVE_URL . 'modules/' );

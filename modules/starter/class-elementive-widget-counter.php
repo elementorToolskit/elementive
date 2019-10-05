@@ -949,10 +949,6 @@ class Elementive_Widget_Counter extends Widget_Base {
 			$classes_icon[] = 'use-image';
 		}
 
-		if ( 'icon-top' === $settings['icon_position'] ) {
-			$classes[] = $settings['text_align'];
-		}
-
 		if ( 'icon-left' === $settings['icon_position'] || 'icon-right' === $settings['icon_position'] ) {
 			$classes_icon[] = 'uk-width-auto';
 		}

@@ -1,0 +1,35 @@
+.elementor-widget-elementive-progress-bar {
+    .elementive-progress-bar-percentage,
+    .elementive-progress-bar-inner-text {
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        font-size: 12px;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+    .elementive-progress-bar-inner-text {
+        padding-left: 10px;
+    }
+
+    .elementive-progress-bar-percentage {
+        padding-right: 10px;
+
+        &.percentage-top {
+            padding-right: 0;
+        }
+    }
+
+    .elementive-progress-bar-title {
+        margin: 0;
+    }
+
+    .elementive-progress-bar-background {
+        background: rgba($color: #000000, $alpha: .1);
+    }
+
+    .elementive-progress-bar-normal {
+        background: rgba($color: #FC0, $alpha: .1);
+    }
+}
