@@ -77,6 +77,7 @@ class Elementive_Public {
 		wp_register_style( 'swiper', ELEMENTIVE_URL . 'frontend/vendors/swiper/css/swiper.min.css', '4.5.0', 'all' );
 		wp_register_style( 'uikit', ELEMENTIVE_URL . 'frontend/vendors/uikit/css/uikit.min.css', '3.2.0', 'all' );
 		wp_register_style( 'jarallax', ELEMENTIVE_URL . 'frontend/vendors/jarallax/jarallax.css', '1.11.0', 'all' );
+		wp_register_style( 'BeerSlider', ELEMENTIVE_URL . 'frontend/vendors/beerslider/BeerSlider.css', '1.0.3', 'all' );
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/elementive-public.css', array(), $this->version, 'all' );
 
@@ -115,6 +116,7 @@ class Elementive_Public {
 		wp_register_script( 'circle-progress', ELEMENTIVE_URL . 'frontend/vendors/circle-progress.min.js', array( 'jquery' ), '1.2.2', true );
 		wp_register_script( 'bounty', ELEMENTIVE_URL . 'frontend/vendors/bounty.js', array(), '1.1.0', true );
 		wp_register_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', false );
+		wp_register_script( 'BeerSlider', ELEMENTIVE_URL . 'frontend/vendors/beerslider/BeerSlider.js', '', '1.0.3', false );
 
 		wp_enqueue_script( 'typewriterjs', ELEMENTIVE_URL . 'frontend/vendors/typewriterjs/core.js', '', '2.7.1', false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementive-public.js', array( 'jquery' ), $this->version, false );
