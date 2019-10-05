@@ -262,10 +262,10 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 					'unit' => 'px',
 					'size' => 5,
 				),
-				'condition' => array(
+				'condition'  => array(
 					'circle!'    => 'yes',
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}} .elementive-progress-bar-background' => 'border-radius: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementive-progress-bar-normal' => 'border-radius: {{SIZE}}{{UNIT}};',
 				),
@@ -487,7 +487,7 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 					'size' => 20,
 					'unit' => 'px',
 				),
-				'selectors' => array(
+				'selectors'       => array(
 					'{{WRAPPER}} .elementive-progress-bar-circle + .elementive-progress-bar-title' => 'margin-top: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementive-progress-bar-top .elementive-progress-bar-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				),
