@@ -258,7 +258,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                       'right': 100 - parseInt(anime.get(progress_bar[0], 'width', '%')) + '%',
                       'left': 'auto'
                     });
-                    console.log('works fine');
                   }
                 }
               });

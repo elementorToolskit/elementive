@@ -262,7 +262,6 @@ Author URI:      https://dimative.com/
                                             'right': ( ( 100 - parseInt( anime.get(progress_bar[0], 'width', '%') ) ) + '%' ),
                                             'left': 'auto'
                                         });
-                                        console.log( 'works fine' );
                                     }
                                 },
                             });
