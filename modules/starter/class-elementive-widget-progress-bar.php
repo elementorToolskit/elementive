@@ -228,18 +228,18 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 				'range'      => array(
 					'px' => array(
 						'min'  => 0,
-						'max'  => 400,
+						'max'  => 100,
 						'step' => 1,
 					),
 				),
 				'default'    => array(
 					'unit' => 'px',
-					'size' => 40,
+					'size' => 25,
 				),
-				'condition' => array(
+				'condition'  => array(
 					'circle!'    => 'yes',
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}} .elementive-progress-bar-background' => 'height: {{SIZE}}{{UNIT}};',
 				),
 			)
@@ -262,10 +262,10 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 					'unit' => 'px',
 					'size' => 5,
 				),
-				'condition' => array(
+				'condition'  => array(
 					'circle!'    => 'yes',
 				),
-				'selectors' => array(
+				'selectors'  => array(
 					'{{WRAPPER}} .elementive-progress-bar-background' => 'border-radius: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementive-progress-bar-normal' => 'border-radius: {{SIZE}}{{UNIT}};',
 				),
@@ -295,8 +295,9 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 		$this->add_control(
 			'title',
 			array(
-				'label' => __( 'Title', 'elementive' ),
-				'type'  => Controls_Manager::TEXT,
+				'label'   => __( 'Title', 'elementive' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => __( 'My skill', 'elementive' ),
 			)
 		);
 
@@ -308,7 +309,7 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
 				'return_value' => 'yes',
-				'default'      => '',
+				'default'      => 'yes',
 			)
 		);
 
@@ -317,6 +318,7 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 			array(
 				'label'      => __( 'Inner text', 'elementive' ),
 				'type'       => Controls_Manager::TEXT,
+				'default'    => __( 'Web Design', 'elementive' ),
 				'condition'  => array(
 					'inner_text' => 'yes',
 				),
@@ -369,7 +371,7 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
 				'return_value' => 'yes',
-				'default'      => '',
+				'default'      => 'yes',
 			)
 		);
 
@@ -456,6 +458,39 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 			array(
 				'label' => __( 'Title', 'elementive' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'title_margin',
+			array(
+				'label'           => __( 'Title margin', 'elementive' ),
+				'type'            => Controls_Manager::SLIDER,
+				'size_units'      => array( 'px' ),
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'range'           => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'desktop_default' => array(
+					'size' => 20,
+					'unit' => 'px',
+				),
+				'tablet_default'  => array(
+					'size' => 20,
+					'unit' => 'px',
+				),
+				'mobile_default'  => array(
+					'size' => 20,
+					'unit' => 'px',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-progress-bar-circle + .elementive-progress-bar-title' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementive-progress-bar-top .elementive-progress-bar-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
 			)
 		);
 
@@ -647,7 +682,7 @@ class Elementive_Widget_Progress_Bar extends Widget_Base {
 
 		$classes_progress_bar = array_map( 'esc_attr', $classes_progress_bar );
 
-		$fill = '#FC0';
+		$fill = '{ "color": "##6ec1e4"}';
 
 		if ( 'classic' === $settings['fill_background'] ) {
 			$fill = '{ "color": "' . $settings['fill_color'] . '"}';
