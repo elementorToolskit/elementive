@@ -1242,9 +1242,6 @@ class Elementive_Widget_Team_Member_Carousel extends Widget_Base {
 						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
-				'condition' => array(
-					'image_content_position' => 'uk-position-cover',
-				),
 				'default'   => 'uk-flex-bottom',
 				'toggle'    => true,
 				'condition' => array(
