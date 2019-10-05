@@ -171,48 +171,56 @@
 .elementive-team-member .member-image-content h3,.elementive-team-member .member-image-content span,.elementive-team-member .member-image-content p,.elementive-team-member .member-image-content ul{width:100%;-webkit-transition:all .3s ease;transition:all .3s ease}
 .elementive-team-member .team-member-name{margin-bottom:5px}
 .elementive-counter .elementive-counter-number{margin-bottom:30px;font-size:48px;line-height:1;font-weight:normal}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-percentage,.elementor-widget-elementive-progress-bar .elementive-progress-bar-inner-text{opacity:0;-webkit-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out;font-size:12px}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-percentage.show,.elementor-widget-elementive-progress-bar .elementive-progress-bar-inner-text.show{opacity:1}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-inner-text{padding-left:10px}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-percentage{padding-right:10px}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-percentage.percentage-top{padding-right:0}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-title{margin:0}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-background{background:rgba(0,0,0,0.1)}
+.elementor-widget-elementive-progress-bar .elementive-progress-bar-normal{background:rgba(255,204,0,0.1)}
 @-webkit-keyframes anim-text-flow-keys{0%{color:#40bf6c}
-5%{color:#bf4071}
-10%{color:#bf409b}
-15%{color:#40bf42}
-20%{color:#86bf40}
-25%{color:#40bf71}
-30%{color:#bf4080}
-35%{color:#bf5540}
-40%{color:#404abf}
-45%{color:#bf8e40}
-50%{color:#40bf97}
-55%{color:#bf40aa}
-60%{color:#bf40aa}
-65%{color:#40bf6c}
-70%{color:#73bf40}
-75%{color:#40bf8c}
-80%{color:#bf4093}
-85%{color:#53bf40}
-90%{color:#40bf60}
-95%{color:#4051bf}
-100%{color:#4068bf}
+5%{color:#40bf51}
+10%{color:#bf8840}
+15%{color:#bfa440}
+20%{color:#9f40bf}
+25%{color:#6fbf40}
+30%{color:#40bf40}
+35%{color:#4057bf}
+40%{color:#bf4077}
+45%{color:#bf4a40}
+50%{color:#40aabf}
+55%{color:#40bfb3}
+60%{color:#bfa640}
+65%{color:#93bf40}
+70%{color:#40bf51}
+75%{color:#a2bf40}
+80%{color:#bf40b5}
+85%{color:#4d40bf}
+90%{color:#bf409d}
+95%{color:#acbf40}
+100%{color:#4093bf}
 }@keyframes anim-text-flow-keys{0{color:#40bf6c}
-5%{color:#bf4071}
-10%{color:#bf409b}
-15%{color:#40bf42}
-20%{color:#86bf40}
-25%{color:#40bf71}
-30%{color:#bf4080}
-35%{color:#bf5540}
-40%{color:#404abf}
-45%{color:#bf8e40}
-50%{color:#40bf97}
-55%{color:#bf40aa}
-60%{color:#bf40aa}
-65%{color:#40bf6c}
-70%{color:#73bf40}
-75%{color:#40bf8c}
-80%{color:#bf4093}
-85%{color:#53bf40}
-90%{color:#40bf60}
-95%{color:#4051bf}
-100%{color:#4068bf}
+5%{color:#40bf51}
+10%{color:#bf8840}
+15%{color:#bfa440}
+20%{color:#9f40bf}
+25%{color:#6fbf40}
+30%{color:#40bf40}
+35%{color:#4057bf}
+40%{color:#bf4077}
+45%{color:#bf4a40}
+50%{color:#40aabf}
+55%{color:#40bfb3}
+60%{color:#bfa640}
+65%{color:#93bf40}
+70%{color:#40bf51}
+75%{color:#a2bf40}
+80%{color:#bf40b5}
+85%{color:#4d40bf}
+90%{color:#bf409d}
+95%{color:#acbf40}
+100%{color:#4093bf}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

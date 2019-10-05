@@ -112,9 +112,10 @@ class Elementive_Public {
 		wp_register_script( 'jarallax-element', ELEMENTIVE_URL . 'frontend/vendors/jarallax/jarallax-element.min.js', '', '1.11.0', true );
 		wp_register_script( 'vivus', ELEMENTIVE_URL . 'frontend/vendors/vivus.min.js', '', '0.4.4', true );
 		wp_register_script( 'jquery-tilt', ELEMENTIVE_URL . 'frontend/vendors/tilt.jquery.js', array( 'jquery' ), '1.1.19', true );
+		wp_register_script( 'circle-progress', ELEMENTIVE_URL . 'frontend/vendors/circle-progress.min.js', array( 'jquery' ), '1.2.2', true );
 		wp_register_script( 'bounty', ELEMENTIVE_URL . 'frontend/vendors/bounty.js', array(), '1.1.0', true );
+		wp_register_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', false );
 
-		wp_enqueue_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', false );
 		wp_enqueue_script( 'typewriterjs', ELEMENTIVE_URL . 'frontend/vendors/typewriterjs/core.js', '', '2.7.1', false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementive-public.js', array( 'jquery' ), $this->version, false );
 

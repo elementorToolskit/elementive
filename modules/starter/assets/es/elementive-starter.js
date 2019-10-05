@@ -156,6 +156,123 @@ Author URI:      https://dimative.com/
         },
 
         /**
+         * Progressbar.
+         */
+        run_progress_bar: function() {
+            var progressbar = $('.run-progress-bar');
+
+            if ( progressbar.length ) {
+                progressbar.each( function( index, el ) {
+
+                    if ( $(this).hasClass('elementive-progress-bar-circle') ) {
+
+                        var circle = $(this);
+                        var start = circle.data('start') / 100;
+                        var end = circle.data('end') / 100;
+                        var width = circle.data('max-width');
+                        var real_width = circle.width();
+                        var duration = circle.data('duration');
+                        var linecap = circle.data('linecap');
+                        var fill = circle.data('fill');
+                        var empty_fill = circle.data('emptyfill');
+                        var run_percentage = circle.find('.elementive-circle-progress-percentage');
+
+                        if ( !circle.data('linecap') ) {
+                            linecap = 'round';
+                        }
+
+                        function update_width() {
+                            if ( width > real_width ) {
+                                width = real_width;
+                            }
+                        }
+
+                        $(window).resize(function() {
+                            update_width();
+                        });
+
+                        circle.circleProgress({
+                            size: width,
+                            animationStartValue: start,
+                            value: start,
+                            lineCap: linecap,
+                            thickness: circle.data('tickness'),
+                            fill: fill,
+                            emptyFill: empty_fill,
+                            animation: { duration: duration, easing: "circleProgressEasing" },
+                            insertMode: 'append',
+                        }).on('circle-animation-progress', function(event, progress, stepValue) {
+                            $(event.currentTarget).find('.elementive-progress-bar-percentage').html(parseInt( ( stepValue.toFixed(2).substr(1) * 100 ) ) + '%');
+                        }).on('circle-inited', function(event, progress, stepValue) {
+                            $(event.currentTarget).find('.elementive-progress-bar-inner-text').addClass('show');
+                            $(event.currentTarget).find('.elementive-progress-bar-percentage').addClass('show');
+                        });
+
+                        var scroll_spy = UIkit.scrollspy(el);
+                        UIkit.util.on(el, 'inview', (e) => {
+                            circle.circleProgress({
+                                value: end,
+                            });
+                        });
+
+                    } else {
+
+                        var progress_bar = $(this);
+                        var start    = progress_bar.data('start');
+                        var end      = progress_bar.data('end');
+                        var duration = progress_bar.data('duration');
+
+                        var percentage_update = progress_bar.find('.elementive-progress-bar-percentage');
+                        if ( progress_bar.hasClass('inner-text-disabled') ) {
+                            percentage_update = progress_bar.parent('.elementive-progress-bar-background').prev().find('.elementive-progress-bar-percentage');
+                        }
+                        var inner_text = progress_bar.find('.elementive-progress-bar-inner-text');
+
+                        var scroll_spy = UIkit.scrollspy(el);
+                        UIkit.util.on(el, 'inview', (e) => {
+                            var progress_animation = anime.timeline({
+                                easing: 'easeOutExpo',
+                                duration: duration
+                            }).add({
+                                targets: progress_bar[0],
+                                width: start + '%', // -> from '28px' to '100%',
+                                duration: 0,
+                                easing: 'easeInOutQuad',
+                            }).add({
+                                targets: progress_bar[0],
+                                width: end + '%', // -> from '28px' to '100%',
+                                duration: duration ,
+                                round: 1,
+                                easing: 'easeInOutQuad',
+                                update: function(anim) {
+                                    if ( percentage_update.length ) {
+                                        if ( '20' < parseInt( anime.get(progress_bar[0], 'width', '%') )) {
+                                            percentage_update.addClass('show');
+                                        }
+                                        percentage_update.html(anime.get(progress_bar[0], 'width', '%'));
+                                    }
+                                    if ( inner_text.length ) {
+                                        if ( '30' < parseInt( anime.get(progress_bar[0], 'width', '%') )) {
+                                            inner_text.addClass('show');
+                                        }
+                                    }
+
+                                    if ( progress_bar.hasClass('inner-text-disabled') ) {
+                                        percentage_update.css({
+                                            'right': ( ( 100 - parseInt( anime.get(progress_bar[0], 'width', '%') ) ) + '%' ),
+                                            'left': 'auto'
+                                        });
+                                        console.log( 'works fine' );
+                                    }
+                                },
+                            });
+                        });
+                    }
+                });
+            }
+        },
+
+        /**
          * SVG Icon Animation.
          */
         run_svg_vivus: function() {
@@ -428,6 +545,7 @@ Author URI:      https://dimative.com/
         elementive_starter.run_svg_vivus();
         elementive_starter.run_swiper_slider();
         elementive_starter.run_counter();
+        elementive_starter.run_progress_bar();
     });
     
     $(window).on('load', function() {
@@ -436,6 +554,10 @@ Author URI:      https://dimative.com/
         elementive_starter.run_svg_shape();
         elementive_starter.run_jarallax();
         elementive_starter.run_tilt_js();
+    });
+    
+    $(window).on('resize', function(){
+        //elementive_starter.run_progress_bar();
     });
 
     if ( window.elementorFrontend ) {
@@ -451,6 +573,7 @@ Author URI:      https://dimative.com/
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-testimonials-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-team-member-carousel.default', elementive_starter.run_swiper_slider );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-counter.default', elementive_starter.run_counter );
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-progress-bar.default', elementive_starter.run_progress_bar );
             elementorFrontend.hooks.addAction(
                 'panel/open_editor/widget/elementive-justified-gallery',
                 function( panel, model, view ) {
