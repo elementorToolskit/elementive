@@ -268,6 +268,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
 
     /**
+     * Before After JS
+     */
+    run_before_after: function run_before_after() {
+      var beer_slider = $('.run-beer-slider');
+
+      if (beer_slider.length) {
+        $.fn.BeerSlider = function (options) {
+          options = options || {};
+          return this.each(function () {
+            new BeerSlider(this, options);
+          });
+        };
+
+        beer_slider.each(function (index, el) {
+          $(el).BeerSlider({
+            start: $(el).data('beer-start')
+          });
+        });
+      }
+    },
+
+    /**
      * SVG Icon Animation.
      */
     run_svg_vivus: function run_svg_vivus() {
@@ -530,6 +552,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     elementive_starter.run_swiper_slider();
     elementive_starter.run_counter();
     elementive_starter.run_progress_bar();
+    elementive_starter.run_before_after();
   });
   $(window).on('load', function () {
     elementive_starter.run_justified_gallery();
@@ -555,6 +578,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-team-member-carousel.default', elementive_starter.run_swiper_slider);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-counter.default', elementive_starter.run_counter);
       elementorFrontend.hooks.addAction('frontend/element_ready/elementive-progress-bar.default', elementive_starter.run_progress_bar);
+      elementorFrontend.hooks.addAction('frontend/element_ready/elementive-before-after.default', elementive_starter.run_before_after);
       elementorFrontend.hooks.addAction('panel/open_editor/widget/elementive-justified-gallery', function (panel, model, view) {
         console.log('toch hook ok');
       });

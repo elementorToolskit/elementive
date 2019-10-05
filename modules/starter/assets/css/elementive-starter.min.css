@@ -179,48 +179,51 @@
 .elementor-widget-elementive-progress-bar .elementive-progress-bar-title{margin:0;padding:0}
 .elementor-widget-elementive-progress-bar .elementive-progress-bar-background{background:rgba(0,0,0,0.1)}
 .elementor-widget-elementive-progress-bar .elementive-progress-bar-normal{background:rgba(255,204,0,0.1)}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#40bf64}
-5%{color:#bf5940}
-10%{color:#40bf84}
-15%{color:#5140bf}
-20%{color:#4080bf}
-25%{color:#bf9940}
-30%{color:#48bf40}
-35%{color:#bf7940}
-40%{color:#b3bf40}
-45%{color:#4091bf}
-50%{color:#4440bf}
-55%{color:#40bf62}
-60%{color:#b540bf}
-65%{color:#bf40bd}
-70%{color:#b540bf}
-75%{color:#bf408e}
-80%{color:#bf4059}
-85%{color:#40bfaa}
-90%{color:#4068bf}
-95%{color:#48bf40}
-100%{color:#bfaa40}
-}@keyframes anim-text-flow-keys{0{color:#40bf64}
-5%{color:#bf5940}
-10%{color:#40bf84}
-15%{color:#5140bf}
-20%{color:#4080bf}
-25%{color:#bf9940}
-30%{color:#48bf40}
-35%{color:#bf7940}
-40%{color:#b3bf40}
-45%{color:#4091bf}
-50%{color:#4440bf}
-55%{color:#40bf62}
-60%{color:#b540bf}
-65%{color:#bf40bd}
-70%{color:#b540bf}
-75%{color:#bf408e}
-80%{color:#bf4059}
-85%{color:#40bfaa}
-90%{color:#4068bf}
-95%{color:#48bf40}
-100%{color:#bfaa40}
+.elementor-widget-elementive-before-after .beer-reveal[data-text]::before,.elementor-widget-elementive-before-after .beer-slider[data-text]::before{display:none}
+.elementor-widget-elementive-before-after .beer-reveal[data-text].with-text::before,.elementor-widget-elementive-before-after .beer-slider[data-text].with-text::before{display:block;content:attr(data-text);padding:.5rem;position:absolute;bottom:0;left:0;margin-right:30px;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.elementor-widget-elementive-before-after .beer-reveal[data-text]::before{white-space:nowrap}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#40bf8c}
+5%{color:#b040bf}
+10%{color:#4082bf}
+15%{color:#40bf9b}
+20%{color:#40bf59}
+25%{color:#8c40bf}
+30%{color:#bf7140}
+35%{color:#5340bf}
+40%{color:#40bf5e}
+45%{color:#6840bf}
+50%{color:#bf408c}
+55%{color:#bf406a}
+60%{color:#40bf4a}
+65%{color:#66bf40}
+70%{color:#bf406c}
+75%{color:#7540bf}
+80%{color:#48bf40}
+85%{color:#4077bf}
+90%{color:#9940bf}
+95%{color:#40bf42}
+100%{color:#44bf40}
+}@keyframes anim-text-flow-keys{0{color:#40bf8c}
+5%{color:#b040bf}
+10%{color:#4082bf}
+15%{color:#40bf9b}
+20%{color:#40bf59}
+25%{color:#8c40bf}
+30%{color:#bf7140}
+35%{color:#5340bf}
+40%{color:#40bf5e}
+45%{color:#6840bf}
+50%{color:#bf408c}
+55%{color:#bf406a}
+60%{color:#40bf4a}
+65%{color:#66bf40}
+70%{color:#bf406c}
+75%{color:#7540bf}
+80%{color:#48bf40}
+85%{color:#4077bf}
+90%{color:#9940bf}
+95%{color:#40bf42}
+100%{color:#44bf40}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

@@ -1,0 +1,23 @@
+.elementor-widget-elementive-before-after {
+    .beer-reveal[data-text],
+    .beer-slider[data-text] {
+        &::before {
+            display: none;
+        }
+        &.with-text::before {
+            display: block;
+            content: attr(data-text);
+            padding: .5rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-right: 30px;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .beer-reveal[data-text]::before {
+        white-space: nowrap;
+    }
+}
