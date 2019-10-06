@@ -28,6 +28,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Elementive_Widget_Hello_World extends Widget_Base {
 
 	/**
+	 * Content template disable.
+	 *
+	 * @var boolean
+	 */
+	protected $_has_template_content = false;
+
+	/**
 	 * Retrieve the widget name.
 	 *
 	 * @since 1.0.0
@@ -96,7 +103,7 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array( 'elementive' );
+		return array( 'uikit' );
 	}
 
 	/**
@@ -113,7 +120,7 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 	public function get_style_depends() {
 		return array( 'uikit' );
 	}
-	
+
 	/**
 	 * Register the widget controls.
 	 *
@@ -185,22 +192,5 @@ class Elementive_Widget_Hello_World extends Widget_Base {
 		echo '<div class="title">';
 		echo $settings['title'];
 		echo '</div>';
-	}
-
-	/**
-	 * Render the widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @access protected
-	 */
-	protected function _content_template() {
-		?>
-		<div class="title">
-			{{{ settings.title }}}
-		</div>
-		<?php
 	}
 }
