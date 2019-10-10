@@ -150,13 +150,13 @@ class Elementive_Widget_Button extends Widget_Base {
 		$this->add_control(
 			'button_type',
 			array(
-				'label'   => __( 'Border Style', 'elementive' ),
+				'label'   => __( 'Button type', 'elementive' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'default',
+				'default' => 'elementive-button-default',
 				'options' => array(
-					'full'    => __( 'Full', 'elementive' ),
-					'icon'    => __( 'Icon', 'elementive' ),
-					'default' => __( 'Default', 'elementive' ),
+					'elementive-button-full'    => __( 'Full', 'elementive' ),
+					'elementive-button-icon'    => __( 'Icon', 'elementive' ),
+					'elementive-button-default' => __( 'Default', 'elementive' ),
 				),
 			)
 		);
@@ -167,7 +167,7 @@ class Elementive_Widget_Button extends Widget_Base {
 				'label'     => __( 'Button icon', 'elementive' ),
 				'type'      => Controls_Manager::ICONS,
 				'condition' => array(
-					'button_type!' => 'full',
+					'button_type!' => 'elementive-button-full',
 				),
 			)
 		);
@@ -183,7 +183,7 @@ class Elementive_Widget_Button extends Widget_Base {
 				'default'      => '',
 				'condition'    => array(
 					'button_icon[library]' => 'svg',
-					'button_type!'         => 'full',
+					'button_type!'         => 'elementive-button-full',
 				),
 			)
 		);
@@ -196,7 +196,7 @@ class Elementive_Widget_Button extends Widget_Base {
 				'default'   => __( 'Button', 'elementive' ),
 				'separator' => 'before',
 				'condition' => array(
-					'button_type!' => 'icon',
+					'button_type!' => 'elementive-button-icon',
 				),
 			)
 		);
@@ -283,9 +283,9 @@ class Elementive_Widget_Button extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_style',
+			'section_style_icon',
 			array(
-				'label' => __( 'Style', 'elementive' ),
+				'label' => __( 'Icon', 'elementive' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -442,6 +442,138 @@ class Elementive_Widget_Button extends Widget_Base {
 			)
 		);
 
+		$this->add_responsive_control(
+			'button_icon_diameter',
+			array(
+				'label'      => __( 'Icon diameter', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'condition'  => array(
+					'icon_background' => 'yes',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-button .elementive-button-icon' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'button_icon_radius',
+			array(
+				'label'      => __( 'Icon radius', 'elementive' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'condition'  => array(
+					'icon_background' => 'yes',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-button .elementive-button-icon' => 'border-radius: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab_icon',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'icon_color',
+			array(
+				'label'     => __( 'Icon color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-button .elementive-button-icon i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .elementive-button .elementive-button-icon svg' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_control(
+			'icon_backgroun_color',
+			array(
+				'label'     => __( 'Background color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-button .elementive-button-icon' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab_icon',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'icon_color_hover',
+			array(
+				'label'     => __( 'Icon color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-button:hover .elementive-button-icon i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .elementive-button:hover .elementive-button-icon svg' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_control(
+			'icon_backgroun_color_hover',
+			array(
+				'label'     => __( 'Background color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'scheme'    => array(
+					'type'  => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_2,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-button:hover .elementive-button-icon' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -584,7 +716,7 @@ class Elementive_Widget_Button extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			array(
-				'name'       => 'button_border',
+				'name'       => 'button_border_normal',
 				'label'      => __( 'Border', 'elementive' ),
 				'condition'  => array(
 					'text_button!' => 'yes',
@@ -714,7 +846,9 @@ class Elementive_Widget_Button extends Widget_Base {
 		);
 
 		// Wrapper Classes.
-		$classes_wrapper = array( 'elementive-button', 'uk-flex-middle', 'uk-overflow-hidden', 'uk-position-relative', 'uk-transition-toggle', $settings['button_type'] );
+		$classes_wrapper = array( 'elementive-button', 'uk-flex-middle', 'uk-position-relative', 'uk-transition-toggle', $settings['button_type'] );
+
+		$classes_wrapper[] = $settings['button_type'];
 
 		if ( 'svg' === $settings['button_icon']['library'] ) {
 			$classes_wrapper[] = 'with-svg-icon';
@@ -731,6 +865,10 @@ class Elementive_Widget_Button extends Widget_Base {
 			$classes_wrapper[] = 'uk-text-center';
 		} else {
 			$classes_wrapper[] = 'uk-inline-flex';
+		}
+
+		if ( 'icon' !== $settings['button_type'] ) {
+			$classes_wrapper[] = 'uk-overflow-hidden';
 		}
 
 		$classes_wrapper = array_map( 'esc_attr', $classes_wrapper );
@@ -751,11 +889,11 @@ class Elementive_Widget_Button extends Widget_Base {
 			<?php
 			if ( $settings['button_link']['url'] ) {
 				?>
-				<span class="elementive-button-content uk-position-relative uk-position-z-index">
+				<span class="elementive-button-content uk-position-relative uk-flex uk-flex-middle uk-position-z-index">
 					<?php
-					if ( 'left' === $settings['icon_position'] ) {
+					if ( 'left' === $settings['icon_position'] && 'elementive-button-full' !== $settings['button_type'] && $settings['button_icon']['value'] ) {
 						?>
-						<span class="elementive-button-icon">
+						<span class="elementive-button-icon uk-flex">
 							<?php Icons_Manager::render_icon( $settings['button_icon'], array( 'aria-hidden' => 'true' ) ); ?>
 						</span>
 						<?php
@@ -765,9 +903,9 @@ class Elementive_Widget_Button extends Widget_Base {
 						<span class="elementive-button-text"><?php echo esc_attr( $settings['button_text'] ); ?></span>
 						<?php
 					}
-					if ( 'right' === $settings['icon_position'] ) {
+					if ( 'right' === $settings['icon_position'] && 'elementive-button-full' !== $settings['button_type'] && $settings['button_icon']['value'] ) {
 						?>
-						<span class="elementive-button-icon">
+						<span class="elementive-button-icon uk-flex">
 							<?php Icons_Manager::render_icon( $settings['button_icon'], array( 'aria-hidden' => 'true' ) ); ?>
 						</span>
 						<?php

@@ -9,9 +9,31 @@
             text-decoration: none;
         }
 
-        &.full {
+        &.elementive-button-full {
+            width: 100%;
             .elementive-button-content {
                 width: 100%;
+                text-align: center;
+            }
+        }
+
+        .elementive-button-icon {
+            text-align: center;
+            transition: all .2s ease-in-out;
+
+            i {
+                line-height: inherit;
+                text-align: center;
+                width: 100%;
+                transition: all .2s ease-in-out;
+            }
+
+            svg {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0;
+                margin-bottom: 0;
+                transition: all .2s ease-in-out;
             }
         }
     }
