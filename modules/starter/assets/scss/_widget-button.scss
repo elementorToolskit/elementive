@@ -2,18 +2,61 @@
     .elementive-button {
         text-decoration: none;
         color: inherit;
-        transition: all .3s ease-in-out;
+        transition: all .2s ease-in-out;
+        background-color: #F0F0F0;
 
         &:hover {
             color: inherit;
             text-decoration: none;
         }
 
-        &.elementive-button-full {
+        &.elementive-button-type-full {
             width: 100%;
+            .elementive-button-text,
             .elementive-button-content {
                 width: 100%;
                 text-align: center;
+            }
+        }
+
+        &.elementive-button-type-icon {
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+
+            .elementive-button-icon {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            .elementive-button-hover {
+                display: none !important;
+            }
+        }
+
+        &.elementive-button-type-text {
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+
+        &.elementive-button-animated-border {
+            padding-bottom: 10px !important;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                left: 0;
+                transition: width .3s ease-in-out, background-color .6s ease-in-out;
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
             }
         }
 
@@ -36,5 +79,9 @@
                 transition: all .2s ease-in-out;
             }
         }
+    }
+
+    & + .elementor-widget-elementive-button:last-child {
+        margin-bottom: 20px;
     }
 }

@@ -182,55 +182,63 @@
 .elementor-widget-elementive-before-after .beer-reveal[data-text]::before,.elementor-widget-elementive-before-after .beer-slider[data-text]::before{display:none}
 .elementor-widget-elementive-before-after .beer-reveal[data-text].with-text::before,.elementor-widget-elementive-before-after .beer-slider[data-text].with-text::before{display:block;content:attr(data-text);padding:.5rem;position:absolute;bottom:0;left:0;margin-right:30px;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .elementor-widget-elementive-before-after .beer-reveal[data-text]::before{white-space:nowrap}
-.elementor-widget-elementive-button .elementive-button{text-decoration:none;color:inherit;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-button .elementive-button{text-decoration:none;color:inherit;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;background-color:#f0f0f0}
 .elementor-widget-elementive-button .elementive-button:hover{color:inherit;text-decoration:none}
-.elementor-widget-elementive-button .elementive-button.elementive-button-full{width:100%}
-.elementor-widget-elementive-button .elementive-button.elementive-button-full .elementive-button-content{width:100%;text-align:center}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-full{width:100%}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-full .elementive-button-text,.elementor-widget-elementive-button .elementive-button.elementive-button-type-full .elementive-button-content{width:100%;text-align:center}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-icon{background:transparent !important;padding:0 !important;border:none !important}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-icon .elementive-button-icon{margin-left:0 !important;margin-right:0 !important}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-icon .elementive-button-hover{display:none !important}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-text{background:transparent !important;padding:0 !important;border:none !important}
+.elementor-widget-elementive-button .elementive-button.elementive-button-animated-border{padding-bottom:10px !important}
+.elementor-widget-elementive-button .elementive-button.elementive-button-animated-border::after{content:'';position:absolute;bottom:0;width:0;height:0;left:0;-webkit-transition:width .3s ease-in-out,background-color .6s ease-in-out;transition:width .3s ease-in-out,background-color .6s ease-in-out}
+.elementor-widget-elementive-button .elementive-button.elementive-button-animated-border:hover::after{width:100%}
 .elementor-widget-elementive-button .elementive-button .elementive-button-icon{text-align:center;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-button .elementive-button .elementive-button-icon i{line-height:inherit;text-align:center;width:100%;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-button .elementive-button .elementive-button-icon svg{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#a640bf}
-5%{color:#4080bf}
-10%{color:#51bf40}
-15%{color:#4abf40}
-20%{color:#bf7340}
-25%{color:#40bfa8}
-30%{color:#a440bf}
-35%{color:#40bf88}
-40%{color:#40bf86}
-45%{color:#409fbf}
-50%{color:#40bfb3}
-55%{color:#404fbf}
-60%{color:#4d40bf}
-65%{color:#bf8840}
-70%{color:#4051bf}
-75%{color:#bf4a40}
-80%{color:#40bbbf}
-85%{color:#8840bf}
-90%{color:#8840bf}
-95%{color:#bf5740}
-100%{color:#40bfac}
-}@keyframes anim-text-flow-keys{0{color:#a640bf}
-5%{color:#4080bf}
-10%{color:#51bf40}
-15%{color:#4abf40}
-20%{color:#bf7340}
-25%{color:#40bfa8}
-30%{color:#a440bf}
-35%{color:#40bf88}
-40%{color:#40bf86}
-45%{color:#409fbf}
-50%{color:#40bfb3}
-55%{color:#404fbf}
-60%{color:#4d40bf}
-65%{color:#bf8840}
-70%{color:#4051bf}
-75%{color:#bf4a40}
-80%{color:#40bbbf}
-85%{color:#8840bf}
-90%{color:#8840bf}
-95%{color:#bf5740}
-100%{color:#40bfac}
+.elementor-widget-elementive-button+.elementor-widget-elementive-button:last-child{margin-bottom:20px}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#bf4040}
+5%{color:#40bf53}
+10%{color:#40b0bf}
+15%{color:#404abf}
+20%{color:#4f40bf}
+25%{color:#b0bf40}
+30%{color:#40bfb5}
+35%{color:#bf4079}
+40%{color:#4095bf}
+45%{color:#bf5140}
+50%{color:#bf4095}
+55%{color:#408ebf}
+60%{color:#7bbf40}
+65%{color:#91bf40}
+70%{color:#40bf6c}
+75%{color:#bf4082}
+80%{color:#40bf46}
+85%{color:#bf4044}
+90%{color:#bf4640}
+95%{color:#bfac40}
+100%{color:#4086bf}
+}@keyframes anim-text-flow-keys{0{color:#bf4040}
+5%{color:#40bf53}
+10%{color:#40b0bf}
+15%{color:#404abf}
+20%{color:#4f40bf}
+25%{color:#b0bf40}
+30%{color:#40bfb5}
+35%{color:#bf4079}
+40%{color:#4095bf}
+45%{color:#bf5140}
+50%{color:#bf4095}
+55%{color:#408ebf}
+60%{color:#7bbf40}
+65%{color:#91bf40}
+70%{color:#40bf6c}
+75%{color:#bf4082}
+80%{color:#40bf46}
+85%{color:#bf4044}
+90%{color:#bf4640}
+95%{color:#bfac40}
+100%{color:#4086bf}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}
