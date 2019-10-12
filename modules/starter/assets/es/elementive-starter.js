@@ -290,6 +290,16 @@ Author URI:      https://dimative.com/
         },
 
         /**
+         * AOS Animations Init
+         */
+        run_elementive_aos: function() {
+            var aos = $('.run-elementive-aos');
+            if ( aos.length ) {
+                AOS.init();
+            }
+        },
+
+        /**
          * SVG Icon Animation.
          */
         run_svg_vivus: function() {
@@ -564,6 +574,7 @@ Author URI:      https://dimative.com/
         elementive_starter.run_counter();
         elementive_starter.run_progress_bar();
         elementive_starter.run_before_after();
+        elementive_starter.run_elementive_aos();
     });
     
     $(window).on('load', function() {
@@ -593,6 +604,7 @@ Author URI:      https://dimative.com/
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-counter.default', elementive_starter.run_counter );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-progress-bar.default', elementive_starter.run_progress_bar );
             elementorFrontend.hooks.addAction( 'frontend/element_ready/elementive-before-after.default', elementive_starter.run_before_after );
+            elementorFrontend.hooks.addAction( 'frontend/element_ready/widget', elementive_starter.run_elementive_aos );
             elementorFrontend.hooks.addAction(
                 'panel/open_editor/widget/elementive-justified-gallery',
                 function( panel, model, view ) {

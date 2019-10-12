@@ -142,5 +142,7 @@ class Elementive_Module_Starter {
 		add_action( 'wp_enqueue_scripts', array( $this, 'starter_widgets_styles' ), 998 );
 		// Register widgets.
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_starter_widgets' ) );
+
+		new Starter\Elementive_Widget_Animations();
 	}
 }
