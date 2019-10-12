@@ -289,7 +289,7 @@ class Elementive_Widget_Button extends Widget_Base {
 				'label_off'    => __( 'No', 'elementive' ),
 				'return_value' => 'yes',
 				'condition'    => array(
-					'button_type' => 'elementive-button-type-full',
+					'button_type!' => 'elementive-button-type-full',
 				),
 				'default'      => '',
 				'separator'    => 'before',
@@ -324,6 +324,7 @@ class Elementive_Widget_Button extends Widget_Base {
 				),
 				'condition'       => array(
 					'inline_button' => 'yes',
+					'button_type!'  => 'elementive-button-type-full',
 				),
 				'selectors'       => array(
 					'{{WRAPPER}}' => 'margin-right: {{SIZE}}{{UNIT}}; display: inline-flex; width: auto;',
@@ -612,7 +613,7 @@ class Elementive_Widget_Button extends Widget_Base {
 			array(
 				'label'     => __( 'Background color', 'elementive' ),
 				'type'      => Controls_Manager::COLOR,
-				'condition'  => array(
+				'condition' => array(
 					'icon_background' => 'yes',
 				),
 				'selectors' => array(
@@ -698,33 +699,6 @@ class Elementive_Widget_Button extends Widget_Base {
 		);
 
 		$this->add_control(
-			'animated_border_padding',
-			array(
-				'label'      => __( 'Animated border padding', 'elementive' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 40,
-						'step' => 1,
-					),
-				),
-				'default'    => array(
-					'unit' => 'px',
-					'size' => 10,
-				),
-				'condition'  => array(
-					'text_button'     => 'yes',
-					'animated_border' => 'yes',
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .elementive-button-animated-border' => 'padding-bottom: {{SIZE}}{{UNIT}} !important;',
-				),
-			)
-		);
-
-		$this->add_control(
 			'button_radius',
 			array(
 				'label'      => __( 'Button radius', 'elementive' ),
@@ -768,9 +742,6 @@ class Elementive_Widget_Button extends Widget_Base {
 					'left'     => '20',
 					'unit'     => 'px',
 					'isLinked' => false,
-				),
-				'condition'  => array(
-					'text_button!' => 'yes',
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .elementive-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -1004,28 +975,40 @@ class Elementive_Widget_Button extends Widget_Base {
 		}
 
 		$classes_wrapper = array_map( 'esc_attr', $classes_wrapper );
+		$nofollow        = '';
+		$target          = '';
+		$link            = '';
+		$caption         = '';
 
-		$target   = $settings['button_link']['is_external'] ? ' target="_blank"' : '';
-		$nofollow = $settings['button_link']['nofollow'] ? ' rel="nofollow"' : '';
-		$link     = '';
+		if ( 'yes' !== $settings['link_type'] ) {
+			$target   = $settings['button_link']['is_external'] ? ' target="_blank"' : '';
+			$nofollow = $settings['button_link']['nofollow'] ? ' rel="nofollow"' : '';
+		}
 
 		if ( 'yes' === $settings['link_type'] ) {
 
-			if ( 'video' === $settings['lightbox_type'] ) {
-				$link = $settings['video_url'];
-			} elseif ( 'image' === $settings['lightbox_type'] ) {
+			if ( 'video' === $settings['lightbox_type'] && $settings['video_url']['url'] ) {
+				$link = $settings['video_url']['url'];
+			} elseif ( 'image' === $settings['lightbox_type'] && $settings['image_url']['url'] ) {
 				$link = $settings['image_url']['url'];
-			} else {
+			} elseif ( $settings['button_link']['url'] ) {
 				$link = $settings['button_link']['url'];
 			}
 		} else {
 			$link = $settings['button_link']['url'];
 		}
+
+		if ( wp_get_attachment_caption( $settings['image_url']['id'] ) ) {
+			$caption = wp_get_attachment_caption( $settings['image_url']['id'] );
+		}
+
 		$this->add_render_attribute(
 			'wrapper',
 			array(
-				'class'    => esc_attr( join( ' ', $classes_wrapper ) ),
-				'tabindex' => '0',
+				'class'                        => esc_attr( join( ' ', $classes_wrapper ) ),
+				'tabindex'                     => '0',
+				'data-elementor-open-lightbox' => 'no',
+				'data-caption'                 => esc_html( $caption ),
 			)
 		);
 
@@ -1034,7 +1017,7 @@ class Elementive_Widget_Button extends Widget_Base {
 			echo '<div uk-lightbox>';
 		}
 		?>
-		<a <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?> href="<?php echo esc_url( $settings['button_link']['url'] ); ?>" <?php echo wp_kses( $target . $nofollow, $allowed_html_link ); ?>>
+		<a <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?> href="<?php echo esc_url( $link ); ?>" <?php echo wp_kses( $target . $nofollow, $allowed_html_link ); ?>>
 			<?php
 			if ( $link ) {
 				?>

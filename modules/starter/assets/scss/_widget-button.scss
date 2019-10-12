@@ -20,42 +20,41 @@
         }
 
         &.elementive-button-type-icon {
-            background: transparent !important;
-            padding: 0 !important;
-            border: none !important;
+            background: transparent;
+            padding: 0;
+            border: none;
 
             .elementive-button-icon {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
+                margin-left: 0;
+                margin-right: 0;
             }
 
             .elementive-button-hover {
-                display: none !important;
+                display: none;
             }
         }
 
         &.elementive-button-type-text {
-            background: transparent !important;
-            padding: 0 !important;
-            border: none !important;
-        }
+            background: transparent;
+            border: none;
 
-        &.elementive-button-animated-border {
-            padding-bottom: 10px !important;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                width: 0;
-                height: 0;
-                left: 0;
-                transition: width .3s ease-in-out, background-color .6s ease-in-out;
-            }
-
-            &:hover {
+            &.elementive-button-animated-border {
+                padding-bottom: 10px;
+    
                 &::after {
-                    width: 100%;
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    width: 0;
+                    height: 0;
+                    left: 0;
+                    transition: width .3s ease-in-out, background-color .6s ease-in-out;
+                }
+    
+                &:hover {
+                    &::after {
+                        width: 100%;
+                    }
                 }
             }
         }
