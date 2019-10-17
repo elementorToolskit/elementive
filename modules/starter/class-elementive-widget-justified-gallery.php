@@ -39,6 +39,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Elementive_Widget_Justified_Gallery extends Widget_Base {
 
 	/**
+	 * Content template disable.
+	 *
+	 * @var boolean
+	 */
+	protected $_has_template_content = false;
+
+	/**
 	 * Retrieve the widget name.
 	 *
 	 * @since 1.0.0
@@ -92,7 +99,7 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'elementive-starter' ];
+		return array( 'elementive-starter' );
 	}
 
 	/**
@@ -107,7 +114,7 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'jquery-justifiedGallery', 'uikit' ];
+		return array( 'jquery-justifiedGallery', 'uikit' );
 	}
 
 	/**
@@ -122,7 +129,7 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 	 * @return array Element styles dependencies.
 	 */
 	public function get_style_depends() {
-		return [ 'justifiedGallery', 'uikit' ];
+		return array( 'justifiedGallery', 'uikit' );
 	}
 
 	/**
@@ -137,92 +144,92 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content',
-			[
+			array(
 				'label' => __( 'Gallery', 'elementive' ),
-			]
+			)
 		);
 
 		$this->add_control(
 			'gallery',
-			[
+			array(
 				'label'   => __( 'Add Images', 'elementive' ),
 				'type'    => Controls_Manager::GALLERY,
-				'default' => [],
-			]
+				'default' => array(),
+			)
 		);
 
 		$this->add_control(
 			'row_height',
-			[
+			array(
 				'label'   => __( 'Row height', 'elementive' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 500,
 				'step'    => 1,
 				'default' => 200,
-			]
+			)
 		);
 
 		$this->add_control(
 			'row_height_max',
-			[
+			array(
 				'label'   => __( 'Row max height', 'elementive' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 500,
 				'step'    => 1,
 				'default' => 300,
-			]
+			)
 		);
 
 		$this->add_control(
 			'margins',
-			[
+			array(
 				'label'   => __( 'Margins', 'elementive' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 50,
 				'step'    => 1,
 				'default' => 0,
-			]
+			)
 		);
 
 		$this->add_control(
 			'last_row',
-			[
+			array(
 				'label'   => __( 'Last row', 'elementive' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'justify',
-				'options' => [
+				'options' => array(
 					'nojustify'  => __( 'No Justify', 'elementive' ),
 					'justify'    => __( 'Justify', 'elementive' ),
 					'hide'       => __( 'Hide', 'elementive' ),
-				],
-			]
+				),
+			)
 		);
 
 		$this->add_control(
 			'randomize',
-			[
+			array(
 				'label'        => __( 'Randomize', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
-			]
+			)
 		);
 
 		$this->add_control(
 			'captions',
-			[
+			array(
 				'label'        => __( 'Captions', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Yes', 'elementive' ),
 				'label_off'    => __( 'No', 'elementive' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
-			]
+			)
 		);
 
 		$this->end_controls_section();
@@ -241,15 +248,15 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 		$settings             = $this->get_settings_for_display();
 		$randomize            = 'false';
 		$captions             = 'false';
-		$allowed_html_wrapper = [
-			'class'               => [],
-			'data-row-height'     => [],
-			'data-row-height-max' => [],
-			'data-last-row'       => [],
-			'data-randomize'      => [],
-			'data-row-margins'    => [],
-			'data-captions'       => [],
-		];
+		$allowed_html_wrapper = array(
+			'class'               => array(),
+			'data-row-height'     => array(),
+			'data-row-height-max' => array(),
+			'data-last-row'       => array(),
+			'data-randomize'      => array(),
+			'data-row-margins'    => array(),
+			'data-captions'       => array(),
+		);
 		if ( 'yes' === $settings['randomize'] ) {
 			$randomize = 'true';
 		}
@@ -260,8 +267,8 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 
 		$this->add_render_attribute(
 			'wrapper',
-			[
-				'class'               => [ 'elementive-justified-gallery' ],
+			array(
+				'class'               => array( 'elementive-justified-gallery' ),
 				'data-row-height'     => esc_attr( $settings['row_height'] ),
 				'data-row-height-max' => esc_attr( $settings['row_height_max'] ),
 				'data-last-row'       => esc_attr( $settings['last_row'] ),
@@ -269,7 +276,7 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 				'data-row-margins'    => esc_attr( $settings['margins'] ),
 				'data-captions'       => esc_attr( $captions ),
 				'uk-lightbox'         => '',
-			]
+			)
 		);
 
 		if ( $settings['gallery'] ) {
@@ -291,7 +298,7 @@ class Elementive_Widget_Justified_Gallery extends Widget_Base {
 					?>
 				</div>
 				<?php
-				echo wp_get_attachment_image( $image['id'], 'full', '', [ 'class' => 'uk-transition-scale-up uk-transition-opaque' ] );
+				echo wp_get_attachment_image( $image['id'], 'full', '', array( 'class' => 'uk-transition-scale-up uk-transition-opaque' ) );
 				echo '</a>';
 			}
 			echo '</div>';

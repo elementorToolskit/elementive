@@ -102,6 +102,7 @@ class Elementive_Module_Starter {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Counter() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Progress_Bar() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Before_After() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Button() );
 	}
 
 	/**
@@ -141,5 +142,7 @@ class Elementive_Module_Starter {
 		add_action( 'wp_enqueue_scripts', array( $this, 'starter_widgets_styles' ), 998 );
 		// Register widgets.
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_starter_widgets' ) );
+
+		new Starter\Elementive_Widget_Animations();
 	}
 }

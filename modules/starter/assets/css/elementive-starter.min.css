@@ -182,48 +182,63 @@
 .elementor-widget-elementive-before-after .beer-reveal[data-text]::before,.elementor-widget-elementive-before-after .beer-slider[data-text]::before{display:none}
 .elementor-widget-elementive-before-after .beer-reveal[data-text].with-text::before,.elementor-widget-elementive-before-after .beer-slider[data-text].with-text::before{display:block;content:attr(data-text);padding:.5rem;position:absolute;bottom:0;left:0;margin-right:30px;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .elementor-widget-elementive-before-after .beer-reveal[data-text]::before{white-space:nowrap}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#7d40bf}
-5%{color:#bf4062}
-10%{color:#406cbf}
-15%{color:#a440bf}
-20%{color:#4640bf}
-25%{color:#8840bf}
-30%{color:#bf4051}
-35%{color:#40bf8a}
-40%{color:#bf405b}
-45%{color:#bf40b7}
-50%{color:#6f40bf}
-55%{color:#408cbf}
-60%{color:#bf4440}
-65%{color:#40bf97}
-70%{color:#bf6440}
-75%{color:#46bf40}
-80%{color:#bf9140}
-85%{color:#bfbd40}
-90%{color:#40a4bf}
-95%{color:#40bf51}
-100%{color:#59bf40}
-}@keyframes anim-text-flow-keys{0{color:#7d40bf}
-5%{color:#bf4062}
-10%{color:#406cbf}
-15%{color:#a440bf}
-20%{color:#4640bf}
-25%{color:#8840bf}
-30%{color:#bf4051}
-35%{color:#40bf8a}
-40%{color:#bf405b}
-45%{color:#bf40b7}
-50%{color:#6f40bf}
-55%{color:#408cbf}
-60%{color:#bf4440}
-65%{color:#40bf97}
-70%{color:#bf6440}
-75%{color:#46bf40}
-80%{color:#bf9140}
-85%{color:#bfbd40}
-90%{color:#40a4bf}
-95%{color:#40bf51}
-100%{color:#59bf40}
+.elementor-widget-elementive-button .elementive-button{text-decoration:none;color:inherit;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;background-color:#f0f0f0}
+.elementor-widget-elementive-button .elementive-button:hover{color:inherit;text-decoration:none}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-full{width:100%}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-full .elementive-button-text,.elementor-widget-elementive-button .elementive-button.elementive-button-type-full .elementive-button-content{width:100%;text-align:center}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-icon{background:transparent;padding:0;border:0}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-icon .elementive-button-icon{margin-left:0;margin-right:0}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-icon .elementive-button-hover{display:none}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-text{background:transparent;border:0}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-text.elementive-button-animated-border{padding-bottom:10px}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-text.elementive-button-animated-border::after{content:'';position:absolute;bottom:0;width:0;height:0;left:0;-webkit-transition:width .3s ease-in-out,background-color .6s ease-in-out;transition:width .3s ease-in-out,background-color .6s ease-in-out}
+.elementor-widget-elementive-button .elementive-button.elementive-button-type-text.elementive-button-animated-border:hover::after{width:100%}
+.elementor-widget-elementive-button .elementive-button .elementive-button-icon{text-align:center;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
+.elementor-widget-elementive-button .elementive-button .elementive-button-icon i{line-height:inherit;text-align:center;width:100%;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
+.elementor-widget-elementive-button .elementive-button .elementive-button-icon svg{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
+.elementor-widget-elementive-button+.elementor-widget-elementive-button:last-child{margin-bottom:20px}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#40b3bf}
+5%{color:#5140bf}
+10%{color:#8abf40}
+15%{color:#40a6bf}
+20%{color:#5940bf}
+25%{color:#5540bf}
+30%{color:#4d40bf}
+35%{color:#bf407d}
+40%{color:#bf4640}
+45%{color:#86bf40}
+50%{color:#aabf40}
+55%{color:#40bfac}
+60%{color:#5340bf}
+65%{color:#4640bf}
+70%{color:#8a40bf}
+75%{color:#40bbbf}
+80%{color:#bf40a8}
+85%{color:#bf8440}
+90%{color:#bf7140}
+95%{color:#bf4042}
+100%{color:#64bf40}
+}@keyframes anim-text-flow-keys{0{color:#40b3bf}
+5%{color:#5140bf}
+10%{color:#8abf40}
+15%{color:#40a6bf}
+20%{color:#5940bf}
+25%{color:#5540bf}
+30%{color:#4d40bf}
+35%{color:#bf407d}
+40%{color:#bf4640}
+45%{color:#86bf40}
+50%{color:#aabf40}
+55%{color:#40bfac}
+60%{color:#5340bf}
+65%{color:#4640bf}
+70%{color:#8a40bf}
+75%{color:#40bbbf}
+80%{color:#bf40a8}
+85%{color:#bf8440}
+90%{color:#bf7140}
+95%{color:#bf4042}
+100%{color:#64bf40}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}
