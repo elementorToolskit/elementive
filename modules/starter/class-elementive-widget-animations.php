@@ -211,7 +211,7 @@ class Elementive_Widget_Animations {
 				'label'       => __( 'Anchor placements', 'elementive' ),
 				'description' => __( 'Defines which position of the element regarding to window should trigger the animation.', 'elementive' ),
 				'type'        => Controls_Manager::SELECT,
-				'default'     => 'top-center',
+				'default'     => 'bottom-bottom',
 				'options'     => array(
 					'top-center'    => __( 'Top center', 'elementive' ),
 					'top-bottom'    => __( 'Top bottom', 'elementive' ),
@@ -234,7 +234,7 @@ class Elementive_Widget_Animations {
 			array(
 				'label'     => __( 'Easing functions', 'elementive' ),
 				'type'      => Controls_Manager::SELECT,
-				'default'   => 'linear',
+				'default'   => 'ease-in-out',
 				'options'   => array(
 					'linear'            => __( 'Linear', 'elementive' ),
 					'ease'              => __( 'Ease', 'elementive' ),
