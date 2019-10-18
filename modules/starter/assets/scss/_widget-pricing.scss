@@ -1,0 +1,36 @@
+.elementor-widget-elementive-pricing {
+    .elementive-pricing {
+        .elementive-pricing-header {
+            margin-bottom: 30px;
+
+            .elementive-pricing-icon {
+                margin-bottom: 30px;
+                i, svg {
+                    transition: all .3s ease-in-out;;
+                }
+            }
+
+            .elementive-pricing-title {
+                margin-bottom: 30px;
+            }
+
+            .elementive-pricing-price {
+                margin-bottom: 30px;
+            }
+        }
+
+        .elementive-pricing-content {
+            margin-bottom: 30px;
+        }
+        .elementive-pricing-feature {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                padding: 0;
+            }
+        }
+    }
+}

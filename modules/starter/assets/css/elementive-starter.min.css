@@ -197,48 +197,56 @@
 .elementor-widget-elementive-button .elementive-button .elementive-button-icon i{line-height:inherit;text-align:center;width:100%;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-button .elementive-button .elementive-button-icon svg{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-button+.elementor-widget-elementive-button:last-child{margin-bottom:20px}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#40b3bf}
-5%{color:#5140bf}
-10%{color:#8abf40}
-15%{color:#40a6bf}
-20%{color:#5940bf}
-25%{color:#5540bf}
-30%{color:#4d40bf}
-35%{color:#bf407d}
-40%{color:#bf4640}
-45%{color:#86bf40}
-50%{color:#aabf40}
-55%{color:#40bfac}
-60%{color:#5340bf}
-65%{color:#4640bf}
-70%{color:#8a40bf}
-75%{color:#40bbbf}
-80%{color:#bf40a8}
-85%{color:#bf8440}
-90%{color:#bf7140}
-95%{color:#bf4042}
-100%{color:#64bf40}
-}@keyframes anim-text-flow-keys{0{color:#40b3bf}
-5%{color:#5140bf}
-10%{color:#8abf40}
-15%{color:#40a6bf}
-20%{color:#5940bf}
-25%{color:#5540bf}
-30%{color:#4d40bf}
-35%{color:#bf407d}
-40%{color:#bf4640}
-45%{color:#86bf40}
-50%{color:#aabf40}
-55%{color:#40bfac}
-60%{color:#5340bf}
-65%{color:#4640bf}
-70%{color:#8a40bf}
-75%{color:#40bbbf}
-80%{color:#bf40a8}
-85%{color:#bf8440}
-90%{color:#bf7140}
-95%{color:#bf4042}
-100%{color:#64bf40}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header{margin-bottom:30px}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-icon{margin-bottom:30px}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-icon i,.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-icon svg{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-title{margin-bottom:30px}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-price{margin-bottom:30px}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-content{margin-bottom:30px}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-feature{list-style:none;margin:0;padding:0}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-feature li{list-style:none;padding:0}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#bf4091}
+5%{color:#40bf9f}
+10%{color:#40bf5b}
+15%{color:#405bbf}
+20%{color:#bf40b3}
+25%{color:#bf6240}
+30%{color:#4abf40}
+35%{color:#7940bf}
+40%{color:#80bf40}
+45%{color:#bf40b0}
+50%{color:#bfac40}
+55%{color:#40bfaa}
+60%{color:#4048bf}
+65%{color:#4042bf}
+70%{color:#40bf84}
+75%{color:#bf4059}
+80%{color:#4080bf}
+85%{color:#407bbf}
+90%{color:#b940bf}
+95%{color:#8840bf}
+100%{color:#40bf60}
+}@keyframes anim-text-flow-keys{0{color:#bf4091}
+5%{color:#40bf9f}
+10%{color:#40bf5b}
+15%{color:#405bbf}
+20%{color:#bf40b3}
+25%{color:#bf6240}
+30%{color:#4abf40}
+35%{color:#7940bf}
+40%{color:#80bf40}
+45%{color:#bf40b0}
+50%{color:#bfac40}
+55%{color:#40bfaa}
+60%{color:#4048bf}
+65%{color:#4042bf}
+70%{color:#40bf84}
+75%{color:#bf4059}
+80%{color:#4080bf}
+85%{color:#407bbf}
+90%{color:#b940bf}
+95%{color:#8840bf}
+100%{color:#40bf60}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}
