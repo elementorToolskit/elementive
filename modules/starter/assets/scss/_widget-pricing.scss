@@ -9,13 +9,40 @@
                     transition: all .3s ease-in-out;;
                 }
             }
+        }
+        .elementive-pricing-price {
+            margin-bottom: 30px;
 
-            .elementive-pricing-title {
-                margin-bottom: 30px;
+            span {
+                display: flex;
+
+                &.price-description {
+                    margin-left: 1rem;
+                }
             }
 
-            .elementive-pricing-price {
-                margin-bottom: 30px;
+            .flex-start {
+                justify-content: flex-start;
+            }
+
+            .flex-end {
+                justify-content: flex-end;
+            }
+
+            .center {
+                justify-content: center;
+            }
+
+            .space-between {
+                justify-content: space-between;
+            }
+
+            .space-around {
+                justify-content: space-around;
+            }
+
+            &.space-evenly {
+                justify-content: space-evenly;
             }
         }
 
