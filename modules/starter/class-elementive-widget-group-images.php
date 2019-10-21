@@ -362,11 +362,9 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 				'default'    => array(
 					'size' => 0,
 					'unit' => 'px',
-					'size' => 0,
-					'unit' => '%',
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} {{CURRENT_ITEM}} .elementive-group-image-item img' => 'border-radius: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .elementive-group-image-item' => 'border-radius: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -479,7 +477,7 @@ class Elementive_Widget_Group_Images extends Widget_Base {
 				echo '<div class="item elementor-repeater-item-' . esc_attr( $image['_id'] ) . '" uk-scrollspy-class="' . esc_attr( $image['custom_animation'] ) . '">';
 				echo '<div class="elementive-group-image-wrapper">';
 				echo '<div uk-parallax="y: ' . esc_attr( $image['parallax_y'] ) . '; x: ' . esc_attr( $image['parallax_x'] ) . '; easing: -2">';
-				echo '<div class="elementive-group-image-item uk-position-relative ' . esc_attr( $image['object_fit'] ) . ' ' . esc_attr( $image['box_shadow'] ) . '">';
+				echo '<div class="elementive-group-image-item uk-overflow-hidden uk-position-relative ' . esc_attr( $image['object_fit'] ) . ' ' . esc_attr( $image['box_shadow'] ) . '">';
 				if ( count( $settings['images'] ) === $counter && 'true' === $settings['lightbox'] && $settings['video'] ) {
 					?>
 					<div class="uk-position-cover uk-position-z-index" uk-lightbox>

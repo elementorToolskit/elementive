@@ -10,6 +10,9 @@
             transform: translate3d(-50%, -50%, 0);
             display: block;
 
+            & > div {
+                transition: all .3s ease-in-out;
+            }
             .elementive-group-image-item {
 
                 .elementive-group-image-button {
