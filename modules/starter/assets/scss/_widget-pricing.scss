@@ -1,7 +1,48 @@
 .elementor-widget-elementive-pricing {
     .elementive-pricing {
+
+        transition: all .3s ease-in-out;
+
+        &.elementive-pricing-button-full {
+            .elementive-pricing-footer a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        &.elementive-pricing-last-child-border {
+            ul.elementive-pricing-feature {
+                li {
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        &.elementive-pricing-last-child-padding {
+            ul.elementive-pricing-feature {
+                li {
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        &.elementive-pricing-last-child-margin {
+            ul.elementive-pricing-feature {
+                li {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
         .elementive-pricing-header {
             margin-bottom: 30px;
+            transition: all .3s ease-in-out;
 
             .elementive-pricing-icon {
                 margin-bottom: 30px;
@@ -12,9 +53,11 @@
         }
         .elementive-pricing-price {
             margin-bottom: 30px;
+            transition: all .3s ease-in-out;
 
             span {
                 display: flex;
+                transition: all .3s ease-in-out;
 
                 &.price-description {
                     margin-left: 1rem;
@@ -41,13 +84,22 @@
                 justify-content: space-around;
             }
 
-            &.space-evenly {
+            .space-evenly {
                 justify-content: space-evenly;
             }
         }
 
         .elementive-pricing-content {
             margin-bottom: 30px;
+            transition: all .3s ease-in-out;
+
+            ul {
+                transition: all .3s ease-in-out;
+            }
+
+            li {
+                transition: all .3s ease-in-out;
+            }
         }
         .elementive-pricing-feature {
             list-style: none;
@@ -57,6 +109,13 @@
             li {
                 list-style: none;
                 padding: 0;
+            }
+        }
+        .elementive-pricing-footer {
+            transition: all .3s ease-in-out;
+            a {
+                display: inline-flex;
+                transition: all .3s ease-in-out;
             }
         }
     }

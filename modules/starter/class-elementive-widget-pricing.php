@@ -828,12 +828,27 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		$this->add_responsive_control(
 			'pricing_price_margin',
 			array(
-				'label'           => __( 'Margin', 'elementive' ),
+				'label'           => __( 'Price wrapper margin', 'elementive' ),
 				'type'            => Controls_Manager::DIMENSIONS,
 				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
 				'size_units'      => array( 'px', '%', 'em' ),
 				'selectors'       => array(
 					'{{WRAPPER}} .elementive-pricing .elementive-pricing-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'price_position',
+			array(
+				'label'   => __( 'Price position', 'elementive' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'price-after-header',
+				'options' => array(
+					'price-top'           => __( 'Top', 'elementive' ),
+					'price-after-header'  => __( 'After header', 'elementive' ),
+					'price-after-content' => __( 'After content', 'elementive' ),
+					'price-bottom'        => __( 'Bottom', 'elementive' ),
 				),
 			)
 		);
@@ -867,10 +882,12 @@ class Elementive_Widget_Pricing extends Widget_Base {
 			array(
 				'label'   => __( 'Direction', 'elementive' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'flex-row',
+				'default' => 'uk-flex-row',
 				'options' => array(
-					'flex-row'    => __( 'Flex Row', 'elementive' ),
-					'flex-row'    => __( 'Flex Row', 'elementive' ),
+					'uk-flex-row'            => __( 'Flex row', 'elementive' ),
+					'uk-flex-row-reverse'    => __( 'Flex row reverse', 'elementive' ),
+					'uk-flex-column'         => __( 'Flex column', 'elementive' ),
+					'uk-flex-column-reverse' => __( 'Flex column reverse', 'elementive' ),
 				),
 			)
 		);
@@ -902,21 +919,14 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'price_margin_bottom',
+			'price_margin',
 			array(
-				'label'      => __( 'Price margin bottom', 'elementive' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px' ),
-				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .elementive-pricing .elementive-pricing-price .price' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				'label'           => __( 'Price margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-price .price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -931,21 +941,14 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'price_description_margin_bottom',
+			'price_description_margin',
 			array(
-				'label'      => __( 'Price description margin bottom', 'elementive' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px' ),
-				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .elementive-pricing .elementive-pricing-price .price-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				'label'           => __( 'Description margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-price .price-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -1137,11 +1140,853 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_content',
+			array(
+				'label'   => __( 'Content', 'elementive' ),
+				'tab'     => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_content_margin',
+			array(
+				'label'           => __( 'Margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'content_typography',
+				'label'    => __( 'Content typography', 'elementive' ),
+				'selector' => '{{WRAPPER}} .elementive-pricing .elementive-pricing-content ul',
+			)
+		);
+
+		$this->add_control(
+			'content_background',
+			array(
+				'label'        => __( 'Enable icon background', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_content_padding',
+			array(
+				'label'           => __( 'Padding', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_content_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-content' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs_content'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab_content',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'content_text_color',
+			array(
+				'label'     => __( 'Text color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-content ul' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'content_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-content',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'content_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-content',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'content_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-content',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab_content',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'content_text_color_hover',
+			array(
+				'label'     => __( 'Text color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-content ul' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'content_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-content-hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'content_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-content',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'content_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'content_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-content',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_content_list',
+			array(
+				'label'   => __( 'List', 'elementive' ),
+				'tab'     => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_control(
+			'content_list_border_disable',
+			array(
+				'label'        => __( 'Disable last child border', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'content_list_padding_disable',
+			array(
+				'label'        => __( 'Disable last child padding', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'content_list_margin_disable',
+			array(
+				'label'        => __( 'Disable last child margin', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_content_list_margin',
+			array(
+				'label'           => __( 'Margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-content ul li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_content_list_padding',
+			array(
+				'label'           => __( 'Padding', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-content ul li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_content_list_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-content ul li' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs_content_list'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab_content_list',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'content_list_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-content ul li',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'content_list_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-content ul li',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab_content_list',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'content_list_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-content ul li',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'content_list_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-content ul li',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_footer',
+			array(
+				'label'   => __( 'Footer', 'elementive' ),
+				'tab'     => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_footer_margin',
+			array(
+				'label'           => __( 'Margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-footer' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'footer_background',
+			array(
+				'label'        => __( 'Enable background', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_footer_padding',
+			array(
+				'label'           => __( 'Padding', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'condition' => array(
+					'footer_background' => 'yes',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_footer_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'condition' => array(
+					'footer_background' => 'yes',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-footer' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs_footer'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab_footer',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'footer_background_color',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'footer_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'footer_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'footer_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'footer_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'footer_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab_footer',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'footer_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'footer_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer-hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'button_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-footer a',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'footer_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-footer',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_button',
+			array(
+				'label'   => __( 'Button', 'elementive' ),
+				'tab'     => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_button_margin',
+			array(
+				'label'           => __( 'Margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'button_typography',
+				'label'    => __( 'Content typography', 'elementive' ),
+				'selector' => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a',
+			)
+		);
+
+		$this->add_control(
+			'button_full',
+			array(
+				'label'        => __( 'Enable full button', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_control(
+			'button_background',
+			array(
+				'label'        => __( 'Enable background', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_button_padding',
+			array(
+				'label'           => __( 'Padding', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_button_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs_button'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab_button',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'content_button_color',
+			array(
+				'label'     => __( 'Button color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'button_background',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'button_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'button_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-footer a',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab_button',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'content_button_color_hover',
+			array(
+				'label'     => __( 'Button color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-footer a' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'button_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-button-hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'button_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-footer a',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'button_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'condition' => array(
+					'button_background' => 'yes',
+				),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover .elementive-pricing-footer a',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_wrapper',
+			array(
+				'label'   => __( 'Wrapper', 'elementive' ),
+				'tab'     => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_wrapper_margin',
+			array(
+				'label'           => __( 'Margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_wrapper_padding',
+			array(
+				'label'           => __( 'Padding', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-pricing' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'pricing_wrapper_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-pricing' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs_wrapper'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab_wrapper',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'wrapper_background_color',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'wrapper_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'wrapper_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab_wrapper',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'wrapper_background_hover',
+				'label'     => __( 'Background', 'elementive' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing .elementive-pricing-wrapper-hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'wrapper_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'wrapper_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-pricing:hover',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
 	}
 
-	protected function render_price( $settings ) {
-
-	}
 	/**
 	 * Render the widget output on the frontend.
 	 *
@@ -1168,7 +2013,23 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		$nofollow = $settings['price_link']['nofollow'] ? ' rel="nofollow"' : '';
 
 		// Wrapper Classes.
-		$classes_wrapper = array( 'elementive-pricing', 'uk-inline-clip', 'uk-transition-toggle' );
+		$classes_wrapper = array( 'elementive-pricing', 'uk-inline-clip', 'uk-transition-toggle', 'uk-position-relative', 'uk-overflow-hidden' );
+
+		if ( 'yes' === $settings['button_full'] ) {
+			$classes_wrapper[] = 'elementive-pricing-button-full';
+		}
+
+		if ( 'yes' === $settings['content_list_border_disable'] ) {
+			$classes_wrapper[] = 'elementive-pricing-last-child-border';
+		}
+
+		if ( 'yes' === $settings['content_list_padding_disable'] ) {
+			$classes_wrapper[] = 'elementive-pricing-last-child-padding';
+		}
+
+		if ( 'yes' === $settings['content_list_margin_disable'] ) {
+			$classes_wrapper[] = 'elementive-pricing-last-child-margin';
+		}
 
 		$classes_wrapper = array_map( 'esc_attr', $classes_wrapper );
 
@@ -1181,7 +2042,7 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		);
 
 		// Price Classes.
-		$classes_price = array( 'uk-position-relative', 'uk-flex', $settings['price_align'], $settings['price_justify'] );
+		$classes_price = array( 'uk-position-relative', 'uk-flex', $settings['price_align'], $settings['price_justify'], $settings['price_direction'] );
 
 		$classes_price = array_map( 'esc_attr', $classes_price );
 
@@ -1194,103 +2055,172 @@ class Elementive_Widget_Pricing extends Widget_Base {
 
 		?>
 		<div <?php echo wp_kses( $this->get_render_attribute_string( 'wrapper' ), $allowed_attr_class ); ?>>
-			<?php
-			if ( $settings['price_title'] || $settings['price_sub_title'] || $settings['icon']['value'] && $settings['image']['url'] ) {
-				?>
-				<div class="elementive-pricing-header uk-position-relative uk-width-1-1 uk-overflow-hidden">
-					<div class="elementive-pricing-header-hover uk-transition-fade uk-position-cover"></div>
-					<?php
-					if ( $settings['icon']['value'] || $settings['image']['url'] ) {
+			<div class="elementive-pricing-wrapper-hover uk-transition-fade uk-position-cover"></div>
+			<div class="uk-position-relative">
+				<?php
+				if ( 'price-top' === $settings['price_position'] ) {
+					if ( $settings['price'] || $settings['price_description'] ) {
 						?>
-						<div class="elementive-pricing-icon uk-overflow-hidden uk-position-relative uk-flex-inline">
+						<div class="elementive-pricing-price uk-position-relative uk-overflow-hidden">
+							<div class="elementive-pricing-price-hover uk-transition-fade uk-position-cover"></div>
+							<div <?php echo wp_kses( $this->get_render_attribute_string( 'price' ), $allowed_attr_class ); ?>>
 							<?php
-							if ( 'yes' === $settings['icon_background'] ) {
-								?>
-								<div class="elementive-pricing-icon-hover uk-transition-fade uk-position-cover"></div>	
-								<div class="uk-position-center">
+							if ( $settings['price'] ) {
+								echo '<span class="price">' . esc_html( $settings['price'] ) . '</span>';
+							}
+							if ( $settings['price_description'] ) {
+								echo '<span class="price-description">' . esc_html( $settings['price_description'] ) . '</span>';
+							}
+							?>
+							</div>
+						</div>
+						<?php
+					}
+				}
+
+				if ( $settings['price_title'] || $settings['price_sub_title'] || $settings['icon']['value'] && $settings['image']['url'] ) {
+					?>
+					<div class="elementive-pricing-header uk-position-relative uk-width-1-1 uk-overflow-hidden">
+						<div class="elementive-pricing-header-hover uk-transition-fade uk-position-cover"></div>
+						<?php
+						if ( $settings['icon']['value'] || $settings['image']['url'] ) {
+							?>
+							<div class="elementive-pricing-icon uk-overflow-hidden uk-position-relative uk-flex-inline">
+								<?php
+								if ( 'yes' === $settings['icon_background'] ) {
+									?>
+									<div class="elementive-pricing-icon-hover uk-transition-fade uk-position-cover"></div>	
+									<div class="uk-position-center">
+										<?php
+										if ( 'yes' === $settings['use_image'] ) {
+											echo wp_get_attachment_image( $settings['image']['id'], $settings['image_size_size'] );
+										} else {
+											Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) );
+										}
+										?>
+									</div>
 									<?php
+								} else {
 									if ( 'yes' === $settings['use_image'] ) {
 										echo wp_get_attachment_image( $settings['image']['id'], $settings['image_size_size'] );
 									} else {
 										Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) );
 									}
-									?>
-								</div>
-								<?php
-							} else {
-								if ( 'yes' === $settings['use_image'] ) {
-									echo wp_get_attachment_image( $settings['image']['id'], $settings['image_size_size'] );
-								} else {
-									Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) );
 								}
-							}
-							?>
-						</div>
-						<?php
-					}
-
-					if ( $settings['price_title'] || $settings['price_sub_title'] ) {
-						?>
-						<div class="elementive-pricing-title uk-position-relative">
+								?>
+							</div>
 							<?php
-							if ( $settings['price_title'] ) {
-								echo '<h3>' . esc_html( $settings['price_title'] ) . '</h3>';
-							}
-							if ( $settings['price_sub_title'] ) {
-								echo '<p>' . esc_html( $settings['price_sub_title'] ) . '</p>';
-							}
-							?>
-						</div>
-						<?php
-					}
-					?>
-				</div>
-				<?php
-			}
+						}
 
-			if ( $settings['price'] || $settings['price_description'] ) {
-				?>
-				<div class="elementive-pricing-price uk-position-relative uk-overflow-hidden">
-					<div class="elementive-pricing-price-hover uk-transition-fade uk-position-cover"></div>
-					<div <?php echo wp_kses( $this->get_render_attribute_string( 'price' ), $allowed_attr_class ); ?>>
-					<?php
-					if ( $settings['price'] ) {
-						echo '<span class="price">' . esc_html( $settings['price'] ) . '</span>';
-					}
-					if ( $settings['price_description'] ) {
-						echo '<span class="price-description">' . esc_html( $settings['price_description'] ) . '</span>';
-					}
-					?>
-					</div>
-				</div>
-				<?php
-			}
-
-			if ( $settings['features'] ) {
-				?>
-				<div class="elementive-pricing-content">
-					<ul class="elementive-pricing-feature">
-						<?php
-						foreach ( $settings['features'] as $feature ) {
+						if ( $settings['price_title'] || $settings['price_sub_title'] ) {
 							?>
-							<li class="elementive-pricing-feature"><?php echo esc_html( $feature['feature_item'] ); ?></li>
+							<div class="elementive-pricing-title uk-position-relative">
+								<?php
+								if ( $settings['price_title'] ) {
+									echo '<h3>' . esc_html( $settings['price_title'] ) . '</h3>';
+								}
+								if ( $settings['price_sub_title'] ) {
+									echo '<p>' . esc_html( $settings['price_sub_title'] ) . '</p>';
+								}
+								?>
+							</div>
 							<?php
 						}
 						?>
-					</ul>
-				</div>
-				<?php
-			}
+					</div>
+					<?php
+				}
 
-			if ( $settings['price_link']['url'] && $settings['button_label'] ) {
+				if ( 'price-after-header' === $settings['price_position'] ) {
+					if ( $settings['price'] || $settings['price_description'] ) {
+						?>
+						<div class="elementive-pricing-price uk-position-relative uk-overflow-hidden">
+							<div class="elementive-pricing-price-hover uk-transition-fade uk-position-cover"></div>
+							<div <?php echo wp_kses( $this->get_render_attribute_string( 'price' ), $allowed_attr_class ); ?>>
+							<?php
+							if ( $settings['price'] ) {
+								echo '<span class="price">' . esc_html( $settings['price'] ) . '</span>';
+							}
+							if ( $settings['price_description'] ) {
+								echo '<span class="price-description">' . esc_html( $settings['price_description'] ) . '</span>';
+							}
+							?>
+							</div>
+						</div>
+						<?php
+					}
+				}
+
+				if ( $settings['features'] ) {
+					?>
+					<div class="elementive-pricing-content uk-position-relative uk-overflow-hidden">
+						<div class="elementive-pricing-content-hover uk-transition-fade uk-position-cover"></div>
+						<ul class="elementive-pricing-feature uk-position-relative">
+							<?php
+							foreach ( $settings['features'] as $feature ) {
+								?>
+								<li class="elementive-pricing-feature"><?php echo esc_html( $feature['feature_item'] ); ?></li>
+								<?php
+							}
+							?>
+						</ul>
+					</div>
+					<?php
+				}
+
+				if ( 'price-after-content' === $settings['price_position'] ) {
+					if ( $settings['price'] || $settings['price_description'] ) {
+						?>
+						<div class="elementive-pricing-price uk-position-relative uk-overflow-hidden">
+							<div class="elementive-pricing-price-hover uk-transition-fade uk-position-cover"></div>
+							<div <?php echo wp_kses( $this->get_render_attribute_string( 'price' ), $allowed_attr_class ); ?>>
+							<?php
+							if ( $settings['price'] ) {
+								echo '<span class="price">' . esc_html( $settings['price'] ) . '</span>';
+							}
+							if ( $settings['price_description'] ) {
+								echo '<span class="price-description">' . esc_html( $settings['price_description'] ) . '</span>';
+							}
+							?>
+							</div>
+						</div>
+						<?php
+					}
+				}
+
+				if ( $settings['price_link']['url'] && $settings['button_label'] ) {
+					?>
+					<div class="elementive-pricing-footer uk-position-relative uk-overflow-hidden">
+						<div class="elementive-pricing-footer-hover uk-transition-fade uk-position-cover"></div>
+						<a href="<?php echo esc_url( $settings['price_link']['url'] ); ?>" class="uk-position-relative uk-overflow-hidden" <?php echo wp_kses( $target . $nofollow, $allowed_html_link ); ?>>
+							<span class="elementive-pricing-button-hover uk-transition-fade uk-position-cover"></span>
+							<span class="uk-position-relative uk-width-1-1"><?php echo esc_html( $settings['button_label'] ); ?></span>
+						</a>
+					</div>
+					<?php
+				}
+
+				if ( 'price-bottom' === $settings['price_position'] ) {
+					if ( $settings['price'] || $settings['price_description'] ) {
+						?>
+						<div class="elementive-pricing-price uk-position-relative uk-overflow-hidden">
+							<div class="elementive-pricing-price-hover uk-transition-fade uk-position-cover"></div>
+							<div <?php echo wp_kses( $this->get_render_attribute_string( 'price' ), $allowed_attr_class ); ?>>
+							<?php
+							if ( $settings['price'] ) {
+								echo '<span class="price">' . esc_html( $settings['price'] ) . '</span>';
+							}
+							if ( $settings['price_description'] ) {
+								echo '<span class="price-description">' . esc_html( $settings['price_description'] ) . '</span>';
+							}
+							?>
+							</div>
+						</div>
+						<?php
+					}
+				}
 				?>
-				<div class="elementive-pricing-footer">
-					<a href="<?php echo esc_url( $settings['price_link']['url'] ); ?>" <?php echo wp_kses( $target . $nofollow, $allowed_html_link ); ?>><?php echo esc_html( $settings['button_label'] ); ?></a>
-				</div>
-				<?php
-			}
-			?>
-
+			</div>
 		</div>
 		<?php
 	}
