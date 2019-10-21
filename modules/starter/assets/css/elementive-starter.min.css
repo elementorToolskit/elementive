@@ -197,48 +197,72 @@
 .elementor-widget-elementive-button .elementive-button .elementive-button-icon i{line-height:inherit;text-align:center;width:100%;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-button .elementive-button .elementive-button-icon svg{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-button+.elementor-widget-elementive-button:last-child{margin-bottom:20px}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#40b3bf}
-5%{color:#5140bf}
-10%{color:#8abf40}
-15%{color:#40a6bf}
-20%{color:#5940bf}
-25%{color:#5540bf}
-30%{color:#4d40bf}
-35%{color:#bf407d}
-40%{color:#bf4640}
-45%{color:#86bf40}
-50%{color:#aabf40}
-55%{color:#40bfac}
-60%{color:#5340bf}
-65%{color:#4640bf}
-70%{color:#8a40bf}
-75%{color:#40bbbf}
-80%{color:#bf40a8}
-85%{color:#bf8440}
-90%{color:#bf7140}
-95%{color:#bf4042}
-100%{color:#64bf40}
-}@keyframes anim-text-flow-keys{0{color:#40b3bf}
-5%{color:#5140bf}
-10%{color:#8abf40}
-15%{color:#40a6bf}
-20%{color:#5940bf}
-25%{color:#5540bf}
-30%{color:#4d40bf}
-35%{color:#bf407d}
-40%{color:#bf4640}
-45%{color:#86bf40}
-50%{color:#aabf40}
-55%{color:#40bfac}
-60%{color:#5340bf}
-65%{color:#4640bf}
-70%{color:#8a40bf}
-75%{color:#40bbbf}
-80%{color:#bf40a8}
-85%{color:#bf8440}
-90%{color:#bf7140}
-95%{color:#bf4042}
-100%{color:#64bf40}
+.elementor-widget-elementive-pricing .elementive-pricing{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing.elementive-pricing-button-full .elementive-pricing-footer a{width:100%;text-align:center}
+.elementor-widget-elementive-pricing .elementive-pricing.elementive-pricing-last-child-border ul.elementive-pricing-feature li:last-child{border-bottom:0}
+.elementor-widget-elementive-pricing .elementive-pricing.elementive-pricing-last-child-padding ul.elementive-pricing-feature li:last-child{padding-bottom:0}
+.elementor-widget-elementive-pricing .elementive-pricing.elementive-pricing-last-child-margin ul.elementive-pricing-feature li:last-child{margin-bottom:0}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header{margin-bottom:30px;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-icon{margin-bottom:30px}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-icon i,.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-header .elementive-pricing-icon svg{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price{margin-bottom:30px;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price span{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price span.price-description{margin-left:1rem}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price .flex-start{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price .flex-end{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price .center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price .space-between{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price .space-around{-ms-flex-pack:distribute;justify-content:space-around}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-price .space-evenly{-webkit-box-pack:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-content{margin-bottom:30px;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-content ul{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-content li{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-feature{list-style:none;margin:0;padding:0}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-feature li{list-style:none;padding:0}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-footer{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-footer a{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#40bfb5}
+5%{color:#bf4640}
+10%{color:#bf4064}
+15%{color:#bf4640}
+20%{color:#40bfbd}
+25%{color:#4077bf}
+30%{color:#4064bf}
+35%{color:#5340bf}
+40%{color:#8040bf}
+45%{color:#409fbf}
+50%{color:#bf406a}
+55%{color:#8a40bf}
+60%{color:#7540bf}
+65%{color:#bf4084}
+70%{color:#bdbf40}
+75%{color:#aabf40}
+80%{color:#6440bf}
+85%{color:#bf4079}
+90%{color:#bf408a}
+95%{color:#4079bf}
+100%{color:#bf7d40}
+}@keyframes anim-text-flow-keys{0{color:#40bfb5}
+5%{color:#bf4640}
+10%{color:#bf4064}
+15%{color:#bf4640}
+20%{color:#40bfbd}
+25%{color:#4077bf}
+30%{color:#4064bf}
+35%{color:#5340bf}
+40%{color:#8040bf}
+45%{color:#409fbf}
+50%{color:#bf406a}
+55%{color:#8a40bf}
+60%{color:#7540bf}
+65%{color:#bf4084}
+70%{color:#bdbf40}
+75%{color:#aabf40}
+80%{color:#6440bf}
+85%{color:#bf4079}
+90%{color:#bf408a}
+95%{color:#4079bf}
+100%{color:#bf7d40}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}
