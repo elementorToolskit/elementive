@@ -66,7 +66,7 @@ class Elementive_Widget_Team_Member extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Elementive Team Member', 'elementive' );
+		return __( 'Team Member', 'elementive' );
 	}
 
 	/**

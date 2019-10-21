@@ -67,7 +67,7 @@ class Elementive_Widget_Icon_Box extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Icon Box Advanced', 'elementive' );
+		return __( 'Icon Box', 'elementive' );
 	}
 
 	/**

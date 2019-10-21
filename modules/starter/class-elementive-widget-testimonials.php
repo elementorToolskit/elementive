@@ -65,7 +65,7 @@ class Elementive_Widget_Testimonials extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Advanced Testimonials', 'elementive' );
+		return __( 'Testimonials', 'elementive' );
 	}
 
 	/**

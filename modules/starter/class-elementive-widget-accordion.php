@@ -68,7 +68,7 @@ class Elementive_Widget_Accordion extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Advanced Accordion', 'elementive' );
+		return __( 'Accordion', 'elementive' );
 	}
 
 	/**

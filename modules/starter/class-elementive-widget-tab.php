@@ -68,7 +68,7 @@ class Elementive_Widget_Tab extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Advanced Tabs', 'elementive' );
+		return __( 'Tabs', 'elementive' );
 	}
 
 	/**

@@ -1,7 +1,7 @@
 .elementor-widget-elementive-pricing {
     .elementive-pricing {
 
-        transition: all .3s ease-in-out;
+        transition: all .2s ease-in-out;
 
         &.elementive-pricing-button-full {
             .elementive-pricing-footer a {
@@ -14,7 +14,7 @@
             ul.elementive-pricing-feature {
                 li {
                     &:last-child {
-                        border-bottom: none;
+                        border-bottom: none !important;
                     }
                 }
             }
@@ -24,7 +24,7 @@
             ul.elementive-pricing-feature {
                 li {
                     &:last-child {
-                        padding-bottom: 0;
+                        padding-bottom: 0 !important;
                     }
                 }
             }
@@ -34,7 +34,7 @@
             ul.elementive-pricing-feature {
                 li {
                     &:last-child {
-                        margin-bottom: 0;
+                        margin-bottom: 0 !important;
                     }
                 }
             }
@@ -42,22 +42,22 @@
 
         .elementive-pricing-header {
             margin-bottom: 30px;
-            transition: all .3s ease-in-out;
+            transition: all .2s ease-in-out;
 
             .elementive-pricing-icon {
                 margin-bottom: 30px;
                 i, svg {
-                    transition: all .3s ease-in-out;;
+                    transition: all .2s ease-in-out;;
                 }
             }
         }
         .elementive-pricing-price {
             margin-bottom: 30px;
-            transition: all .3s ease-in-out;
+            transition: all .2s ease-in-out;
 
             span {
                 display: flex;
-                transition: all .3s ease-in-out;
+                transition: all .2s ease-in-out;
 
                 &.price-description {
                     margin-left: 1rem;
@@ -91,14 +91,10 @@
 
         .elementive-pricing-content {
             margin-bottom: 30px;
-            transition: all .3s ease-in-out;
-
-            ul {
-                transition: all .3s ease-in-out;
-            }
+            transition: all .2s ease-in-out;
 
             li {
-                transition: all .3s ease-in-out;
+                transition: all .2s ease-in-out;
             }
         }
         .elementive-pricing-feature {
@@ -112,10 +108,10 @@
             }
         }
         .elementive-pricing-footer {
-            transition: all .3s ease-in-out;
+            transition: all .2s ease-in-out;
             a {
                 display: inline-flex;
-                transition: all .3s ease-in-out;
+                transition: all .2s ease-in-out;
             }
         }
     }
