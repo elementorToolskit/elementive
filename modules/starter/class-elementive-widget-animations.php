@@ -49,13 +49,131 @@ class Elementive_Widget_Animations {
 		);
 
 		$element->add_control(
-			'elementive_enable_aos',
+			'elementive_animations',
 			array(
 				'label'        => __( 'Enable animations', 'elementive' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Show', 'elementive' ),
 				'label_off'    => __( 'Hide', 'elementive' ),
 				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$element->add_control(
+			'elementive_widget_animation',
+			array(
+				'label'       => __( 'Animation', 'elementive' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'uk-animation-fade',
+				'options'     => array(
+					'none'                             => __( 'None', 'elementive' ),
+					'uk-animation-fade'                => __( 'Fade', 'elementive' ),
+					'uk-animation-scale-up'            => __( 'Scale up', 'elementive' ),
+					'uk-animation-scale-down'          => __( 'Scale down', 'elementive' ),
+					'uk-animation-slide-top'           => __( 'Slide top', 'elementive' ),
+					'uk-animation-slide-bottom'        => __( 'Slide bottom', 'elementive' ),
+					'uk-animation-slide-left'          => __( 'Slide left', 'elementive' ),
+					'uk-animation-slide-right'         => __( 'Slide right', 'elementive' ),
+					'uk-animation-slide-top-small'     => __( 'Slide top small', 'elementive' ),
+					'uk-animation-slide-bottom-small'  => __( 'Slide bottom small', 'elementive' ),
+					'uk-animation-slide-left-small'    => __( 'Slide left small', 'elementive' ),
+					'uk-animation-slide-right-small'   => __( 'Slide right small', 'elementive' ),
+					'uk-animation-slide-top-medium'    => __( 'Slide top medium', 'elementive' ),
+					'uk-animation-slide-bottom-medium' => __( 'Slide bottom medium', 'elementive' ),
+					'uk-animation-slide-left-medium'   => __( 'Slide left medium', 'elementive' ),
+					'uk-animation-slide-right-medium'  => __( 'Slide right medium', 'elementive' ),
+				),
+				'condition'   => array(
+					'elementive_animations' => 'yes',
+				),
+			)
+		);
+
+		$element->add_control(
+			'elementive_widget_animation_offset_top',
+			array(
+				'label'       => __( 'Offset top', 'elementive' ),
+				'description' => __( 'Top offset before triggering in view.', 'elementive' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => array( 'px' ),
+				'range'       => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 5,
+					),
+				),
+				'default'     => array(
+					'unit' => 'px',
+					'size' => 120,
+				),
+				'condition'   => array(
+					'elementive_animations' => 'yes',
+				),
+			)
+		);
+
+		$element->add_control(
+			'elementive_widget_animation_offset_left',
+			array(
+				'label'       => __( 'Offset left', 'elementive' ),
+				'description' => __( 'Left offset before triggering in view.', 'elementive' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => array( 'px' ),
+				'range'       => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 5,
+					),
+				),
+				'default'     => array(
+					'unit' => 'px',
+					'size' => 0,
+				),
+				'condition'   => array(
+					'elementive_animations' => 'yes',
+				),
+			)
+		);
+
+		$element->add_control(
+			'elementive_widget_animation_delay',
+			array(
+				'label'       => __( 'Delay', 'elementive' ),
+				'description' => __( 'Delay time in ms..', 'elementive' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => array( 'px' ),
+				'range'       => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 1,
+					),
+				),
+				'default'     => array(
+					'unit' => 'px',
+					'size' => 0,
+				),
+				'condition'   => array(
+					'elementive_animations' => 'yes',
+				),
+			)
+		);
+
+		$element->add_control(
+			'elementive_enable_aos',
+			array(
+				'label'        => __( 'Use AOS animation', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'elementive' ),
+				'label_off'    => __( 'Hide', 'elementive' ),
+				'return_value' => 'yes',
+				'condition'    => array(
+					'elementive_animations' => 'yes',
+				),
+				'separator'    => 'before',
 				'default'      => '',
 			)
 		);
@@ -97,6 +215,7 @@ class Elementive_Widget_Animations {
 				),
 				'condition' => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -121,6 +240,7 @@ class Elementive_Widget_Animations {
 				),
 				'condition'   => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -145,6 +265,7 @@ class Elementive_Widget_Animations {
 				),
 				'condition'   => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -169,6 +290,7 @@ class Elementive_Widget_Animations {
 				),
 				'condition'   => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -185,6 +307,7 @@ class Elementive_Widget_Animations {
 				'default'      => 'yes',
 				'condition'    => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -201,6 +324,7 @@ class Elementive_Widget_Animations {
 				'default'      => '',
 				'condition'    => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -225,6 +349,7 @@ class Elementive_Widget_Animations {
 				),
 				'condition'   => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -259,6 +384,7 @@ class Elementive_Widget_Animations {
 				),
 				'condition' => array(
 					'elementive_enable_aos' => 'yes',
+					'elementive_animations' => 'yes',
 				),
 			)
 		);
@@ -268,7 +394,7 @@ class Elementive_Widget_Animations {
 
 	public function elementive_animations_attr( $element ) {
 
-		if ( 'yes' === $element->get_settings( 'elementive_enable_aos' ) ) {
+		if ( 'yes' === $element->get_settings( 'elementive_enable_aos' ) && 'yes' === $element->get_settings( 'elementive_animations' ) ) {
 
 			$offset   = $element->get_settings( 'elementive_aos_offset' );
 			$delay    = $element->get_settings( 'elementive_aos_delay' );
@@ -296,6 +422,19 @@ class Elementive_Widget_Animations {
 					'data-aos-mirror'           => esc_attr( $mirror ),
 					'data-aos-once'             => esc_attr( $once ),
 					'data-aos-anchor-placement' => esc_attr( $element->get_settings( 'elementive_aos_anchor' ) ),
+				)
+			);
+		}
+
+		if ( 'yes' !== $element->get_settings( 'elementive_enable_aos' ) && 'yes' === $element->get_settings( 'elementive_animations' ) ) {
+			$offset_top  = $element->get_settings( 'elementive_widget_animation_offset_top' );
+			$offset_left = $element->get_settings( 'elementive_widget_animation_offset_left' );
+			$delay       = $element->get_settings( 'elementive_widget_animation_delay' );
+
+			$element->add_render_attribute(
+				'_wrapper',
+				array(
+					'uk-scrollspy' => 'cls:' . esc_attr( $element->get_settings( 'elementive_widget_animation' ) ) . '; offset-top:' . esc_attr( $offset_top['size'] ) . '; offset-left:' . esc_attr( $offset_left['size'] ) . '; delay:' . esc_attr( $delay['size'] ),
 				)
 			);
 		}
