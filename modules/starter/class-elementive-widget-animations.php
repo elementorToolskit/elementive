@@ -106,7 +106,7 @@ class Elementive_Widget_Animations {
 				),
 				'default'     => array(
 					'unit' => 'px',
-					'size' => 120,
+					'size' => 500,
 				),
 				'condition'   => array(
 					'elementive_animations' => 'yes',

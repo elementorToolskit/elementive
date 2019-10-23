@@ -1622,7 +1622,7 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			array(
-				'name'      => 'button_border_hover',
+				'name'      => 'footer_border_hover',
 				'label'     => __( 'Border', 'elementive' ),
 				'condition' => array(
 					'button_background' => 'yes',
@@ -2036,8 +2036,8 @@ class Elementive_Widget_Pricing extends Widget_Base {
 		$this->add_render_attribute(
 			'wrapper',
 			array(
-				'class'  => esc_attr( join( ' ', $classes_wrapper ) ),
-				tabindex => 0,
+				'class'    => esc_attr( join( ' ', $classes_wrapper ) ),
+				'tabindex' => 0,
 			)
 		);
 

@@ -122,6 +122,7 @@ class Elementive_Public {
 
 		wp_enqueue_script( 'typewriterjs', ELEMENTIVE_URL . 'frontend/vendors/typewriterjs/core.js', '', '2.7.1', false );
 		wp_enqueue_script( 'aos', ELEMENTIVE_URL . 'frontend/vendors/aos/aos.js', '', '2.3.4', false );
+		wp_enqueue_script( 'anime', ELEMENTIVE_URL . 'frontend/vendors/anime.min.js', '', '3.1.0', false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/elementive-public.js', array( 'jquery' ), $this->version, false );
 
 	}

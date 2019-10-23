@@ -148,6 +148,7 @@
 .elementive-clients-grid.uk-text-left>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .elementive-clients-grid.uk-text-right>div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
 .elementive-clients-grid .elementive-client-grid-logo{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementive-clients-grid .elementive-client-grid-logo img{background:transparent}
 .elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
 .elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale:hover{-webkit-filter:grayscale(0);filter:grayscale(0)}
 .elementive-clients-grid .elementive-client-grid-logo.elementive-client-logo-grayscale-hover:hover{-webkit-filter:grayscale(100%);filter:grayscale(100%)}
@@ -221,48 +222,48 @@
 .elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-feature li{list-style:none;padding:0}
 .elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-footer{-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-footer a{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#bfbd40}
-5%{color:#40bf66}
-10%{color:#a2bf40}
-15%{color:#bf9d40}
-20%{color:#bf4048}
-25%{color:#40bf80}
-30%{color:#9740bf}
-35%{color:#4093bf}
-40%{color:#aebf40}
-45%{color:#4064bf}
-50%{color:#6abf40}
-55%{color:#40bf93}
-60%{color:#4062bf}
-65%{color:#40bf95}
-70%{color:#5ebf40}
-75%{color:#409fbf}
-80%{color:#bf6440}
-85%{color:#40bfa2}
-90%{color:#bf5340}
-95%{color:#9d40bf}
-100%{color:#7dbf40}
-}@keyframes anim-text-flow-keys{0{color:#bfbd40}
-5%{color:#40bf66}
-10%{color:#a2bf40}
-15%{color:#bf9d40}
-20%{color:#bf4048}
-25%{color:#40bf80}
-30%{color:#9740bf}
-35%{color:#4093bf}
-40%{color:#aebf40}
-45%{color:#4064bf}
-50%{color:#6abf40}
-55%{color:#40bf93}
-60%{color:#4062bf}
-65%{color:#40bf95}
-70%{color:#5ebf40}
-75%{color:#409fbf}
-80%{color:#bf6440}
-85%{color:#40bfa2}
-90%{color:#bf5340}
-95%{color:#9d40bf}
-100%{color:#7dbf40}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#a240bf}
+5%{color:#bf40bb}
+10%{color:#bf4040}
+15%{color:#bf405b}
+20%{color:#9340bf}
+25%{color:#bf6440}
+30%{color:#bfbd40}
+35%{color:#bf4040}
+40%{color:#71bf40}
+45%{color:#40bf8a}
+50%{color:#409dbf}
+55%{color:#bf7940}
+60%{color:#bfb040}
+65%{color:#407dbf}
+70%{color:#bfbf40}
+75%{color:#4086bf}
+80%{color:#46bf40}
+85%{color:#40bf9d}
+90%{color:#aa40bf}
+95%{color:#40bf73}
+100%{color:#40bf79}
+}@keyframes anim-text-flow-keys{0{color:#a240bf}
+5%{color:#bf40bb}
+10%{color:#bf4040}
+15%{color:#bf405b}
+20%{color:#9340bf}
+25%{color:#bf6440}
+30%{color:#bfbd40}
+35%{color:#bf4040}
+40%{color:#71bf40}
+45%{color:#40bf8a}
+50%{color:#409dbf}
+55%{color:#bf7940}
+60%{color:#bfb040}
+65%{color:#407dbf}
+70%{color:#bfbf40}
+75%{color:#4086bf}
+80%{color:#46bf40}
+85%{color:#40bf9d}
+90%{color:#aa40bf}
+95%{color:#40bf73}
+100%{color:#40bf79}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}

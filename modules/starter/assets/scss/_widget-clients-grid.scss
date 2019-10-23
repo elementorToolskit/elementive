@@ -31,6 +31,10 @@
 
     .elementive-client-grid-logo {
         transition: all .3s ease-in-out;
+
+        img {
+            background: transparent;
+        }
         &.elementive-client-logo-grayscale {
             filter: grayscale(100%);
             
