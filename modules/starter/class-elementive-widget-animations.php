@@ -28,15 +28,20 @@ use Elementor\Controls_Manager;
 class Elementive_Widget_Animations {
 
 	/**
-	 * Controls and Sections.
+	 * Register Animations controls.
 	 *
-	 * Register new Elementor sections and controls.
-	 *
-	 * @since 1.2.0
+	 * @since 1.12.0
 	 * @access public
+	 * @param object $element for current element.
+	 * @param object $section_id for section ID.
+	 * @param array  $args for section args.
 	 */
-	public function elementive_animations_controls( $element, $section_id, $args ) {
+	public function register_controls( $element, $section_id, $args ) {
 		if ( '_section_responsive' !== $section_id ) {
+			return;
+		}
+
+		if ( 'section' === $element->get_name() || 'column' === $element->get_name() ) {
 			return;
 		}
 
@@ -392,7 +397,24 @@ class Elementive_Widget_Animations {
 		$element->end_controls_section();
 	}
 
-	public function elementive_animations_attr( $element ) {
+	/**
+	 * Render Animations output on the frontend.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since 1.12.0
+	 * @access public
+	 * @param object $element for current element.
+	 */
+	public function _before_render( $element ) {
+
+		$settings  = $element->get_settings();
+		$node_id   = $element->get_id();
+		$is_editor = \Elementor\Plugin::instance()->editor->is_edit_mode();
+
+		if ( $element->get_name() === 'section' && $element->get_name() === 'column' ) {
+			return;
+        }
 
 		if ( 'yes' === $element->get_settings( 'elementive_enable_aos' ) && 'yes' === $element->get_settings( 'elementive_animations' ) ) {
 
@@ -451,7 +473,7 @@ class Elementive_Widget_Animations {
 	 */
 	public function __construct() {
 		// Register widgets category.
-		add_action( 'elementor/element/before_section_start', array( $this, 'elementive_animations_controls' ), 10, 3 );
-		add_action( 'elementor/frontend/widget/before_render', array( $this, 'elementive_animations_attr' ) );
+		add_action( 'elementor/element/before_section_start', array( $this, 'register_controls' ), 10, 3 );
+		add_action( 'elementor/frontend/widget/before_render', array( $this, '_before_render' ) );
 	}
 }

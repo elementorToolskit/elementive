@@ -144,6 +144,7 @@ class Elementive_Module_Starter {
 		// Register widgets.
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_starter_widgets' ) );
 
-		//new Starter\Elementive_Widget_Animations();
+		new Starter\Elementive_Widget_Animations();
+		new Starter\Elementive_Section_Expand();
 	}
 }
