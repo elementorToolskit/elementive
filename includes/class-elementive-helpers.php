@@ -116,14 +116,14 @@ class Elementive_Helpers {
 	 */
 	public static function elementive_elementor_templates() {
 		// WP_Query arguments.
-		$options = [];
-		$args    = [
-			'post_type'   => [ 'elementor_library' ],
-			'post_status' => [ 'publish' ],
+		$options = array();
+		$args    = array(
+			'post_type'   => array( 'elementor_library' ),
+			'post_status' => array( 'publish' ),
 			'nopaging'    => true,
 			'order'       => 'ASC',
 			'orderby'     => 'menu_order',
-		];
+		);
 
 		// The Query.
 		$saved_templates = new \WP_Query( $args );
@@ -136,7 +136,7 @@ class Elementive_Helpers {
 				$options[ $id ] = get_the_title();
 			}
 		} else {
-			$options = [];
+			$options = array();
 		}
 
 		// Restore original Post Data.
@@ -157,14 +157,14 @@ class Elementive_Helpers {
 			return;
 		}
 		// WP_Query arguments.
-		$args = [
-			'post_type'   => [ 'elementor_library' ],
-			'post_status' => [ 'publish' ],
+		$args = array(
+			'post_type'   => array( 'elementor_library' ),
+			'post_status' => array( 'publish' ),
 			'p'           => $template_id,
 			'nopaging'    => true,
 			'order'       => 'ASC',
 			'orderby'     => 'menu_order',
-		];
+		);
 
 		// The Query.
 		$saved_templates = new \WP_Query( $args );
@@ -201,7 +201,7 @@ class Elementive_Helpers {
 			return;
 		}
 
-		$classes = [];
+		$classes = array();
 
 		if ( $class ) {
 			if ( ! is_array( $class ) ) {
@@ -210,7 +210,7 @@ class Elementive_Helpers {
 			$classes = array_map( 'esc_attr', $class );
 		} else {
 			// Ensure that we always coerce class to being an array.
-			$class = [];
+			$class = array();
 		}
 
 		$loop  = 'true';
@@ -233,7 +233,7 @@ class Elementive_Helpers {
 				<div class="elementive-background-video jarallax <?php echo esc_attr( join( ' ', $classes ) ); ?>" data-speed="1" data-jarallax-video="<?php echo esc_url( $url ); ?>" data-video-start-time="<?php echo esc_attr( $start ); ?>" data-video-loop="<?php echo esc_attr( $loop ); ?>" data-video-end-time="<?php echo esc_attr( $stop ); ?>">
 				<?php
 				if ( $thumb ) {
-					echo wp_get_attachment_image( $thumb['id'], 'full', '', [ 'class' => 'jarallax-img' ] );
+					echo wp_get_attachment_image( $thumb['id'], 'full', '', array( 'class' => 'jarallax-img' ) );
 				}
 				?>
 				</div>

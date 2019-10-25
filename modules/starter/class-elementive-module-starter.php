@@ -84,7 +84,6 @@ class Elementive_Module_Starter {
 	 */
 	public function register_starter_widgets() {
 		// Register Widgets.
-		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Hello_World() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Accordion() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Tab() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Text() );
@@ -104,6 +103,7 @@ class Elementive_Module_Starter {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Before_After() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Button() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Pricing() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Starter\Elementive_Widget_Contact_Form_7() );
 	}
 
 	/**
@@ -144,6 +144,6 @@ class Elementive_Module_Starter {
 		// Register widgets.
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_starter_widgets' ) );
 
-		new Starter\Elementive_Widget_Animations();
+		//new Starter\Elementive_Widget_Animations();
 	}
 }
