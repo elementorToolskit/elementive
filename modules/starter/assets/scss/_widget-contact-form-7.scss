@@ -1,7 +1,6 @@
 .elementive-contact-form-7 {
     .wpcf7-text, .wpcf7-textarea, .wpcf7-select {
         outline: none;
-        transition: all .3s ease-in-out;;
     }
 
     .wpcf7-select {
@@ -17,6 +16,7 @@
     .wpcf7-form-control {
         width: 100%;
         display: block;
+        transition: all .3s ease-in-out;
     }
 
     &.elementive-cf7-radio-list,
@@ -28,6 +28,16 @@
                 display: block;
                 margin-bottom: .5rem;
             }
+        }
+    }
+
+    .wpcf7-submit {
+        width: auto;
+    }
+
+    &.elementive-cf7-button-full {
+        .wpcf7-submit {
+            width: 100%;
         }
     }
 }

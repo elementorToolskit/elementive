@@ -518,6 +518,170 @@ class Elementive_Widget_Contact_Form_7 extends Widget_Base {
 			)
 		);
 
+		$this->add_responsive_control(
+			'wpcf7_button_margin',
+			array(
+				'label'           => __( 'Margin', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'button_typography',
+				'label'    => __( 'Content typography', 'elementive' ),
+				'selector' => '{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit',
+			)
+		);
+
+		$this->add_control(
+			'button_full',
+			array(
+				'label'        => __( 'Enable full button', 'elementive' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'elementive' ),
+				'label_off'    => __( 'No', 'elementive' ),
+				'return_value' => 'yes',
+				'default'      => '',
+			)
+		);
+
+		$this->add_responsive_control(
+			'wpcf7_button_padding',
+			array(
+				'label'           => __( 'Padding', 'elementive' ),
+				'type'            => Controls_Manager::DIMENSIONS,
+				'devices'         => array( 'desktop', 'tablet', 'mobile' ),
+				'size_units'      => array( 'px', '%', 'em' ),
+				'selectors'       => array(
+					'{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'wpcf7_button_border',
+			array(
+				'label'      => __( 'Border radius', 'elementive' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'devices'    => array( 'desktop', 'tablet', 'mobile' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit' => 'border-top-left-radius: {{TOP}}{{UNIT}}; border-top-right-radius: {{RIGHT}}{{UNIT}}; border-bottom-right-radius: {{BOTTOM}}{{UNIT}}; border-bottom-left-radius: {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs_button'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab_button',
+			array(
+				'label' => __( 'Normal', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'content_button_color',
+			array(
+				'label'     => __( 'Button color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_control(
+			'content_button_background_color',
+			array(
+				'label'     => __( 'Background color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'button_border',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'button_box_shadow',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab_button',
+			array(
+				'label' => __( 'Hover', 'elementive' ),
+			)
+		);
+
+		$this->add_control(
+			'content_button_color_hover',
+			array(
+				'label'     => __( 'Button color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit:hover' => 'color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_control(
+			'content_button_background_color_hover',
+			array(
+				'label'     => __( 'Background color', 'elementive' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit:hover' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'      => 'button_border_hover',
+				'label'     => __( 'Border', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit:hover',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'      => 'button_box_shadow_hover',
+				'label'     => __( 'Box Shadow', 'elementive' ),
+				'selector'  => '{{WRAPPER}} .elementive-contact-form-7 .wpcf7-submit:hover',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
 		$this->end_controls_section();
 	}
 
@@ -547,6 +711,10 @@ class Elementive_Widget_Contact_Form_7 extends Widget_Base {
 
 		if ( 'yes' !== $settings['input_radio'] ) {
 			$classes_wrapper[] = 'elementive-cf7-radio-list';
+		}
+
+		if ( 'yes' === $settings['button_full'] ) {
+			$classes_wrapper[] = 'elementive-cf7-button-full';
 		}
 
 		$classes_wrapper = array_map( 'esc_attr', $classes_wrapper );

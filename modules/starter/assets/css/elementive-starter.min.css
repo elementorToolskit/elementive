@@ -222,52 +222,54 @@
 .elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-feature li{list-style:none;padding:0}
 .elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-footer{-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .elementor-widget-elementive-pricing .elementive-pricing .elementive-pricing-footer a{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
-.elementive-contact-form-7 .wpcf7-text,.elementive-contact-form-7 .wpcf7-textarea,.elementive-contact-form-7 .wpcf7-select{outline:0;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+.elementive-contact-form-7 .wpcf7-text,.elementive-contact-form-7 .wpcf7-textarea,.elementive-contact-form-7 .wpcf7-select{outline:0}
 .elementive-contact-form-7 .wpcf7-select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat,repeat;background-position:right .7em top 50%,0 0;background-size:.65em auto,100%;width:100%;background-color:transparent}
-.elementive-contact-form-7 .wpcf7-form-control{width:100%;display:block}
+.elementive-contact-form-7 .wpcf7-form-control{width:100%;display:block;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
 .elementive-contact-form-7.elementive-cf7-radio-list .wpcf7-checkbox .wpcf7-list-item,.elementive-contact-form-7.elementive-cf7-radio-list .wpcf7-radio .wpcf7-list-item,.elementive-contact-form-7.elementive-cf7-checkbox-list .wpcf7-checkbox .wpcf7-list-item,.elementive-contact-form-7.elementive-cf7-checkbox-list .wpcf7-radio .wpcf7-list-item{display:block;margin-bottom:.5rem}
-@-webkit-keyframes anim-text-flow-keys{0%{color:#40bbbf}
-5%{color:#4073bf}
-10%{color:#9340bf}
-15%{color:#bb40bf}
-20%{color:#40bfb7}
-25%{color:#4055bf}
-30%{color:#bf7b40}
-35%{color:#b340bf}
-40%{color:#40bf8a}
-45%{color:#b340bf}
-50%{color:#8a40bf}
-55%{color:#4840bf}
-60%{color:#bf7340}
-65%{color:#a240bf}
-70%{color:#42bf40}
-75%{color:#bfb940}
-80%{color:#bf4048}
-85%{color:#a240bf}
-90%{color:#9340bf}
-95%{color:#9dbf40}
-100%{color:#4057bf}
-}@keyframes anim-text-flow-keys{0{color:#40bbbf}
-5%{color:#4073bf}
-10%{color:#9340bf}
-15%{color:#bb40bf}
-20%{color:#40bfb7}
-25%{color:#4055bf}
-30%{color:#bf7b40}
-35%{color:#b340bf}
-40%{color:#40bf8a}
-45%{color:#b340bf}
-50%{color:#8a40bf}
-55%{color:#4840bf}
-60%{color:#bf7340}
-65%{color:#a240bf}
-70%{color:#42bf40}
-75%{color:#bfb940}
-80%{color:#bf4048}
-85%{color:#a240bf}
-90%{color:#9340bf}
-95%{color:#9dbf40}
-100%{color:#4057bf}
+.elementive-contact-form-7 .wpcf7-submit{width:auto}
+.elementive-contact-form-7.elementive-cf7-button-full .wpcf7-submit{width:100%}
+@-webkit-keyframes anim-text-flow-keys{0%{color:#bf40b7}
+5%{color:#4077bf}
+10%{color:#97bf40}
+15%{color:#73bf40}
+20%{color:#409dbf}
+25%{color:#bf4095}
+30%{color:#40bf86}
+35%{color:#8040bf}
+40%{color:#405bbf}
+45%{color:#bfbd40}
+50%{color:#40bf77}
+55%{color:#bf7940}
+60%{color:#40bf9f}
+65%{color:#bf40bb}
+70%{color:#9fbf40}
+75%{color:#bf40b9}
+80%{color:#bf405b}
+85%{color:#bfb540}
+90%{color:#4840bf}
+95%{color:#9fbf40}
+100%{color:#bf6840}
+}@keyframes anim-text-flow-keys{0{color:#bf40b7}
+5%{color:#4077bf}
+10%{color:#97bf40}
+15%{color:#73bf40}
+20%{color:#409dbf}
+25%{color:#bf4095}
+30%{color:#40bf86}
+35%{color:#8040bf}
+40%{color:#405bbf}
+45%{color:#bfbd40}
+50%{color:#40bf77}
+55%{color:#bf7940}
+60%{color:#40bf9f}
+65%{color:#bf40bb}
+70%{color:#9fbf40}
+75%{color:#bf40b9}
+80%{color:#bf405b}
+85%{color:#bfb540}
+90%{color:#4840bf}
+95%{color:#9fbf40}
+100%{color:#bf6840}
 }@-webkit-keyframes btnIconRipple{0%{border-width:4px;-webkit-transform:scale(1);transform:scale(1)}
 80%{border-width:1px;-webkit-transform:scale(1.35);transform:scale(1.35)}
 100%{opacity:0}
